@@ -1,0 +1,59 @@
+Python: 3.12.3
+SymPy: 1.14.0
+PASS no proof placeholders or added axiom declarations
+
+RUN /usr/bin/python3 checks.py
+PASS Bianchi minus edge (v,z)
+PASS Bianchi minus edge (w,z)
+PASS Bianchi plus edge (v,z)
+PASS Bianchi plus edge (w,z)
+PASS defect potential wave equation
+PASS defect energy current
+PASS spectral derivative eps*dP/deps=-B
+PASS momentum balance
+PASS Gardner intertwines KdV
+Gardner coefficients w_0 ... w_4: [w0, -w1, w0**2 + w2, -4*w0*w1 - w3, 2*w0**3 + 6*w0*w2 + 5*w1**2 + w4]
+PASS Gardner Lenard identity
+PASS linearized temporal symplecticity 00
+PASS linearized temporal symplecticity 01
+PASS linearized temporal symplecticity 10
+PASS linearized temporal symplecticity 11
+All exact checks passed.
+
+RUN /usr/bin/python3 scalar_checks.py
+Computed scalar partner coefficient 1
+Computed scalar partner coefficient 2
+Computed scalar partner coefficient 3
+Computed scalar partner coefficient 4
+Computed scalar partner coefficient 5
+PASS scalar local current coefficient 1
+PASS scalar local current coefficient 2
+PASS scalar local current coefficient 3
+PASS scalar local current coefficient 4
+PASS scalar local current coefficient 5
+PASS second scalar density is a spatial divergence
+PASS Q3 Q5 Poisson bracket: u variational derivative
+PASS Q3 Q5 Poisson bracket: p variational derivative
+All nonlinear scalar checks passed.
+
+RUN lake build
+✔ [2/5] Built DefectCore (765ms)
+✔ [4/5] Built DualModel (912ms)
+Build completed successfully (5 jobs).
+
+RUN lake env lean Audit.lean
+'DefectCore.global_kernel_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DefectCore.noether_first_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DefectCore.ostrogradsky_K2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DefectCore.noether_spatial_K2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DefectCore.stress_potential_from_normalized_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DefectCore.scalar_defect_current' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DefectCore.free_scalar_current' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DefectCore.nls_number_current' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DefectCore.Dual.euler_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DefectCore.Dual.normalized_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DefectCore.Dual.one_not_normalized' depends on axioms: [propext, Quot.sound]
+'DefectCore.Dual.free_scalar_nonzero_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DefectCore.Dual.twice_epsilon_nonzero' does not depend on any axioms
+
+All finite symbolic and Lean checks passed.

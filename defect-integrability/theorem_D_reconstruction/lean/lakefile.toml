@@ -1,0 +1,9 @@
+name = "defect_reconstruction"
+version = "0.1.0"
+defaultTargets = ["DefectCore", "DualModel"]
+
+[[lean_lib]]
+name = "DefectCore"
+
+[[lean_lib]]
+name = "DualModel"

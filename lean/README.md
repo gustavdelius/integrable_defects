@@ -1,6 +1,6 @@
 # Lean 4 Formalization of Defect Integrability Theorems
 
-This directory contains a self-contained Lean 4 (`v4.35.0`) formalization of the lemmas, propositions, and theorems in [`briefs/defect_integrability_paper.md`](../briefs/defect_integrability_paper.md) (*"Momentum-Conserving Defects as Spatial Hamilton–Jacobi Correspondences and the Corrigan–Zambon Integrability Conjecture"*) and [`briefs/corrigan_zambon_conjecture_report.md`](../briefs/corrigan_zambon_conjecture_report.md).
+This directory contains a self-contained Lean 4 (`v4.35.0`) formalization of the lemmas, propositions, and theorems in [`defect-integrability/defect_integrability_paper.md`](../defect-integrability/defect_integrability_paper.md) (*"Momentum-Conserving Defects as Spatial Hamilton–Jacobi Correspondences and the Corrigan–Zambon Integrability Conjecture"*) and [`defect-integrability/corrigan_zambon_conjecture_report.md`](../defect-integrability/corrigan_zambon_conjecture_report.md).
 
 It uses only core Lean 4 (no external library dependencies) so that `lake build` compiles from scratch in a few seconds with zero `sorry` placeholders and zero custom axioms.
 

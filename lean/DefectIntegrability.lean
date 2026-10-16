@@ -4,7 +4,7 @@
   Formalization in Lean 4 of the theorems in:
   "Momentum-Conserving Defects as Spatial Hamilton–Jacobi Correspondences
    and the Corrigan–Zambon Integrability Conjecture"
-  (`briefs/defect_integrability_paper.md` and `briefs/corrigan_zambon_conjecture_report.md`).
+  (`defect-integrability/defect_integrability_paper.md` and `defect-integrability/corrigan_zambon_conjecture_report.md`).
 
   Contents:
   1. Section 2 (Lemma 2.1): Ostrogradsky Spatial Legendre Transform and the

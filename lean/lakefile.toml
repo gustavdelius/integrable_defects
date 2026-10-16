@@ -1,0 +1,11 @@
+name = "defect_integrability"
+version = "0.1.0"
+defaultTargets = ["DefectIntegrability"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[lean_lib]]
+name = "DefectIntegrability"

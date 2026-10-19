@@ -1,0 +1,30 @@
+PASS linear map satisfies both original sewing equations
+PASS linear canonical identity, with spatial adjoints
+PASS commuting factors in the linear fractional map
+PASS quadratic generator n=1 is Hamiltonian
+PASS quadratic generator n=2 is Hamiltonian
+PASS quadratic generator n=3 is Hamiltonian
+PASS quadratic generator n=4 is Hamiltonian
+PASS quadratic generator n=5 is Hamiltonian
+PASS quadratic generator n=6 is Hamiltonian
+PASS quadratic generator n=7 is Hamiltonian
+PASS quadratic generators n=1..7 commute
+PASS parameter generator coefficients through order six
+PASS actual charge principal coefficient j=0
+PASS actual charge principal coefficient j=2
+PASS actual charge principal coefficient j=3
+PASS three actual quadratic charges have independent Fourier Jacobian
+PASS anisotropic free example satisfies the full potential identity
+PASS first Baecklund commutator is nonzero with the stated coefficient
+PASS the same obstruction occurs on real homogeneous Cauchy data
+PASS mixed derivative in the massive locality lemma
+PASS a threshold resonance is not an identically resonant phase
+PASS coupled nonlinear example has M=3I and G=4I
+PASS nonlinear potential identity, all independent exponential coefficients
+PASS exact nonlinear local current at parameter order 1
+PASS exact nonlinear local current at parameter order 2
+PASS exact nonlinear local current at parameter order 3
+PASS exact nonlinear local current at parameter order 4
+PASS nonlinear spin-three coefficient is a spatial derivative in A2
+PASS nonlinear spin-two charge is not a spatial derivative
+PASS exact nonlinear Poisson bracket of spin-two and spin-four charges

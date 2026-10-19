@@ -1,0 +1,12 @@
+PASS three-component momentum flux, all velocity terms
+PASS momentum gradients become minus B_w and plus B_q
+PASS potential constraint reduces to one gradient product
+PASS both chiral sewing equations in three components
+PASS temporal generating functional has the stated endpoint momenta
+PASS spatial kinetic term differs from 2q.w_x by an exact derivative
+PASS full-sewing residual identity preserves matrix order
+PASS spatial Legendre transform equals minus momentum flux
+PASS spatial defect generating functional has the required minus sign
+PASS a shifted transparent critical point only shifts the bulk field
+PASS massless higher-degree local conservation laws
+PASS massless cubic charge has nonzero p-Euler derivative

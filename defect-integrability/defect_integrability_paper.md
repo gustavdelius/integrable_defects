@@ -1,308 +1,619 @@
-# Momentum-Conserving Defects as Spatial Hamilton–Jacobi Correspondences and the Corrigan–Zambon Integrability Conjecture
+# Momentum-Conserving Type-I Defects and Local Integrability near a Massive Vacuum
+
+Corrected version, 19 October 2026. **Status:** complete written argument under the hypotheses of Theorem 2.1, submitted for independent mathematical review. The unrestricted defect-integrability conjecture remains open.
 
 ## Abstract
 
-Over a series of works on classical and quantum jump defects in $(1+1)$-dimensional field theories, Corrigan and Zambon observed that requiring total energy and canonical momentum to be conserved across a pointlike discontinuity joining two local field theories forces the sewing conditions at the defect to act as a spatial Bäcklund transformation and restricts both bulk theories to be classically integrable. Hitherto, this phenomenon has been verified on a case-by-case basis by explicitly solving overdetermined functional-differential equations for specific classes of bulk Lagrangians (such as relativistic Klein–Gordon/Toda models, the nonlinear Schrödinger equation, KdV/mKdV, and the Boussinesq equation). In this paper we give a model-independent structural analysis of the Corrigan–Zambon conjecture for translation-invariant local Lagrangian field theories in $1+1$ dimensions. Treating the spatial coordinate $x$ as the evolution parameter on the space of time-histories, we show that the Ostrogradsky spatial Hamiltonian density $\mathcal H^{(x)}$ generating $\partial_x$-evolution is identically $\mathcal T^1{}_1 = -T^{11}$ (minus the canonical momentum flux, up to a total time derivative), while the boundary Euler–Lagrange equations at $x=0$ state that the defect action $S_d$ is the generating functional of a Lagrangian correspondence $\Gamma_d \subset \mathcal P_-^{(x)} \times \mathcal P_+^{(x)}$ between the left and right spatial phase spaces. Consequently, conservation of total canonical momentum across the defect is *identically* the spatial Hamilton–Jacobi equation $\iota^*(H_-^{(x)} - H_+^{(x)}) = 0$ on $\Gamma_d$. By a fundamental identity of symplectic geometry, vanishing of $\delta(H_-^{(x)} - H_+^{(x)})$ on the Lagrangian submanifold $\Gamma_d$ is necessary and sufficient for the bulk $\partial_x$-evolution vector field $(X_{H_-^{(x)}}, X_{H_+^{(x)}})$ to be tangent to $\Gamma_d$ everywhere, proving unconditionally that every non-degenerate momentum-conserving jump defect is a spatial Bäcklund correspondence intertwining the two bulk field theories. Conditionally on the existence of a one-parameter spectral family $\Gamma_d(\sigma)$ satisfying high-spectral-parameter regularity as $\sigma \to \infty$ (and, for involution, equal-time Hamiltonian generation and Bianchi permutability), its asymptotic jet expansion generates an infinite hierarchy of local conservation laws.
-
----
+We prove a structural implication from momentum conservation at a Type-I defect to local integrability of a multicomponent relativistic bulk field theory. The bulk potential is real analytic near a positive-mass vacuum and irreducible under orthogonal splitting. The defect has a specified constant first-order kinetic coupling, a derivative-free momentum correction satisfying a strong local balance identity, and a nondegenerate transparent critical manifold. Momentum conservation forces the defect potential to split into two functions and supplies a reciprocal rescaling family. We construct its unique local formal Bäcklund branch, prove equal-time canonicity, and identify the defect-energy coefficients as the Hamiltonians of its parameter velocity. A rigidity lemma shows that a vacuum-normalized analytic local conserved functional near a massive vacuum is determined by its quadratic part. The explicitly commuting quadratic generators therefore yield an infinite hierarchy in involution. A Fourier Jacobian proves functional independence of arbitrarily large finite subfamilies, and formal Bianchi permutability follows. The proof leaves the bulk potential unspecified and uses no classification or Lax representation. We also exhibit a reducible free-field defect family that fails to commute, and explain why the transparent-limit assumptions exclude genuinely different bulk theories on the two sides.
 
 ## 1. Introduction
 
-### 1.1 The Corrigan–Zambon Phenomenon
+A point defect breaks spatial translation invariance, so a local correction restoring total momentum imposes a substantial constraint. In classical scalar and affine Toda models, this constraint is closely related to Bäcklund sewing equations. The early defect constructions of Bowcock, Corrigan and Zambon demonstrate this relationship in concrete field theories [1](https://arxiv.org/abs/hep-th/0305022), [2](https://arxiv.org/abs/hep-th/0401020). Bristow and Bowcock establish a momentum condition for a class of Type-II defects whose equations extend to Bäcklund transformations [3](https://arxiv.org/abs/1612.03002). These results motivate the broader question: when does the existence of a momentum-conserving defect force integrability of the bulk equation?
 
-When a $(1+1)$-dimensional field theory is placed on the half-line $x<0$, a boundary condition at $x=0$ can preserve time-translation invariance—and hence total energy—for any time-independent boundary potential, whether or not the bulk theory is integrable. Spatial translation invariance, however, is explicitly broken by the boundary, so canonical momentum is not conserved.
+A structural answer must establish several logically distinct properties. Compatibility of the sewing equations with bulk evolution does not by itself give a local parameter family. A parameter expansion does not by itself give independent charges. Nor does spatial canonicity establish involution for the equal-time Poisson bracket. The coexistence of spatial and temporal Hamiltonian descriptions is central to the multisymplectic treatment of defects; Caudrelier and Kundu develop it for the nonlinear Schrödinger model [4](https://arxiv.org/abs/1411.0418).
 
-The situation changes dramatically if, instead of terminating the system at $x=0$, one joins a field theory $\mathcal L_-([\vec\phi])$ on the left half-line $x<0$ to a second field theory $\mathcal L_+([\vec\psi])$ on the right half-line $x>0$ across a pointlike *jump defect* at $x=0$ governed by an unconstrained defect action $S_d[\vec\phi,\vec\psi,\vec\lambda] = \int dt\,\mathcal L_d\big|_{x=0}$, where the fields $\vec\phi(0,t)$ and $\vec\psi(0,t)$ are varied independently across $x=0$ and $\vec\lambda(t)$ denotes an optional collection of auxiliary degrees of freedom confined to the defect line. While total energy $E = E_- + E_+ + \mathcal E_d$ is again automatically conserved whenever $\mathcal L_d$ has no explicit time dependence, one may ask whether the defect can be made *purely transmitting* at the classical level by requiring that the bulk canonical momentum $P_- + P_+$ plus a suitable local defect contribution $P_d\big|_{x=0}$ be conserved on-shell:
-$$\frac{d}{dt}\big(P_- + P_+ + P_d\big) = 0. \tag{1.1}$$
+Here these steps are proved for normalized constant Type-I auto-defects near a massive analytic vacuum. The main mechanism is
 
-Starting with the sine-Gordon and affine Toda models [1, 2], and subsequently in non-relativistic and higher-dispersion models [3–8], Corrigan, Zambon, and collaborators discovered a striking phenomenon: if one leaves the bulk interaction potentials in $\mathcal L_-$ and $\mathcal L_+$ *unspecified* and imposes (1.1) for all solutions of the bulk-plus-defect Euler–Lagrange equations, the resulting constraints do not merely restrict the defect action $S_d$—they severely overconstrain the **bulk** theories themselves, forcing the defect equations at $x=0$ to take the form of a spatial Bäcklund transformation and singling out exclusively *integrable* bulk field theories:
-- For single-scalar relativistic Klein–Gordon theories coupled via Type-I defects (no auxiliary field $\lambda$), imposing (1.1) restricts the bulk potentials to the free, Liouville, and sine/sinh-Gordon models [1, 4].
-- For $r$-component relativistic scalar theories coupled via Type-I defects, imposing (1.1) restricts irreducible nonlinear exponential potentials to the $a_r^{(1)}$ affine Toda and $a_r$ conformal Toda root systems [2, 4].
-- For single-scalar relativistic theories coupled via Type-II defects (one auxiliary defect field $\lambda(t)$), imposing (1.1) selects the free, Liouville, sine/sinh-Gordon ($a_1^{(1)}$), and Tzitzéica/Bullough–Dodd ($a_2^{(2)}$) potentials [5, 6].
-- For non-relativistic Schrödinger fields with unspecified self-interaction $V(|u|^2)$, imposing (1.1) singles out the integrable cubic nonlinear Schrödinger potential $V(|u|^2) \propto |u|^4$ [3].
-- For dispersive scalar equations in potential form with third- or fourth-order spatial derivatives and unspecified nonlinearities $U(u_x)$, imposing (1.1) singles out the integrable KdV ($U \propto u_x^3$), mKdV ($U \propto u_x^4$) [3], and Boussinesq ($U \propto \phi_x^3$) [8] equations.
+$$
+ \text{momentum identity}
+ \ \Longrightarrow\ \text{local canonical parameter family}
+ \ \Longrightarrow\ \text{commuting quadratic generators}
+ \ \Longrightarrow\ \text{commuting local charges}.
+$$
 
-Motivated by this universal pattern, Corrigan and Zambon formulated the following general conjecture ([5], Section 1, p. 2; [6], Section 1, p. 2 & Section 6, p. 26; [7], Section 1, p. 2; [8], Section 1, p. 2):
+The last implication uses a property of massive local conservation laws. A homogeneous polynomial conserved functional of free massive fields cannot have degree greater than two unless it is a spatial derivative. Expanding a vacuum-normalized analytic nonlinear conserved functional by amplitude then shows that its quadratic part determines it. We apply this statement to Poisson brackets of the defect-generated charges.
 
-> **The Corrigan–Zambon Conjecture:** *Requiring energy and momentum conservation at a genuine jump discontinuity where two $(1+1)$-dimensional local field theories are joined implies that the defect conditions at the discontinuity play the role of a Bäcklund transformation there, and implies that both bulk field theories must be integrable.*
+The result concerns an infinite commuting hierarchy for the homogeneous **bulk** theory admitting the defect. It does not establish global Bäcklund maps, convergence of their parameter expansion, or a complete Hamiltonian integrability theory for the system with a fixed point defect. The hypotheses are given in Section 2, the proof in Sections 3–8, and examples in Sections 9–10. Section 11 addresses different bulk theories and the remaining restrictions. Appendix A gives the spatial Hamilton–Jacobi interpretation under explicit geometric assumptions.
 
-### 1.2 Classification Proofs versus a Structural Theory
+## 2. Hypotheses and main theorem
 
-In each of the papers [1–8], the conjecture was tested within a particular ansatz for the bulk kinetic terms by expanding the momentum-conservation condition $\dot P_- + \dot P_+ + \dot P_d = 0$ in time derivatives, deriving a system of overdetermined functional-differential equations for the bulk and defect potentials, and solving those equations explicitly to obtain a finite list of known integrable PDEs. While that approach classifies all integrable defects within a given family (such as relativistic Klein–Gordon theories), it does not explain the general geometric mechanism behind the conjecture, for two reasons:
-1. No complete classification of all integrable $(1+1)$-dimensional local PDEs of arbitrary derivative order and arbitrary number of field components exists.
-2. Case-by-case potential calculations obscure the underlying symplectic reason *why* a conservation law imposed only at the single spatial point $x=0$ forces the boundary conditions to become a Bäcklund correspondence and how a spectral family of such correspondences generates an infinite hierarchy of bulk conservation laws.
+Let $u(x,t)\in\mathbb R^r$ have Lagrangian and equation
 
-The purpose of this paper is to provide a **model-independent, structural formulation and proof** of both stages of the Corrigan–Zambon mechanism (**Theorems 1 and 2** below) that holds for translation-invariant local Lagrangian field theories in $1+1$ dimensions and makes no use of any PDE classification.
+$$
+ L=\frac12|u_t|^2-\frac12|u_x|^2-U(u),\qquad
+ u_{tt}-u_{xx}+U'(u)=0.                                      \tag{2.1}
+$$
 
-### 1.3 Summary of Main Results
+Let $v$ denote the field on the right of the defect, with the same number of components. Write
 
-Our analysis rests on three geometric results:
+$$
+ q=\frac{u-v}{2},\qquad w=\frac{D^Tu+Dv}{2},\qquad D=I-E,
+ \quad E^T=-E.
+$$
 
-1. **Spatial Legendre Transform and the Identity $\mathcal H^{(x)} \equiv \mathcal T^1{}_1 \equiv -T^{11}$ (Section 2):**
-   For any translation-invariant local bulk Lagrangian $\mathcal L([\vec\phi])$ in $1+1$ dimensions with algebraically invertible highest spatial derivative, one may exchange the roles of $t$ and $x$, treating $x$ as the evolution parameter ("spatial time") on the spatial phase space $\mathcal P^{(x)}$ of $t$-histories at fixed $x$, equipped with the Ostrogradsky spatial symplectic form $\Omega^{(x)}$. We show in **Lemma 2.1** that the Ostrogradsky spatial Hamiltonian density $\mathcal H^{(x)}$ generating $\partial_x$-evolution is *identically equal* to $\mathcal T^1{}_1 = -T^{11}$ (minus the canonical momentum flux, modulo a total $t$-derivative), while the spatial symplectic pairing evaluated on $\partial_t$ is the canonical energy flux $\mathcal T^1{}_0$.
+These are independent coordinates on the endpoint fields; their inverse is given in (3.3). Assume the following.
 
-2. **Momentum Conservation as the Spatial Hamilton–Jacobi Equation and Symplectic Intertwining (Section 3, Theorem 1):**
-   At $x=0$, Hamilton's variational principle $\delta(S_- + S_+ + S_d) = 0$ equates the left and right Ostrogradsky spatial canonical momenta $\vec\pi_-^{(x)}, \vec\pi_+^{(x)}$ to the Euler–Lagrange functional derivatives $-\delta S_d/\delta\vec\Phi$ and $+\delta S_d/\delta\vec\Psi$ of the defect action $S_d$. In the language of symplectic geometry (Weinstein's theory of canonical relations [9]), this says precisely that the defect equations define a **Lagrangian correspondence** $\Gamma_d \subset (\mathcal P_-^{(x)} \times \mathcal P_+^{(x)}, \Omega_-^{(x)} \ominus \Omega_+^{(x)})$ with generating functional $S_d$. Meanwhile, on-shell momentum conservation $\big(-T_-^{11} + T_+^{11} + \frac{d P_d}{dt}\big)_{x=0} = \big(\mathcal H_-^{(x)} - \mathcal H_+^{(x)} + \frac{d\widetilde P_d}{dt}\big)_{x=0} = 0$ states that the integrated spatial Hamiltonians $H_\pm^{(x)} = \int dt\,\mathcal H_\pm^{(x)} = -\int dt\, T_\pm^{11}$ coincide on $\Gamma_d$:
-   $$\iota^*\big(H_-^{(x)} - H_+^{(x)}\big) = 0 \qquad \text{on } \Gamma_d. \tag{1.2}$$
-   Equation (1.2) is **literally the time-independent Hamilton–Jacobi equation for $\partial_x$-evolution**. By a fundamental lemma of symplectic geometry (**Lemma 3.1**), for any Lagrangian correspondence $\Gamma_d$, the differential $\delta(H_-^{(x)} - H_+^{(x)})$ vanishes on $T\Gamma_d$ *if and only if* the pair of spatial Hamiltonian vector fields $\big(X_{H_-^{(x)}}, X_{H_+^{(x)}}\big)$ is tangent to $\Gamma_d$ at every point of $\Gamma_d$. When $\Gamma_d$ is transverse to the vertical fibers (invertible mixed Hessian or Schur complement), tangency of $\big(X_{H_-^{(x)}}, X_{H_+^{(x)}}\big)$ to $\Gamma_d$ means that **every non-degenerate momentum-conserving jump defect is a spatial Bäcklund correspondence intertwining the two bulk PDEs** (**Theorem 1**).
+1. **Analytic massive vacuum.** $U$ is real analytic near $0$, with $U(0)=0$, $U'(0)=0$, and $M=U''(0)$ positive definite.
+2. **Bulk irreducibility.** There is no nontrivial orthogonal splitting $\mathbb R^r=V_1\oplus V_2$ on which the germ of $U$ is a sum $U_1(u_1)+U_2(u_2)$. This is irreducibility of the bulk potential, not merely of the combined bulk and defect.
+3. **Normalized constant Type-I coupling.** The auto-defect joins two copies of (2.1), has no auxiliary fields, and has action density
+   $$
+   L_d=\frac12u^TEu_t+u^TDv_t+\frac12v^TEv_t-B(u,v),
+   \quad E^T=-E,\quad D=I-E.                                \tag{2.2}
+   $$
+   $B$ is analytic. There is a derivative-free defect momentum $P_d(u,v)$ satisfying the strong momentum identity: after substituting the sewing equations, the identity holds for independent values of $u,v,u_t,v_t$.
+4. **Transparent nondegenerate critical manifold.** Regard $B$ as a function of the independent coordinates $(w,q)$. Assume $B_q(w,0)=0$ for all $w$ near zero and $G=B_{qq}(0,0)$ is invertible. Section 3 derives $B=f(w)+g(q)$ from momentum conservation. Thus this hypothesis is exactly $g'(0)=0$, $g''(0)=G$ in those coordinates. Additive constants are fixed by vacuum normalization.
 
-3. **Stress-Tensor Potentials and the Conditional Tower of Conserved Charges from a Spectral Family (Section 4, Theorem 2):**
-   When the promoted Bäcklund correspondence embeds into a one-parameter spectral family $\Gamma_d(\sigma)$ (generated, for example, by a bulk Lorentz boost, Galilean boost, or scaling/velocity-shift symmetry acting on the promoted sewing relations), the defect energy $\mathcal E_d(\sigma)$ and defect momentum $P_d(\sigma)$ act on histories decaying to the vacuum $\vec 0$ as $|t| \to \infty$ as local spatial and temporal potentials for the difference of the bulk stress-energy tensors (**Proposition 4.1**). Conditionally on the high-spectral-parameter regularity conditions of **Definition 4.1** as $\sigma = \epsilon^{-1} \to \infty$, expanding the Bäcklund partner $\vec\psi(x,t;\epsilon) = \vec\phi(x,t) + \sum_{n=1}^\infty \epsilon^n\vec\Psi_n([\vec\phi])$ via an explicit triangular jet recursion produces an infinite sequence of local conservation laws $\partial_t \mathcal Q_n([\vec\phi]) + \partial_x \mathcal J_n([\vec\phi]) = 0$ ($n=1,2,3,\dots$) (**Theorem 2**).
+The word “normalized” in hypothesis 3 is substantive: the same right-field coordinates are used for the auto-potential and the transparent diagonal. We do not assert that every possible Type-I defect can be put in this form while preserving both identifications.
 
----
+**Theorem 2.1 (structural local integrability).** Under hypotheses 1–4, the momentum identity supplies a rescaled family of defects with a unique formal local branch $T_\epsilon=\mathrm{Id}+O(\epsilon)$. Its defect energy has an expansion
 
-## 2. The Ostrogradsky Spatial Phase Space and the Identity $\mathcal H^{(x)} \equiv \mathcal T^1{}_1 \equiv -T^{11}$
+$$
+ I(\epsilon)=\int B_\epsilon(u,T_\epsilon u)\,dx
+            =\sum_{n\geq1}\epsilon^n I_n.                    \tag{2.3}
+$$
 
-Let $\mathcal L_-([\vec\phi])$ on $x<0$ and $\mathcal L_+([\vec\psi])$ on $x>0$ be translation-invariant local Lagrangian densities in $1+1$ dimensions with coordinates $(x^0, x^1) = (t, x)$, where $\vec\phi(x,t) \in \mathbb R^r$ and $\vec\psi(x,t) \in \mathbb R^r$. To encompass relativistic field theories as well as non-relativistic and higher-dispersion PDEs (such as KdV, mKdV, and Boussinesq), we allow $\mathcal L_\pm$ to depend on jets $\partial_t^a \partial_x^b \vec\phi$ up to finite order $a \le A$, $b \le K$ ($K \ge 1$), assuming that $\mathcal L_\pm$ depends on the highest spatial derivative $\partial_x^K\vec\phi$ without mixed $t$-derivatives and with non-degenerate Hessian $\det\frac{\partial^2\mathcal L}{\partial(\partial_x^K\vec\phi)^2} \ne 0$ so that the spatial Legendre transform is local and algebraic. Throughout, we work on the zero-vacuum sector of smooth fields decaying rapidly to $\vec\phi = \vec\psi = \vec 0$ as $|t| \to \infty$ and as $|x| \to \infty$ (note that this decay class excludes topological kink sectors with non-zero asymptotic topological charge $\vec\phi(x, +\infty) \ne \vec 0$, periodic breathers, and Bäcklund partners that add a soliton to the vacuum, while sufficing for the formal jet identities of Section 3 and the perturbative power-series expansion around $\vec\psi = \vec\phi$ in Section 4.3).
+Each $I_n$ is an analytic finite-jet local conserved functional. All $I_n$ Poisson commute for the canonical equal-time bracket. Infinitely many are functionally independent: for every $N$ there are $N$ members whose differentials are independent at arbitrarily small periodic Cauchy data. The formal maps $T_\epsilon$ commute for different parameters.
 
-### 2.1 The Ostrogradsky Spatial Legendre Transform
+The same conclusion holds without hypothesis 2 if $G$ in hypothesis 4 is assumed to be a nonzero scalar matrix. Bulk irreducibility is used precisely to derive this scalar condition.
 
-Consider a bulk Lagrangian $\mathcal L([\vec\phi])$ on a spatial interval $[x_1, x_2] \times \mathbb R_t$. Varying the action $S = \int_{x_1}^{x_2} dx \int_{-\infty}^\infty dt\,\mathcal L([\vec\phi])$ and integrating by parts first in $t$ (which produces no boundary terms under rapid decay as $|t| \to \infty$) yields
-$$\delta S = \int_{x_1}^{x_2} dx \int_{-\infty}^\infty dt \sum_{k=0}^K \vec{\mathcal F}_k([\vec\phi])\cdot \delta(\partial_x^k\vec\phi), \tag{2.1}$$
-where $\vec{\mathcal F}_k([\vec\phi])$ is the partial Euler–Lagrange derivative of $\mathcal L$ with respect to $t$-jets of $\partial_x^k\vec\phi$:
-$$\vec{\mathcal F}_k([\vec\phi]) := \sum_{a=0}^A (-\partial_t)^a \frac{\partial\mathcal L}{\partial(\partial_t^a \partial_x^k\vec\phi)} \qquad (k = 0, \dots, K). \tag{2.2}$$
+The conclusion concerns the homogeneous bulk equation (2.1). It does not assert that every charge admits a local correction at a fixed point defect. Local integrability here means the stated infinite commuting hierarchy and finite-subfamily independence; no completeness of action variables or convergence of the parameter series is claimed.
 
-Next, we perform Ostrogradsky integration by parts in $x$. Introduce the **spatial Ostrogradsky configuration coordinates**
-$$\vec\Phi_m(x,t) := \partial_x^m\vec\phi(x,t) \qquad (m = 0, \dots, K-1), \tag{2.3}$$
-and their conjugate **spatial canonical momenta**
-$$\vec\pi_m^{(x)}([\vec\phi]) := \sum_{j=0}^{K-1-m} (-\partial_x)^j \vec{\mathcal F}_{m+j+1}([\vec\phi]) = \sum_{j=0}^{K-1-m}\sum_{a=0}^A (-\partial_x)^j(-\partial_t)^a \frac{\partial\mathcal L}{\partial(\partial_t^a\partial_x^{m+j+1}\vec\phi)}. \tag{2.4}$$
-For a first-order Lagrangian $\mathcal L(\vec\phi, \partial_t\vec\phi, \partial_x\vec\phi)$ ($K=1, A=1$), there is a single spatial coordinate $\vec\Phi_0 = \vec\phi$ and a single spatial canonical momentum
-$$\vec\pi_0^{(x)} = \frac{\partial\mathcal L}{\partial(\partial_x\vec\phi)}. \tag{2.5}$$
-In general, repeated integration by parts in $x$ gives the exact variational identity
-$$\sum_{k=0}^K \vec{\mathcal F}_k([\vec\phi])\cdot\delta(\partial_x^k\vec\phi) = \vec{\mathcal E}([\vec\phi])\cdot\delta\vec\phi + \partial_x\left(\sum_{m=0}^{K-1} \vec\pi_m^{(x)}([\vec\phi])\cdot\delta\vec\Phi_m\right) + \partial_t \Xi([\vec\phi]; \delta\vec\phi), \tag{2.6}$$
-where $\vec{\mathcal E}([\vec\phi]) := \sum_{k=0}^K (-\partial_x)^k\vec{\mathcal F}_k([\vec\phi]) = \frac{\delta S}{\delta\vec\phi}$ is the full bulk Euler–Lagrange derivative of $\mathcal L$.
+We use local functionals modulo $x$-derivatives, with no explicit $x,t$ dependence. Their densities are analytic in finitely many Cauchy jets $(u,p,u_x,p_x,\ldots)$ near the zero jet, where $p=u_t$. Integrals may be evaluated on small smooth periodic data or rapidly decreasing data. The proof of a local identity can be tested on the line before applying it on a circle. Set
 
-At each fixed $x$, the **spatial phase space** $\mathcal P^{(x)}$ consists of smooth $t$-histories $z(t) = \big(\vec\Phi_0(t), \dots, \vec\Phi_{K-1}(t);\, \vec\pi_0^{(x)}(t), \dots, \vec\pi_{K-1}^{(x)}(t)\big)$, equipped with the canonical **spatial Liouville 1-form** and **spatial symplectic 2-form**:
-$$\Theta^{(x)} := \int_{-\infty}^\infty dt \sum_{m=0}^{K-1} \vec\pi_m^{(x)}(t)\cdot\delta\vec\Phi_m(t), \qquad \Omega^{(x)} := -\delta\Theta^{(x)} = \int_{-\infty}^\infty dt \sum_{m=0}^{K-1} \delta\vec\Phi_m(t)\wedge\delta\vec\pi_m^{(x)}(t). \tag{2.7}$$
-The **Ostrogradsky spatial Hamiltonian density** is defined by the spatial Legendre transform
-$$\mathcal H^{(x)}\big([\vec\Phi]_t, \vec\pi^{(x)}\big) := \sum_{m=0}^{K-1} \vec\pi_m^{(x)}\cdot\partial_x\vec\Phi_m - \mathcal L, \tag{2.8}$$
-and the integrated **spatial Hamiltonian** is $H^{(x)} := \int_{-\infty}^\infty dt\,\mathcal H^{(x)}$. By standard Ostrogradsky mechanics applied to the coordinate $x$, the formal bulk Euler–Lagrange equation $\vec{\mathcal E}([\vec\phi]) = \vec 0$ is equivalent to Hamilton's equations for $\partial_x$-evolution on $(\mathcal P^{(x)}, \Omega^{(x)})$:
-$$\partial_x\vec\Phi_m = \frac{\delta H^{(x)}}{\delta\vec\pi_m^{(x)}}, \qquad \partial_x\vec\pi_m^{(x)} = -\frac{\delta H^{(x)}}{\delta\vec\Phi_m} \qquad (m = 0, \dots, K-1), \tag{2.9}$$
-which we write compactly as $\partial_x z = X_{H^{(x)}}(z)$, where $X_{H^{(x)}}$ is the Hamiltonian vector field of $H^{(x)}$ satisfying $\iota_{X_{H^{(x)}}}\Omega^{(x)} = \delta H^{(x)}$.
+$$
+ \Omega=\int\delta u^T\wedge\delta p\,dx,\qquad
+ \{F,H\}=\int(F_u^TH_p-F_p^TH_u)\,dx,
+ \quad \iota_{X_F}\Omega=dF.                                \tag{2.4}
+$$
 
----
+Subscripts on functionals mean variational derivatives. Constants are fixed by evaluation at the zero field. The bulk Hamiltonian is
 
-### 2.2 Equivalence of the Spatial Hamiltonian and Minus the Canonical Momentum Flux
+$$
+ H=\int\left(\frac12|p|^2+\frac12|u_x|^2+U(u)\right)dx.     \tag{2.5}
+$$
 
-By Noether's theorem for space-time translations $x^\mu \mapsto x^\mu + a^\mu$, any translation-invariant bulk Lagrangian $\mathcal L([\vec\phi])$ possesses a canonical stress-energy tensor $\mathcal T^\mu{}_\nu$ satisfying the identity
-$$\partial_\mu \mathcal T^\mu{}_\nu = -\vec{\mathcal E}([\vec\phi])\cdot\partial_\nu\vec\phi. \tag{2.10}$$
-In $1+1$ dimensions with metric $\eta_{\mu\nu} = \operatorname{diag}(1,-1)$ (so $T^{00} = \mathcal T^0{}_0$, $T^{01} = -\mathcal T^0{}_1$, $T^{10} = \mathcal T^1{}_0$, and $T^{11} = -\mathcal T^1{}_1$), the conserved bulk energy and canonical momentum on the half-lines $x<0$ and $x>0$ are
-$$E_- = \int_{-\infty}^0 dx\,\mathcal T_-^0{}_0, \quad E_+ = \int_0^\infty dx\,\mathcal T_+^0{}_0, \qquad P_- = \int_{-\infty}^0 dx\, T_-^{01}, \quad P_+ = \int_0^\infty dx\, T_+^{01}, \tag{2.11}$$
-where $T^{01} = -\mathcal T^0{}_1$ is the canonical momentum density (for $K=A=1$, $T^{01} = -\frac{\partial\mathcal L}{\partial(\partial_t\vec\phi)}\cdot\partial_x\vec\phi$). Differentiating (2.11) with respect to $t$ and using the bulk conservation laws $\partial_t\mathcal T^0{}_0 + \partial_x\mathcal T^1{}_0 = 0$ and $\partial_t T^{01} + \partial_x T^{11} = 0$ (under rapid decay as $x \to \pm\infty$) gives the rates of change of bulk energy and bulk momentum in terms of the fluxes at $x=0$:
-$$\frac{d}{dt}(E_- + E_+) = -\left.\big(\mathcal T_-^1{}_0 - \mathcal T_+^1{}_0\big)\right|_{x=0}, \qquad \frac{d}{dt}(P_- + P_+) = -\left.\big(T_-^{11} - T_+^{11}\big)\right|_{x=0}. \tag{2.12}$$
+All operations with the Bäcklund parameter are coefficientwise. Each coefficient has finite differential order, although that order need not be bounded uniformly over the hierarchy. The proof of Theorem 2.1 occupies Sections 3–8.
 
-**Lemma 2.1 (Spatial Hamiltonian = $-\text{Momentum Flux}$ Identity):** *For any translation-invariant local Lagrangian $\mathcal L([\vec\phi])$ of finite order, the canonical energy flux $\mathcal T^1{}_0$ and the canonical stress tensor component $\mathcal T^1{}_1 = -T^{11}$ are related to the spatial Ostrogradsky momenta $\vec\pi_m^{(x)}$ and spatial Hamiltonian density $\mathcal H^{(x)}$ by*
-$$\mathcal T^1{}_0 = \sum_{m=0}^{K-1} \vec\pi_m^{(x)}\cdot\partial_t\vec\Phi_m + \partial_t\Upsilon_0([\vec\phi]), \qquad \mathcal T^1{}_1 = -T^{11} = \mathcal H^{(x)} + \partial_t\Upsilon_1([\vec\phi]), \tag{2.13}$$
-*for local differential functions $\Upsilon_0, \Upsilon_1$ (which vanish identically whenever $\mathcal L$ is first-order, $K=A=1$). In particular, the integrated spatial Hamiltonian coincides identically with minus the integrated momentum flux: $H^{(x)} = \int_{-\infty}^\infty dt\,\mathcal H^{(x)} = -\int_{-\infty}^\infty dt\, T^{11}$.*
+## 3. Momentum constraints and the parameter family
 
-*Proof:* Specialize the fundamental variational identity (2.6) to an infinitesimal time translation $\delta\vec\phi = \partial_t\vec\phi$ (so $\delta\mathcal L = \partial_t\mathcal L$ and $\delta\vec\Phi_m = \partial_t\vec\Phi_m$) and to an infinitesimal space translation $\delta\vec\phi = \partial_x\vec\phi$ (so $\delta\mathcal L = \partial_x\mathcal L$ and $\delta\vec\Phi_m = \partial_x\vec\Phi_m$), respectively. Taking $\delta\vec\phi = \partial_t\vec\phi$ in (2.6) gives
-$$\partial_t\big(\mathcal L - \widetilde{\mathcal T}^0{}_0\big) = \vec{\mathcal E}([\vec\phi])\cdot\partial_t\vec\phi + \partial_x\left(\sum_{m=0}^{K-1} \vec\pi_m^{(x)}\cdot\partial_t\vec\Phi_m\right) + \partial_t\Xi([\vec\phi]; \partial_t\vec\phi),$$
-which identifies the spatial energy flux in $\partial_t\mathcal T^0{}_0 + \partial_x\mathcal T^1{}_0 = -\vec{\mathcal E}\cdot\partial_t\vec\phi$ as $\mathcal T^1{}_0 = \sum_{m=0}^{K-1}\vec\pi_m^{(x)}\cdot\partial_t\vec\Phi_m + \partial_t\Upsilon_0$. Taking $\delta\vec\phi = \partial_x\vec\phi$ in (2.6) gives
-$$\partial_x\mathcal L = \vec{\mathcal E}([\vec\phi])\cdot\partial_x\vec\phi + \partial_x\left(\sum_{m=0}^{K-1} \vec\pi_m^{(x)}\cdot\partial_x\vec\Phi_m\right) + \partial_t\Xi([\vec\phi]; \partial_x\vec\phi),$$
-or equivalently
-$$\partial_x\left(\sum_{m=0}^{K-1} \vec\pi_m^{(x)}\cdot\partial_x\vec\Phi_m - \mathcal L\right) + \partial_t\big(\Xi([\vec\phi]; \partial_x\vec\phi) - T^{01}\big) = -\vec{\mathcal E}([\vec\phi])\cdot\partial_x\vec\phi.$$
-Comparing with Noether's spatial translation identity $\partial_t \mathcal T^0{}_1 + \partial_x \mathcal T^1{}_1 = -\partial_t T^{01} - \partial_x T^{11} = -\vec{\mathcal E}([\vec\phi])\cdot\partial_x\vec\phi$ identifies $\mathcal T^1{}_1 = -T^{11} = \sum_{m=0}^{K-1}\vec\pi_m^{(x)}\cdot\partial_x\vec\Phi_m - \mathcal L + \partial_t\Upsilon_1 = \mathcal H^{(x)} + \partial_t\Upsilon_1$. For $K=A=1$, $\mathcal H^{(x)} = \frac{\partial\mathcal L}{\partial(\partial_x\vec\phi)}\cdot\partial_x\vec\phi - \mathcal L = \mathcal T^1{}_1 = -T^{11}$ and $\mathcal T^1{}_0 = \frac{\partial\mathcal L}{\partial(\partial_x\vec\phi)}\cdot\partial_t\vec\phi = \vec\pi_0^{(x)}\cdot\partial_t\vec\Phi_0$ hold with $\Upsilon_0 = \Upsilon_1 = 0$. $\square$
+**Proposition 3.1 (split momentum identity).** Under hypothesis 3, the sewing equations and momentum balance imply the splitting and potential identity (3.4).
 
----
+**Proof.** Variation of (2.2) gives the sewing equations
 
-## 3. Defect Sewing Relations as Lagrangian Correspondences and the Spatial Hamilton–Jacobi Theorem
+$$
+ u_x=Eu_t+Dv_t-B_u,\qquad
+ v_x=D^Tu_t-Ev_t+B_v.                                      \tag{3.1}
+$$
 
-Suppose now that $\mathcal L_-([\vec\phi])$ on $x<0$ and $\mathcal L_+([\vec\psi])$ on $x>0$ are joined at $x=0$ by a local defect action
-$$S_d[\vec\Phi, \vec\Psi, \vec\lambda] = \int_{-\infty}^\infty dt\,\mathcal L_d\big([\vec\Phi]_t, [\vec\Psi]_t, [\vec\lambda]_t\big)\Big|_{x=0}, \tag{3.1}$$
-depending on the boundary values $\vec\Phi = (\vec\Phi_0,\dots,\vec\Phi_{K_--1})\big|_{x=0^-}$, $\vec\Psi = (\vec\Psi_0,\dots,\vec\Psi_{K_+-1})\big|_{x=0^+}$, auxiliary defect fields $\vec\lambda(t) \in \mathbb R^m$ ($m \ge 0$), and their $t$-derivatives.
+Choose physical bulk momentum $-\int p^Tu_x\,dx$. Its defect balance requires
 
-### 3.1 Boundary Euler–Lagrange Equations as a Lagrangian Correspondence
+$$
+ D_tP_d=T^{11}(u)-T^{11}(v),\qquad
+ T^{11}(u)=\frac12(|u_t|^2+|u_x|^2)-U(u).
+$$
 
-Varying the total action
-$$S[\vec\phi, \vec\psi, \vec\lambda] = \int_{-\infty}^0 dx \int_{-\infty}^\infty dt\,\mathcal L_-([\vec\phi]) + \int_0^\infty dx \int_{-\infty}^\infty dt\,\mathcal L_+([\vec\psi]) + S_d[\vec\Phi, \vec\Psi, \vec\lambda] \tag{3.2}$$
-and using (2.6) on $(-\infty, 0]$ and $[0, \infty)$ gives, for bulk solutions ($\vec{\mathcal E}_- = \vec 0$, $\vec{\mathcal E}_+ = \vec 0$), the boundary variation at $x=0$:
-$$\delta S = \int_{-\infty}^\infty dt \left[ \sum_{m=0}^{K_--1}\left(\vec\pi_{-,m}^{(x)} + \frac{\delta S_d}{\delta\vec\Phi_m}\right)\cdot\delta\vec\Phi_m + \sum_{n=0}^{K_+-1}\left(-\vec\pi_{+,n}^{(x)} + \frac{\delta S_d}{\delta\vec\Psi_n}\right)\cdot\delta\vec\Psi_n + \frac{\delta S_d}{\delta\vec\lambda}\cdot\delta\vec\lambda \right] = 0. \tag{3.3}$$
-To rule out trivial non-dynamical identifications—such as the identity continuity constraint $\vec\Psi = \vec\Phi$ (which preserves momentum for any bulk theory) or discrete symmetry constraints $\vec\Psi = -\vec\Phi$ implemented via Lagrange multipliers $\lambda(\psi \pm \phi)$ (which preserve momentum for any even potential $U(-\phi) = U(\phi)$)—as well as decoupled auxiliary oscillators on the defect, we require the defect to be an **unconstrained, non-degenerate jump defect**: the boundary configurations $(\vec\Phi, \vec\Psi)$ are varied independently without holonomic constraints $C(\vec\Phi, \vec\Psi) = 0$, every auxiliary variable $\vec\lambda$ couples non-trivially to $(\vec\Phi, \vec\Psi)$, and the boundary Euler–Lagrange equations at $x=0$ are
-$$\vec\pi_{-,m}^{(x)} = -\frac{\delta S_d}{\delta\vec\Phi_m}, \qquad \vec\pi_{+,n}^{(x)} = +\frac{\delta S_d}{\delta\vec\Psi_n}, \qquad \vec 0 = \frac{\delta S_d}{\delta\vec\lambda}. \tag{3.4}$$
+The quadratic velocity terms cancel because $DD^T=I-E^2$ and $ED=DE$. The linear and constant terms give
 
-In the product spatial phase space $\mathcal P_-^{(x)} \times \mathcal P_+^{(x)}$ equipped with the difference symplectic form $\Omega_-^{(x)} \ominus \Omega_+^{(x)} := \operatorname{pr}_-^*\Omega_-^{(x)} - \operatorname{pr}_+^*\Omega_+^{(x)}$, equations (3.4) are the standard equations defining the **Lagrangian correspondence (canonical relation)** $\Gamma_d \subset \mathcal P_-^{(x)} \times \mathcal P_+^{(x)}$ generated by the generating functional $S_d[\vec\Phi, \vec\Psi, \vec\lambda]$ [9]: indeed, pulling back the Liouville 1-form $\Theta_-^{(x)} - \Theta_+^{(x)}$ to $\Gamma_d$ via (3.4) yields
-$$\iota^*\big(\Theta_-^{(x)} - \Theta_+^{(x)}\big) = \int_{-\infty}^\infty dt \left(\sum_{m=0}^{K_--1}\vec\pi_{-,m}^{(x)}\cdot\delta\vec\Phi_m - \sum_{n=0}^{K_+-1}\vec\pi_{+,n}^{(x)}\cdot\delta\vec\Psi_n\right)\Bigg|_{\Gamma_d} = -\delta S_d\big|_{\Gamma_d}, \tag{3.5}$$
-and taking $-\delta$ gives
-$$\iota^*\big(\Omega_-^{(x)} \ominus \Omega_+^{(x)}\big) = \delta^2 S_d = 0. \tag{3.6}$$
-Because $(\mathcal P_\pm^{(x)}, \Omega_\pm^{(x)})$ is weakly symplectic on $t$-histories, we say that $\Gamma_d$ is **Lagrangian** in the strong sense that $T\Gamma_d$ equals its own symplectic orthogonal complement, $(T\Gamma_d)^{\perp_{\Omega_-^{(x)} \ominus \Omega_+^{(x)}}} = T\Gamma_d$ (both isotropy and coisotropy). Equation (3.6) establishes isotropy ($T\Gamma_d \subset (T\Gamma_d)^\perp$). For a defect action $S_d[\vec\Phi, \vec\Psi]$ without auxiliary fields whose second-variation operators $S_{\Phi\Phi}, S_{\Psi\Psi}$ are formally self-adjoint with $S_{\Psi\Phi} = S_{\Phi\Psi}^*$ on the admissible history space, coisotropy ($(T\Gamma_d)^\perp \subset T\Gamma_d$) also holds automatically: any vector $W = \big((\delta\vec\Phi_0, \delta\vec\pi_{-,0}), (\delta\vec\Psi_0, \delta\vec\pi_{+,0})\big)$ orthogonal under $\Omega_-^{(x)} \ominus \Omega_+^{(x)}$ to all $V \in T\Gamma_d$ satisfies
-$$\int_{-\infty}^\infty dt \Big[ -\big(\delta\vec\pi_{-,0} + S_{\Phi\Phi}\delta\vec\Phi_0 + S_{\Phi\Psi}\delta\vec\Psi_0\big)\cdot\delta\vec\Phi + \big(\delta\vec\pi_{+,0} - S_{\Psi\Phi}\delta\vec\Phi_0 - S_{\Psi\Psi}\delta\vec\Psi_0\big)\cdot\delta\vec\Psi \Big] = 0$$
-for all test variations $(\delta\vec\Phi, \delta\vec\Psi)$, which forces $\delta\vec\pi_{-,0} = -S_{\Phi\Phi}\delta\vec\Phi_0 - S_{\Phi\Psi}\delta\vec\Psi_0$ and $\delta\vec\pi_{+,0} = +S_{\Psi\Phi}\delta\vec\Phi_0 + S_{\Psi\Psi}\delta\vec\Psi_0$, so $W \in T\Gamma_d$. When auxiliary fields $\vec\lambda$ are present ($m > 0$), linearizing $\delta S_d/\delta\vec\lambda = \vec 0$ imposes $S_{\lambda\Phi}\delta\vec\Phi + S_{\lambda\Psi}\delta\vec\Psi + S_{\lambda\lambda}\delta\vec\lambda = \vec 0$; assuming $S_{\lambda\lambda} = \frac{\delta^2 S_d}{\delta\vec\lambda^2}$ is invertible on the admissible history space so $\delta\vec\lambda = -S_{\lambda\lambda}^{-1}(S_{\lambda\Phi}\delta\vec\Phi + S_{\lambda\Psi}\delta\vec\Psi)$, the same argument establishes coisotropy with the reduced Hessian operators, and transversality of $T\Gamma_d$ to the vertical fibers $\{0\} \times T\mathcal P_+^{(x)}$ and $T\mathcal P_-^{(x)} \times \{0\}$ holds whenever the **Schur-complement mixed Hessian**
-$$\widetilde S_{\Phi\Psi} := \frac{\delta^2 S_d}{\delta\vec\Phi\,\delta\vec\Psi} - \frac{\delta^2 S_d}{\delta\vec\Phi\,\delta\vec\lambda}\left(\frac{\delta^2 S_d}{\delta\vec\lambda^2}\right)^{-1}\frac{\delta^2 S_d}{\delta\vec\lambda\,\delta\vec\Psi}$$
-(which reduces to $\frac{\delta^2 S_d}{\delta\vec\Phi\,\delta\vec\Psi}$ when $m = 0$) is invertible. We assume throughout that $\Gamma_d$ is a smooth connected Lagrangian submanifold containing the vacuum $(0,0) \in \Gamma_d$ (with $H_-^{(x)}(0) = H_+^{(x)}(0) = 0$) and satisfying this Schur-complement transversality condition.
+$$
+ (P_d)_u=EB_u-DB_v,\quad
+ (P_d)_v=-D^TB_u-EB_v,\quad
+ \frac12(|B_u|^2-|B_v|^2)=U(u)-U(v).                        \tag{3.2}
+$$
 
-> **Remark 3.1 (Automatic Conservation of Total Energy):** If $\mathcal L_d$ has no explicit $t$-dependence, evaluating (3.4) on an infinitesimal time translation $\delta\vec\Phi_m = \partial_t\vec\Phi_m$, $\delta\vec\Psi_n = \partial_t\vec\Psi_n$, $\delta\vec\lambda = \partial_t\vec\lambda$ and using Lemma 2.1 together with the autonomous identity $\frac{d\mathcal E_d^{(0)}}{dt} = -\big(\frac{\delta S_d}{\delta\vec\Phi}\cdot\partial_t\vec\Phi + \frac{\delta S_d}{\delta\vec\Psi}\cdot\partial_t\vec\Psi + \frac{\delta S_d}{\delta\vec\lambda}\cdot\partial_t\vec\lambda\big)$ (where $\mathcal E_d^{(0)}$ is the $t$-Legendre transform of $\mathcal L_d$) gives
-> $$\mathcal T_-^1{}_0 - \mathcal T_+^1{}_0 = -\left(\frac{\delta S_d}{\delta\vec\Phi}\cdot\partial_t\vec\Phi + \frac{\delta S_d}{\delta\vec\Psi}\cdot\partial_t\vec\Psi + \frac{\delta S_d}{\delta\vec\lambda}\cdot\partial_t\vec\lambda\right) + \partial_t(\Upsilon_{0,-} - \Upsilon_{0,+}) = +\frac{d\mathcal E_d}{dt}, \tag{3.7}$$
-> where $\mathcal E_d := \mathcal E_d^{(0)} + \Upsilon_{0,-} - \Upsilon_{0,+}$. Combining (3.7) with (2.12) yields $\frac{d}{dt}(E_- + E_+ + \mathcal E_d|_{x=0}) = 0$ for *every* time-translation-invariant $S_d$.
+Introduce independent coordinates
 
----
+$$
+ q=\frac{u-v}{2},\quad
+ w=\frac{D^Tu+Dv}{2},\qquad
+ u=w+Dq,\quad v=w-D^Tq.                                    \tag{3.3}
+$$
 
-### 3.2 The Symplectic Intertwining Lemma and Theorem 1
-
-Unlike energy conservation (3.7), which holds automatically for any $t$-independent $S_d$, momentum conservation (1.1) imposes a strong restriction on $(H_-^{(x)}, H_+^{(x)}, \Gamma_d)$. Before stating Theorem 1, we record a fundamental equivalence from symplectic geometry.
-
-**Lemma 3.1 (Symplectic Intertwining on a Lagrangian Correspondence):** *Let $(\mathcal P_-, \Omega_-)$ and $(\mathcal P_+, \Omega_+)$ be (weakly) symplectic manifolds or vector spaces, let $\Gamma \subset \mathcal P_- \times \mathcal P_+$ be a smooth Lagrangian submanifold in the strong sense $(T\Gamma)^{\perp_{\Omega_- \ominus \Omega_+}} = T\Gamma$, and let $H_-: \mathcal P_- \to \mathbb R$ and $H_+: \mathcal P_+ \to \mathbb R$ be smooth Hamiltonians with Hamiltonian vector fields $X_{H_-}$ and $X_{H_+}$ satisfying $\iota_{X_{H_\pm}}\Omega_\pm = \delta H_\pm$. Then the following two statements are equivalent:*
-1. *(Hamilton–Jacobi condition)* *The differential $\delta(H_- - H_+)\big|_{T\Gamma} = 0$ vanishes on $T\Gamma$ (so $\iota^*(H_- - H_+)$ is locally constant on $\Gamma$, and vanishes identically on every connected component of $\Gamma$ containing a reference point where $H_- = H_+$).*
-2. *(Bäcklund intertwining condition)* *For every point $(z_-, z_+) \in \Gamma$, the pair of Hamiltonian vector fields $\big(X_{H_-}(z_-),\, X_{H_+}(z_+)\big)$ lies in the tangent space $T_{(z_-, z_+)}\Gamma$.*
-
-*Proof:* For any point $(z_-, z_+) \in \Gamma$ and any tangent vector $V = (v_-, v_+) \in T_{(z_-, z_+)}\Gamma$, the definition of the Hamiltonian vector fields $\iota_{X_{H_\pm}}\Omega_\pm = \delta H_\pm$ gives
-$$(\Omega_- \ominus \Omega_+)\Big(\big(X_{H_-}(z_-),\, X_{H_+}(z_+)\big),\, (v_-, v_+)\Big) = \Omega_-\big(X_{H_-}(z_-), v_-\big) - \Omega_+\big(X_{H_+}(z_+), v_+\big) = \delta H_-(v_-) - \delta H_+(v_+). \tag{3.8}$$
-Thus $\delta(H_- - H_+)(V) = 0$ for all $V \in T_{(z_-, z_+)}\Gamma$ if and only if $\big(X_{H_-}(z_-), X_{H_+}(z_+)\big)$ lies in the symplectic orthogonal complement $\big(T_{(z_-, z_+)}\Gamma\big)^{\perp_{\Omega_- \ominus \Omega_+}}$. Since $\Gamma$ is Lagrangian, $\big(T_{(z_-, z_+)}\Gamma\big)^{\perp_{\Omega_- \ominus \Omega_+}} = T_{(z_-, z_+)}\Gamma$, completing the proof. $\square$
-
-We can now state and prove our first main theorem, which resolves the first half of the Corrigan–Zambon conjecture.
-
-### Theorem 1 (Universal Spatial Hamilton–Jacobi and Bäcklund Equivalence)
-*Let $\mathcal L_-([\vec\phi])$ on $x<0$ and $\mathcal L_+([\vec\psi])$ on $x>0$ be translation-invariant local Lagrangian field theories coupled at $x=0$ by an unconstrained, non-degenerate defect action $S_d[\vec\Phi, \vec\Psi, \vec\lambda] = \int dt\,\mathcal L_d$ defining a smooth connected Lagrangian correspondence $\Gamma_d \subset \mathcal P_-^{(x)} \times \mathcal P_+^{(x)}$ normalized at the vacuum $(0,0) \in \Gamma_d$ and transverse to the vertical fibers. Then the following three statements are equivalent on $\Gamma_d$:*
-
-1. **(Local Momentum Balance on $\Gamma_d$):** *There exists a local defect momentum $P_d\big|_{x=0}$ on $\Gamma_d$ such that the momentum balance $\frac{d}{dt}(P_- + P_+ + P_d) = \big(-T_-^{11} + T_+^{11} + \frac{d P_d}{dt}\big)\big|_{x=0} = 0$ holds identically as a formal jet identity along $\Gamma_d$ (treating the unconstrained boundary $t$-jets on $\Gamma_d$ as independent, as in [1–8]).*
-2. **(Spatial Hamilton–Jacobi Equation):** *The defect generating functional $S_d$ satisfies the spatial Hamilton–Jacobi equation*
-   $$\mathcal H_-^{(x)}\!\left([\vec\Phi]_t,\, \vec\pi_-^{(x)} = -\frac{\delta S_d}{\delta\vec\Phi}\right) - \mathcal H_+^{(x)}\!\left([\vec\Psi]_t,\, \vec\pi_+^{(x)} = +\frac{\delta S_d}{\delta\vec\Psi}\right) = -\frac{d\widetilde P_d}{dt} \qquad \text{on } \frac{\delta S_d}{\delta\vec\lambda} = \vec 0, \tag{3.9}$$
-   *where $\widetilde P_d := P_d + \Upsilon_{1,-} - \Upsilon_{1,+}$, so that the integrated spatial Hamiltonians satisfy $\iota^*\big(H_-^{(x)} - H_+^{(x)}\big) = 0$ on $\Gamma_d$.*
-3. **(Spatial Bäcklund Correspondence):** *The bulk spatial evolution vector field $\big(X_{H_-^{(x)}}, X_{H_+^{(x)}}\big)$ is tangent to $\Gamma_d$ everywhere on $\Gamma_d$. Consequently, when the defect equations (3.4) are imposed across space, $\Gamma_d$ is a spatial Bäcklund correspondence intertwining the formal bulk Euler–Lagrange equations: $\vec{\mathcal E}_-([\vec\phi]) = \vec 0 \Longleftrightarrow \vec{\mathcal E}_+([\vec\psi]) = \vec 0$.*
-
-*Proof:*
-- **(1) $\Longleftrightarrow$ (2):** By (2.12) and Lemma 2.1 ($\mathcal T_\pm^1{}_1 = -T_\pm^{11} = \mathcal H_\pm^{(x)} + \partial_t\Upsilon_{1,\pm}$), the momentum balance at $x=0$ reads
-  $$0 = \frac{d}{dt}(P_- + P_+ + P_d) = \left.\left(-T_-^{11} + T_+^{11} + \frac{d P_d}{dt}\right)\right|_{x=0} = \left.\left(\mathcal H_-^{(x)} - \mathcal H_+^{(x)} + \frac{d\widetilde P_d}{dt}\right)\right|_{x=0}. \tag{3.10}$$
-  Substituting the boundary Euler–Lagrange equations (3.4) into $\mathcal H_\pm^{(x)}$ gives (3.9). Integrating (3.9) over $t \in (-\infty, \infty)$ under rapid decay as $|t| \to \infty$ yields $\iota^*\big(H_-^{(x)} - H_+^{(x)}\big) = 0$ on $\Gamma_d$. Conversely, if $\iota^*\big(H_-^{(x)} - H_+^{(x)}\big) = 0$ on the local unconstrained parametrization of $\Gamma_d$ (assuming local elimination of $\vec\lambda$ when $m > 0$, or exactness in the constrained variational complex), then the integrand $\mathcal H_-^{(x)} - \mathcal H_+^{(x)}\big|_{\Gamma_d}$ has vanishing Euler–Lagrange derivative in $t$ and is therefore a total time derivative $-\frac{d\widetilde P_d}{dt}$ of a local function $\widetilde P_d$.
-- **(2) $\Longleftrightarrow$ (3):** Since $\Gamma_d \subset \mathcal P_-^{(x)} \times \mathcal P_+^{(x)}$ is a connected Lagrangian submanifold containing $(0,0)$ where $H_-^{(x)}(0) = H_+^{(x)}(0) = 0$, $\iota^*\big(H_-^{(x)} - H_+^{(x)}\big) = 0$ on $\Gamma_d$ is equivalent to $\delta(H_-^{(x)} - H_+^{(x)})\big|_{T\Gamma_d} = 0$, which by Lemma 3.1 holds if and only if $\big(X_{H_-^{(x)}}(z_-), X_{H_+^{(x)}}(z_+)\big) \in T_{(z_-, z_+)}\Gamma_d$ for all $(z_-, z_+) \in \Gamma_d$. If $(\vec\phi(x,t), \vec\psi(x,t))$ is a pair of fields whose spatial phase-space trajectories $z_-(x) \in \mathcal P_-^{(x)}$ and $z_+(x) \in \mathcal P_+^{(x)}$ satisfy the defect correspondence $(z_-(x), z_+(x)) \in \Gamma_d$ for all $x$, then $(\partial_x z_-(x), \partial_x z_+(x)) \in T_{(z_-(x), z_+(x))}\Gamma_d$. If $\vec\phi$ solves the bulk Euler–Lagrange equation $\vec{\mathcal E}_-([\vec\phi]) = \vec 0$, then $\partial_x z_- = X_{H_-^{(x)}}(z_-)$. Subtracting $\big(X_{H_-^{(x)}}(z_-), X_{H_+^{(x)}}(z_+)\big) \in T\Gamma_d$ from $(\partial_x z_-, \partial_x z_+) \in T\Gamma_d$ gives $\big(0,\, \partial_x z_+ - X_{H_+^{(x)}}(z_+)\big) \in T\Gamma_d$. By the transversality of $\Gamma_d$ to the vertical fibers $\{0\} \times T\mathcal P_+^{(x)}$ (and $T\mathcal P_-^{(x)} \times \{0\}$), $\partial_x z_+ = X_{H_+^{(x)}}(z_+)$, i.e., $\vec{\mathcal E}_+([\vec\psi]) = \vec 0$ (and conversely). $\blacksquare$
-
-> **Why Theorem 1 Explains the Overdetermination of Bulk Theories:**
-> Equation (3.9) reveals why requiring momentum conservation at $x=0$ strongly constrains the *bulk* Lagrangians $\mathcal L_-$ and $\mathcal L_+$. A generic pair of bulk spatial Hamiltonians $\mathcal H_-^{(x)}, \mathcal H_+^{(x)}$ admits **no** non-degenerate solution $S_d[\vec\Phi, \vec\Psi, \vec\lambda]$ to the infinite-dimensional Hamilton–Jacobi equation (3.9): taking the variational derivative of the left-hand side of (3.9) with respect to unconstrained $t$-jets $(\vec\Phi, \vec\Psi, \vec\lambda)$ must vanish identically, which imposes an overdetermined system of functional-differential equations on the interaction potentials in $\mathcal H_-^{(x)}$ and $\mathcal H_+^{(x)}$.
-
----
-
-## 4. Universal Potential Identities, the Spectral Parameter, and the Infinite Hierarchy of Conserved Laws
-
-Theorem 1 establishes that a single momentum-conserving jump defect is a spatial canonical correspondence $\Gamma_d$ intertwining the bulk flows. To generate an infinite hierarchy of local conservation laws, one needs a *one-parameter family* of such Bäcklund correspondences $\Gamma_d(\sigma)$ depending on a spectral (or Bäcklund) parameter $\sigma$.
-
-### 4.1 Origin of the Spectral Parameter: Bulk Symmetries Acting on Promoted Correspondences
-
-Once the defect sewing relations (3.4) are promoted by Theorem 1 to a Bäcklund correspondence $\Gamma_d$ valid at every $(x,t) \in \mathbb R^2$, any continuous one-parameter symmetry group $G_\sigma$ of the bulk Euler–Lagrange equations $\vec{\mathcal E}_\pm = \vec 0$ (such as Lorentz boosts $x^\pm \mapsto \sigma^{\pm 1}x^\pm$ in relativistic theories [1, 2, 4–6], Galilean boosts combined with phase transformations in NLS [3], or scaling transformations in homogeneous dispersive equations [3, 8]) maps solutions of the bulk PDEs to solutions. Whenever $G_\sigma$ acts non-trivially on the promoted sewing equations, pulling back the Bäcklund relations by $G_\sigma$ produces a one-parameter family of spatial Bäcklund correspondences $\Gamma_d(\sigma)$, each represented at fixed $x$ by a defect action $S_d^{(\sigma)}$ satisfying Theorem 1.
-
----
-
-### 4.2 Universal Potential Identities on the Bäcklund Manifold
-
-When the defect equations (3.4) for $\Gamma_d(\sigma)$ are imposed across $(x,t) \in \mathbb R^2$, a Bäcklund pair $(\vec\phi(x,t), \vec\psi(x,t;\sigma), \vec\lambda(x,t;\sigma))$ decaying to the vacuum $(\vec 0, \vec 0, \vec 0)$ as $|t| \to \infty$ satisfies both the bulk Euler–Lagrange equations $\vec{\mathcal E}_-([\vec\phi]) = \vec 0$, $\vec{\mathcal E}_+([\vec\psi(\sigma)]) = \vec 0$ and the defect relations (3.4) at every $(x,t)$. This turns the defect energy $\mathcal E_d(\sigma)$ and defect momentum $P_d(\sigma)$ (normalized to vanish at the vacuum) into **local potentials for the difference of the bulk stress-energy tensors**.
-
-**Proposition 4.1 (Universal Stress-Tensor Potential Identities):** *Along any Bäcklund pair $Y(x,t;\sigma) = (\vec\Phi(x,t), \vec\Psi(x,t;\sigma), \vec\lambda(x,t;\sigma)) \in \Gamma_d(\sigma)$ on $\mathbb R^2$ decaying to the vacuum $Y \to \vec 0$ as $|t| \to \infty$ at every $x$, the defect energy $\mathcal E_d(\sigma)$ and defect momentum $P_d(\sigma)$ satisfy the four exact identities*
-$$\begin{aligned}
-\partial_t\mathcal E_d(\sigma) &= \mathcal T_-^1{}_0([\vec\phi]) - \mathcal T_+^1{}_0([\vec\psi(\sigma)]), &\qquad \partial_x\mathcal E_d(\sigma) &= -\Big(\mathcal T_-^0{}_0([\vec\phi]) - \mathcal T_+^0{}_0([\vec\psi(\sigma)])\Big), \\
-\partial_t P_d(\sigma) &= T_-^{11}([\vec\phi]) - T_+^{11}([\vec\psi(\sigma)]), &\qquad \partial_x P_d(\sigma) &= -\Big(T_-^{01}([\vec\phi]) - T_+^{01}([\vec\psi(\sigma)])\Big).
-\end{aligned} \tag{4.1}$$
-*In particular, in every Lorentz-invariant theory (where the energy flux $\mathcal T^1{}_0$ equals the momentum density $T^{01}$), and more generally whenever the bulk admits a local conservation law $\partial_t\mathcal N + \partial_x\mathcal J_{\mathcal N} = 0$ whose spatial flux is proportional to the momentum density ($\mathcal J_{\mathcal N} = c\,T^{01}$, with defect density $\mathcal Q_d(\sigma)$ satisfying $\partial_t\mathcal Q_d(\sigma) = \mathcal J_{\mathcal N,-} - \mathcal J_{\mathcal N,+}$), the defect densities themselves form a conserved current on $\mathbb R^2$:*
-$$\partial_t\mathcal Q_d\big(\vec\Phi, \vec\Psi(\sigma), \vec\lambda(\sigma); \sigma\big) + c\,\partial_x P_d\big(\vec\Phi, \vec\Psi(\sigma), \vec\lambda(\sigma); \sigma\big) = 0 \qquad (\mathcal Q_d = \mathcal E_d \text{ for } c=1,\ \text{or } \mathcal Q_d = \mathcal N_d). \tag{4.2}$$
-
-*Proof:* At every $(x,t)$, the defect energy and momentum balance relations (3.7) and (3.10) give the two $\partial_t$-identities in (4.1):
-$$\partial_t\mathcal E_d(\sigma) = \mathcal T_-^1{}_0([\vec\phi]) - \mathcal T_+^1{}_0([\vec\psi(\sigma)]), \qquad \partial_t P_d(\sigma) = T_-^{11}([\vec\phi]) - T_+^{11}([\vec\psi(\sigma)]).$$
-Differentiating these two equations with respect to $x$ and using the bulk conservation laws $\partial_x\mathcal T_\pm^1{}_0 = -\partial_t\mathcal T_\pm^0{}_0$ and $\partial_x T_\pm^{11} = -\partial_t T_\pm^{01}$ (which hold because both $\vec\phi$ and $\vec\psi(\sigma)$ are bulk solutions by Theorem 1) yields
-$$\partial_t\Big(\partial_x\mathcal E_d(\sigma) + \mathcal T_-^0{}_0([\vec\phi]) - \mathcal T_+^0{}_0([\vec\psi(\sigma)])\Big) = 0, \qquad \partial_t\Big(\partial_x P_d(\sigma) + T_-^{01}([\vec\phi]) - T_+^{01}([\vec\psi(\sigma)])\Big) = 0.$$
-Since $Y(x,t;\sigma) \to \vec 0$ as $|t| \to \infty$ at every $x$ and both the defect and bulk densities vanish at the vacuum $\vec 0$, the $t$-independent functions of integration vanish identically at every $x$, giving the two $\partial_x$-identities in (4.1). Finally, if $\partial_t\mathcal Q_d(\sigma) = \mathcal J_{\mathcal N,-}([\vec\phi]) - \mathcal J_{\mathcal N,+}([\vec\psi(\sigma)]) = c\big(T_-^{01}([\vec\phi]) - T_+^{01}([\vec\psi(\sigma)])\big)$, adding $c\,\partial_x P_d(\sigma) = -c\big(T_-^{01}([\vec\phi]) - T_+^{01}([\vec\psi(\sigma)])\big)$ immediately gives (4.2). $\square$
-
----
-
-### 4.3 Asymptotic Jet Recursion and Theorem 2
-
-We now formulate the regularity condition for a one-parameter auto-Bäcklund family $\mathcal L_d^{(\sigma)}$ (joining $\mathcal L_+ = \mathcal L_-$ to itself) in the high-spectral-parameter limit $\sigma = \epsilon^{-1} \to \infty$ and prove that the formal power series expansion in $\epsilon$ generates an infinite sequence of local conservation laws.
-
-**Definition 4.1 (High-Spectral-Parameter Regularity):** A one-parameter family of momentum-conserving auto-Bäcklund defect Lagrangians $\mathcal L_d^{(\sigma)}$ is *asymptotically regular* as $\sigma = \epsilon^{-1} \to \infty$ if, after absorbing any constant vacuum shift into $\vec\Psi$, it has the asymptotic expansion
-$$\mathcal L_d^{(\sigma)} = A_\Phi(\vec\Phi, \vec\Psi)\cdot\partial_t\vec\Phi + A_\Psi(\vec\Phi, \vec\Psi)\cdot\partial_t\vec\Psi - \epsilon^{-1}\mathcal B_-(\vec\Phi, \vec\Psi) - \sum_{k=0}^\infty \epsilon^k \mathcal B_k(\vec\Phi, \vec\Psi), \tag{4.3}$$
-such that:
-1. *(Transparent critical manifold)* The leading potential $\mathcal B_-(\vec\Phi, \vec\Psi)$ vanishes to second order along the diagonal $\vec\Psi = \vec\Phi$:
-   $$\mathcal B_-(\vec\Phi, \vec\Phi) = 0, \qquad \nabla_{\vec\Phi}\mathcal B_-(\vec\Phi, \vec\Phi) = \nabla_{\vec\Psi}\mathcal B_-(\vec\Phi, \vec\Phi) = \vec 0, \tag{4.4}$$
-   with invertible mixed Hessian matrix $\mathsf H(\vec\Phi) := -\frac{\partial^2\mathcal B_-}{\partial\vec\Phi\,\partial\vec\Psi}\big|_{\vec\Psi=\vec\Phi} = +\frac{\partial^2\mathcal B_-}{\partial\vec\Phi^2}\big|_{\vec\Psi=\vec\Phi}$ ($\det\mathsf H(\vec\Phi) \ne 0$).
-2. *(Non-degenerate gyroscopic coupling)* The cross-coupling matrix $\mathsf D(\vec\Phi) := \Omega_{\Phi\Psi}(\vec\Phi,\vec\Phi) = \left(\frac{\partial A_\Psi}{\partial\vec\Phi} - \left(\frac{\partial A_\Phi}{\partial\vec\Psi}\right)^{\mathsf T}\right)\Big|_{\vec\Psi=\vec\Phi}$ is invertible ($\det\mathsf D(\vec\Phi) \ne 0$).
-
-### Theorem 2 (Asymptotic Jet Recursion and Conditional Hierarchy of Local Conservation Laws)
-*Let $\mathcal L([\vec\phi])$ be a translation-invariant local Lagrangian field theory admitting a one-parameter family of momentum-conserving auto-Bäcklund defects $\Gamma_d(\sigma)$ satisfying Theorem 1, Proposition 4.1, and Definition 4.1. Then:*
-1. *(Unique formal jet series)* *Along solutions of $\vec{\mathcal E}([\vec\phi]) = \vec 0$, the Bäcklund sewing system admits a unique formal power series solution around the diagonal $\vec\psi = \vec\phi$ in powers of $\epsilon = \sigma^{-1}$:*
-   $$\vec\psi(x,t;\epsilon) = \vec\phi(x,t) + \sum_{n=1}^\infty \epsilon^n \vec\Psi_n\big([\vec\phi](x,t)\big), \tag{4.5}$$
-   *determined by an explicit triangular algebraic recursion, where the principal time-derivative symbol of $\vec\Psi_n([\vec\phi])$ is $\big(-\mathsf H(\vec\phi)^{-1}\mathsf D(\vec\phi)\partial_t\big)^{n-1}\vec\Psi_1([\vec\phi])$.
-2. *(Infinite sequence of local conservation laws)* *Whenever (4.2) holds (or directly from the second row of (4.1) via $\partial_x P_d(\epsilon) = -(T_-^{01} - T_+^{01})$), substituting (4.5) into (4.2) yields an infinite sequence of local conservation laws*
-   $$\partial_t\mathcal Q_n([\vec\phi]) + \partial_x\mathcal J_n([\vec\phi]) = 0 \qquad (n = 1, 2, 3, \dots), \tag{4.6}$$
-   *with first conserved density $\mathcal Q_1([\vec\phi]) = \frac{1}{2}\vec\Psi_1\cdot\mathsf H(\vec\phi)\vec\Psi_1 + \nabla_{\vec\psi}\mathcal B_0(\vec\phi,\vec\phi)\cdot\vec\Psi_1 + \mathcal B_1(\vec\phi,\vec\phi)$ (which define non-trivial, linearly independent conserved charges $Q_n = \int dx\,\mathcal Q_n$ whenever their on-shell reductions modulo spatial divergences $\partial_x F$ remain non-vanishing).*
-3. *(Commutativity of Hamiltonian flows under Bianchi permutability)* *Whenever the equal-time Poisson bracket has no non-constant local Casimirs on the vacuum-normalized charge space, the formal auto-Bäcklund transformations $\mathcal A_\epsilon$ are generated on the equal-time phase space by the charge series $Q(\epsilon) = \sum_{n=1}^\infty \epsilon^n Q_n$ ($\delta_\epsilon F = \{F, Q(\epsilon)\}$) with vanishing Hamiltonian vector field $X_{Q_n}(\vec 0) = 0$ at the vacuum, and the family satisfies Bianchi permutability $\mathcal A_{\epsilon_1} \circ \mathcal A_{\epsilon_2} = \mathcal A_{\epsilon_2} \circ \mathcal A_{\epsilon_1}$ (so $[X_{Q_n}, X_{Q_m}] = 0$), the conserved charges are in involution: $\{Q_n, Q_m\} = 0$ for all $n, m \ge 1$.*
-
----
-
-### Proof of Theorem 2
-
-#### Step 1: Derivation of the Triangular Algebraic Jet Recursion
-For clarity we write the recursion for $K=1$ ($\vec\Phi = \vec\phi, \vec\Psi = \vec\psi$). With $\Omega_{AB} := \partial_A A_B - \partial_B A_A$ (so $\frac{\delta S_d^{(\sigma)}}{\delta\vec\phi} = \Omega_{\phi\phi}\partial_t\vec\phi + \Omega_{\phi\psi}\partial_t\vec\psi - \nabla_{\vec\phi}\mathcal B$ and $\frac{\delta S_d^{(\sigma)}}{\delta\vec\psi} = \Omega_{\psi\phi}\partial_t\vec\phi + \Omega_{\psi\psi}\partial_t\vec\psi - \nabla_{\vec\psi}\mathcal B$), the boundary Euler–Lagrange equations (3.4) ($\vec\pi_-^{(x)} = -\delta S_d^{(\sigma)}/\delta\vec\phi$, $\vec\pi_+^{(x)} = +\delta S_d^{(\sigma)}/\delta\vec\psi$) for $\mathcal L_d^{(\sigma)}$ of (4.3) are
-$$\begin{aligned}
-\vec\pi_-^{(x)}([\vec\phi]) &= -\Omega_{\phi\phi}\partial_t\vec\phi - \Omega_{\phi\psi}\partial_t\vec\psi + \epsilon^{-1}\nabla_{\vec\phi}\mathcal B_-(\vec\phi,\vec\psi) + \sum_{k=0}^\infty \epsilon^k\nabla_{\vec\phi}\mathcal B_k(\vec\phi,\vec\psi), \\
-\vec\pi_+^{(x)}([\vec\psi]) &= +\Omega_{\psi\phi}\partial_t\vec\phi + \Omega_{\psi\psi}\partial_t\vec\psi - \epsilon^{-1}\nabla_{\vec\psi}\mathcal B_-(\vec\phi,\vec\psi) - \sum_{k=0}^\infty \epsilon^k\nabla_{\vec\psi}\mathcal B_k(\vec\phi,\vec\psi).
-\end{aligned} \tag{4.7}$$
-Because $\mathcal B_-(\vec\phi,\vec\psi)$ satisfies (4.4), its Taylor expansion in $\vec\Delta := \vec\psi - \vec\phi = \sum_{n=1}^\infty \epsilon^n\vec\Psi_n$ has the form
-$$\mathcal B_-(\vec\phi, \vec\phi + \vec\Delta) = \frac{1}{2}\vec\Delta\cdot\mathsf H(\vec\phi)\vec\Delta + \sum_{p=3}^\infty \frac{1}{p!} D_{\vec\psi}^p\mathcal B_-(\vec\phi,\vec\phi)[\vec\Delta^p], \tag{4.8}$$
-so that
-$$\epsilon^{-1}\nabla_{\vec\phi}\mathcal B_-(\vec\phi, \vec\phi + \vec\Delta) = -\mathsf H(\vec\phi)\vec\Psi_1 + \sum_{n=1}^\infty \epsilon^n\Big[-\mathsf H(\vec\phi)\vec\Psi_{n+1} + \vec R_n(\vec\phi, \vec\Psi_1, \dots, \vec\Psi_n)\Big], \tag{4.9}$$
-where $\vec R_n$ is a polynomial in $\vec\Psi_1,\dots,\vec\Psi_n$. Substituting (4.5) and (4.9) into the first equation of (4.7) and equating coefficients of $\epsilon^0$ and $\epsilon^n$ ($n \ge 1$) yields the **explicit triangular algebraic recursion** for $\vec\Psi_1, \vec\Psi_2, \dots$:
-$$\begin{aligned}
-\vec\Psi_1([\vec\phi]) &= \mathsf H(\vec\phi)^{-1}\Big(-\vec\pi_-^{(x)}([\vec\phi]) - (\Omega_{\phi\phi} + \mathsf D)\partial_t\vec\phi + \nabla_{\vec\phi}\mathcal B_0(\vec\phi,\vec\phi)\Big), \\
-\vec\Psi_{n+1}([\vec\phi]) &= \mathsf H(\vec\phi)^{-1}\Big(-\mathsf D(\vec\phi)\partial_t\vec\Psi_n([\vec\phi]) + \widetilde{\vec R}_n([\vec\phi], \vec\Psi_1, \dots, \vec\Psi_n)\Big) \qquad (n \ge 1),
-\end{aligned} \tag{4.10}$$
-where $\widetilde{\vec R}_n$ depends only on $\vec\Psi_1,\dots,\vec\Psi_n$ and on derivatives $\partial_t\vec\Psi_k$ with $k \le n-1$. Since $\mathsf H(\vec\phi)$ is invertible by Definition 4.1, $\vec\Psi_n([\vec\phi])$ is uniquely determined for every $n \ge 1$ as a local differential function of $[\vec\phi]$. Moreover, compatibility with the second equation of (4.7) on solutions of $\vec{\mathcal E}([\vec\phi]) = \vec 0$ follows directly from Theorem 1: the first equation of (4.7) solves for $\vec\psi(\epsilon)$ so that $\big(\vec\phi, \vec\pi_-^{(x)}([\vec\phi]), \vec\psi(\epsilon), \vec\Pi_+(\epsilon)\big) \in \Gamma_d(\sigma)$ where $\vec\Pi_+(\epsilon) := +\frac{\delta S_d^{(\sigma)}}{\delta\vec\psi}\big(\vec\phi, \vec\psi(\epsilon)\big)$ is the right-hand side of the second equation of (4.7); by the Bäcklund intertwining property (Theorem 1(3)), when $\vec\phi$ solves the bulk Euler–Lagrange equation, the pair $(\vec\psi(\epsilon), \vec\Pi_+(\epsilon))$ satisfies Hamilton's $\partial_x$-equations (2.9) for $H_+^{(x)}$, whose configuration equation $\partial_x\vec\psi(\epsilon) = \frac{\delta H_+^{(x)}}{\delta\vec\pi_+^{(x)}}\big(\vec\psi(\epsilon), \vec\Pi_+(\epsilon)\big)$ (inverted via the bulk spatial Legendre transform) identifies $\vec\Pi_+(\epsilon) = \vec\pi_+^{(x)}([\vec\psi(\epsilon)])$, which is the second equation of (4.7). (For $K > 1$, the recursion is carried out in the same manner on the Ostrogradsky coordinates $\vec\Phi, \vec\Psi$, and for Type-II defects with auxiliary fields $\vec\lambda$, $\vec\Psi$ in Definition 4.1 denotes the extended defect configuration $(\vec\psi, \vec\lambda)$ prior to eliminating $\partial_t\vec\lambda$.)
-
-#### Step 2: Principal Symbol and Local Conservation Laws
-By induction on $n$ from (4.10), the highest $\partial_t$-derivative term of $\vec\Psi_n([\vec\phi])$ is obtained by applying the injective (symbol-preserving) linear differential operator $\mathcal R := -\mathsf H(\vec\phi)^{-1}\mathsf D(\vec\phi)\partial_t$ on vacuum-decaying histories repeatedly to $\vec\Psi_1$:
-$$\vec\Psi_n([\vec\phi]) = \big(-\mathsf H(\vec\phi)^{-1}\mathsf D(\vec\phi)\partial_t\big)^{n-1}\vec\Psi_1([\vec\phi]) + \text{(terms of lower } \partial_t\text{-order)}. \tag{4.11}$$
-Expanding $\mathcal E_d(\sigma) = \epsilon^{-1}\mathcal B_-(\vec\phi, \vec\phi + \vec\Delta) + \mathcal B_0(\vec\phi, \vec\phi + \vec\Delta) + \sum_{k=1}^\infty \epsilon^k\mathcal B_k(\vec\phi, \vec\phi + \vec\Delta)$ using (4.8) (or, for general $\mathcal Q_d(\sigma)$ in (4.2) such as $\mathcal N_d(\sigma)$ in NLS, expanding $\mathcal Q_d(\vec\phi, \vec\phi + \vec\Delta; \epsilon)$ in powers of $\epsilon$) gives the formal power series
-$$\begin{aligned}
-\mathcal Q_d([\vec\phi]; \epsilon) &= \mathcal B_0(\vec\phi,\vec\phi) + \sum_{n=1}^\infty \epsilon^n \mathcal Q_n([\vec\phi]), \\
-\mathcal Q_1([\vec\phi]) &= \frac{1}{2}\vec\Psi_1\cdot\mathsf H(\vec\phi)\vec\Psi_1 + \nabla_{\vec\psi}\mathcal B_0(\vec\phi,\vec\phi)\cdot\vec\Psi_1 + \mathcal B_1(\vec\phi,\vec\phi), \\
-\mathcal Q_n([\vec\phi]) &= \frac{1}{2}\sum_{j+k=n+1} \vec\Psi_j\cdot\mathsf H(\vec\phi)\vec\Psi_k + \nabla_{\vec\psi}\mathcal B_0(\vec\phi,\vec\phi)\cdot\vec\Psi_n + \mathcal B_n(\vec\phi,\vec\phi) + \text{(lower-order terms)}.
-\end{aligned} \tag{4.12}$$
-Substituting (4.12) into the defect continuity equation (4.2) proves that every $\mathcal Q_n([\vec\phi])$ satisfies the local conservation law $\partial_t\mathcal Q_n([\vec\phi]) + \partial_x\mathcal J_n([\vec\phi]) = 0$, where $\mathcal J_n([\vec\phi])$ is the coefficient of $\epsilon^n$ in $c\,P_d\big(\vec\phi, \vec\psi(\epsilon); \epsilon\big)$.
-
-*Example (Free massive scalar defect [1, 2]):* For $\mathcal L = \frac{1}{2}\phi_t^2 - \frac{1}{2}\phi_x^2 - \frac{1}{2}m^2\phi^2$ and $\mathcal L_d = \frac{1}{2}(\phi\psi_t - \psi\phi_t) - \frac{1}{2\epsilon}(\phi-\psi)^2 - \frac{\epsilon m^2}{8}(\phi+\psi)^2$, we have $\pi_-^{(x)} = -\phi_x$, $\Omega_{\phi\phi} = 0$, $\mathsf D = \mathsf H = 1$, $\mathcal B_0 = 0$, and $\mathcal B_1(\phi,\psi) = \frac{m^2}{8}(\phi+\psi)^2$. The recursion (4.10) gives $\Psi_1 = \phi_x - \phi_t$, and (4.12) yields $\mathcal Q_1 = \frac{1}{2}(\phi_x - \phi_t)^2 + \frac{1}{2}m^2\phi^2$, whose spatial integral is the conserved chiral combination $E + P$ of bulk energy and canonical momentum.
-
-#### Step 3: Involution of the Conserved Charges
-Under the hypotheses of Part 3, commutativity $[X_{Q_n}, X_{Q_m}] = 0$ of the Hamiltonian vector fields generated by $Q(\epsilon) = \sum_{n=1}^\infty \epsilon^n Q_n$ implies via the Lie–Poisson homomorphism that the Hamiltonian vector field of $\{Q_n, Q_m\}$ vanishes identically:
-$$X_{\{Q_n, Q_m\}} = [X_{Q_n}, X_{Q_m}] = 0. \tag{4.13}$$
-Since $X_{Q_m}$ vanishes at the vacuum $\vec\phi = \vec 0$, the Poisson bracket $\{Q_n, Q_m\} = \delta Q_n(X_{Q_m})$ also vanishes at the vacuum, and in the absence of non-constant local Casimirs on the vacuum-normalized charge space, $X_{\{Q_n, Q_m\}} = 0$ implies $\{Q_n, Q_m\} = 0$ for all $n, m \ge 1$. $\blacksquare$
-
----
-
-## 5. Unified Verification Across Observed Field Theories
-
-We briefly illustrate how Theorems 1 and 2 apply across all four classes of field theories in which Corrigan and Zambon observed the defect-integrability phenomenon:
-
-### 5.1 Multi-Component Relativistic Scalar Field Theories (Type I and Type II)
-For $\mathcal L_- = \frac{1}{2}|\partial_t\vec\phi|^2 - \frac{1}{2}|\partial_x\vec\phi|^2 - U(\vec\phi)$ and $\mathcal L_+ = \frac{1}{2}|\partial_t\vec\psi|^2 - \frac{1}{2}|\partial_x\vec\psi|^2 - V(\vec\psi)$, the spatial canonical momenta are $\vec\pi_-^{(x)} = -\partial_x\vec\phi$ and $\vec\pi_+^{(x)} = -\partial_x\vec\psi$, and the spatial Hamiltonians are
-$$\mathcal H_-^{(x)} = -T_-^{11} = -\frac{1}{2}|\vec\pi_-^{(x)}|^2 - \frac{1}{2}|\partial_t\vec\phi|^2 + U(\vec\phi), \qquad \mathcal H_+^{(x)} = -T_+^{11} = -\frac{1}{2}|\vec\pi_+^{(x)}|^2 - \frac{1}{2}|\partial_t\vec\psi|^2 + V(\vec\psi). \tag{5.1}$$
-With the defect action $S_d = \int dt\,\big[2\vec q\cdot\partial_t\vec w + 2\vec q\cdot M\partial_t\vec\lambda - \mathcal B_d(\vec w, \vec q, \vec\lambda)\big]$ (where $\vec q = \frac{1}{2}(\vec\phi - \vec\psi)$, $\vec w = \frac{1}{2}(\mathsf D^{\mathsf T}\vec\phi + \mathsf D\vec\psi)$, $\mathsf D = \mathsf I - E$, $E^{\mathsf T} = -E$), the spatial Hamilton–Jacobi equation (3.9) of Theorem 1 reduces directly to the chiral splitting $\mathcal B_d = \sigma F(\vec w_+, \vec q) + \sigma^{-1}G(\vec w_-, \vec q)$, $P_d = -\sigma F(\vec w_+, \vec q) + \sigma^{-1}G(\vec w_-, \vec q)$ ($\vec w_\pm = \vec w \pm M\vec\lambda$) and the Poisson-bracket potential equation
-$$U(\vec w + \mathsf D\vec q) - V(\vec w - \mathsf D^{\mathsf T}\vec q) = \nabla_{\vec w_+}F\cdot\nabla_{\vec q}G + \nabla_{\vec q}F\cdot\nabla_{\vec w_-}G. \tag{5.2}$$
-Here Lorentz boost symmetry $x^\pm \mapsto \sigma^{\pm 1}x^\pm$ acting on the promoted sewing equations supplies the spectral parameter $\sigma$, $\partial_t\mathcal B_d(\sigma) + \partial_x P_d(\sigma) = 0$ holds identically by Proposition 4.1 (since $\mathcal T^1{}_0 = T^{01}$), and for $a_r^{(1)}$ affine Toda ($\mathcal B_-(\vec\phi,\vec\psi) = \frac{m}{\beta^2}\sum_{j=0}^r (e^{\frac{1}{2}\beta\vec\alpha_j\cdot\mathsf D(\vec\phi-\vec\psi)} - 1)$) the Hessian at $\vec\psi = \vec\phi$ is $\mathsf H = \frac{m}{4}\mathsf D^{\mathsf T}\!\left(\sum_{j=0}^r\vec\alpha_j\vec\alpha_j^{\mathsf T}\right)\!\mathsf D$, which is positive-definite on $\mathbb R^r$ (and Definition 4.1 imposes no constraint on the diagonal skew blocks $\Omega_{\phi\phi} = \Omega_{\psi\psi} = E$), generating the affine Toda hierarchy by Theorem 2.
-
-### 5.2 The Nonlinear Schrödinger Equation (`nlin/0512038`, §2)
-For two complex scalar fields $u(x,t), v(x,t)$ with $\mathcal L_- = \frac{i}{2}(\bar u u_t - u\bar u_t) - |u_x|^2 - V(|u|^2)$ and $\mathcal L_+ = \frac{i}{2}(\bar v v_t - v\bar v_t) - |v_x|^2 - W(|v|^2)$, the spatial canonical momenta are $\pi_u^{(x)} = -\bar u_x$, $\pi_{\bar u}^{(x)} = -u_x$, and the spatial Hamiltonian density is
-$$\mathcal H_-^{(x)} = -T_-^{11} = -\pi_u^{(x)}\pi_{\bar u}^{(x)} - \frac{i}{2}(\bar u u_t - u\bar u_t) + V(|u|^2). \tag{5.3}$$
-The spatial Hamilton–Jacobi equation (3.9) of Theorem 1 cancels the linear $u_t, v_t$ terms against the defect gauge connection and forces $V(|u|^2) = W(|u|^2) \propto |u|^4$. Galilean boost invariance acting on the promoted Bäcklund system supplies the spectral parameter $\sigma$; moreover, on solutions of $iu_t + u_{xx} - V'(|u|^2)u = 0$, the $U(1)$ particle-number density $\mathcal N = |u|^2$ satisfies $\partial_t\mathcal N + \partial_x\mathcal J_{\mathcal N} = 0$ with spatial flux $\mathcal J_{\mathcal N} = -i(\bar u u_x - u\bar u_x) = +2T^{01}$ (since $T^{01} = -\frac{i}{2}(\bar u u_x - u\bar u_x)$, so $c = +2$), and Proposition 4.1 yields $\partial_t\mathcal N_d(\sigma) + 2\partial_x P_d(\sigma) = 0$, whose expansion via Theorem 2 generates the NLS conservation laws.
-
-### 5.3 The KdV, mKdV (`nlin/0512038`, §9), and Boussinesq (`2306.03772`, §3) Equations
-For the potential-KdV/mKdV Lagrangian $\mathcal L_- = \frac{1}{2}p_x p_t + \frac{1}{2}p_{xx}^2 - U(p_x)$ ($K=2$) and the potential-Boussinesq Lagrangian $\mathcal L_- = \frac{1}{2}\phi_t^2 - \frac{1}{2}\phi_x^2 + \frac{1}{2}\phi_{xx}^2 - U(\phi_x)$ ($K=2$), the Ostrogradsky spatial coordinates are $(\Phi_0, \Phi_1) = (\phi, \phi_x)$ with spatial momenta $\pi_1^{(x)} = \phi_{xx}$ and $\pi_0^{(x)} = -\phi_{xxx} - \phi_x - U'(\phi_x)$ (for Boussinesq). By Theorem 1, the momentum-conservation condition $\mathcal H_-^{(x)} - \mathcal H_+^{(x)} = -\dot P_d$ is the second-order Ostrogradsky spatial Hamilton–Jacobi equation (3.9), which within the standard polynomial defect ansatz forces $U$ to be the integrable cubic/quartic polynomial ($u^3$ for KdV and Boussinesq, $u^4$ for mKdV) and turns the defect conditions into the Wahlquist–Estabrook / Rasin–Schiff spatial Bäcklund transformations (with the spectral parameter $\sigma$ entering via scaling in KdV/mKdV and via the Bäcklund velocity-shift parameter $\alpha$ in Boussinesq [8, eq. (3.7)]). Even though $\mathcal T^1{}_0 \ne c\,T^{01}$ in these non-Lorentz-invariant models, Proposition 4.1 still supplies the exact stress-tensor potential identities $\partial_t P_d(\sigma) = T_-^{11} - T_+^{11}$ and $\partial_x P_d(\sigma) = -(T_-^{01} - T_+^{01})$, so expanding the Bäcklund difference $T_-^{01}([\vec\phi]) - T_+^{01}([\vec\psi(\epsilon)]) = -\partial_x P_d(\epsilon)$ in powers of $\epsilon = \sigma^{-1}$ (the standard Gardner/Miura Bäcklund expansion [3, 8]) yields the hierarchy of local conservation laws.
-
----
-
-## 6. Conclusion
-
-By passing from temporal evolution to spatial ($\partial_x$) evolution on the Ostrogradsky phase space of time-histories, the Corrigan–Zambon conjecture acquires a transparent symplectic interpretation:
-1. The Ostrogradsky spatial Hamiltonian $\mathcal H^{(x)}$ is identically $\mathcal T^1{}_1 = -T^{11}$ (minus the canonical momentum flux, Lemma 2.1).
-2. The defect variational equations at $x=0$ define a Lagrangian correspondence $\Gamma_d \subset \mathcal P_-^{(x)} \times \mathcal P_+^{(x)}$, and on-shell momentum conservation $\dot P = 0$ is literally the spatial Hamilton–Jacobi equation $\iota^*(H_-^{(x)} - H_+^{(x)}) = 0$ on $\Gamma_d$ (Theorem 1).
-3. By Lemma 3.1, vanishing of $\delta(H_-^{(x)} - H_+^{(x)})$ on $\Gamma_d$ is equivalent to tangency of the bulk $\partial_x$-evolution vector field $(X_{H_-^{(x)}}, X_{H_+^{(x)}})$ to $\Gamma_d$, proving unconditionally (under the standing regularity hypotheses) that every non-degenerate momentum-conserving jump defect is a spatial Bäcklund correspondence.
-4. Conditionally on embedding $\Gamma_d$ into an asymptotically regular one-parameter spectral family $\Gamma_d(\sigma)$ (Definition 4.1), the high-spectral-parameter jet expansion of $\Gamma_d(\sigma)$ generates an infinite sequence of local conservation laws (Theorem 2).
-
----
+The first two identities in (3.2) become $(P_d)_w=-B_w$ and $(P_d)_q=B_q$. Equality of mixed derivatives implies $B_{wq}=0$. Consequently, locally,
+
+$$
+ B=f(w)+g(q),\qquad P_d=-f(w)+g(q),
+$$
+
+and the last identity in (3.2) is exactly
+
+$$
+ U(w+Dq)-U(w-D^Tq)=\frac12 f'(w)^Tg'(q).                   \tag{3.4}
+$$
+
+Conversely, the splitting and (3.4) imply all of (3.2), so they are sufficient for the strong momentum identity. $\square$
+
+The split potential is therefore a consequence of momentum conservation. Its functional form remains unspecified. The coefficient calculation, including all velocity terms for a general three-component skew matrix, is checked in `textbook_code/defect_integrability_structural/paper_checks.py`.
+
+**Proposition 3.2 (scalar Hessian and rescaling).** Under hypotheses 1–4, the defect admits the normalized family (3.7)–(3.8), and its kinetic matrix commutes with the bulk mass matrix.
+
+**Proof.** Differentiate (3.4) in $q$ at zero. Since $D+D^T=2I$,
+
+$$
+ Gf'(w)=4U'(w).                                            \tag{3.5}
+$$
+
+Both $G$ and $f''$ are symmetric. Differentiating (3.5) and transposing shows
+
+$$
+ [G,U''(w)]=0\quad\hbox{for every }w.                      \tag{3.6}
+$$
+
+Diagonalize $G$ orthogonally. Equation (3.6) says every mixed second derivative of $U$ between distinct eigenspaces vanishes. Integrating this statement near zero splits $U$ as a sum of potentials on those eigenspaces; $U'(0)=0$ removes any issue with linear terms. Bulk irreducibility therefore forces $G=\gamma I$, $\gamma\ne0$.
+
+Normalize $f(0)=g(0)=0$. Then $f=4U/\gamma$. Multiplying $f$ by a nonzero parameter $\lambda$ and $g$ by $\lambda^{-1}$ preserves (3.4). Put $\epsilon=4\lambda/\gamma$ and replace $g$ by $4g/\gamma$. The family becomes
+
+$$
+ B_\epsilon=\epsilon U(w)+\epsilon^{-1}g(q),\qquad
+ P_\epsilon=-\epsilon U(w)+\epsilon^{-1}g(q),              \tag{3.7}
+$$
+
+where, from now on,
+
+$$
+ g(0)=0,\quad g'(0)=0,\quad g''(0)=4I,\qquad
+ U(w+Dq)-U(w-D^Tq)=\tfrac12 U'(w)^Tg'(q).                 \tag{3.8}
+$$
+
+Thus a parameter family is derived within this class. No claim about an arbitrary symmetry producing a spectral family is needed.
+
+There is one further consequence needed later. Put $w=0$ in (3.8) and compare quadratic terms in $q$. This gives
+
+$$
+ D^TMD=DMD^T,\qquad [E,M]=0.                              \tag{3.9}
+$$
+
+The second equality follows by expanding the first: its difference is $2(EM-ME)$. $\square$
+
+## 4. A local formal branch satisfying both sewing equations
+
+**Proposition 4.1 (formal Bäcklund substitution).** The family (3.7) has a unique local formal branch fixing the vacuum and approaching the identity. This branch satisfies both sewing equations and intertwines the bulk evolution.
+
+**Proof.** Write $D_\pm=D_t\pm D_x$, with $D_t$ acting on Cauchy jets by
+
+$$
+ D_tu=p,\qquad D_tp=u_{xx}-U'(u),\qquad [D_t,D_x]=0.
+$$
+
+Equations (3.1) become
+
+$$
+ D_+q=-\frac\epsilon2U'(w),\qquad
+ D_-w=\frac1{2\epsilon}g'(q).                             \tag{4.1}
+$$
+
+Since $w=u-Dq$, the second equation is
+
+$$
+ g'(q)=2\epsilon D_-u-2\epsilon D D_-q.                   \tag{4.2}
+$$
+
+Set $q=\sum_{n\geq1}\epsilon^n q_n$. The linear part of $g'$ is $4q$. At order $n$, the right side uses only $q_1,\ldots,q_{n-1}$, as do the nonlinear terms of $g'(q)$. Division by $4$ determines $q_n$ uniquely. Each coefficient is an analytic function of finitely many Cauchy jets. In particular,
+
+$$
+ q_1=\tfrac12(p-u_x),\quad
+ v=u-2q=u+\epsilon(u_x-p)+O(\epsilon^2).                  \tag{4.3}
+$$
+
+To verify the first equation as well, define
+
+$$
+ A=D_+q+\tfrac\epsilon2U'(w).
+$$
+
+Differentiating (3.8) in $w,q$ and solving the resulting two linear identities for $U'(u)$ gives
+
+$$
+ U'(u)=\tfrac14\{g''(q)U'(w)+D U''(w)g'(q)\}.            \tag{4.4}
+$$
+
+Use (4.2) to differentiate $u=w+Dq$. Direct substitution yields
+
+$$
+ D_+D_-u+U'(u)
+   =\left(D D_-+\frac1{2\epsilon}g''(q)\right)A.           \tag{4.5}
+$$
+
+The left side vanishes on the bulk equation. The operator on the right has leading Laurent coefficient $2\epsilon^{-1}I$. If $A$ had a first nonzero coefficient $\epsilon^a A_a$, the lowest term of the right side would be $2\epsilon^{a-1}A_a$, a contradiction. Thus $A=0$ coefficientwise. The other combination of the differentiated potential identity is
+
+$$
+ U'(v)=\tfrac14\{g''(q)U'(w)-D^TU''(w)g'(q)\}.
+$$
+
+Differentiating $v=w-D^Tq$ using (4.1) gives the negative of this expression for $D_+D_-v$. Hence $v$ satisfies the same bulk equation.
+
+Consequently
+
+$$
+ T_\epsilon:(u,p)\longmapsto(v,D_tv)
+$$
+
+is a local formal substitution, intertwines the bulk evolution, fixes the zero solution, and has a unique formal inverse. The argument only compares Laurent coefficients bounded below. It uses the invertible pole $2\epsilon^{-1}I$, without any assumption that $D_t$ is injective. $\square$
+
+## 5. Conserved energy coefficients and equal-time canonicity
+
+**Proposition 5.1 (current and equal-time generator).** The coefficients in (2.3) are local conserved functionals. The map $T_\epsilon$ is canonical for (2.4), and its source parameter velocity has Hamiltonian $-I(\epsilon)/\epsilon$.
+
+**Proof.** The full sewing equations imply the current identity directly:
+
+$$
+ D_tB_\epsilon+D_xP_\epsilon
+ =\epsilon U'(w)^TD_-w+\epsilon^{-1}g'(q)^TD_+q=0.          \tag{5.1}
+$$
+
+On the branch $q=O(\epsilon)$, both densities are $O(\epsilon)$. Therefore (2.3) defines local conserved charges at every order. The first is
+
+$$
+ I_1=\int\left\{\tfrac12|p-u_x|^2+U(u)\right\}dx.        \tag{5.2}
+$$
+
+Now form a functional on two independent equal-time endpoint fields:
+
+$$
+ F_\epsilon[u,v]=\int\{2q^Tw_x+P_\epsilon(w,q)\}\,dx.    \tag{5.3}
+$$
+
+The kinetic term is equivalent modulo an $x$-derivative to
+$\frac12u^TEu_x+u^TDv_x+\frac12v^TEv_x$.
+Its variation in $(w,q)$ is
+
+$$
+ \delta F_\epsilon=\int\left[
+ (-2q_x-\epsilon U'(w))^T\delta w
+ +(2w_x+\epsilon^{-1}g'(q))^T\delta q\right]dx.            \tag{5.4}
+$$
+
+On (4.1), the two coefficients are $p-P$ and $D^Tp+DP$, respectively, where $P=v_t$. By (3.3),
+
+$$
+ \delta F_\epsilon=\int(p^T\delta u-P^T\delta v)dx.        \tag{5.5}
+$$
+
+Taking an exterior derivative of (5.5) on the graph gives $T_\epsilon^*\Omega=\Omega$. Thus the transformation is canonical for the equal-time form (2.4). Appendix A describes the separate spatial symplectic interpretation.
+
+At fixed endpoints,
+
+$$
+ \epsilon\partial_\epsilon F_\epsilon
+             =-\int B_\epsilon\,dx.                      \tag{5.6}
+$$
+
+The source velocity $W_\epsilon=(DT_\epsilon)^{-1}\partial_\epsilon T_\epsilon$ therefore obeys
+
+$$
+ \iota_{W_\epsilon}\Omega=dK_\epsilon,\qquad
+ K_\epsilon=-I(\epsilon)/\epsilon.                        \tag{5.7}
+$$
+
+To prove the parameter-generator identity with the convention (2.4), put $\theta=\int p^T\delta u\,dx$, so $d\theta=-\Omega$, and let $V=(\partial_\epsilon T)\circ T^{-1}$. Pulling (5.5) to the graph gives $d(F\circ\mathrm{graph}\,T)=\theta-T^*\theta$. Its parameter derivative is
+
+$$
+ d\{(\partial_\epsilon F)\circ\mathrm{graph}\,T
+       -T^*(\iota_V\theta)\}
+ =T^*(\iota_V\Omega)-dT^*(\iota_V\theta).
+$$
+
+Cancel the last exact terms and use $T^*\Omega=\Omega$. This proves (5.7). Thus the conserved coefficients are precisely the Hamiltonians of the parameter velocity. $\square$
+
+Generating functions and differentiation in a Bäcklund parameter also feature in the Hamiltonian treatment of Kuznetsov–Sklyanin [5](https://arxiv.org/abs/solv-int/9711010). Here (5.6)–(5.7) are derived directly, without postulating a Lax spectrality relation.
+
+## 6. Rigidity of local conserved functionals near a massive vacuum
+
+The commutation argument rests on a rigidity property of analytic local conserved functionals. The positive masses make the free dispersion relation sufficiently restrictive to exclude a local conserved functional whose first nonzero amplitude degree exceeds two.
+
+**Lemma 6.1 (free massive fields).** For finitely many real free Klein–Gordon fields with positive masses, a translation-invariant homogeneous polynomial local functional of degree $n\geq3$ conserved by the free evolution is zero modulo a spatial derivative. A conserved linear local functional is zero as well.
+
+**Proof.** Diagonalize the positive mass matrix. For a species $a$ and real Fourier momentum $k$, write
+
+$$
+ \omega_a(k)=\sqrt{k^2+m_a^2},\qquad
+ \widehat u_a=a_{a,+}+a_{a,-},\quad
+ \widehat p_a=i\omega_a(a_{a,+}-a_{a,-}).                    \tag{6.1}
+$$
+
+Complexification and polarization let the amplitudes be treated independently. They evolve by $\dot a_{a,\sigma}=i\sigma\omega_a a_{a,\sigma}$. Polarize the homogeneous functional into a symmetric multilinear functional of $n$ independent Cauchy data. Translation invariance gives the factor $\delta(k_1+\cdots+k_n)$ in its Fourier kernel. Finite differential order makes each coefficient polynomial in the momenta before (6.1). After that invertible change of amplitudes, each species and sign component has a real-analytic coefficient $A(k_1,\ldots,k_n)$.
+
+Conservation for arbitrary Fourier wave packets implies on the momentum hyperplane
+
+$$
+ \Phi A=0,\qquad
+ \Phi=\sum_{j=1}^n\sigma_j\omega_{a_j}(k_j),\quad
+ k_n=-\sum_{j<n}k_j.                                     \tag{6.2}
+$$
+
+For $n\geq3$, two of the independent variables are $k_1,k_2$, and
+
+$$
+ \frac{\partial^2\Phi}{\partial k_1\partial k_2}
+ =\frac{\sigma_n m_{a_n}^2}
+        {(k_n^2+m_{a_n}^2)^{3/2}}\ne0.                    \tag{6.3}
+$$
+
+Thus $\Phi$ cannot vanish identically on any open subset. Equation (6.2) forces $A=0$ on the complement of its zero set and hence everywhere by continuity. This does **not** deny the existence of resonant momenta. Locality rules out a kernel supported only on their lower-dimensional set.
+
+Invert (6.1) at each momentum. Each original polynomial kernel vanishes on $\sum k_j=0$, so polynomial division by the monic linear polynomial $k_n+\sum_{j<n}k_j$ has zero remainder. Thus that kernel has this polynomial as a factor. The quotient can be symmetrized over identical arguments without changing the identity. In the polarized differential-polynomial representation, multiplication by $i\sum k_j$ is precisely a total $x$-derivative. This proves that the functional is zero modulo a derivative. At degree one, integration by parts leaves only $\int(a^Tu+b^Tp)dx$; conservation and invertibility of the mass matrix force $a=b=0$. $\square$
+
+**Lemma 6.2 (injectivity of the quadratic part).** Let $H=\int\{\frac12|p|^2+\frac12|u_x|^2+U(u)\}dx$ satisfy hypothesis 1. An analytic finite-jet local conserved functional with zero constant, linear, and quadratic parts as a functional is zero. In particular, two normalized conserved functionals with no linear term and the same quadratic part coincide.
+
+**Proof.** Expand by amplitude degree, assigning degree one to every Cauchy jet. Suppose the first nonzero homogeneous functional has degree $n\geq3$. At that degree, $\{F,H\}=0$ reads $\{F^{(n)},H^{(2)}\}=0$: all nonlinear terms of $H$ contribute at higher degree. Lemma 6.1 makes $F^{(n)}$ a spatial derivative, a contradiction. Equivalently, induction makes every homogeneous functional zero. This induction takes place modulo derivatives, so lower homogeneous densities that are nonzero derivatives cause no extra terms in a Poisson bracket.
+
+For an analytic density involving a fixed finite number of jets, its Euler derivatives are analytic functions of finitely many jets. Their Taylor series vanish by the preceding argument; hence the Euler derivatives vanish near zero. Integrate the first variation along the scaling path $(u,p)\mapsto\lambda(u,p)$, $0\leq\lambda\leq1$. Integration by parts expresses it through those Euler derivatives, so the functional equals its vacuum value, which is zero. The same argument holds purely formally in amplitude. $\square$
+
+Any analytic conserved functional has zero linear part as a functional: its degree-one conservation equation is the free conservation equation treated in Lemma 6.1. Thus the quadratic-part map is injective on vacuum-normalized analytic local conserved functionals. This statement concerns **local** functionals. Products such as $H^2$ are not local integrals. Positivity of the masses and analyticity are used in the two separate steps of the proof.
+
+Local currents of the free Klein–Gordon equation have been studied by Gordon [6](https://doi.org/10.1017/S0305004100058965) and Opanasenko–Popovych [7](https://arxiv.org/abs/1810.12434). Lemma 6.1 gives the multicomponent, translation-invariant statement needed here with a direct proof.
+
+## 7. Commutation to all orders
+
+**Proposition 7.1 (involution and formal permutability).** All the charges $I_n$ Poisson commute, and $T_\epsilon T_\eta=T_\eta T_\epsilon$ as a bivariate formal substitution.
+
+**Proof.** Linearize at zero. On Cauchy columns $z=(u,p)^T$, let
+
+$$
+ \mathcal L=
+ \begin{pmatrix}-\partial_x I&I\\ \partial_x^2I-M&-\partial_xI\end{pmatrix}.
+                                                               \tag{7.1}
+$$
+
+This represents $D_-$ on free Cauchy data. A constant field-space matrix acts diagonally on the two Cauchy components; hats for these diagonal lifts will be suppressed. Equation (3.9) ensures that $E,D,D^T$ all commute with $\mathcal L$.
+
+The linearized second equation of (4.1) says $q=(\epsilon/2)D_-w$. Combining it with (3.3) gives the exact formal linearization
+
+$$
+ T_\epsilon^{\mathrm{lin}}
+ =\left(I-\frac\epsilon2D^T\mathcal L\right)
+  \left(I+\frac\epsilon2D\mathcal L\right)^{-1}.            \tag{7.2}
+$$
+
+All coefficients belong to the commutative algebra generated by $E,\mathcal L$. Thus its source velocities commute for different parameters. More explicitly, expansion and logarithmic differentiation of (7.2), followed by (5.7), give
+
+$$
+ X_{I_n^{(2)}}=C_n\mathcal L^n,\qquad
+ C_n=2^{-n}\bigl((I+E)^n-(-1)^n(I-E)^n\bigr).              \tag{7.3}
+$$
+
+For any $n,m$, these constant-coefficient linear Hamiltonian vector fields commute. The quadratic functional $\{I_n^{(2)},I_m^{(2)}\}$ has zero Hamiltonian vector field and vanishes at zero, so is zero.
+
+The full bracket $J_{nm}=\{I_n,I_m\}$ is an analytic finite-jet local conserved functional, by the Jacobi identity and $\{I_n,H\}=0$. The substitution fixes zero, and $U$ and $g$ start at quadratic order there. Consequently every $I_n$ has zero constant and linear terms. Therefore $J_{nm}$ has no constant or linear term, and its quadratic part is the bracket just proved zero. Lemma 6.2 implies
+
+$$
+ \boxed{\{I_n,I_m\}=0\quad\hbox{for all }n,m.}            \tag{7.4}
+$$
+
+Equation (7.4) follows from the computed quadratic generators and Lemma 6.2. Preservation of the bulk Hamiltonian by a canonical family would not alone suffice; Section 9 gives an explicit example.
+
+Permutability follows, in the formal sense appropriate here. Let $A_\epsilon=T_\epsilon^*$ act on local functions. The source-velocity identity is $\partial_\epsilon A_\epsilon=\mathcal L_{W_\epsilon}A_\epsilon$. Equations (5.7) and (7.4), together with $A_0=I$, give
+
+$$
+ A_\epsilon=
+ \exp\left(-\sum_{n\geq1}\frac{\epsilon^n}{n}
+                           \mathcal L_{X_{I_n}}\right).   \tag{7.5}
+$$
+
+All coefficients in the exponent commute, so $A_\epsilon A_\eta=A_\eta A_\epsilon$ and consequently $T_\epsilon T_\eta=T_\eta T_\epsilon$. Every coefficient of this exponential involves only finitely many compositions of local evolutionary derivations. It is therefore a well-defined formal substitution. This proves formal Bianchi permutability; a finite algebraic superposition formula is not required. $\square$
+
+## 8. Infinitely many independent charges
+
+**Proposition 8.1 (functional independence).** For every positive integer $N$, some $N$ charges from (2.3) have independent differentials at arbitrarily small periodic Cauchy data.
+
+**Proof.** We compute their quadratic parts as local functionals, modulo integration by parts.
+
+Because $E$ is real skew and commutes with $M$, choose a real unit vector $a$ in a common eigenspace of $-E^2$ and $M$:
+
+$$
+ -E^2a=e^2a,\qquad Ma=m^2a,\quad m^2>0,\quad e\geq0.
+$$
+
+For odd $n=2j+1$, $C_n$ is a real polynomial in $E^2$, so it acts as a scalar on this subspace. Restrict $I_{2j+1}^{(2)}$ to $u=0$, $p=a\varphi$. The $u$-component of its Hamiltonian vector field is its $p$-gradient. Equation (7.3) therefore gives
+
+$$
+ I_{2j+1}^{(2)}\big|_{u=0,p=a\varphi}
+       =\frac12\int\varphi P_j(\partial_x^2)\varphi\,dx,
+ \qquad
+ P_j(z)=c_jz^j+\text{lower powers},\quad
+ c_j=\operatorname{Re}(1+ie)^{2j+1}.                       \tag{8.1}
+$$
+
+For completeness, write the $2\times2$ restriction of $\mathcal L$ as $-\partial_xI+A$, with $A^2=(\partial_x^2-m^2)I$ and $A_{12}=1$. Its odd power has off-diagonal entry polynomial in $\partial_x^2$ with leading term $2^{2j}\partial_x^{2j}$. Multiplying the scalar $C_{2j+1}=2^{-2j}\operatorname{Re}(1+ie)^{2j+1}$ proves (8.1).
+
+Infinitely many $c_j$ are nonzero. Indeed, set $\theta=\arctan e\in[0,\pi/2)$. If all sufficiently late $c_j$ vanished, two consecutive late odd angles would both have zero cosine. Their difference gives $2\theta\in\pi\mathbb Z$. In the indicated range this forces $\theta=0$, where none of the cosines vanishes, a contradiction. Some individual charges can vanish; no assertion is made that every coefficient is nontrivial.
+
+Choose $N$ indices $j_1<\cdots<j_N$ with $c_{j_i}\ne0$. The polynomials $P_{j_i}$ have distinct degrees and are linearly independent. Hence there are distinct positive integers $k_1,\ldots,k_N$ for which the evaluation matrix $[P_{j_i}(-k_\ell^2)]$ is invertible. Otherwise their evaluation vectors on this infinite set would span a proper subspace, giving a nonzero linear combination vanishing at infinitely many points, impossible for a polynomial.
+
+On the circle of length $2\pi$, restrict further to
+
+$$
+ u=0,\qquad p=a\sum_{\ell=1}^N b_\ell\cos(k_\ell x).
+$$
+
+The quadratic charges are $(\pi/2)\sum_\ell P_{j_i}(-k_\ell^2)b_\ell^2$. At $b_\ell=\tau\beta_\ell$ with all $\beta_\ell\ne0$, the Jacobian of the full charges is the invertible quadratic Jacobian of order $\tau$, plus $O(\tau^2)$. Its determinant has a nonzero coefficient at order $\tau^N$ and is therefore nonzero for sufficiently small nonzero $\tau$. Their differentials are independent at those data, and by continuity on a neighborhood in a sufficiently regular function space. This proves Proposition 8.1 and completes the proof of Theorem 2.1. $\square$
+
+## 9. A noncommuting family for a reducible bulk theory
+
+Dropping bulk irreducibility while retaining only invertibility of $G$ does not guarantee that the family supplied by one defect commutes. Here is an exact example with two massive free fields:
+
+$$
+ U(u)=\tfrac12|u|^2,\quad
+ E=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\quad D=I-E,
+ \quad G=\operatorname{diag}(4,8),
+$$
+$$
+ f(w)=\tfrac12w_1^2+\tfrac14w_2^2,\qquad
+ g(q)=2q_1^2+4q_2^2.                                     \tag{9.1}
+$$
+
+Equation (3.4) holds exactly, since $f''=4G^{-1}$ and $[E,U'']=0$. The family $B_\epsilon=\epsilon f+\epsilon^{-1}g$ has a unique transparent local branch and the same canonical-generating construction.
+
+On a free plane wave, write $\ell$ for the eigenvalue of $D_-$ and set $A=2DG^{-1}$, $B=2D^TG^{-1}$. The amplitude transformation is
+
+$$
+ T_\epsilon=(I-\epsilon\ell B)(I+\epsilon\ell A)^{-1}
+ =I+\epsilon\ell t_1+\epsilon^2\ell^2t_2+\cdots,
+ \quad t_1=-(A+B),\quad t_2=(A+B)A.
+$$
+
+Direct matrix multiplication gives
+
+$$
+ [t_1,t_2]=\frac18\begin{pmatrix}0&1\\1&0\end{pmatrix},
+ \qquad
+ T_\epsilon T_\eta-T_\eta T_\epsilon
+ =\frac{\epsilon\eta(\eta-\epsilon)\ell^3}{8}
+        \begin{pmatrix}0&1\\1&0\end{pmatrix}
+   +O_{\mathrm{total}}(4).                               \tag{9.2}
+$$
+
+This is an obstruction to automatic commutativity of the defect family, **not** a nonintegrable bulk counterexample: these bulk fields are free and integrable. It also explains why irreducibility of the combined bulk and defect would be the wrong substitute for hypothesis 2.
+
+## 10. A coupled nonlinear example and exact checks
+
+As a check that the assumptions admit a coupled nonlinear example, take
+
+$$
+ \alpha_1=(\sqrt2,0)^T,\quad
+ \alpha_2=(-1/\sqrt2,\sqrt6/2)^T,\quad
+ \alpha_3=(-1/\sqrt2,-\sqrt6/2)^T,
+ \quad E=\frac1{\sqrt3}\begin{pmatrix}0&1\\-1&0\end{pmatrix},
+$$
+$$
+ U(w)=\sum_{i=1}^3e^{\alpha_i^Tw}-3,\qquad
+ g(q)=\sum_{i=1}^3e^{\beta_i^Tq}-3,\quad \beta_i=D^T\alpha_i.
+                                                               \tag{10.1}
+$$
+
+Then $M=3I$, $g''(0)=4I$, and
+
+$$
+ [\alpha_i^T\beta_j]_{ij}
+ =\begin{pmatrix}2&0&-2\\-2&2&0\\0&-2&2\end{pmatrix},
+ \qquad -D\alpha_i=\beta_{i-1}
+$$
+
+with cyclic indices. Comparing the independent exponentials $e^{\alpha_i^Tw}$ proves (3.8) exactly. The potential is irreducible: an orthogonal splitting in two dimensions would require all mixed Hessian coefficients to vanish; independence of these three exponentials would force every $\alpha_i$ onto one of two perpendicular axes, which their directions exclude. This is the $A_2^{(1)}$ example within the classical Type-I setting of Bowcock–Corrigan–Zambon [2](https://arxiv.org/abs/hep-th/0401020). The example verifies that the hypotheses admit a coupled nonlinear potential; no root data enter the general proof.
+
+The exact symbolic checks are in `textbook_code/defect_integrability_structural/checks.py`. Run them from the repository root with
+
+```sh
+python3 textbook_code/defect_integrability_structural/checks.py
+```
+
+The [recorded output](structural_type_I/verification.txt) contains 30 passing checks. These cover the original linearized sewing equations, the temporal symplectic identity with spatial adjoints, seven quadratic Hamiltonian generators and their commutators, a finite Fourier independence determinant, the obstruction (9.2), and the mixed derivative (6.3). For (10.1), the script checks the potential identity exactly, the first four nonlinear local currents, and the Poisson bracket of the nontrivial spin-two and spin-four charges. The nonlinear checks do not truncate field amplitude.
+
+The distinction between a sequence of coefficients and a sequence of nontrivial charges is visible in this example. Here $E^2=-I/3$, so $C_3=(I+3E^2)/4=0$. Lemma 6.2 implies $I_3=0$ as a local functional; its density is a spatial derivative. The script checks that fact independently using Euler derivatives, and also verifies that $I_2$ is nontrivial.
+
+Finite calculations verify these identities and examples. The all-orders conclusions use the written proofs, especially Lemmas 6.1–6.2. Neither Theorem 2.1 nor those analytic variational arguments have been formalized in Lean. The separate algebraic Lean lemmas accompanying the earlier scalar reconstruction are not a formal certification of this paper.
+
+The companion script `textbook_code/defect_integrability_structural/paper_checks.py` supplies twelve further exact checks of the derivations and scope examples: the general three-component momentum and chiral identities, the temporal endpoint momenta, the kinetic term modulo a derivative, the full-sewing residual, the spatial Hamiltonian and generating-functional signs, the shifted critical point, and the massless obstruction in Section 11. Its output is in [paper_verification.txt](structural_type_I/paper_verification.txt). Run it with
+
+```sh
+python3 textbook_code/defect_integrability_structural/paper_checks.py
+```
+
+## 11. Different bulk theories and limits of the result
+
+### 11.1 What transparency forces
+
+Suppose the same normalized constant Type-I coupling instead joins potentials $U_-$ and $U_+$. The calculation of Proposition 3.1 still gives a split defect potential, but (3.4) becomes
+
+$$
+ U_-(w+Dq)-U_+(w-D^Tq)=\frac12 f'(w)^Tg'(q).              \tag{11.1}
+$$
+
+If $g'(0)=0$, evaluating (11.1) at $q=0$ gives $U_-(w)=U_+(w)$ near zero. More generally, if $g'(q_*)=0$ at any fixed $q_*$, then
+
+$$
+ U_-(z)=U_+(z-2q_*),\qquad z=w+Dq_*.                     \tag{11.2}
+$$
+
+Thus moving the transparent critical point only permits a constant field shift. In the coordinate normalization used here, genuinely different potentials cannot satisfy the transparent-limit hypothesis. This is an algebraic consequence of momentum conservation, not merely a choice to write the same symbol $U$ on both sides.
+
+Genuinely different bulk theories can nevertheless occur in integrable defect constructions. For example, Section 2 of [1](https://arxiv.org/html/hep-th/0305022) gives a defect joining a Liouville field to a free massless field. Such a pair has no common positive-mass vacuum of the kind required by Theorem 2.1.
+
+### 11.2 A possible composition argument
+
+Suppose a defect between different theories gives equal-time canonical maps $T_\lambda:\mathcal P_-\to\mathcal P_+$ intertwining their evolutions. Wherever $T_{\lambda_0}$ is invertible, the composition
+
+$$
+ S_\lambda=T_{\lambda_0}^{-1}\circ T_\lambda:
+             \mathcal P_-\longrightarrow\mathcal P_-      \tag{11.3}
+$$
+
+is canonical, preserves the left evolution, and equals the identity at $\lambda_0$. These statements follow directly by composing the symplectic and intertwining identities. They do not establish an integrable hierarchy. Solving either Bäcklund transformation may require integration, and the composition may have nonlocal coefficients even though the sewing equations are local.
+
+To use the present mechanism, one would need a local expansion of (11.3) with local Hamiltonian parameter generators, control of its vacuum behavior, commuting quadratic generators, and an unbounded independent sequence of their symbols. Lemma 6.2 would then apply if the remaining analytic massive hypotheses hold. Establishing these additional properties for genuinely different theories is outside Theorem 2.1.
+
+### 11.3 Other restrictions
+
+The assumptions perform different tasks. The constant Type-I coupling gives the split momentum identity and the explicit temporal generating functional. The transparent nondegenerate Hessian makes the local recursion triangular. Bulk irreducibility forces that Hessian to be scalar, which is sufficient for commutation of the quadratic parameter generators. Positive masses exclude higher-degree local free conserved functionals, and analyticity upgrades the amplitude argument to an identity of local analytic functionals.
+
+The mass restriction cannot simply be dropped from the rigidity argument. For a free massless scalar, $r=p+u_x$ satisfies $D_tr=D_xr$, so $\int r^n dx$ is conserved for every positive integer $n$. At $n\geq3$ this is a nonzero local functional with no quadratic part, contradicting the conclusion of Lemma 6.1 if that lemma were stated without its mass hypothesis. Smooth functions flat at the vacuum likewise cannot be excluded by the analytic Taylor-series argument.
+
+Type-II defects with auxiliary variables, field-dependent kinetic couplings, general higher-derivative bulk Lagrangians, and nonrelativistic equations require further work. The spatial geometric statement in Appendix A explains an intertwining mechanism, but does not supply the additional locality, commutation, or independence arguments for these classes.
+
+## 12. Conclusion
+
+Within the hypotheses of Theorem 2.1, momentum conservation produces a reciprocal parameter family whose formal local branch is canonical in equal time. Its defect-energy expansion generates conserved Hamiltonians. The decisive step is the rigidity of massive analytic local conservation laws: the quadratic Hamiltonian generators commute, so their full nonlinear counterparts commute. Actual quadratic charge symbols, rather than unreduced derivative order, prove functional independence of arbitrarily large finite subfamilies. Formal Bianchi permutability is a consequence.
+
+The potential remains unspecified throughout the proof. The resulting theorem is restricted to the analytic massive Type-I setting stated here; the general implication from a momentum-conserving interface to integrability of both adjoining theories remains open.
+
+## Appendix A. The spatial Hamilton–Jacobi interpretation
+
+For the bulk Lagrangian (2.1), the spatial momentum and Hamiltonian density are
+
+$$
+ \pi=-u_x,\qquad
+ \mathcal H^{(x)}=\pi^Tu_x-L
+     =-\frac12|\pi|^2-\frac12|u_t|^2+U(u)=-T^{11}(u).     \tag{A.1}
+$$
+
+At fixed $x$, consider histories in $t$, with variations and boundary conditions for which integration by parts has no boundary contribution. Periodic histories are one choice. In the formal variational description,
+
+$$
+ \Omega^{(x)}=\int\delta u^T\wedge\delta\pi\,dt,\qquad
+ H^{(x)}=\int\mathcal H^{(x)}dt.
+$$
+
+Hamilton's equations give $u_x=-\pi$ and $\pi_x=-u_{tt}-U'(u)$, which are equivalent to the bulk equation. If $S_d=\int L_d\,dt$, the boundary variation of the bulk and defect action gives
+
+$$
+ d(-S_d)=\int(\pi_-^T\delta u-\pi_+^T\delta v)dt          \tag{A.2}
+$$
+
+on the sewing relation. This is the generating-functional identity for a spatial canonical relation. A concrete infinite-dimensional phase-space interpretation additionally requires a regular realization of the relation and the appropriate Lagrangian property; (A.2) alone is not a proof of those analytic hypotheses in every function space.
+
+**Lemma A.1 (symplectic intertwining).** Let $(\mathcal P_\pm,\Omega_\pm)$ be symplectic manifolds on which the Hamiltonian vector fields $X_{H_\pm}$ exist. Let $\Gamma$ be a regular Lagrangian submanifold of $(\mathcal P_-\times\mathcal P_+,\Omega_-\oplus(-\Omega_+))$. In an infinite-dimensional application, assume explicitly the Lagrangian equality $T\Gamma=(T\Gamma)^{\perp_\Omega}$. Then $(X_{H_-},X_{H_+})$ is tangent to $\Gamma$ if and only if $H_--H_+$ is locally constant on $\Gamma$. If the relation is locally a graph, this tangency expresses intertwining of the Hamiltonian evolutions.
+
+**Proof.** For a vector $Y$ tangent to $\Gamma$,
+
+$$
+ \Omega\big((X_{H_-},X_{H_+}),Y\big)=d(H_--H_+)(Y).
+$$
+
+If the right side vanishes, the Hamiltonian vector belongs to $(T\Gamma)^{\perp_\Omega}=T\Gamma$. Conversely, if it is tangent, the left side vanishes because $\Gamma$ is isotropic, so the restricted differential is zero. The graph assertion follows from the definition of the tangent space of a graph. $\square$
+
+For the momentum balance used in Section 3,
+
+$$
+ \mathcal H_-^{(x)}-\mathcal H_+^{(x)}=-D_tP_d.             \tag{A.3}
+$$
+
+Integrating over histories with vanishing boundary contribution gives $H_-^{(x)}-H_+^{(x)}=0$ on the relation. Lemma A.1 then explains spatial Bäcklund intertwining whenever its geometric hypotheses hold. The calculation allows distinct bulk potentials. It supplies neither an equal-time canonical map nor an infinite commuting hierarchy on its own. For the class of Theorem 2.1, Sections 4–8 establish those further conclusions directly in the Cauchy-jet algebra.
 
 ## References
 
-1. P. Bowcock, E. Corrigan and C. Zambon, *Classically integrable field theories with defects*, Int. J. Mod. Phys. A **19S2** (2004) 82–91 (`arXiv:hep-th/0305022`).
-2. P. Bowcock, E. Corrigan and C. Zambon, *Affine Toda field theories with defects*, JHEP **0401** (2004) 056 (`arXiv:hep-th/0401020`).
-3. E. Corrigan and C. Zambon, *Jump-defects in the nonlinear Schrödinger model and other non-relativistic field theories*, Nonlinearity **19** (2006) 1447–1469 (`arXiv:nlin/0512038`).
-4. E. Corrigan and C. Zambon, *Comments on defects in the $a_r$ Toda field theories*, J. Phys. A **42** (2009) 304008 (`arXiv:0902.1307`).
-5. E. Corrigan and C. Zambon, *A new class of integrable defects*, J. Phys. A: Math. Theor. **42** (2009) 475203 (`arXiv:0908.3126`).
-6. E. Corrigan and C. Zambon, *Type II defects revisited*, JHEP **09** (2018) 019 (`arXiv:1807.05747`).
-7. E. Corrigan and C. Zambon, *Integrable defects at junctions within a network*, J. Phys. A: Math. Theor. **53** (2020) 484001 (`arXiv:2006.14447`).
-8. E. Corrigan and C. Zambon, *Adding integrable defects to the Boussinesq equation*, J. Phys. A: Math. Theor. **56** (2023) 345203 (`arXiv:2306.03772`).
-9. A. Weinstein, *Symplectic manifolds and their Lagrangian submanifolds*, Adv. Math. **6** (1971) 329–346.
-10. P. J. Olver, *Applications of Lie Groups to Differential Equations*, 2nd ed., Springer, New York (1993).
+1. P. Bowcock, E. Corrigan and C. Zambon, [*Classically integrable field theories with defects*](https://arxiv.org/abs/hep-th/0305022), International Journal of Modern Physics A **19S2** (2004), 82–91.
+2. P. Bowcock, E. Corrigan and C. Zambon, [*Affine Toda field theories with defects*](https://arxiv.org/abs/hep-th/0401020), Journal of High Energy Physics **01** (2004), 056.
+3. R. Bristow and P. Bowcock, [*Momentum conserving defects in affine Toda field theories*](https://arxiv.org/abs/1612.03002), Journal of High Energy Physics **05** (2017), 153.
+4. V. Caudrelier and A. Kundu, [*A multisymplectic approach to defects in integrable classical field theory*](https://arxiv.org/abs/1411.0418), Journal of High Energy Physics **02** (2015), 088.
+5. V. B. Kuznetsov and E. K. Sklyanin, [*Few remarks on Bäcklund transformations for many-body systems*](https://arxiv.org/abs/solv-int/9711010), Journal of Physics A **31** (1998), 2241–2251.
+6. T. J. Gordon, [*Conserved currents of the Klein–Gordon field*](https://doi.org/10.1017/S0305004100058965), Mathematical Proceedings of the Cambridge Philosophical Society **90** (1981), 507–515.
+7. S. Opanasenko and R. O. Popovych, [*Generalized symmetries and conservation laws of (1+1)-dimensional Klein–Gordon equation*](https://arxiv.org/abs/1810.12434), Journal of Mathematical Physics **61** (2020), 101515.

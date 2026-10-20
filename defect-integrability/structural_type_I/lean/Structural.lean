@@ -10,3 +10,10 @@ public import Structural.Dispersion
 public import Structural.MomentumDivisibility
 public import Structural.Variational
 public import Structural.PolynomialHomotopy
+
+public import Structural.PlaneWave
+public import Structural.Polarization
+public import Structural.PolarizationMultilinear
+public import Structural.MassiveSymbol
+public import Structural.NormalModes
+public import Structural.PolynomialSymbol

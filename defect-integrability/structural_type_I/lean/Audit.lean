@@ -38,3 +38,9 @@ run_cmd do
 #print axioms Structural.Jet.homogeneous_is_divergence_of_euler_zero
 #print axioms Structural.Free.massless_chiral_power_conserved
 #print axioms Structural.Free.chiral_power_ne_zero
+
+#print axioms Structural.Symbol.polarized_conservation
+#print axioms Structural.Symbol.homogeneous_eq_zero_of_polarization_zero
+#print axioms Structural.Symbol.polarizationMap
+#print axioms Structural.Symbol.real_massive_arbitrary_vectors_eq_zero
+#print axioms Structural.Symbol.real_conserved_fourierPolynomial_divisible

@@ -1,22 +1,20 @@
-Structural integrability: partial Lean formalization
-20 October 2026
+Structural integrability Lean verification
+20 October 2026 — symbol and polarization continuation
+
+Status: partial formalization. Theorem 2.1 and reconstruction of a
+spatial-derivative primitive from the symbols remain outstanding.
 
 Lean: leanprover/lean4:v4.35.0
-mathlib: 56a005855ea17e0b0958f73ec801ae140b0a1679
-
-Scope: the complete Theorem 2.1 is NOT yet formalized.
-See README.md for the exact proved statements and missing polarization/analytic bridges.
+Mathlib: 56a005855ea17e0b0958f73ec801ae140b0a1679
 
 $ lake build
-✔ [2809/2814] Built Structural.ConstantJet (2.7s)
-✔ [2810/2814] Built Structural.PeriodicEvaluation (3.0s)
-✔ [2811/2814] Built Structural.LinearRigidity (2.6s)
-✔ [2812/2814] Built Structural.FreeChecks (3.0s)
-✔ [2813/2814] Built Structural (2.5s)
-Build completed successfully (2814 jobs).
+✔ [2821/2826] Built Structural.Dispersion (17s)
+✔ [2824/2826] Built Structural.PolynomialSymbol (10s)
+✔ [2825/2826] Built Structural (9.8s)
+Build completed successfully (2826 jobs).
 
 $ lake env lean Audit.lean
-PASS: audited 156 Structural declarations; only propext, Classical.choice, Quot.sound.
+PASS: audited 261 Structural declarations; only propext, Classical.choice, Quot.sound.
 'Structural.Jet.evolution_commutes_Dx' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Structural.Jet.integral_z_zero_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Structural.Jet.JetCurve.periodicIntegral_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -26,7 +24,14 @@ PASS: audited 156 Structural declarations; only propext, Classical.choice, Quot.
 'Structural.Jet.homogeneous_is_divergence_of_euler_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Structural.Free.massless_chiral_power_conserved' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Structural.Free.chiral_power_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Structural.Symbol.polarized_conservation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Structural.Symbol.homogeneous_eq_zero_of_polarization_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Structural.Symbol.polarizationMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Structural.Symbol.real_massive_arbitrary_vectors_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Structural.Symbol.real_conserved_fourierPolynomial_divisible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 
-Audit negative controls (temporary /tmp files, excluded from the project):
-PASS: audit rejects custom_axiom
-PASS: audit rejects sorry
+The namespace audit checks all project declarations, including private ones.
+The permitted axioms are Lean's standard classical foundations only.
+No custom mathematical axioms, sorry, or admit occur in the proof modules.

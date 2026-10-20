@@ -19,13 +19,21 @@ The quotient is not a ring quotient: multiplying two local integrals is not an o
 | `Variational` | Actual polynomial Euler derivatives, their commutation identities, the telescoping boundary formula on divergences, and the variational integration-by-parts identity. |
 | `PolynomialHomotopy` | Amplitude scaling and Euler's identity in the infinite jet algebra; a positive-degree homogeneous density with vanishing Euler derivatives is a spatial derivative. |
 | `FreeChecks` | Exact energy and momentum conservation; nonzero homogeneous conserved chiral powers of every degree for massless fields. This explicitly verifies failure of massive rigidity when the mass condition is dropped. |
+| `PlaneWave` | Actual finite plane-wave substitution, spatial and free-time eigenvalue identities, coefficient continuity, and derivation of the phase equation from `Conserved`; extension of scalars preserves conservation. |
+| `Polarization` | Exact factorial normalization on the diagonal and injectivity of polarization on homogeneous polynomials in characteristic zero. |
+| `PolarizationMultilinear` | A directional-derivative formula for each slot; genuine multilinearity of coefficient polarization and wave symbols. |
+| `MassiveSymbol` | Normal modes satisfy the Klein–Gordon equations; the polarized symbol constructed from any conserved density vanishes on the momentum hyperplane in every degree at least three. |
+| `NormalModes` | Explicit inverse frequency-mode transformation; vanishing extends to arbitrary Cauchy vectors in every slot, for finitely many species. |
+| `PolynomialSymbol` | Actual finite momentum polynomials, their evaluation identities, and divisibility of conserved-density symbols by total momentum. Applies to the original real coefficient model. |
 | `Smoke` | Environment checks only. |
 
 The degree-one result holds for arbitrarily many components because each polynomial uses only finitely many. The homogeneous Euler homotopy uses finitely many field components, as in the paper.
 
 ## What is still missing
 
-The spectral statements are **not yet connected to arbitrary polynomial local densities**. In particular, the development still needs polarization, construction of the finite-order Fourier kernels, derivation of the phase-times-kernel equation from conservation, invertibility of the normal-mode change in that representation, and reconstruction of a divergence from the polynomial factor. Thus the degree-three-and-higher part of Lemma 6.1 is not yet proved as a theorem about `Jet.LocalFunctional`.
+The **forward symbol bridge is now proved**: conservation of an actual jet density implies a phase equation, hence vanishing of its normal-mode symbols, vanishing for arbitrary Cauchy vectors, and a total-momentum factor in the corresponding finite polynomials. Polarization is proved multilinear and faithful before taking the quotient by spatial derivatives.
+
+The remaining gap in the degree-three-and-higher part of Lemma 6.1 is **reconstruction modulo spatial derivatives**. One must turn the polynomial factors into a single density primitive, with the required permutation compatibility, or prove that all Euler derivatives vanish and use the existing homotopy. Injectivity of unrestricted polarization does not by itself establish this quotient statement. The complete free-rigidity lemma is therefore still not formalized.
 
 Analytic finite-jet germs, the canonical Poisson bracket and its Jacobi identity, Taylor-degree induction, and analytic uniqueness remain outstanding. The polynomial Euler homotopy is a proved component of that argument, not a substitute for analytic uniqueness. The sound periodic-evaluation map is proved; its converse is not.
 

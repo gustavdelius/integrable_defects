@@ -21,8 +21,9 @@ The squared mass is `μ > 0`. We prove the first and second derivatives of
 The kernel argument does not assert absence of resonant momenta. It only
 excludes a nonzero continuous kernel supported on their zero set.
 
-The bridge from differential polynomials to these kernels is a separate,
-still outstanding part of the free-rigidity proof.
+The bridge from differential polynomials to these kernels is proved in
+`PlaneWave`, `MassiveSymbol`, and `NormalModes`. Reconstruction of a density
+primitive from the resulting symbols is still outstanding.
 -/
 
 @[expose] public section

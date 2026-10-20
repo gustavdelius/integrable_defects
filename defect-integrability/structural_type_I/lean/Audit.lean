@@ -44,3 +44,8 @@ run_cmd do
 #print axioms Structural.Symbol.polarizationMap
 #print axioms Structural.Symbol.real_massive_arbitrary_vectors_eq_zero
 #print axioms Structural.Symbol.real_conserved_fourierPolynomial_divisible
+#print axioms Structural.Symbol.homogeneous_eq_zero_of_wave_tests
+#print axioms Structural.Free.higher_conserved_is_divergence
+#print axioms Structural.Free.polynomial_conserved_quadratic_primitive
+#print axioms Structural.Formal.conserved_eq_of_quadratic_eq
+#print axioms Structural.Formal.conserved_difference_primitives

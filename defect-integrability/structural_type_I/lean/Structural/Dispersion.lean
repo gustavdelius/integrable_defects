@@ -22,8 +22,9 @@ The kernel argument does not assert absence of resonant momenta. It only
 excludes a nonzero continuous kernel supported on their zero set.
 
 The bridge from differential polynomials to these kernels is proved in
-`PlaneWave`, `MassiveSymbol`, and `NormalModes`. Reconstruction of a density
-primitive from the resulting symbols is still outstanding.
+`PlaneWave`, `MassiveSymbol`, and `NormalModes`. `EulerSymbol`,
+`WaveFaithfulness`, and `FreeRigidity` reconstruct a density primitive via
+vanishing Euler derivatives and the homogeneous scaling homotopy.
 -/
 
 @[expose] public section

@@ -17,3 +17,8 @@ public import Structural.PolarizationMultilinear
 public import Structural.MassiveSymbol
 public import Structural.NormalModes
 public import Structural.PolynomialSymbol
+public import Structural.JetHomogeneity
+public import Structural.EulerSymbol
+public import Structural.WaveFaithfulness
+public import Structural.FreeRigidity
+public import Structural.FormalRigidity

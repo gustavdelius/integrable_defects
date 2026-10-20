@@ -83,44 +83,61 @@ and `Structural.lean` imports all modules.
     amplitude degree at least three. This is also proved for real densities
     using the proved extension-of-scalars theorem.
 
-## Remaining reconstruction step
+17. `JetHomogeneity`: spatial differentiation and linear evolution preserve
+    amplitude degree; Euler differentiation lowers it. Homogeneous projection
+    commutes with linear evolution and with `Dx`, so actual conservation
+    descends to each homogeneous component with an actual projected flux.
+18. `EulerSymbol`: the distinguished-slot formula on the momentum hyperplane
+    equals the sum of Euler-derivative wave symbols. Selecting one component
+    makes every Euler wave symbol vanish with unconstrained remaining momenta.
+19. `WaveFaithfulness`: an invertible Vandermonde matrix at integer real
+    momenta interpolates every finite jet. Multilinearity and finite support
+    turn wave tests into arbitrary polarization tests, which are faithful.
+20. `FreeRigidity`: `higher_conserved_is_divergence` combines the preceding
+    steps, extension of scalars, and homogeneous homotopy to give an actual
+    real polynomial primitive in every homogeneous degree at least three.
+    Together with degree one and projection to homogeneous components,
+    `polynomial_conserved_quadratic_primitive` shows that every conserved
+    vacuum-normalized polynomial differs from its quadratic component by
+    an actual spatial derivative. This closes the former reconstruction gap.
+21. `FormalRigidity`: formal amplitude series have homogeneous polynomial
+    density coefficients of degree `n` and characteristic coefficients of
+    degree `k+1`. Evolution is the finite convolution of the actual prolonged
+    polynomial derivations. Its grading is proved. Strong induction removes
+    all terms except the free linearized term once lower-degree classes are
+    zero. `conserved_eq_of_quadratic_eq` proves equality of all coefficient
+    classes for two conserved series with equal constant and quadratic
+    classes. `conserved_difference_primitives` supplies polynomial spatial
+    primitives coefficient by coefficient.
 
-The forward chain from arbitrary conserved densities to polynomial momentum
-factors is now proved. The complete degree-three-and-higher free-rigidity
-lemma is still missing **reconstruction modulo spatial derivatives**.
-Unrestricted polarization injectivity alone does not prove this quotient
-statement. Do not identify the new divisibility theorem with the full lemma.
+## Current mathematical boundary and next steps
 
-Two possible routes remain; neither has been implemented:
+Polynomial free massive rigidity is now proved for finitely many diagonal
+positive-mass fields. The reconstruction uses Euler derivatives and
+Vandermonde interpolation, rather than reassembling the momentum factors.
+No quotient injectivity or vanishing-Euler statement has been assumed.
 
-1. Reassemble the momentum quotient polynomials as a density primitive, with
-   permutation compatibility. A linear reassembly map sends momentum
-   monomials to products of spatial jets; multiplication by total momentum
-   must map to `Dx`. Summing over field labels should recover `n! * f`.
-2. Use Euler derivatives and the existing homogeneous homotopy. Apply
-   `polarization_slot_formula` to the distinguished `none` slot on the
-   momentum hyperplane. Its factors `(-sum k)^r` should turn into the Euler
-   sum for the remaining slots, by the proved `component_Dx` identity.
-   This would show that every wave polarization of each Euler derivative
-   vanishes, now with *unconstrained* remaining momenta. Finite-order jet
-   vectors are spanned by real-momentum plane waves using a Vandermonde
-   matrix. Multilinearity and polarization injectivity would then give zero
-   Euler derivatives and the existing homotopy would construct the primitive.
+The amplitude induction of the nonlinear rigidity argument is also proved
+in a formal model. Its parameter scales all Cauchy jets; it is not the
+Bäcklund parameter. Conservation is defined by a constructed finite
+convolution, using the actual polynomial evolutionary derivations. The
+formal result does not assert convergence, a uniform spatial-order bound,
+or correspondence with Taylor coefficients of analytic finite-jet germs.
 
-The second route may avoid symmetrizing quotient polynomials. Relevant local
-mathlib infrastructure: `MvPolynomial.IsHomogeneous.pderiv` in
-`RingTheory/MvPolynomial/EulerIdentity.lean`, `Matrix.det_vandermonde_ne_zero_iff`
-in `LinearAlgebra/Vandermonde.lean`, and `coeff_rename_mapDomain` for eliminating
-an amplitude slot via `rename Option.some`. Homogeneity preservation by `Dx`
-and the finite Euler sum still needs to be proved if using this route.
+Next develop that analytic bridge: define the actual finite-jet analytic
+local-density class and spatial/evolutionary operators, identify their
+Taylor coefficients with the formal homogeneous model, show Euler
+operators annihilate every coefficient divergence, and use analytic
+uniqueness followed by the analytic scaling homotopy. Do not infer an
+analytic primitive by summing the coefficient primitives without bounds.
+A useful small next lemma is independence of the finite Euler cutoff above
+the density's spatial order, then vanishing of Euler derivatives for every
+zero class without imposing an order bound on the chosen primitive.
 
-The earlier lack of a ready-made general polynomial-polarization theorem is
-no longer a blocker: the new modules prove the required normalization and
-multilinearity directly by coefficient extraction and directional derivatives.
-
-After this remain analytic finite-jet germs, the actual Poisson bracket/Jacobi,
-Taylor-degree induction, analytic Euler uniqueness, and all the Bäcklund
-construction, normalization, involution, independence, and permutability.
+The actual canonical Poisson bracket and Jacobi identity are still missing.
+All the Bäcklund construction, momentum splitting, normalization, involution,
+independence, and permutability also remain to be formalized. The analytic
+Lemma 6.2 and full Theorem 2.1 are not claimed as Lean theorems.
 
 ## Verification and practical notes
 
@@ -159,10 +176,12 @@ construction, normalization, involution, independence, and permutability.
 ## Publication state
 
 The base rechecked during this continuation was PR #32 head
-`336d9d6343b638203b9061aae05f946164861019`, tree
-`0b4b59357cbc01e0f09cec58098873ed30f43115`.
-The selected publication adds the six symbol/polarization modules and updates
-imports, the audit, README, dispersion status comment, verification record,
-and this checkpoint. No manuscript or companion changes are included.
-Recheck the live PR head when resuming: this document cannot contain its own
-commit SHA. The root `structural_lean_handoff.md` records the published SHA.
+`ee3456c5998bf523bada54e7e10189ba8011f9b8`, tree
+`3287c342de0c9fe88100b830ab3d3f854e6cd219`.
+The selected publication adds the five homogeneity, Euler-symbol,
+wave-faithfulness, free-rigidity, and formal-rigidity modules; updates the
+aggregate imports, audit, README, three earlier status comments,
+verification record, and this checkpoint. No manuscript or companion
+changes are included. Recheck the live PR head when resuming: this document
+cannot contain its own commit SHA. The root `structural_lean_handoff.md`
+records the published SHA.

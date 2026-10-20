@@ -13,7 +13,8 @@ The Boolean component distinguishes `u` (`false`) from its momentum `p` (`true`)
 Every homogeneous degree-one polynomial density conserved modulo spatial
 derivatives is itself a spatial derivative when each squared mass is nonzero.
 This is the full degree-one assertion of Lemma 6.1, in the concrete polynomial
-jet model. The degree-three-and-higher assertion requires further work.
+jet model. `FreeRigidity` proves the degree-three-and-higher assertion for
+finitely many species with positive squared masses.
 -/
 
 @[expose] public section

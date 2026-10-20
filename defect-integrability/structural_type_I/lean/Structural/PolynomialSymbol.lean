@@ -10,7 +10,8 @@ public import Mathlib.Algebra.MvPolynomial.Equiv
 The wave construction over a polynomial coefficient ring gives actual finite
 momentum polynomials. For every conserved massive density, their restrictions
 to the momentum hyperplane vanish and hence they have a total-momentum factor.
-Reassembling these factors as a density primitive is not proved here.
+`FreeRigidity` obtains a density primitive by a separate Euler-derivative and
+Vandermonde argument, avoiding direct reassembly of these factors.
 -/
 
 @[expose] public section

@@ -49,3 +49,10 @@ run_cmd do
 #print axioms Structural.Free.polynomial_conserved_quadratic_primitive
 #print axioms Structural.Formal.conserved_eq_of_quadratic_eq
 #print axioms Structural.Formal.conserved_difference_primitives
+#print axioms Structural.Jet.euler_eq_zero_of_integral_eq_zero
+#print axioms Structural.Formal.conserved_euler_eq_zero
+#print axioms Structural.Analytic.analyticAt_has_amplitudeSeries
+#print axioms Structural.Analytic.amplitudeSeries_eq_of_eventuallyEq
+#print axioms Structural.Analytic.eventually_eq_zero_of_amplitudeSeries_eq_zero
+#print axioms Structural.Analytic.spatialDerivative_eval
+#print axioms Structural.Analytic.eulerFunction_has_amplitudeSeries

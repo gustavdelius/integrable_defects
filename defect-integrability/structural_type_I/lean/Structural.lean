@@ -22,3 +22,7 @@ public import Structural.EulerSymbol
 public import Structural.WaveFaithfulness
 public import Structural.FreeRigidity
 public import Structural.FormalRigidity
+public import Structural.EulerExactness
+public import Structural.AnalyticTaylor
+public import Structural.AnalyticJetCalculus
+public import Structural.AnalyticEuler

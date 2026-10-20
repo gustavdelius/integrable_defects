@@ -1,23 +1,23 @@
 Structural integrability Lean verification
-20 October 2026 — polynomial reconstruction and formal nonlinear rigidity
+20 October 2026 — analytic finite jets, Taylor coefficients, and Euler operators
 
 Status: polynomial free massive rigidity and formal amplitude-series
-nonlinear rigidity are proved. Analytic rigidity and Theorem 2.1 remain
-outstanding. No convergence or uniform spatial-order bound is asserted for
-the formal coefficient primitives.
+nonlinear rigidity are proved. Actual analytic finite-jet functions now
+have constructed, convergent homogeneous polynomial expansions, and their
+actual Euler derivatives are analytic finite-jet functions. Commutation of
+Taylor expansion with differentiation and transport of analytic conservation
+remain outstanding, as do analytic rigidity and Theorem 2.1.
 
 Lean: leanprover/lean4:v4.35.0
 Mathlib: 56a005855ea17e0b0958f73ec801ae140b0a1679
 
 $ lake build
-✔ [2821/2835] Built Structural.LinearRigidity (12s)
-✔ [2826/2835] Built Structural.Dispersion (23s)
-✔ [2833/2835] Built Structural.PolynomialSymbol (11s)
-✔ [2834/2835] Built Structural (7.2s)
-Build completed successfully (2835 jobs).
+✔ [2838/2841] Built Structural.AnalyticJetCalculus (10s)
+✔ [2840/2841] Built Structural (5.0s)
+Build completed successfully (2841 jobs).
 
 $ lake env lean Audit.lean
-PASS: audited 344 Structural declarations; only propext, Classical.choice, Quot.sound.
+PASS: audited 409 Structural declarations; only propext, Classical.choice, Quot.sound.
 'Structural.Jet.evolution_commutes_Dx' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Structural.Jet.integral_z_zero_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Structural.Jet.JetCurve.periodicIntegral_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -39,6 +39,15 @@ PASS: audited 344 Structural declarations; only propext, Classical.choice, Quot.
 'Structural.Free.polynomial_conserved_quadratic_primitive' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Structural.Formal.conserved_eq_of_quadratic_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Structural.Formal.conserved_difference_primitives' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Structural.Jet.euler_eq_zero_of_integral_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Structural.Formal.conserved_euler_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Structural.Analytic.analyticAt_has_amplitudeSeries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Structural.Analytic.amplitudeSeries_eq_of_eventuallyEq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Structural.Analytic.eventually_eq_zero_of_amplitudeSeries_eq_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Structural.Analytic.spatialDerivative_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Structural.Analytic.eulerFunction_has_amplitudeSeries' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 The namespace audit checks all project declarations, including private ones.
 The permitted axioms are Lean's standard classical foundations only.

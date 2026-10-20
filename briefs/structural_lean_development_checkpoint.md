@@ -110,6 +110,31 @@ and `Structural.lean` imports all modules.
     classes. `conserved_difference_primitives` supplies polynomial spatial
     primitives coefficient by coefficient.
 
+22. `EulerExactness`: increasing a polynomial Euler cutoff above the density's
+    own spatial order has no effect. Every zero quotient class has zero Euler
+    derivatives, without any bound on its chosen spatial primitive. This
+    applies to every coefficient from formal nonlinear rigidity.
+23. `AnalyticTaylor`: `JetSpace α N` is the actual finite-dimensional real
+    space of jets through order `N`. Each continuous multilinear coefficient
+    of a genuine Fréchet series is expanded in coordinate basis vectors to
+    construct `diagonalPolynomial`, then renamed into the jet polynomial
+    algebra. `amplitudeSeries` has a uniform order bound `N`; its evaluations
+    sum to the original function near zero. Coefficients depend only on the
+    analytic germ and determine that germ. A zero polynomial series therefore
+    gives a zero analytic germ. Nonsymmetric multilinear representatives are
+    allowed; their diagonal polynomials are proved unique.
+24. `AnalyticJetCalculus`: actual spatial differentiation is the Fréchet
+    derivative on lower jets, applied to the shifted-jet vector. Coordinate
+    partial derivatives are also constructed. Both preserve analyticity and
+    respect equality on a neighborhood. `fderiv_eval`, `jetPartial_eval`, and
+    `spatialDerivative_eval` prove agreement with the old polynomial operators
+    on evaluated polynomials.
+25. `AnalyticEuler`: constructs order restrictions, iterated actual spatial
+    derivatives, and the actual finite Euler expression. A density of order
+    `N` has Euler functions of order at most `N+N`; they are analytic, depend
+    only on its germ, and have actual convergent homogeneous polynomial
+    expansions with that common spatial-order bound.
+
 ## Current mathematical boundary and next steps
 
 Polynomial free massive rigidity is now proved for finitely many diagonal
@@ -124,15 +149,34 @@ convolution, using the actual polynomial evolutionary derivations. The
 formal result does not assert convergence, a uniform spatial-order bound,
 or correspondence with Taylor coefficients of analytic finite-jet germs.
 
-Next develop that analytic bridge: define the actual finite-jet analytic
-local-density class and spatial/evolutionary operators, identify their
-Taylor coefficients with the formal homogeneous model, show Euler
-operators annihilate every coefficient divergence, and use analytic
-uniqueness followed by the analytic scaling homotopy. Do not infer an
-analytic primitive by summing the coefficient primitives without bounds.
-A useful small next lemma is independence of the finite Euler cutoff above
-the density's spatial order, then vanishing of Euler derivatives for every
-zero class without imposing an order bound on the chosen primitive.
+The fixed-order analytic function and Taylor constructions now exist.
+Germ equality is handled by `Filter.EventuallyEq` at the zero vector in each
+finite jet space. The local-functional quotient relating different finite
+jet orders has not yet been constructed.
+
+**Next:** prove that Taylor expansion commutes with coordinate partial,
+total spatial, and Euler differentiation for general analytic functions.
+In particular, identify the polynomial coefficients of `eulerFunction a f`
+with `euler a N ((amplitudeSeries p).coeff (n+1))`, after embedding both in
+the same jet algebra. Agreement on individual evaluated polynomials is now
+proved but does not justify differentiating an infinite series. Use the
+actual convergent Fréchet-series differentiation theorems from mathlib.
+
+Useful APIs: `HasFPowerSeriesOnBall.fderiv` in
+`Analysis/Calculus/FDeriv/Analytic.lean` gives `p.derivSeries` as the actual
+series of `fderiv`. `FormalMultilinearSeries.derivSeries` in
+`Analysis/Analytic/ChangeOrigin.lean` is built from `changeOriginSeries 1`.
+Postcomposition with continuous linear maps extracts coordinate partials.
+`HasFPowerSeriesOnBall.unshift` in `Analysis/Analytic/Constructions.lean`
+contracts an operator-valued series with the input vector, a possible route
+to total spatial differentiation after lower/shift jet maps.
+
+Then construct actual analytic evolutionary differentiation and transport
+an analytic conservation identity into the formal convolution. Formal
+rigidity plus `EulerExactness` will give zero polynomial Euler coefficients;
+the now-proved analytic coefficient uniqueness can apply once the coefficient
+identification is proved. Finish with analytic scaling homotopy, rather
+than summing arbitrary formal primitives without bounds.
 
 The actual canonical Poisson bracket and Jacobi identity are still missing.
 All the Bäcklund construction, momentum splitting, normalization, involution,
@@ -169,6 +213,12 @@ Lemma 6.2 and full Theorem 2.1 are not claimed as Lean theorems.
   exports may represent a proved theorem with an axiom-shaped interface.
   `Lean.collectAxioms` correctly uses its recorded proof dependencies. The
   audit therefore checks every declaration in the namespace.
+- `AnalyticAt.comp` takes no explicit point argument. Give its implicit
+  inner function explicitly when composing evaluation on a product;
+  otherwise elaboration can incorrectly infer a constant first component.
+- Do not use `change` when a polynomial renaming must distribute over a
+  product: that is a theorem (`map_mul`), not definitional equality.
+  Underconstrained reductions here can exhaust heartbeats. Rewrite first.
 - Do not spawn subagents or merge the PR. Publication to PR #32 is authorized.
   Publish selected files on the current remote tree, never all differences
   against this worktree's older HEAD.
@@ -176,12 +226,11 @@ Lemma 6.2 and full Theorem 2.1 are not claimed as Lean theorems.
 ## Publication state
 
 The base rechecked during this continuation was PR #32 head
-`ee3456c5998bf523bada54e7e10189ba8011f9b8`, tree
-`3287c342de0c9fe88100b830ab3d3f854e6cd219`.
-The selected publication adds the five homogeneity, Euler-symbol,
-wave-faithfulness, free-rigidity, and formal-rigidity modules; updates the
-aggregate imports, audit, README, three earlier status comments,
-verification record, and this checkpoint. No manuscript or companion
-changes are included. Recheck the live PR head when resuming: this document
-cannot contain its own commit SHA. The root `structural_lean_handoff.md`
-records the published SHA.
+`7b57a87a5fe627ac98ef14c01a7a1c5da1d4ba26`, tree
+`e29adaeafd7c26829ff912ed3242e6846bb70b91`.
+The selected publication adds `EulerExactness`, `AnalyticTaylor`,
+`AnalyticJetCalculus`, and `AnalyticEuler`, and updates aggregate imports,
+the audit, README, verification record, and this checkpoint. No manuscript
+or companion changes are included. Recheck the live PR head when resuming:
+this document cannot contain its own commit SHA. The root
+`structural_lean_handoff.md` records the published SHA.

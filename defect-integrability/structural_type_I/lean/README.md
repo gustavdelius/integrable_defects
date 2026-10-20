@@ -30,6 +30,10 @@ The quotient is not a ring quotient: multiplying two local integrals is not an o
 | `WaveFaithfulness` | A Vandermonde matrix expresses every finite jet as a sum of real-momentum complex waves. Unconstrained wave tests are therefore faithful on homogeneous densities. |
 | `FreeRigidity` | For finitely many diagonal positive-mass fields, every homogeneous conserved density of degree at least three has an actual polynomial spatial primitive. Every vacuum-normalized conserved polynomial functional equals its quadratic component. |
 | `FormalRigidity` | Nonlinear evolution is constructed as a finite convolution of homogeneous polynomial coefficients. With positive massive linearization, two conserved formal amplitude series having the same constant and quadratic classes agree modulo spatial derivatives in every degree. |
+| `EulerExactness` | The polynomial Euler operator is independent of its cutoff above the density's order. Every zero quotient class has zero Euler derivatives, without any bound on its primitive; this applies to every coefficient supplied by formal rigidity. |
+| `AnalyticTaylor` | Actual Fréchet expansions of analytic finite-jet functions give homogeneous polynomials with a uniform spatial-order bound and convergence near the vacuum. The coefficients depend only on the germ, determine it uniquely, and detect the zero germ. |
+| `AnalyticJetCalculus` | Actual coordinate partial and total spatial derivatives preserve analyticity and respect equality of germs. They agree with the polynomial jet operators on evaluated polynomials. |
+| `AnalyticEuler` | The actual Euler derivative of an analytic density of order `N` is an analytic function of jets through order `2N`. It respects equality of germs and has an actual convergent homogeneous polynomial expansion with that common order bound. |
 | `Smoke` | Environment checks only. |
 
 The degree-one result holds for arbitrarily many components because each polynomial uses only finitely many. The homogeneous Euler homotopy uses finitely many field components, as in the paper.
@@ -42,9 +46,19 @@ In `FormalRigidity`, the parameter scales all Cauchy jets; it is not the Bäcklu
 
 The formal theorem also supplies a polynomial primitive for each coefficient difference. It does **not** assert convergence or a common spatial-order bound for the coefficients or their primitives. It concerns formal sequences of homogeneous polynomials, with conservation defined by the constructed convolution, rather than Taylor expansions of an already defined analytic local functional.
 
+## The analytic connection so far
+
+`AnalyticTaylor` starts from an actual real function of the jets through a fixed order `N` and a genuine convergent Fréchet power series at zero. Expanding each multilinear coefficient in the coordinate basis constructs a homogeneous polynomial in the existing jet algebra. All coefficients have spatial order at most `N`, their evaluations sum to the function near zero, and equality of these polynomials is equivalent to equality of the analytic germs. No symmetry of the multilinear representative is assumed.
+
+Actual spatial differentiation is `Df(lower jets)[shifted jets]`. Actual coordinate partial differentiation and the finite Euler expression are also constructed. Their analyticity and invariance under changes of germ representative are proved. On polynomials, partial and spatial differentiation agree with the original polynomial operators. An Euler expression uses jets through at most order `2N` and therefore also has an actual convergent polynomial expansion.
+
+On the polynomial side, zero local-functional classes have zero Euler derivatives at any cutoff bounding the density's order. This needs no order or convergence estimate on the arbitrary primitives obtained from formal rigidity.
+
 ## What is still missing
 
-Analytic finite-jet germs, their actual Taylor correspondence with the formal model, analytic Euler uniqueness, and an analytic scaling homotopy remain outstanding. The canonical Poisson bracket and its Jacobi identity also remain to be constructed. The sound periodic-evaluation map is proved; its converse is not.
+The key remaining identification is that **Taylor expansion commutes with the differential operators on general analytic functions**. In particular, the coefficients of the actual analytic Euler expression must be identified with the polynomial Euler derivatives of the original coefficients. Agreement on individual polynomial functions does not establish this for an infinite convergent expansion. Analytic evolution and transport of conservation into the formal convolution also remain to be proved. Thus the available analytic uniqueness theorem cannot yet be applied to conclude analytic rigidity.
+
+The analytic local-functional quotient across different finite jet orders and the analytic scaling homotopy remain outstanding. Germ equality is currently handled by equality on a neighborhood in each fixed finite jet space. The canonical Poisson bracket and its Jacobi identity also remain to be constructed. The sound periodic-evaluation map is proved for polynomial densities; its converse is not.
 
 The momentum-splitting and normalization arguments, the actual formal Bäcklund branch, generating-functional identities, quadratic generators, nonlinear involution, functional independence, and formal permutability also remain to be formalized. No theorem in this project packages these missing results as assumptions and then claims Theorem 2.1.
 

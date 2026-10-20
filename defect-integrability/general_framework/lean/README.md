@@ -15,7 +15,7 @@ Lean 4 v4.35.0, core library only. Build with `lake build`; list axioms with `la
 | `affine_law_expansion` | Lemma 5.2 | expansion of an affine current | — |
 | `closure_conserved_density` | Proposition 4.3 | closure identity | defect charge and potential identities |
 | `lorentz_curl` | Lemma 5.5 | 2×2 identity behind ΛεΛᵀ = ε | transformation law of the currents |
-| `graded_rigidity`, `involution` | Lemma 7.2, Theorem 7.3 | induction over degrees | the nonresonance step (`h_rig`), (L), commuting quadratic parts |
+| `graded_rigidity`, `involution` | Lemma 7.2, Theorem 7.3 | induction over degrees | the nonresonance step (`h_rig`), (L), and the vanishing of the quadratic part (commuting quadratic parts, or (NR2) with (L′)) |
 | `Tri.*` | consistency | nonzero commuting derivations; restricted normalisation satisfiable | — |
 
 Not formalised: Lemmas 3.2, 3.5, 4.1, 5.4, 6.2, 6.3, 6.5; Lemma 6.6; Theorems 6.4, 7.4, 8.1; Proposition 7.5. A real formalisation would need jet bundles, the variational bicomplex, Euler operators and the Helmholtz conditions, none of which are in Mathlib.

@@ -2,11 +2,11 @@
 
 *Draft, 20 October 2026.*
 
-**Status.** Sections 2–7 give written proofs, in the formal variational calculus, of general statements about finite-order Lagrangian field theories in $1+1$ dimensions. The main theorem (Theorem 8.1) deduces an infinite hierarchy of independent commuting local charges from momentum conservation at a defect **together with** further hypotheses, each stated explicitly. The unconditional conjecture of Corrigan and Zambon is not proved; Section 10 identifies the missing implication. The literature has not been searched systematically for earlier versions of the general statements, so no novelty is claimed for them. Accompanying scripts check identities and hypotheses (Appendix B); they do not replace the proofs. The proofs have not yet been independently refereed.
+**Status.** Sections 2–7 give written proofs, in the formal variational calculus, of general statements about finite-order Lagrangian field theories in $1+1$ dimensions. The main theorem (Theorem 8.1) deduces an infinite hierarchy of independent commuting local charges from momentum conservation at a defect **together with** further hypotheses, each stated explicitly. The unconditional conjecture of Corrigan and Zambon is not proved; Section 10 identifies the missing implication. The literature has not been searched systematically for earlier versions of the general statements, so no novelty is claimed for them. Accompanying scripts check identities and hypotheses (Appendix B); they do not replace the proofs. An independent check of the written proofs found statements that were false in the generality claimed, and this version corrects them; the corrections have not yet been checked independently.
 
 ## Abstract
 
-A jump defect joins two $(1+1)$-dimensional local Lagrangian field theories at a point. Corrigan, Zambon and collaborators observed in many examples that a defect can conserve a suitably modified momentum only if its sewing conditions form a Bäcklund transformation and the bulk theories are integrable. We prove the first half of this observation in general. For arbitrary finite-order bulk Lagrangians and arbitrary local defect functionals, including auxiliary defect fields and Lagrange multipliers, an off-shell momentum balance implies that the spatial Hamiltonian flows of the two bulk theories are tangent to the sewing correspondence. Consequently every solution of the sewing equations imposed at all points solves both bulk equations. The proof applies the time-Euler operator to the spatial Hamilton–Jacobi form of the balance. For the second half we isolate a mechanism with three ingredients. First, a conservation law whose current is affine in $(x,t)$ — the Noether current of a Lorentz boost, a Galilean boost, a dilation or a time-linear field shift — turns defect charges into a conserved generating density along the Bäcklund relation. Second, a one-parameter family of momentum-conserving defects with a regular transparent limit turns this density into infinitely many local conservation laws; in the observed cases the family is the orbit of the defect under a kinematic symmetry, or a modulus of the momentum constraint. Third, for bulk theories with a constant Poisson operator and nonresonant dispersion, such conservation laws are automatically in involution, and an explicit generating quadratic symbol decides their independence. We check every hypothesis on the published defects of all observed cases: sine-Gordon, affine and conformal Toda, Tzitzéica, the nonlinear Schrödinger equation, KdV, mKdV and Boussinesq. The massless theories fail nonresonance and are covered only by the Bäcklund theorem.
+A jump defect joins two $(1+1)$-dimensional local Lagrangian field theories at a point. Corrigan, Zambon and collaborators observed in many examples that a defect can conserve a suitably modified momentum only if its sewing conditions form a Bäcklund transformation and the bulk theories are integrable. We prove the first half of this observation in general. For arbitrary finite-order bulk Lagrangians and arbitrary local defect functionals, including auxiliary defect fields and Lagrange multipliers, an off-shell momentum balance implies that the spatial Hamiltonian flows of the two bulk theories are tangent to the sewing correspondence. Under an injectivity condition, which is vacuous without auxiliary fields, every solution of the sewing equations imposed at all points then solves both bulk equations. The proof applies the time-Euler operator to the spatial Hamilton–Jacobi form of the balance. For the second half we isolate a mechanism with three ingredients. First, a conservation law whose current is affine in $(x,t)$ — the Noether current of a Lorentz boost, a Galilean boost, a dilation or a time-linear field shift — turns defect charges into a conserved generating density along the Bäcklund relation. Second, a one-parameter family of momentum-conserving defects with a regular transparent limit turns this density into infinitely many local conservation laws; in the observed cases the family is the orbit of the defect under a kinematic symmetry, or a modulus of the momentum constraint. Third, for bulk theories with a constant Poisson operator and nonresonant dispersion, such conservation laws are in involution under explicit conditions on their linear and quadratic parts, and an explicit generating quadratic symbol decides their independence. We check the hypotheses case by case on the published defects of the observed cases: sine-Gordon, affine and conformal Toda, Tzitzéica, the nonlinear Schrödinger equation, KdV, mKdV and Boussinesq. The massless theories fail nonresonance and are covered only by the Bäcklund theorem.
 
 ---
 
@@ -43,8 +43,8 @@ A general explanation must supply four logically separate steps:
 
 * **Theorem 3.3 (Bäcklund theorem).** Step 1 holds for arbitrary admissible bulk Lagrangians and arbitrary local defect functionals, including auxiliary fields and multipliers, under a checkable injectivity condition (I). Condition (I) is vacuous for Type-I defects.
 * **Lemma 4.1, Propositions 4.2–4.3, Lemma 5.2 (closure).** Step 2 holds whenever the bulk has a conservation law with current affine in $(x,t)$ whose two constituent laws have defect charges. Boosts, Galilean boosts, dilations and time-linear shifts provide such laws. Every observed bulk theory has one.
-* **Lemmas 5.4–5.5, 6.2, 6.6 and Theorem 6.4 (hierarchy).** Step 3 holds for any family with a regular transparent limit. Dilations carry a momentum-conserving defect to a family of such defects; Lorentz boosts do the same for Bäcklund relations.
-* **Theorems 7.3–7.4 and Proposition 7.5 (involution and independence).** Step 4 holds for bulk theories with a constant Poisson operator and nonresonant dispersion. Independence is decided by an explicit generating quadratic symbol, computed in closed form for the observed defects. No Bianchi-permutability assumption is needed.
+* **Lemmas 5.4–5.5, 6.2, 6.6 and Theorem 6.4 (hierarchy).** Step 3 holds for any family with a regular transparent limit. Dilations carry a momentum-conserving defect to a family of such defects when the bulk Lagrangians are strictly homogeneous; Lorentz boosts do the same for Bäcklund relations.
+* **Theorems 7.3–7.4 and Proposition 7.5 (involution and independence).** Step 4 holds for bulk theories with a constant Poisson operator and nonresonant dispersion, under conditions on the linear and quadratic parts of the charges. Independence is decided by an explicit generating quadratic symbol, computed in closed form for the observed defects. No Bianchi-permutability assumption is needed.
 * **Theorem 8.1** assembles the steps, and **Section 9** checks its hypotheses case by case.
 
 ### 1.4 Relation to earlier work
@@ -83,9 +83,9 @@ With $\eta_{\mu\nu}=\mathrm{diag}(1,-1)$ write $T^{00}=\mathcal T^0{}_0$, $T^{01
 
 $$D_t\mathcal T^0{}_\nu+D_x\mathcal T^1{}_\nu=-E(\mathcal L)\cdot D_\nu\phi\qquad(\nu=0,1). \tag{2.5}$$
 
-*Thus $(\mathcal T^0{}_\nu,\mathcal T^1{}_\nu)$ are Noether currents of the translations, and the momentum flux is $T^{11}=-\mathcal H^{(x)}$ exactly. Any other current with the same characteristic differs from these by a trivial current $(D_xC,-D_tC)$ plus a constant. For a first-order Lagrangian they are the usual canonical currents.*
+*Thus $(\mathcal T^0{}_\nu,\mathcal T^1{}_\nu)$ are Noether currents of the translations, and the momentum flux is $T^{11}=-\mathcal H^{(x)}$ exactly. Any other pair satisfying (2.5) off shell differs from these, locally, by a trivial current $(D_xC,-D_tC)$ plus a constant. For a first-order Lagrangian they are the usual canonical currents.*
 
-*Proof.* Put $\eta=D_\nu\phi$ in (2.1). Then $\operatorname{pr}v_\eta\mathcal L=D_\nu\mathcal L$, and rearranging gives (2.5). Two currents with the same characteristic differ by a current conserved off shell. By exactness of the horizontal variational complex [16, Thm 4.24] such a current is trivial up to a constant. For a first-order Lagrangian, $\Xi(\eta)=\partial\mathcal L/\partial\phi_t\cdot\eta$ and $\pi_0=\partial\mathcal L/\partial\phi_x$. $\square$
+*Proof.* Put $\eta=D_\nu\phi$ in (2.1). Then $\operatorname{pr}v_\eta\mathcal L=D_\nu\mathcal L$, and rearranging gives (2.5). Two such pairs differ by a current conserved off shell. By local exactness of the horizontal variational complex [16, Thm 4.24] such a current is trivial up to a constant. For a first-order Lagrangian, $\Xi(\eta)=\partial\mathcal L/\partial\phi_t\cdot\eta$ and $\pi_0=\partial\mathcal L/\partial\phi_x$. $\square$
 
 ### 2.2 Spatial Hamilton equations
 
@@ -131,17 +131,18 @@ A vector $(\delta z_-,\delta z_+)$ is **tangent** to $\Gamma_d$ if it arises fro
 
 $$\mathcal H_-\big(\Phi,\Pi^-(Y)\big)-\mathcal H_+\big(\Psi,\Pi^+(Y)\big)\ \in\ \operatorname{Im}D_t+\langle C\rangle, \tag{3.3}$$
 
-where $\langle C\rangle$ is the differential ideal generated by the components of $C$. Equivalently, there is a local $\widetilde P(Y)$ such that $\mathcal H_--\mathcal H_++D_t\widetilde P\in\langle C\rangle$.
+where $\langle C\rangle$ is the differential ideal generated by the components of $C$. Equivalently, there is a local $\widetilde P(Y)$ such that $\mathcal H_--\mathcal H_++D_t\widetilde P\in\langle C\rangle$. Integrating by parts in $t$, every element of $\langle C\rangle$ is $\rho\cdot C$ plus an element of $\operatorname{Im}D_t$: a term $f\,D_t^kC$ contributes $(-D_t)^kf$ to the local multiplier $\rho$. So (3.3) holds exactly when
+$$\mathcal H_-\big(\Phi,\Pi^-(Y)\big)-\mathcal H_+\big(\Psi,\Pi^+(Y)\big)=\rho\cdot C+D_tB\qquad\text{for local }\rho,\,B. \tag{3.3$'$}$$
 
-**Lemma 3.2.** *Condition (3.3) is the precise form of conservation of $P_-+P_++P_d$, with $P_\pm=\int T^{01}_\pm\,dx$ and $P_d=\widetilde P$, on all solutions of the bulk and sewing equations whose boundary jets at $x=0$ are otherwise unconstrained.*
+**Lemma 3.2.** *Let $P_\pm=\int T^{01}_\pm\,dx$. If (3.3) holds, then $P_-+P_++\widetilde P$ is conserved on all solutions of the bulk and sewing equations. Conversely, suppose that $P_-+P_++P_d$ is conserved on all such solutions for some local $P_d(Y)$, that their boundary jets at $x=0$ fill the prolonged constraint locus $\{D_t^kC=0,\ k\ge0\}$, and that every local function vanishing on that locus lies in $\langle C\rangle$. Then (3.3) holds with $\widetilde P=P_d$.*
 
-*Proof.* By (2.5), $D_tT^{01}+D_xT^{11}=0$ on shell. So $\frac{d}{dt}(P_-+P_+)=(-T^{11}_-+T^{11}_+)|_{x=0}=(\mathcal H_--\mathcal H_+)|_{x=0}$ by Lemma 2.1. On solutions of (3.1) the momenta in $\mathcal H_\pm$ are $\Pi^\pm(Y)$. Conservation for all admissible boundary jets is (3.3). $\square$
+*Proof.* By (2.5), $D_tT^{01}+D_xT^{11}=0$ on shell. So $\frac{d}{dt}(P_-+P_+)=(-T^{11}_-+T^{11}_+)|_{x=0}=(\mathcal H_--\mathcal H_+)|_{x=0}$ by Lemma 2.1. On solutions of (3.1) the momenta in $\mathcal H_\pm$ are $\Pi^\pm(Y)$. Conservation is therefore the vanishing of $\mathcal H_--\mathcal H_++D_tP_d$ on the boundary jets of all solutions. Elements of $\langle C\rangle$ vanish there, which gives the first statement. Under the assumptions of the converse, $\mathcal H_--\mathcal H_++D_tP_d$ vanishes on the prolonged constraint locus and so lies in $\langle C\rangle$. $\square$
 
-Definition 3.1 is how momentum conservation is imposed in [1–8]: the boundary $t$-jets are treated as independent once the sewing equations have been used.
+The regularity assumption in the converse cannot be dropped. Take two copies of the massive Klein–Gordon field, $\mathcal L=\frac12(w_t^2-w_x^2-m^2w^2)$, and $\mathcal L_d=\lambda(\psi-\phi)^2$. Then $C=(\psi-\phi)^2$ and $\Pi^\pm=2\lambda(\psi-\phi)$. Over real fields the constraint locus is $\psi=\phi$, where $\Pi^\pm=0$ and $\mathcal H_-=\mathcal H_+$, so momentum is conserved with $P_d=0$. But $E_\Phi(\mathcal H_--\mathcal H_+)=\phi_{tt}+m^2\phi$ on the locus, while the $t$-Euler derivatives of every element of $\operatorname{Im}D_t+\langle C\rangle$ vanish there, because the linearisation of $C$ vanishes at $\psi=\phi$ (`checks/check_scope.py`). Definition 3.1 is therefore a strong, off-shell form of momentum conservation. It is how momentum conservation is imposed in [1–8]: the boundary $t$-jets are treated as independent once the sewing equations have been used.
 
 ### 3.3 The Bäcklund theorem
 
-**Theorem 3.3 (momentum conservation gives a Bäcklund relation).** *Let $S_d$ satisfy Definition 3.1, with $\mathcal H_--\mathcal H_++D_t\widetilde P\equiv\rho\cdot C$ modulo $\operatorname{Im}D_t$ and $t$-derivatives of $C$.*
+**Theorem 3.3 (momentum conservation gives a Bäcklund relation).** *Let $S_d$ satisfy Definition 3.1, written in the form (3.3$'$) with multiplier $\rho$.*
 
 *(a) (Tangency.) At every point of $\Gamma_d$, the pair of spatial Hamiltonian vector fields $(X_-,X_+)$ is tangent to $\Gamma_d$. It is the image of $\delta Y=(a_-,a_+,\rho)$ under (3.2).*
 
@@ -155,7 +156,7 @@ $$\text{(I)}\qquad \kappa\longmapsto\big((S_{\Phi_m\lambda}\kappa)_{m\ge1},\ (S_
 
 *is injective, then $E_-[\phi]=0$ and $E_+[\psi]=0$. Without auxiliary variables (Type I, any $K_\pm$), both bulk equations hold with no further condition.*
 
-*Proof.* (a) Apply the $t$-Euler operator $E_Y$ to the balance. It annihilates $\operatorname{Im}D_t$, and on $\{C=0\}$ it sends $\rho\cdot C$ to $D_C^*\rho$. For the left side use the chain rule for Euler operators: if $F$ is local in $z$ and $z=Z[Y]$ is a local map, then $E_Y(F\circ Z)=D_Z^*\,(E_zF\circ Z)$, because $\delta\!\int F(Z)=\int E_zF\cdot D_Z\delta Y=\int D_Z^*E_zF\cdot\delta Y$ modulo total derivatives. Here $E_z\mathcal H_\mp=(b_\mp,a_\mp)$, and $D_{\Pi^-}=-(S_{\Phi\Phi},S_{\Phi\Psi},S_{\Phi\lambda})$, $D_{\Pi^+}=(S_{\Psi\Phi},S_{\Psi\Psi},S_{\Psi\lambda})$, $D_C=(S_{\lambda\Phi},S_{\lambda\Psi},S_{\lambda\lambda})$. Self-adjointness gives, on $C=0$,
+*Proof.* (a) Apply the $t$-Euler operator $E_Y$ to (3.3$'$). It annihilates $\operatorname{Im}D_t$. It sends $\rho\cdot C$ to $D_C^*\rho+D_\rho^*C$, which equals $D_C^*\rho$ on the prolonged constraint locus $\{D_t^kC=0,\ k\ge0\}$. All identities below hold on that locus. For the left side use the chain rule for Euler operators: if $F$ is local in $z$ and $z=Z[Y]$ is a local map, then $E_Y(F\circ Z)=D_Z^*\,(E_zF\circ Z)$, because $\delta\!\int F(Z)=\int E_zF\cdot D_Z\delta Y=\int D_Z^*E_zF\cdot\delta Y$ modulo total derivatives. Here $E_z\mathcal H_\mp=(b_\mp,a_\mp)$, and $D_{\Pi^-}=-(S_{\Phi\Phi},S_{\Phi\Psi},S_{\Phi\lambda})$, $D_{\Pi^+}=(S_{\Psi\Phi},S_{\Psi\Psi},S_{\Psi\lambda})$, $D_C=(S_{\lambda\Phi},S_{\lambda\Psi},S_{\lambda\lambda})$. Self-adjointness gives, on $C=0$,
 
 $$\begin{aligned}
 b_--S_{\Phi\Phi}a_--S_{\Phi\Psi}a_+&=S_{\Phi\lambda}\rho,\\
@@ -169,7 +170,7 @@ Insert $\delta Y=(a_-,a_+,\rho)$ into (3.2). The third line of (3.5) is the line
 
 **Remarks 3.4.**
 1. *What is not needed.* The proof uses neither a Lagrangian-submanifold property of $\Gamma_d$, nor transversality, nor connectedness. The symplectic interpretation is given in Appendix A.
-2. *Constrained defects.* The defect $S_d=\int\lambda(\psi+\phi)\,dt$ conserves momentum for any even potential. This is consistent with Theorem 3.3, since $\psi=-\phi$ is a trivial Bäcklund relation. Theorem 3.3 is only the Bäcklund half of the observation. Integrability needs the nondegenerate families of Section 6, which this defect does not have.
+2. *Condition (I) cannot be dropped.* Between two copies of a relativistic scalar with even potential, the defect $S_d=\int\lambda(\psi+\phi)\,dt$ conserves momentum: $C=\psi+\phi$, and $\mathcal H_--\mathcal H_+\in\langle C\rangle$. Here $K=1$ and $S_{\lambda\lambda}=0$, so the operator (I) is zero, and the conclusion of (b) fails. For the massive Klein–Gordon field, $(\phi,\psi,\lambda)=(x^2,-x^2,2x)$ is a promoted solution, but $E_-[\phi]=2-m^2x^2\ne0$ (`checks/check_scope.py`). The relation $\psi=-\phi$ maps solutions to solutions only because $\phi\mapsto-\phi$ is a symmetry. Theorem 3.3 is only the Bäcklund half of the observation. Integrability needs the nondegenerate families of Section 6, which this defect does not have.
 3. *Condition (I) in practice.* It is vacuous for Type I. For the multiplier defects of KdV and mKdV, $S_{\Phi_1\mu}=\partial C/\partial\Phi_1=1$, so (I) holds. For relativistic Type-II defects it reduces to injectivity of the multiplication operator $S_{\lambda\lambda}=-\partial_\lambda^2\mathcal D$.
 4. *Heterogeneous defects.* Theorem 3.3 does not need $\mathcal L_-=\mathcal L_+$. For instance, a momentum-conserving defect between Liouville theory and a free massless field is a Bäcklund relation linearising Liouville theory.
 
@@ -201,31 +202,33 @@ Then $\int_{x<0}N_-+\int_{x>0}N_++Q_d$ is conserved.
 2. *$D_x^mQ|_{x=0}$ is a local function $Q_{\Phi_m}$ of the boundary data, and likewise on the right;*
 3. *for a prescribed action $Q_\lambda$ on $\lambda$, $\operatorname{pr}v_Q\mathcal L_d=D_tA_d$.*
 
-*Then the Noether law $N=A-\Xi(Q)$, $J=-\sum_m\pi_m\cdot D_x^mQ$ has the defect charge $Q_d=A_d-\Xi_d(Q)$, where $\Xi_d$ is the temporal boundary term (2.3) of $\mathcal L_d$. Moreover, every law with density $N=D_x\nu$ for a local $\nu$ has the defect charge $\nu_+-\nu_-$.*
+*Then the Noether law $N=A-\Xi(Q)$, $J=-\sum_m\pi_m\cdot D_x^mQ$ has the defect charge $Q_d=A_d-\Xi_d(Q)$, where $\Xi_d$ is the temporal boundary term (2.3) of $\mathcal L_d$. Moreover, every trivial law $(N,J)=(D_x\nu,-D_t\nu)$, with $\nu$ local, has the defect charge $\nu_+-\nu_-$.*
 
 *Proof.* Equation (2.1) with $\eta=Q$ gives the current. At $x=0$ the sewing equations give
 
 $$J_--J_+=\sum_mE_{\Phi_m}\mathcal L_d\cdot Q_{\Phi_m}+\sum_mE_{\Psi_m}\mathcal L_d\cdot Q_{\Psi_m}=\operatorname{pr}v_Q\mathcal L_d-E_\lambda\mathcal L_d\cdot Q_\lambda-D_t\Xi_d(Q),$$
 
-by the temporal analogue of (2.1) for $\mathcal L_d$. On $C=0$ this is $D_t(A_d-\Xi_d(Q))$. For $N=D_x\nu$, $\int_{x<0}D_x\nu_-+\int_{x>0}D_x\nu_+=\nu_-(0)-\nu_+(0)$ up to constants at infinity. $\square$
+by the temporal analogue of (2.1) for $\mathcal L_d$. On $C=0$ this is $D_t(A_d-\Xi_d(Q))$. For the trivial law, $D_t(\nu_+-\nu_-)=J_--J_+$ identically. $\square$
+
+A law whose density is a total $x$-derivative need not be trivial off shell, and then need not have the defect charge $\nu_+-\nu_-$. For the potential KdV Lagrangian $\mathcal L=\frac12p_xp_t-p_x^3-\frac12p_{xx}^2$, the mass law $(p_x,\ p_{xxx}-3p_x^2)$ has flux $\pi_0-\frac12p_t$, not $-p_t$. It is the sum of the trivial law $\frac12(D_xp,-D_tp)$ and minus the Noether law $(-\frac12p_x,-\pi_0)$ of the constant shift $p\mapsto p+\epsilon$. Hence it has the defect charge $\frac12(q-p)-(A_d-\Xi_d(1))$ when the defect satisfies conditions 1–3 for the shift, and none of this form in general. For the KdV defect of [3], $A_d-\Xi_d(1)=\frac12(p-q)$ and the charge is $q-p$. Adding $\beta p^2$ to that defect breaks the shift invariance, and $D_t(q-p)-(J_--J_+)=2\beta p$ (`checks/check_scope.py`).
 
 **Examples.**
 - *Time translation* ($Q=-D_t\phi$, $A=-\mathcal L$) gives the defect energy $\mathcal E_d$ of every autonomous defect.
 - *A $U(1)$ phase* gives the NLS number charge when the defect is phase invariant.
-- *A constant field shift*, or a time-linear shift $\phi\mapsto\phi+\epsilon t$ when $\operatorname{pr}v\mathcal L\in\operatorname{Im}D_t$, gives a charge whenever the defect depends on $\phi,\psi$ only through differences and derivatives.
+- *A constant field shift* gives a charge whenever the defect depends on $\phi,\psi$ only through differences and derivatives. A time-linear shift $\phi\mapsto\phi+\epsilon t$, when $\operatorname{pr}v\mathcal L\in\operatorname{Im}D_t$, needs in addition that $(\partial_{D_t\Phi_0}+\partial_{D_t\Psi_0})\mathcal L_d\in\operatorname{Im}D_t$.
 - *Spatial translations* violate condition 1. Their defect charge, $Q_d=\widetilde P$, is exactly the hypothesis of Definition 3.1.
 
 ### 4.2 Stress potentials along promoted solutions
 
 **Proposition 4.2 (defect charges are spatial potentials).** *Let $(\phi,\psi,\lambda)$ be a promoted solution satisfying (I), so that both bulk equations hold, and let $Q_d$ be a defect charge for $(N,J)$. Put $R:=D_xQ_d+(N_--N_+)$ along the solution. Then $D_tR=0$. Moreover $R\equiv0$ in either of the following settings:*
 
-*(A) the solution is a formal branch (Definition 6.1), so $R$ is a differential function of $\phi$ alone, and $R$ vanishes at the vacuum;*
+*(A) the solution is a formal branch (Definition 6.1), so that each coefficient of $R$ in $\epsilon$ is a differential function of $\phi$ alone, and $R$ vanishes at the vacuum;*
 
 *(B) for each $x$ the solution tends, as $t\to-\infty$, to a constant pair at which $R=0$.*
 
 *Hence $D_tQ_d=J_--J_+$ and $D_xQ_d=-(N_--N_+)$ at every point.*
 
-*Proof.* $D_tR=D_xD_tQ_d+D_t(N_--N_+)=D_x(J_--J_+)+D_t(N_--N_+)=0$, using both bulk laws. In setting (A), $R$ is a differential function of $\phi$ with $D_tR=0$ on solutions of $E_-[\phi]=0$. By Lemma 6.3 it is constant, and the constant is its vacuum value. In setting (B), $R(x,\cdot)$ is constant in $t$ and equals its limit. $\square$
+*Proof.* $D_tR=D_xD_tQ_d+D_t(N_--N_+)=D_x(J_--J_+)+D_t(N_--N_+)=0$, using both bulk laws. In setting (A), each coefficient of $R$ is a differential function of $\phi$ with $D_tR=0$ on solutions of $E_-[\phi]=0$. By Lemma 6.3 it is constant, and the constant is its vacuum value. In setting (B), $R(x,\cdot)$ is constant in $t$ and equals its limit. $\square$
 
 The normalisation is a property of the single residual $R$, never global injectivity of $D_t$; a derivation annihilates constants. For energy and momentum, Proposition 4.2 gives the four identities
 
@@ -241,7 +244,9 @@ $$N_2+J_1+D_ta_0+D_xb_0=0\quad\text{on shell} \tag{4.2}$$
 
 $$D_t\big(Q^1+a_{0,-}-a_{0,+}\big)+D_x\big(b_{0,-}-b_{0,+}-Q^2\big)=0. \tag{4.3}$$
 
-*Proof.* $D_tQ^1=J_{1,-}-J_{1,+}=-(N_{2,-}-N_{2,+})-D_t\Delta a_0-D_x\Delta b_0$ by (4.2), and $-(N_{2,-}-N_{2,+})=D_xQ^2$ by Proposition 4.2. $\square$
+*In setting (A) the vacuum condition of Proposition 4.2 holds automatically for law 2, when $Q^1$ and $Q^2$ are autonomous local functions of the boundary jets.*
+
+*Proof.* $D_tQ^1=J_{1,-}-J_{1,+}=-(N_{2,-}-N_{2,+})-D_t\Delta a_0-D_x\Delta b_0$ by (4.2), and $-(N_{2,-}-N_{2,+})=D_xQ^2$ by Proposition 4.2. Only the residual $R_2=D_xQ^2+(N_{2,-}-N_{2,+})$ of law 2 is used. At a constant solution, $D_t$ and $D_x$ of every differential function vanish. There $R_2=N_{2,-}-N_{2,+}$, the closure relation (4.2) gives $N_2=-J_1$ on each side, and (4.1) gives $J_{1,-}-J_{1,+}=D_tQ^1=0$. Hence $R_2$ vanishes at the vacuum. $\square$
 
 We call $\mathcal G=Q^1+\Delta a_0$ the **generating density**. A density difference such as $T^{01}_--T^{01}_+=-D_xP_d$ is an exact derivative. Its expansion therefore yields only trivial charges and cannot replace $\mathcal G$.
 
@@ -261,16 +266,16 @@ We call $\mathcal G=Q^1+\Delta a_0$ the **generating density**. A density differ
 | NLS $iu_t+u_{xx}+2\vert u\vert^2u=0$ | Galilean boost | number | $-2\times$momentum | $0,\ 0$ | defect number $N_d$ |
 | KdV $u_t=6uu_x-u_{xxx}$ | Galilean symmetry | mass | $3u^2$ ($\propto$ momentum) | $0,\ -u_x$ | $q-p$ (potentials) |
 | mKdV $v_t=6v^2v_x+v_{xxx}$ | dilation | $\tfrac12v^2$ (momentum) | $3\times$energy | $0,\ v v_x$ | defect momentum $P_d$ |
-| Boussinesq (2.1) of [8] | $u\mapsto u+\epsilon t$ | trivial | shift law | $u/c^2,\ 0$ | $u-v$ |
+| Boussinesq (2.1) of [8] | $u\mapsto u+\epsilon t$ | trivial | shift law | $u/c^2,\ 0$ | $(u-v)/c^2$ |
 
-*Proof.* In the jet space of the equation, $x$ and $t$ are coordinates independent of the fibre coordinates, with $D_tx=D_xt=0$ and $D_xx=D_tt=1$. Expanding the conservation law gives $x(D_ta_1+D_xb_1)+t(D_ta_2+D_xb_2)+(a_2+b_1+D_ta_0+D_xb_0)=0$, and each coefficient vanishes. The rows of the table are direct computations, recorded in `checks/check_kinematics.py`. $\square$
+*Proof.* In the jet space of the equation, $x$ and $t$ are coordinates independent of the fibre coordinates, with $D_tx=D_xt=0$ and $D_xx=D_tt=1$. Expanding the conservation law gives $x(D_ta_1+D_xb_1)+t(D_ta_2+D_xb_2)+(a_2+b_1+D_ta_0+D_xb_0)=0$, and each coefficient vanishes. The rows of the table are direct computations, recorded in `checks/check_kinematics.py`; the Boussinesq row is computed only there, from the Lagrangian of [8]. $\square$
 
 **Corollary 5.3.** *In every row both constituent laws have defect charges:*
 - *energy, for every autonomous defect (Lemma 4.1);*
 - *momentum, by Definition 3.1;*
 - *the NLS number, for phase-invariant defects;*
-- *mass, which is topological in the potential variable;*
-- *the Boussinesq shift law, because the defect of [8] depends on $u,v$ only through $u-v$ and derivatives.*
+- *the KdV mass, for the defect of [3], with charge $q-p$: the mass law is a trivial law plus a shift Noether law, and that defect is shift invariant up to the total derivative of its gyroscopic term (Section 4.1 and `checks/check_scope.py`);*
+- *the Boussinesq law 2, which is the Noether law of the constant shift, because the defect of [8] depends on $u,v$ only through $u-v$ and derivatives.*
 
 *Hence every observed defect has a conserved generating density along its Bäcklund relation.*
 
@@ -278,17 +283,19 @@ The closure relation is a property of the bulk theory alone. It reflects a kinem
 
 ### 5.2 Families from kinematic symmetries
 
-**Lemma 5.4 (dilation families).** *Let $\delta_s:(x,t,\phi)\mapsto(sx,s^{\alpha}t,s^{\beta}\phi)$, with $\beta$ a vector of weights, satisfy $\mathcal L_\pm\circ\delta_s=s^{w}\mathcal L_\pm$ up to total derivatives. If $S_d$ is momentum-conserving, then so is $S_d^{(s)}[Y]:=c(s)\,S_d[\delta_sY]$ for every $s>0$. Here $c(s)>0$ is the factor that makes the total action scale homogeneously.*
+**Lemma 5.4 (dilation families).** *Let $\delta_s:(x,t,\phi)\mapsto(sx,s^{\alpha}t,s^{\beta}\phi)$, with $\beta$ a vector of weights, satisfy $\mathcal L_\pm\circ\delta_s=s^{w}\mathcal L_\pm$ exactly, for the chosen representatives $\mathcal L_\pm$. If $S_d$ is momentum-conserving, then so is $S_d^{(s)}[Y]:=c(s)\,S_d[\delta_sY]$ for every $s>0$. Here $c(s)>0$ is the factor that makes the total action scale homogeneously.*
 
-*Proof.* $\delta_s$ fixes the line $x=0$ and each half-line. It maps the Ostrogradsky data, the momenta and $\mathcal H_\pm$ homogeneously, and maps the sewing equations of $S_d^{(s)}$ to those of $S_d$. Hence it maps identity (3.3) for $S_d$ to a nonzero multiple of identity (3.3) for $S_d^{(s)}$. $\square$
+*Proof.* $\delta_s$ fixes the line $x=0$ and each half-line. Because the representatives are homogeneous, it maps the Ostrogradsky data, the momenta and $\mathcal H_\pm$ homogeneously, and maps the sewing equations of $S_d^{(s)}$ to those of $S_d$. Hence it maps identity (3.3) for $S_d$ to a nonzero multiple of identity (3.3) for $S_d^{(s)}$. $\square$
 
-The KdV, mKdV and NLS defects of [3] are homogeneous under the bulk dilations, with the defect parameter of weight $2$, $1$ and $1$ respectively. Their parameters are therefore dilation orbits.
+Homogeneity up to a spatial divergence is not enough, because $\pi_m$ and $\mathcal H_\pm$ depend on the representative. If $\mathcal L_\pm\circ\delta_s=s^w(\mathcal L_\pm+D_xB_\pm)$, the half-line integrals produce the boundary term $\int dt\,(B_--B_+)|_{x=0}$, which must be moved into the transformed defect action. For example, take $\mathcal L=\frac12(w_t^2-w_x^2)+D_x(\frac12w^2)$ on both sides and $\mathcal L_d=\phi\psi_t+\frac12(\psi^2-\phi^2)$, which conserves momentum. Under $(x,t,\phi)\mapsto(sx,st,\phi)$ the definition above gives $\mathcal L_d^{(s)}=\phi\psi_t+\frac1{2s}(\psi^2-\phi^2)$, which violates (3.3) for $s\ne1$ (`checks/check_scope.py`). The bulk Lagrangians used here for KdV, mKdV and NLS are strictly homogeneous, and the KdV, mKdV and NLS defects of [3] are homogeneous under the bulk dilations, with the defect parameter of weight $2$, $1$ and $1$ respectively (`checks/check_kinematics.py`). Their parameters are therefore dilation orbits.
 
 **Lemma 5.5 (Lorentz families).** *Let $\mathcal L_\pm$ be Lorentz-invariant scalar theories, so that $T^{\mu\nu}$ is a symmetric tensor. Let $(\phi,\psi,\lambda)$ range over the promoted solutions of a momentum-conserving defect satisfying (I), with stress potentials $\mathrm{Pot}^0=\mathcal E_d$ and $\mathrm{Pot}^1=P_d$:*
 
 $$\Delta T^{\mu\nu}=\varepsilon^{\mu\rho}D_\rho\mathrm{Pot}^\nu .$$
 
-*For a boost $\Lambda$, the boosted pairs again solve both bulk equations, with stress potentials $\Lambda^\nu{}_\beta\,\mathrm{Pot}^\beta\circ\Lambda^{-1}$. In particular momentum is conserved across the line $x=0$ for the boosted relation. When that relation is in sewing form at $x=0$, it is a momentum-conserving defect.*
+*For a boost $\Lambda$, the boosted pairs again solve both bulk equations, with stress potentials $\Lambda^\nu{}_\beta\,\mathrm{Pot}^\beta\circ\Lambda^{-1}$. In particular, along the boosted solutions, momentum is conserved across the line $x=0$.*
+
+This is an identity along promoted solutions. When the boosted relation is in sewing form at $x=0$, it is a momentum-conserving defect in the sense of Definition 3.1 only if the transported potential is a local function of its boundary data and the balance holds on all its constrained boundary jets; this is checked case by case. For sine-Gordon the boost only changes the defect parameter (below), so it holds.
 
 *Proof.* $T'^{\mu\nu}(x)=\Lambda^\mu{}_\alpha\Lambda^\nu{}_\beta T^{\alpha\beta}(\Lambda^{-1}x)$, and derivatives transform by $\partial'=\Lambda^{-T}\partial$. Since $\det\Lambda=1$ we have $\Lambda\varepsilon\Lambda^T=\varepsilon$, that is $\Lambda\varepsilon=\varepsilon\Lambda^{-T}$. Hence $\Delta T'^{\mu\nu}=\varepsilon^{\mu\rho}\partial'_\rho(\Lambda^\nu{}_\beta\mathrm{Pot}^\beta\circ\Lambda^{-1})$. $\square$
 
@@ -302,15 +309,23 @@ For the sine-Gordon defect of [1], with $\mathcal L_d=\tfrac12(\phi\psi_t-\psi\p
 
 $$\psi=g(\phi)+\sum_{n\ge1}\epsilon^n\Psi_n[\phi],\qquad \lambda=\sum_{n\ge n_0}\epsilon^n\Lambda_n[\phi], \tag{6.1}$$
 
-with local coefficients, such that for every solution of $E[\phi]=0$ every promoted sewing equation holds as a formal series in $\epsilon$. Constant offsets in $\psi-g(\phi)$ that solve the vacuum sewing equations are allowed, possibly of negative order in $\epsilon$; KdV needs one.
+with local coefficients, such that for every solution of $E[\phi]=0$ every promoted sewing equation holds, and $E[\psi]=0$, as formal series in $\epsilon$. Under condition (I) the last requirement follows from the others, by Theorem 3.3(b). Constant offsets in $\psi-g(\phi)$ that solve the vacuum sewing equations are allowed, possibly of negative order in $\epsilon$; KdV needs one.
 
-**Lemma 6.2 (formal implicit function).** *Let $G(\phi,\Delta;\epsilon)=0$ be a system of local equations for $\Delta=\psi-g(\phi)$ (and for $\lambda$), formal in $\epsilon$, with $G=M\Delta+O(\epsilon)$ for an invertible constant (or pointwise invertible algebraic) matrix $M$. Suppose that derivatives of $\Delta$ enter only at positive order in $\epsilon$. Then $G=0$ has a unique formal solution $\Delta=\sum_{n\ge1}\epsilon^n\Delta_n$ with local coefficients.*
+**Lemma 6.2 (formal implicit function).** *Let $G(\phi,\Delta;\epsilon)=0$ be a system of local equations for $\Delta=\psi-g(\phi)$ (and for $\lambda$), formal in $\epsilon$, with $G(\phi,\Delta;0)=M\Delta+O(\Delta^2)$ for an invertible constant (or pointwise invertible algebraic) matrix $M$. Suppose that derivatives of $\Delta$ enter only at positive order in $\epsilon$. Then $G=0$ has a unique formal solution $\Delta=\sum_{n\ge1}\epsilon^n\Delta_n$ with local coefficients.*
 
-*Proof.* The coefficient of $\epsilon^n$ in $G$ is $M\Delta_n$ plus a local expression in $\Delta_1,\dots,\Delta_{n-1}$ and their derivatives. Induct on $n$. $\square$
+*Proof.* Substitute the series. Since $\Delta=O(\epsilon)$, the coefficient of $\epsilon^n$ in $G$ is $M\Delta_n$ plus a local expression in $\Delta_1,\dots,\Delta_{n-1}$ and their derivatives: the terms of order $\Delta^2$ at $\epsilon^0$ involve only lower coefficients, and derivatives of $\Delta$ carry a factor $\epsilon$. Induct on $n$. $\square$
 
-**Lemma 6.3 (top-order lemma).** *Let $v_t=F[v]$ be an evolution system of order $m\ge1$ in $x$ whose highest-order symbol is invertible; this includes second-order-in-time wave equations written for $(\phi,\phi_t)$. A differential function $R[v]$ with $D_tR=0$ on shell is constant.*
+**Lemma 6.3 (no first integrals in $t$).** *Let $\mathcal L$ be admissible, of spatial order $K$.*
 
-*Proof.* If $R$ depends on $v_k$ with $k$ maximal, then $D_tR$ contains $\partial R/\partial v_k\cdot\partial F/\partial v_m\cdot v_{k+m}$, which is linear in a jet variable of order $k+m$ that no other term contains. Hence $\partial R/\partial v_k=0$, and induction leaves a constant. $\square$
+*(a) $E(\mathcal L)=(-1)^K\frac{\partial^2\mathcal L}{\partial\phi_{0,K}^2}\,D_x^{2K}\phi+(\text{terms of spatial order at most }2K-1)$. Hence, on the formal solution manifold of $E(\mathcal L)=0$, the jets $D_t^aD_x^j\phi$ with $a\ge0$ and $0\le j\le2K-1$ are free coordinates, every other jet is a local function of them, and $D_t$ maps the coordinate $D_t^aD_x^j\phi$ to $D_t^{a+1}D_x^j\phi$.*
+
+*(b) A differential function $R$, without explicit $(x,t)$ and defined on a connected domain, with $D_tR=0$ on solutions of $E(\mathcal L)=0$ is constant. The same holds coefficientwise for formal series in $\epsilon$.*
+
+*Proof.* (a) In $E=\sum_{k,a}(-D_x)^k(-D_t)^a\,\partial\mathcal L/\partial\phi_{a,k}$, each $\partial\mathcal L/\partial\phi_{a,k}$ has spatial order at most $K$. By admissibility it vanishes for $a\ge1$ unless $k\le K-1$. So every term with $a\ge1$ or $k<K$ has spatial order at most $2K-1$. In $(-D_x)^K\partial\mathcal L/\partial\phi_{0,K}$ the only jet of spatial order $K$ inside the derivative is $\phi_{0,K}$, so the only jet of spatial order $2K$ produced is $\phi_{0,2K}$, with the stated invertible coefficient. Solve $E=0$ for $\phi_{0,2K}$. Its derivatives $D_t^aD_x^bE=0$ have the distinct leading jets $\phi_{a,2K+b}$ and express each of them through jets of lower spatial order. By induction on spatial order every jet with $j\ge2K$ is a local function of the stated coordinates, and these satisfy no relation.
+
+(b) In these coordinates $R$ depends on finitely many of them; let $A$ be the largest $t$-order that occurs. Then $D_tR=\sum_{a\le A}\sum_{j<2K}\partial R/\partial(D_t^aD_x^j\phi)\cdot D_t^{a+1}D_x^j\phi$. The coordinates $D_t^{A+1}D_x^j\phi$ do not occur in $R$ or in its derivatives, and they enter $D_tR$ linearly with coefficients $\partial R/\partial(D_t^AD_x^j\phi)$. These coefficients therefore vanish. Descending induction on $A$ leaves $R$ independent of every coordinate, so $R$ is constant. $\square$
+
+For a relativistic scalar, (a) is the normal form $\phi_{xx}=\phi_{tt}+U'(\phi)$, with free coordinates the $t$-jets of $\phi$ and $\phi_x$. Writing the wave equation as a first-order system in $t$ does not help, because its highest-order symbol is nilpotent.
 
 **Theorem 6.4 (hierarchy).** *Let a family have a formal branch, and let $\mathcal G$ be a generating density (Proposition 4.3) normalised to vanish at the vacuum, with flux $\mathcal F$. Expand*
 
@@ -318,19 +333,29 @@ $$\mathcal G\big(\phi,\psi(\epsilon),\lambda(\epsilon);\epsilon\big)=\sum_{n}\ep
 
 *Then $D_tQ_n+D_x\mathcal J_n=0$ on shell for every $n$, with $Q_n$ and $\mathcal J_n$ local.*
 
-*Proof.* The branch is a promoted solution in setting (A), with residuals that are differential functions of $\phi$. Lemma 6.3 makes them constant and the vacuum value makes them zero, so Proposition 4.2 applies. Proposition 4.3 then gives (4.3) as an identity of formal series; take coefficients. $\square$
+*Proof.* The branch is a promoted solution in setting (A) of Proposition 4.2: both bulk equations hold (Definition 6.1), and the coefficients of the residuals are differential functions of $\phi$. By Lemma 6.3 they are constant. Proposition 4.3 uses only the residual of law 2, whose vacuum value vanishes automatically (Proposition 4.3, last statement). Proposition 4.3 then gives (4.3) as an identity of formal series; take coefficients. $\square$
 
-**Lemma 6.5 (kinematic weights).** *Suppose a one-parameter group $g_\theta$ of point symmetries of $\mathcal L$ fixes the vacuum, maps the family to itself with $\epsilon\mapsto e^{w\theta}\epsilon$, and transforms $\mathcal G$ with weight $w_0$. Then $g_\theta^*Q_n=e^{(w_0+nw)\theta}Q_n$ modulo trivial densities. If $g_\theta$ acts on the Fourier variable of the linearised theory by $k\mapsto k_\theta$, the quadratic symbol $m_n(k)$ of $Q_n$ satisfies $m_n(k_\theta)=e^{(w_0+nw)\theta}m_n(k)$, up to the Jacobian factor of the measure. Nonzero symbols with distinct $n$ are therefore linearly independent.*
+**Lemma 6.5 (kinematic weights).** *Let $g_\theta$ be a one-parameter group of point symmetries of $\mathcal L$ that fixes the vacuum and acts on solutions. Suppose that:*
+1. *$g_\theta$ maps the member with parameter $\epsilon$ to the member with parameter $e^{w\theta}\epsilon$, where $w\ne0$;*
+2. *it maps the selected formal branch to the selected branch of the image member (for example, because both are the unique solution of Lemma 6.2);*
+3. *on shell it maps the closed 1-form $\mathcal G\,dx-\mathcal F\,dt$ of (4.3) for $\epsilon$ to $e^{w_0\theta}$ times the 1-form for $e^{w\theta}\epsilon$, up to exact forms;*
+4. *writing its action on phase-space data as $v\mapsto L_\theta v+B_\theta(v,v)+O(v^3)$, each $Q_{n,1}[B_\theta(v,v)]$ is a trivial functional. This holds when the induced action on phase-space data is linear, as for the dilations of Section 5.2 in the variables used here, or when the $Q_n$ have no linear parts. A Lorentz boost is linear on spacetime fields but not, in general, on phase-space data: at $t=0$ the infinitesimal boost gives $\delta\phi_t=\phi_x+x(\phi_{xx}-U'(\phi))$, whose quadratic part $-\frac12U'''(0)\,x\phi^2$ vanishes only when $U'''(0)=0$, as for sine-Gordon.*
 
-*Proof.* Uniqueness in Lemma 6.2 makes the branch covariant, and $\mathcal G$ is covariant by assumption; compare coefficients of $\epsilon^n$. Eigenfunctions of a one-parameter group of linear maps with distinct exponents are linearly independent. $\square$
+*Then the conserved functionals $\bar Q_n=\int Q_n\,dx$ satisfy $g_\theta^*\bar Q_n=e^{(w_0+nw)\theta}\bar Q_n$. The linearised action $L_\theta$ induces a one-parameter group $T_\theta$ of linear maps of quadratic symbols, and $T_\theta m_n=e^{(w_0+nw)\theta}m_n$. Nonzero symbols with distinct $n$ are therefore linearly independent.*
 
-**Lemma 6.6 (gyroscopic Type-I defects).** *Let $\mathcal L$ be a first-order relativistic theory, and let*
+*Proof.* Compare coefficients of $\epsilon^n$ in condition 3, using condition 2 to identify the coefficients on both sides. Integrate over a Cauchy line; a closed 1-form gives the same integral over $t=0$ and over its image under $g_\theta$, for fields that decay in $x$. The quadratic part of $\bar Q_n\circ g_\theta$ is $Q_{n,2}[L_\theta v]+Q_{n,1}[B_\theta(v,v)]$, and by condition 4 the second term is trivial. Since $g_\theta$ fixes the vacuum, $L_\theta$ maps the linearised theory to itself and acts linearly on its normal modes, and hence on quadratic symbols. Because $w\ne0$, the exponents $w_0+nw$ are distinct, and eigenvectors of a linear map with distinct eigenvalues are linearly independent. $\square$
+
+For a dilation the 1-form transforms by a power of $s$ and $T_\theta$ rescales $k$. For a Lorentz boost, $(\mathcal G,\mathcal F)=(\mathcal E_d,P_d)$ transforms as a vector (Lemma 5.5) and the 1-form is invariant, so $w_0=0$; with $k=m\sinh\vartheta$, $T_\theta$ shifts $\vartheta$ and includes the factor $\omega(k)$ of the measure, so that $m_n/\omega$ are its eigenfunctions. Condition $w\ne0$ is needed: if the parameter does not move, all exponents coincide, and a series such as $\frac{\epsilon}{1-\epsilon}m_*(k)$ has infinitely many nonzero but proportional coefficients. Condition 4 is needed as well. For $\mathcal L=U_tV_t-U_xV_x$ in the variables $q=U-V^2$, $r=V$, whose spatial Hessian has determinant $-1$, the symmetry $(U,V)\mapsto(aU,a^{-1}V)$ acts by $q\mapsto aq+(a-a^{-2})r^2$, $r\mapsto a^{-1}r$. The conserved charge $\int U_t\,dx=\int(P_r-2rP_q)\,dx$ scales by $a$, but its quadratic part $-2\int rP_q\,dx$ scales by $a^{-2}$ under the linearised action (`checks/check_scope.py`).
+
+**Lemma 6.6 (gyroscopic Type-I defects).** *Let $\mathcal L$ be a first-order relativistic theory, and let $\mathcal L_d^{(\epsilon)}$ be a family of momentum-conserving defects of the form*
 
 $$\mathcal L_d^{(\epsilon)}=A_\Phi(\Phi,\Psi)\cdot\Phi_t+A_\Psi(\Phi,\Psi)\cdot\Psi_t-\epsilon^{-1}\mathcal B_-(\Phi,\Psi)-\sum_{k\ge0}\epsilon^k\mathcal B_k(\Phi,\Psi).$$
 
 *Suppose $\mathcal B_-$ vanishes to second order on the diagonal $\Psi=\Phi$, with invertible Hessian $\mathsf H=\partial^2\mathcal B_-/\partial\Phi^2|_{\Psi=\Phi}$. Then the family has a formal branch with $g=\mathrm{id}$.*
 
-*Proof.* Multiply the left sewing equation by $\epsilon$. Its leading term is $\nabla_\Phi\mathcal B_-(\phi,\phi+\Delta)=-\mathsf H\Delta+O(\Delta^2)$, while the gyroscopic terms, which contain the only derivatives of $\Delta$, carry a factor $\epsilon$. Lemma 6.2 gives $\Delta$. In condition (T) of Lemma 3.5, $S_{\Phi\Psi}=\epsilon^{-1}\mathsf H+O(1)$ as a formal series of differential operators. Its leading coefficient is invertible, so (T) holds on formal series. Lemma 3.5 then gives the right sewing equation. $\square$
+*Proof.* Multiply the left sewing equation by $\epsilon$. Its leading term is $\nabla_\Phi\mathcal B_-(\phi,\phi+\Delta)=-\mathsf H\Delta+O(\Delta^2)$, while the gyroscopic terms, which contain the only derivatives of $\Delta$, carry a factor $\epsilon$. Lemma 6.2 gives $\Delta$. In condition (T) of Lemma 3.5, $S_{\Phi\Psi}=\epsilon^{-1}\mathsf H+O(1)$ as a formal series of differential operators. Its leading coefficient is invertible, so (T) holds on formal series. Lemma 3.5, which uses momentum conservation, then gives the right sewing equation. $\square$
+
+Momentum conservation cannot be dropped. Between massive Klein–Gordon fields, $\mathcal L_d=-(\phi-\psi)^2/(2\epsilon)$ has the form above with $\mathsf H=1$ but does not conserve momentum. Its left sewing equation gives $\psi=\phi+\epsilon\phi_x$, and its right one then forces $\epsilon\phi_{xx}=0$ (`checks/check_scope.py`).
 
 For the $a_r^{(1)}$ affine Toda defects of [2], $\mathcal B_-$ is a sum of exponentials of $\tfrac12\alpha_j\cdot\mathsf D(\phi-\psi)$ over the affine roots. Its Hessian on the diagonal is $\tfrac m4\mathsf D^T(\sum_j\alpha_j\alpha_j^T)\mathsf D$, which is positive definite because the roots span $\mathbb R^r$ and $\mathsf D$ is invertible.
 
@@ -355,7 +380,9 @@ The massive observed cases fit this setting:
 - (NR) For every $n\ge3$ and every choice of labels and signs, $\Omega$ does not vanish identically on any nonempty open subset of the hyperplane $\sum s_ik_i=0$.
 - (NR2) Every quadratic local functional conserved by the linearised flow is a function of the actions $|a_j(k)|^2$. This holds when distinct normal modes of equal momentum have distinct frequencies on a dense set.
 
-Since $\Omega$ is real-analytic, (NR) holds as soon as $\Omega$ is not identically zero. This is the case for every row of the table; the check at degrees 3 and 4 is in `checks/check_kinematics.py`. The massless wave $\omega=|k|$ violates (NR), since $\omega(k_1)+\omega(k_2)-\omega(k_1+k_2)=0$ for all $k_1,k_2>0$. Condition (NR2) fails for degenerate branches, such as the conjugate particles of $a_r^{(1)}$ Toda for $r\ge2$, whose masses coincide.
+(NR) holds for every degree $n\ge3$ as soon as no branch $\omega_j$ is affine on an interval. On the hyperplane, eliminate $k_n=-s_n\sum_{i<n}s_ik_i$. For distinct $i,j<n$, which exist since $n\ge3$,
+$$\frac{\partial^2\Omega}{\partial k_i\,\partial k_j}=s_is_js_n\,\omega_{j_n}''(k_n).$$
+If $\Omega$ vanished on an open subset, $\omega_{j_n}''$ would vanish on an open interval. This is excluded for every row of the table, since $\omega$ is real-analytic and $\omega''\not\equiv0$ for $\sqrt{k^2+m^2}$ with $m>0$, $k^2$, $k^3$ and $k\sqrt{1+\kappa^2k^2}$ (`checks/check_scope.py`; `checks/check_kinematics.py` also samples degrees 3 and 4). The massless wave $\omega=|k|$ violates (NR), since $\omega(k_1)+\omega(k_2)-\omega(k_1+k_2)=0$ for all $k_1,k_2>0$. Condition (NR2) fails for degenerate branches, such as the conjugate particles of $a_r^{(1)}$ Toda for $r\ge2$, whose masses coincide.
 
 ### 7.2 Rigidity, involution and independence
 
@@ -365,27 +392,37 @@ Since $\Omega$ is real-analytic, (NR) holds as soon as $\Omega$ is not identical
 
 $$F_d=\int_{\sum s_ik_i=0}c(k)\prod_ia_{j_i}^{(s_i)}(k_i)$$
 
-with $c$ continuous. Conservation gives $c\,\Omega=0$ on the hyperplane. By (NR) the zero set of $\Omega$ has empty interior, so $c\equiv0$ and $F_d=0$, a contradiction. A homogeneous polynomial local functional vanishes exactly when its density is a total derivative. $\square$
+with $c$ continuous. Conservation gives $c\,\Omega=0$ on the hyperplane. By (NR) the zero set of $\Omega$ has empty interior, so $c\equiv0$ and $F_d=0$, a contradiction. A homogeneous polynomial local functional vanishes exactly when its density is a total derivative. For an analytic density the argument applies to each homogeneous part in turn, so $F=0$ as a formal series; nothing is claimed for smooth densities that are flat at the vacuum. $\square$
 
-**Theorem 7.3 (involution).** *Assume (NR), and either (NR2) or that the quadratic parts $Q_{n,2}$ commute pairwise. Let $Q_n$ be vacuum-normalised local functionals conserved by $H$, such that*
+**Theorem 7.3 (involution).** *Assume (NR). Let $Q_n$ be vacuum-normalised local functionals conserved by $H$, with polynomial or analytic densities, such that*
 
 $$\text{(L)}\qquad \{Q_{n,1},Q_m\}=0\quad\text{for all }n,m,$$
 
-*where $Q_{n,1}$ is the linear part. (L) is vacuous without linear parts. It also holds for Casimirs, such as $\int u$ for $\mathcal J=D_x$, and for generators of symmetries that leave every $Q_m$ invariant. Then $\{Q_n,Q_m\}=0$ for all $n,m$.*
+*where $Q_{n,1}$ is the linear part. Assume either that the quadratic parts $Q_{n,2}$ commute pairwise, or (NR2) together with*
 
-*Proof.* $B=\{Q_n,Q_m\}$ is local, and it is conserved by the Jacobi identity. By (L) its parts of degrees $0$ and $1$ vanish, and its quadratic part is $\{Q_{n,2},Q_{m,2}\}$. Each $Q_{n,2}$ is conserved by the linearised flow, so under (NR2) it is a function of the actions, and two such functionals commute. Lemma 7.2 then gives $B=0$. $\square$
+$$\text{(L}'\text{)}\qquad \{Q_{n,1},H_3\}=0\quad\text{for all }n.$$
 
-**Theorem 7.4 (independence).** *Suppose the quadratic symbols $m_n(k)$ of $Q_n$, for $n$ in a finite set $S$, are linearly independent functions. Then the gradients $\delta Q_n$, $n\in S$, are linearly independent at all sufficiently small fields supported on suitable finitely many Fourier modes. In particular the $Q_n$ are functionally independent and nontrivial.*
+*Both conditions are vacuous without linear parts and hold for Casimirs, such as $\int u$ for $\mathcal J=D_x$; (L$'$) also holds when $H$ has no cubic part. Then $\{Q_n,Q_m\}=0$ for all $n,m$.*
 
-*Proof.* At $v=\varepsilon v_0$, with $v_0$ supported on modes $k_1,\dots,k_M$ and $M\ge|S|$, we have $\delta Q_n(v)=\varepsilon\,m_n(k_l)\hat v_0(k_l)+O(\varepsilon^2)$ on mode $k_l$; a linear part contributes only at $k=0$. Linearly independent functions admit points $k_l$ at which the matrix $(m_n(k_l))$ has full rank. For small $\varepsilon$ the gradients remain independent. $\square$
+*Proof.* $B=\{Q_n,Q_m\}$ is local, and it is conserved by the Jacobi identity. Since $\mathcal J$ is constant, $\{F_a,G_b\}$ has degree $a+b-2$. By (L) the parts of $B$ of degrees $0$ and $1$ vanish, and its quadratic part is $\{Q_{n,2},Q_{m,2}\}$. In the first alternative this vanishes. In the second, the quadratic part of $\{Q_n,H\}=0$ is $\{Q_{n,2},H_2\}+\{Q_{n,1},H_3\}=0$, so by (L$'$) each $Q_{n,2}$ is conserved by the linearised flow. Under (NR2) it is then a function of the actions, and two such functionals commute. In both cases Lemma 7.2 gives $B=0$. $\square$
 
-**Proposition 7.5 (generating quadratic symbol).** *Let a family have a formal branch and a generating density $\mathcal G$, with charges $Q_n$, and put $m(k;\epsilon)=\sum_n\epsilon^nm_n(k)$. Evaluate $\mathcal G$ on $\phi=\eta(aE+\bar aE^{-1})$, with $E=e^{i(kx-\omega(k)t)}$, solving the branch equation for $\Delta$ exactly in $\epsilon$ (at order $\eta$ for the first harmonic, and at order $\eta^2$ for the zero mode). Then $m(k;\epsilon)$ is the coefficient of $\eta^2|a|^2$ in the $x$-average of $\mathcal G$.*
+Without (L$'$) the quadratic parts need not be conserved by the linearised flow. For canonical fields $(q,p)$, let $f=-p_x^2-2pp_{xx}$, the gradient of $\int pp_x^2$, and let $H=\frac12\int[(q+f)_x^2+p_x^2]\,dx$. This is the free Schrödinger Hamiltonian in the canonical coordinates $(q+f,p)$, so (NR) and (NR2) hold. The charges $Q=\int(q+p_x^2)\,dx$ and $R=\int pq_x\,dx$ are conserved, commute and satisfy (L), but $\{Q_2,H_2\}=-2\int p_{xx}q_{xx}\,dx\ne0$ (`checks/check_scope.py`).
 
-*Proof.* The $x$-average at order $\eta^2$ receives contributions only from products of two first harmonics and from zero modes of second-order quantities. $D_x$ and $D_t$ annihilate zero modes, and the linearised branch equation has constant coefficients. Hence neither the second harmonics nor the second-order correction to $\phi$ contribute. Linear parts of the $Q_n$ average to zero. $\square$
+**Theorem 7.4 (independence).** *Suppose the quadratic symbols $m_n(k)$ of $Q_n$, for $n$ in a finite set $S$, are linearly independent functions. Then there is a field $v_0$, supported on finitely many Fourier modes, such that the gradients $\delta Q_n$, $n\in S$, are linearly independent at $\varepsilon v_0$ for every sufficiently small $\varepsilon\ne0$, and hence on a neighbourhood of each such field. In particular the $Q_n$ are functionally independent and nontrivial.*
+
+*Proof.* At $v=\varepsilon v_0$, with $v_0$ supported on modes $k_1,\dots,k_M\ne0$, $M\ge|S|$ and all $\hat v_0(k_l)\ne0$, we have $\delta Q_n(v)=\varepsilon\,m_n(k_l)\hat v_0(k_l)+O(\varepsilon^2)$ on mode $k_l$; a linear part contributes only at $k=0$. Linearly independent functions admit points $k_l$ at which the matrix $(m_n(k_l))$ has full rank. For small $\varepsilon\ne0$ the gradients remain independent. $\square$
+
+The choice of modes matters. The symbols $1$ and $k^2$ of $\frac12\int u^2$ and $\frac12\int u_x^2$ are independent, but at $u=\varepsilon\cos kx$ the gradients satisfy $\delta\frac12\int u_x^2=k^2\,\delta\frac12\int u^2$.
+
+**Proposition 7.5 (generating quadratic symbol).** *Let a family have a formal branch and a generating density $\mathcal G$, with charges $Q_n$ regarded as functionals of the phase-space variables $v$ of Section 7.1, every $t$-derivative being reduced with the full field equations. Put $m(k;\epsilon)=\sum_n\epsilon^nm_n(k)$, where $m_n$ is the quadratic symbol of $Q_n$. Suppose that the quadratic part $F_2$ of the evolution $v_t=F[v]$ is zero or a total $x$-derivative. Suppose also that $\mathcal G$ and the branch equation are local differential functions of $v$ and $\Delta$, and that the branch is the unique solution given by Lemma 6.2. Evaluate $\mathcal G$ at $v=\eta(aE+\bar aE^{-1})$, $E=e^{ikx}$, with no corrections of higher order in $\eta$, letting $D_t$ act by the linearised flow, $D_tE=-i\omega(k)E$. Solve the branch equation for $\Delta$ exactly in $\epsilon$, at order $\eta$ for the first harmonic and at order $\eta^2$ for the zero mode. Then $m(k;\epsilon)$ is the coefficient of $\eta^2|a|^2$ in the $x$-average of $\mathcal G$.*
+
+*Proof.* Expand the phase-space function $\mathcal G$ at $v=\eta v_1$. At order $\eta$ only first harmonics occur, including those from linear parts, and they average to zero. At order $\eta^2$ the $x$-average is the quadratic part evaluated on $v_1$, which is $|a|^2m(k;\epsilon)$; second harmonics average to zero. Reducing $t$-derivatives with the linearised flow instead of the full one changes the order-$\eta^2$ terms only through $F_2$ and its derivatives, $F_2'[v](F_1[v])$ and so on. These enter linearly, through constant-coefficient operators: the linearised flow, the linearisations of $\mathcal G$ and of the branch equation, and, by Lemma 6.2, the inverse of the latter, which is a formal series in $\epsilon$ of constant-coefficient operators. All of these commute with $D_x$. When $F_2$ is a total $x$-derivative, so is every such term, and it averages to zero. $\square$
+
+The prescription holds the phase-space data at $\eta v_1$. Along an actual solution $\eta v_1+\eta^2v_2+\dots$ the linear part contributes $Q_{n,1}[v_2]$ at order $\eta^2$, which must be subtracted. The hypothesis on $F_2$ holds in every row of the table below: $F_2=0$ for sine-Gordon, NLS and mKdV, $F_2=3D_x(u^2)$ for KdV, and $F_2=(0,\lambda D_x(u_x^2))$ for Boussinesq in the canonical variables $(u,u_t/c^2)$ (`checks/check_scope.py`). It fails for Tzitzéica and for $a_r^{(1)}$ Toda with $r\ge2$, whose potentials have $U'''(0)\ne0$. The locality hypothesis matters for potential variables, which are not local functions of $v$. For KdV with $u=p_x$, the potential equation $p_t=3u^2-u_{xx}$ gives $p_t$ the $x$-average $6\eta^2|a|^2$ on $u=\eta(aE+\bar aE^{-1})$, while the linearised flow gives zero. In the KdV and mKdV rows the branch is therefore computed from the spatial Bäcklund relation of [3], which involves only $u=p_x$ and $\Delta=q-p$ and no $t$-derivative. For KdV it reads $(2+\epsilon D_x)\Delta=-2\epsilon u+\frac\epsilon2\Delta^2$ after removing the vacuum offset, and Lemma 6.2 applies with $M=2$. For sine-Gordon (Lemma 6.6), NLS and mKdV the leading matrix is again constant and invertible. For Boussinesq, `checks/check_symbols.py` finds a unique solution order by order, but Lemma 6.2 has not been checked; its row is evidence only.
 
 **Definition 7.6 (nondegenerate family).** A family with a formal branch is *nondegenerate* if infinitely many $m_n$ are nonzero. Trivial families, such as the one in Remark 3.4.2 or $\psi=\phi$, are degenerate.
 
-For the published defects, Proposition 7.5 gives the following generating symbols.
+For the published defects the generating symbols are as follows. The first four rows use Proposition 7.5. The Boussinesq row is computational evidence only, as explained above.
 
 | bulk theory | $m(k;\epsilon)$ | nonzero orders |
 |---|---|---|
@@ -395,7 +432,7 @@ For the published defects, Proposition 7.5 gives the following generating symbol
 | mKdV | $-4\epsilon/(1+\epsilon^2k^2)$ | all odd; $m_{2j+1}\propto k^{2j}$ |
 | Boussinesq ($c=\kappa=1$, $\lambda=3$) | rational in $\epsilon$, $k$ and $\sqrt{1+k^2}$ | every computed order $\ge4$ |
 
-In the first four rows the symbols of distinct orders have distinct boost or dilation weights, as Lemma 6.5 predicts. These families are therefore nondegenerate, and Theorem 7.4 gives infinitely many independent charges. For Boussinesq the weight argument is unavailable, because its parameter is not kinematic. The first 18 nonzero symbols span a space of dimension at least 17. This is evidence, not proof, of infinitely many independent charges.
+In the first four rows the symbols of distinct orders are, up to a common factor, distinct powers of $e^{\vartheta}$ or of $k$. They are therefore linearly independent, as Lemma 6.5 predicts from their boost or dilation weights. These families are nondegenerate, and Theorem 7.4 gives infinitely many independent charges. For Boussinesq the weight argument is unavailable, because its parameter is not kinematic. The first 18 nonzero symbols span a space of dimension at least 17. This is evidence, not proof, of infinitely many independent charges.
 
 ---
 
@@ -403,16 +440,17 @@ In the first four rows the symbols of distinct orders have distinct boost or dil
 
 **Theorem 8.1 (kinematic integrability theorem).** *Let $\mathcal L$ be an admissible bulk Lagrangian, and assume:*
 
-- *(A) (bulk) the equation of $\mathcal L$ is Hamiltonian with a constant Poisson operator and satisfies (NR), and either (NR2) holds or the quadratic parts of the charges below commute;*
+- *(A) (bulk) the equation of $\mathcal L$ is Hamiltonian with a constant Poisson operator and satisfies (NR);*
 - *(B) (momentum) $S_d$ is a momentum-conserving defect (Definition 3.1) between $\mathcal L$ and itself, satisfying (I);*
-- *(C) (family) $S_d$ embeds in a nondegenerate family with a formal branch (Definitions 6.1 and 7.6), which is either covariant under a one-parameter group of point symmetries of $\mathcal L$ (Lemmas 5.4, 5.5 and 6.5) or has linearly independent quadratic symbols;*
-- *(D) (closure) $\mathcal L$ has an affine conservation law whose constituent laws have defect charges (Lemma 5.2 and Corollary 5.3), and the resulting $Q_n$ satisfy (L).*
+- *(C) (family) $S_d$ embeds in a nondegenerate family of momentum-conserving defects with a formal branch (Definitions 6.1 and 7.6), whose nonzero quadratic symbols are linearly independent, either by direct computation or by Lemma 6.5;*
+- *(D) (closure) $\mathcal L$ has an affine conservation law whose constituent laws have defect charges (Lemma 5.2 and Corollary 5.3);*
+- *(E) (charges) the resulting $Q_n$ have polynomial or analytic densities and satisfy (L), and either their quadratic parts commute pairwise, or (NR2) and (L$'$) hold.*
 
 *Then the equation of $\mathcal L$ has infinitely many functionally independent local conserved charges in involution. Moreover every solution of the sewing system imposed at all $x$ is a pair of solutions.*
 
-*Proof.* Theorem 3.3 gives the Bäcklund relation. Proposition 4.3 with Lemma 5.2 gives the generating density. Theorem 6.4 gives local conservation laws, Theorem 7.3 their involution, and Lemma 6.5 or (C) together with Theorem 7.4 their independence. $\square$
+*Proof.* Theorem 3.3 gives the Bäcklund relation. Proposition 4.3 with Lemma 5.2 gives the generating density. Theorem 6.4 gives local conservation laws, Theorem 7.3 with (A) and (E) their involution, and (C) with Theorem 7.4 their independence. $\square$
 
-Hypothesis (B) is the momentum condition of Corrigan and Zambon. Hypotheses (A) and (D) concern the bulk alone and hold for all massive relativistic scalar theories, integrable or not. The whole gap between momentum conservation and integrability therefore lies in hypothesis (C).
+Hypothesis (B) is the momentum condition of Corrigan and Zambon. Hypothesis (A) and the closure relation in (D) concern the bulk alone: massive relativistic scalar theories satisfy (NR) and have the Lorentz closure, integrable or not. Hypothesis (E) concerns the charges that the defect produces. Its alternative (NR2) is a bulk condition, but it fails for degenerate mass spectra: two free fields of equal mass have conserved quadratic charges $\int(p_1p_2+q_1Kq_2)$ and $\frac12\int(p_1^2+q_1Kq_1-p_2^2-q_2Kq_2)$, with $K=-\partial_x^2+m^2$, whose bracket is not zero (`checks/check_scope.py`). Section 9 verifies hypothesis (E) for sine-Gordon, NLS, KdV and mKdV and leaves it open for the other cases. Hypothesis (C) is where integrability enters, and deriving it from (B) is the open problem of Section 10.
 
 ---
 
@@ -437,8 +475,9 @@ Comments.
 1. *Charges found.* The checks find nontrivial charges at orders 1, 3, 5 for sine-Gordon, KdV and mKdV, and at orders 1, 3 for NLS (to order 3). For the Tzitzéica Type-II defect, $Q_1$ is nontrivial while $Q_2$ and $Q_3$ are conserved but trivial; this is consistent with the absence of a spin-3 charge for the Tzitzéica equation [5]. For Boussinesq they find orders 2, 4, 5, skipping order 3. That matches the absence of charges with spin divisible by three in the Boussinesq hierarchy.
 2. *Massless theories.* For the free massless field, Liouville and conformal Toda, Theorem 3.3 shows that the momentum-conserving defects are Bäcklund relations to free fields. These theories are integrable in the sense of linearisability, but Theorem 7.3 does not apply, because their dispersion is resonant on an open set.
 3. *Heterogeneous defects.* Theorem 3.3 covers defects between different theories. Theorems 6.4–7.4 assume $\mathcal L_-=\mathcal L_+$, because the transparent limit joins a theory to itself.
-4. *Affine Toda.* Independence and involution are not established here for $r\ge2$. They would need the generating symbol, and either (NR2) or a direct check that the quadratic parts commute.
-5. *Boussinesq.* Its dimensional constants $c,\kappa,\lambda$ exclude a dilation. The parameter $\rho_0$ of [8] is an orbit of the time-linear shift, but $\sigma_0$, which controls transparency, is a genuine modulus of the momentum constraint.
+4. *Affine Toda.* Lemma 6.6 uses momentum conservation, which [2] establishes for every $r$ and the scripts check for $a_2^{(1)}$. Independence and involution are not established here for $r\ge2$. They would need the generating symbol, for which Proposition 7.5 does not apply as stated because $U'''(0)\ne0$, and either (NR2) or a direct check that the quadratic parts commute.
+5. *Boussinesq.* Its dimensional constants $c,\kappa,\lambda$ exclude a dilation. The parameter $\rho_0$ of [8] is an orbit of the time-linear shift, but $\sigma_0$, which controls transparency, is a genuine modulus of the momentum constraint. Its generating density $(u-v)/c^2$ is linear, and conditions (L) and (L$'$) have not been checked.
+6. *Hypothesis (E).* For sine-Gordon, NLS and mKdV the generating density starts at quadratic order in the fields and in $\Delta$, which vanishes at the vacuum, so the $Q_n$ have no linear parts and (L), (L$'$) are vacuous. For KdV the linear parts are multiples of $\int u$, a Casimir of $\mathcal J=D_x$. Each of these theories has a single dispersion branch, so (NR2) holds by the criterion of Definition 7.1. The densities are polynomial (NLS, KdV, mKdV) or analytic (sine-Gordon). Hence (E) holds in these four rows.
 
 ---
 
@@ -450,7 +489,7 @@ Comments.
 
    A general theorem would show that the momentum constraint always has such a modulus, or that the orbit of a kinematic symmetry is always nondegenerate with a regular transparent limit.
 2. **Bulk selection.** For relativistic scalars, momentum conservation restricts the bulk potentials [1, 2, 4–6]. The present framework does not classify potentials. Its integrability conclusion is conditional on (C), not derived from the form of the potential.
-3. **Remaining verifications.** Formal branches are still to be checked for the several-field Type-II defects. Independence and involution remain to be checked for affine Toda with $r\ge2$.
+3. **Remaining verifications.** Formal branches are still to be checked for the several-field Type-II defects. Independence and involution remain to be checked for affine Toda with $r\ge2$, and the generating symbol for theories with $U'''(0)\ne0$ needs a version of Proposition 7.5 that keeps the quadratic nonlinearity. Conditions (L) and (L$'$) remain to be checked for Boussinesq.
 4. **Function spaces.** Everything here is formal or local. Convergence of the parameter series and global Bäcklund maps are not addressed.
 
 ---
@@ -463,7 +502,7 @@ Without auxiliary fields, $\Gamma_d$ is also coisotropic in the formal cotangent
 
 The balance (3.3), integrated over $t$, says that $H_-^{(x)}-H_+^{(x)}$ is constant on $\Gamma_d$. This is the spatial Hamilton–Jacobi equation. For a Lagrangian correspondence, $\delta(H_--H_+)$ vanishes on $T\Gamma_d$ if and only if $(X_-,X_+)$ is tangent to $\Gamma_d$. This gives a geometric proof of Theorem 3.3(a) for Type-I defects. The proof in Section 3 is more direct: it needs neither coisotropy nor the integration over $t$, and it handles auxiliary fields through the multiplier $\rho$.
 
-Conversely, if $(X_-,X_+)$ is tangent to an isotropic $\Gamma_d$, then $\delta(H_--H_+)$ vanishes on $T\Gamma_d$. For a Type-I defect, whose boundary data are free, the density $\mathcal H_--\mathcal H_+$ on $\Gamma_d$ then has vanishing $t$-Euler derivative, so it is a total derivative. Thus a sewing-form Bäcklund relation of Type I is a momentum-conserving defect.
+Conversely, if $(X_-,X_+)$ is tangent to an isotropic $\Gamma_d$, then $\delta(H_--H_+)$ vanishes on $T\Gamma_d$. For a Type-I defect, whose boundary data are free, the density $\mathcal H_--\mathcal H_+$ on $\Gamma_d$ then has vanishing $t$-Euler derivative. It is therefore a total $t$-derivative of a local function plus a constant [16, Thm 4.7]. The constant is the value of $\mathcal H_--\mathcal H_+$ at any stationary point of $\Gamma_d$. If it vanishes, for example because $\Gamma_d$ contains a common vacuum at which $\mathcal H_-=\mathcal H_+$, the sewing-form Bäcklund relation of Type I is a momentum-conserving defect. The normalisation is needed: for $\mathcal L_-=\frac12(\phi_t^2-\phi_x^2)$, $\mathcal L_+=\frac12(\psi_t^2-\psi_x^2)-c$ and $\mathcal L_d=\phi\psi_t$, the sewing equations $\phi_x=\psi_t$, $\psi_x=\phi_t$ form a Bäcklund relation, but $\mathcal H_--\mathcal H_+=-c$ (`checks/check_scope.py`).
 
 ## Appendix B. Verification
 
@@ -474,6 +513,7 @@ The accompanying scripts (Python 3 with SymPy) check the hypotheses and several 
 - `checks/check_kinematics.py` checks the table of Lemma 5.2, the boost and dilation examples of Section 5.2, and (NR).
 - `checks/check_hierarchy.py` computes formal branches. It checks every promoted sewing equation derived from the published defect Lagrangian, and checks conservation and nontriviality of each computed $Q_n$.
 - `checks/check_symbols.py` computes the generating symbols of Proposition 7.5.
+- `checks/check_scope.py` checks the examples that show which hypotheses are needed (Sections 3–8 and Appendix A), the defect charge of the KdV mass law, the strict homogeneity of the KdV, mKdV and NLS Lagrangians, and the identities behind (NR) for all degrees and behind the hypotheses of Proposition 7.5, including the KdV branch relation from the spatial Bäcklund relation of [3].
 
 A small Lean 4 project (`lean/`) checks the final algebraic step of Lemmas 2.1–2.2 (spatial orders 1 and 2), Theorem 3.3, Propositions 4.2–4.3 and Lemma 5.2, the identity behind Lemma 5.5, and the induction of Lemma 7.2. It works over an arbitrary commutative ring with commuting derivations and includes a model in which both derivations are nonzero. The substantive inputs enter as hypotheses: the Euler-operator chain rule and Helmholtz self-adjointness, which yield (3.5), and the nonresonance step of Lemma 7.2. Theorem 8.1 is not formalised.
 

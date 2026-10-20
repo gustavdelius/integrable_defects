@@ -80,7 +80,7 @@ X = XJets(["u", "chi"], 8)
 u, ch = X["u"], X["chi"]
 X.set_flow("u", ch[0])
 X.set_flow("chi", c ** 2 * (u[2] + 2 * lam * u[1] * u[2] - kap ** 2 * u[4]))
-affine_law("Boussinesq, time-linear shift (closure from the shift law, density u - v)",
+affine_law("Boussinesq, time-linear shift (closure from the shift law, density (u - v)/c^2)",
            X, 0, 0, -ch[0] / c ** 2, u[0] / c ** 2, 0)
 
 

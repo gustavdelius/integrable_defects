@@ -1,0 +1,324 @@
+Third-pass independent proof calculations
+========================================
+
+Date: 20 October 2026
+Reviewer: Codex (GPT-6)
+Base commit: cd905892eb4fbbc4476e87f1846a6c1d4a7c3abb
+
+This review concerns UNCOMMITTED revisions.
+
+Reviewed file:
+  defect-integrability/general_framework/paper.md
+SHA-256:
+  44583e3d34566bc06ce851fefd322bf8b34e973fec7acb890e97969c8a03aab3
+
+Author's response:
+  defect-integrability/general_framework/response_to_reports_20261020.md
+SHA-256:
+  eee8a95dc8b05df22121c9502c78bbccf73c2994c97111b969d65b24964328fe
+
+Line references below are to that paper revision. This pass checks the
+repairs to the second-pass findings and their immediate consequences.
+The earlier, unchanged arguments retain the verdicts in the preceding
+calculations. I have not inspected or run the author's check scripts,
+and the response's PASS counts are not evidence for these verdicts.
+All computations below are written derivations. No existing file was
+edited.
+
+Assessment
+----------
+
+The substantive objections from the second pass are resolved. The new
+condition 4 in Lemma 6.5 supplies exactly the missing quadratic-order
+condition. The locality and regular formal implicit-solution hypotheses
+in Proposition 7.5 justify preservation of total x-derivatives when the
+branch is solved. The two Boussinesq normalisations have been corrected.
+
+I accept these revised general arguments in the autonomous local formal
+setting used by the paper. Two small corrections remain:
+
+  T1. The illustrative assertion that Lorentz boosts act linearly on
+      phase-space data is false in general. The lemma's new hypothesis
+      is sufficient regardless, and its sine-Gordon application has
+      no linear charge parts.
+
+  T2. The sentence introducing the symbol table still attributes all
+      rows to Proposition 7.5, although its applicability to Boussinesq
+      is explicitly left unproved in the preceding paragraph.
+
+Neither is a counterexample to the revised conditional Theorem 8.1.
+This assessment does not promote the Boussinesq evidence, or the other
+explicitly incomplete applications, into proved hierarchies.
+
+1. Integration: second-pass R5 / Lemma 6.5
+----------------------------------------
+
+Location: paper.md lines 338--348.
+Verdict: the repaired implication and proof are correct. The example
+of a supposedly linear boost action needs the correction in T1 below.
+
+Independent computation:
+
+Let a vacuum-normalised functional have homogeneous expansion
+
+  Q(v)=Q_1(v)+Q_2(v)+O(v^3),
+
+and let the symmetry, on independent phase-space data, have expansion
+
+  g_theta(v)=L_theta v+B_theta(v,v)+O(v^3).
+
+Substitution gives, without any covariance assumptions,
+
+  [Q o g_theta]_2
+     =Q_2(L_theta v)+Q_1(B_theta(v,v)).
+
+Thus if the full functional has weight chi(theta), and if the second
+summand is a trivial functional, then
+
+  Q_2(L_theta v)=chi(theta) Q_2(v)
+
+as functionals. The new condition 4 imposes precisely this requirement.
+Because the vacuum is fixed and g is a group action, differentiation
+at the vacuum gives L_(theta+eta)=L_theta L_eta. Its action on quadratic
+functionals therefore defines the claimed linear representation.
+Coefficient comparison in condition 3 gives
+
+  chi_n(theta)=exp((w_0+n w)theta).
+
+For w nonzero and a fixed nonzero real theta, distinct n give distinct
+eigenvalues. A finite relation between the corresponding nonzero
+symbols can be separated by applying polynomials in this linear map.
+Every coefficient in the relation is zero.
+
+Result: the earlier mixing term is now explicitly removed, so the
+eigenvector argument is valid under the revised hypotheses.
+
+T1. Lorentz boosts are not generally linear on initial data
+----------------------------------------------------------
+
+Location: paper.md line 342.
+Verdict: wrong illustrative assertion, not a failure of the repaired
+lemma under its explicit condition 4.
+
+The sentence reads:
+
+  "This holds when the action is linear, as for Lorentz boosts and the
+   dilations of Section 5.2, or when the Q_n have no linear parts."
+
+Independent countercalculation:
+
+Consider the Lorentz-invariant scalar Lagrangian
+
+  L=(phi_t^2-phi_x^2)/2-V(phi),
+  V(phi)=m^2 phi^2/2+gamma phi^3/3+O(phi^4),
+
+with gamma nonzero. It is admissible: L_(phi_x phi_x)=-1.
+The vacuum phi=0 is fixed by boosts. The equation is
+
+  phi_tt=phi_xx-V'(phi).
+
+Choose the active boost convention
+
+  phi_theta(x,t)
+     =phi(x cosh(theta)+t sinh(theta),
+          t cosh(theta)+x sinh(theta)).
+
+Write q(x)=phi(x,0), p(x)=phi_t(x,0). Differentiation at theta=0 gives
+
+  delta q=x p,
+  delta p=q_x+x phi_tt(x,0)
+         =q_x+x(q_xx-m^2 q)-gamma x q^2+O(q^3).
+
+The quadratic part of the infinitesimal action on (q,p) is
+
+  (0,-gamma x q^2),
+
+which is nonzero. Consequently B_theta is not identically zero for
+small theta. The pullback of unrestricted spacetime functions is
+linear, but restriction to solutions and identification with initial
+data uses the nonlinear field equation.
+
+Suggested replacement for the last sentence of condition 4:
+
+  "This holds when the induced action on phase-space data is linear,
+   as for the dilations of Section 5.2 in the variables used here,
+   or when the Q_n have no linear parts. For Lorentz boosts it must
+   be checked on phase-space data; the absence of linear parts
+   suffices for the sine-Gordon application."
+
+Scope: sine-Gordon has V'(phi)=sin(phi), so its infinitesimal boost
+has no quadratic correction at the vacuum. More directly, the charges
+used in Section 9 have Q_(n,1)=0, which already makes condition 4
+automatic. The above correction does not undermine that application.
+
+2. Integration: second-pass R6 / Proposition 7.5
+-----------------------------------------------
+
+Location: paper.md lines 417--421.
+Verdict: correct under the newly stated locality and Lemma 6.2
+hypotheses, in the autonomous formal setting.
+
+Independent computation:
+
+At the constant vacuum, linearise the local branch equation in Delta.
+After the vacuum offset has been removed its linear operator has the
+form
+
+  A(epsilon)=A_0+sum_(r>=1) epsilon^r A_r,
+
+where A_0 is an invertible constant matrix and each A_r is a
+constant-coefficient differential operator. If the original leading
+matrix is pointwise algebraic, its evaluation at the constant vacuum
+is still a constant matrix. Reduction of time derivatives by the
+linearised evolution preserves constant coefficients.
+
+Its formal inverse C=sum_(r>=0) epsilon^r C_r satisfies
+
+  C_0=A_0^(-1),
+  C_n=-A_0^(-1) sum_(r=1)^n A_r C_(n-r).
+
+Every C_n is a constant-coefficient differential operator. Matrix
+coefficients need not commute with one another; this recurrence does
+not assume that. Each C_n nevertheless commutes with D_x. No inverse
+power of D_x is introduced.
+
+Write the evolution as F(v)=A v+F_2(v)+O(v^3). If F_2=D_x B_2,
+the difference between full and linear time reduction of a linear
+local expression has, at degree two, the form of sums of
+
+  D_x^j A^r F_2,
+  D_x^j A^r F_2'[v](A v),
+
+and the analogous iterated terms. Since
+
+  F_2'[v](h)=D_x(B_2'[v](h)),
+
+each such term lies in Im D_x. At degree two, the error in the
+branch is obtained by applying C to such a source; it remains in
+Im D_x coefficientwise in epsilon. The linearisation of the local
+generating density again has constant coefficients at the vacuum,
+and therefore preserves this property.
+
+Errors in quadratic expressions already containing two first-order
+fields contribute only at degree three or above. Thus the entire
+quadratic error in the reduced generating density is a total
+x-derivative. Its periodic x-average is zero.
+
+Result: the revised proof supplies the missing justification for the
+linear-time-flow shortcut. This is a formal-series conclusion and
+does not assert convergence of the branch at finite epsilon.
+
+The KdV example in the revised paragraph is also consistent:
+
+  (2+epsilon D_x)Delta=-2 epsilon u+(epsilon/2)Delta^2
+
+has A_0=2 and satisfies Lemma 6.2. Conversely, on a first harmonic,
+
+  average(u^2)=2 eta^2 |a|^2,
+  average(p_t)=average(3u^2-u_xx)=6 eta^2 |a|^2,
+
+so the potential example correctly explains why locality in the
+specified independent variables is essential.
+
+T2. Scope of the symbol-table introduction
+------------------------------------------
+
+Location: paper.md line 425, compared with lines 417 and 421.
+Verdict: the blanket attribution is unsupported as written.
+
+The current sentence says:
+
+  "For the published defects, Proposition 7.5 gives the following
+   generating symbols."
+
+But the proposition now requires the regular branch of Lemma 6.2,
+and line 421 explicitly says that this has not been checked for
+Boussinesq and that its row is evidence only. Thus the stated
+hypotheses have not been verified for every row to which the
+introductory sentence attributes the proposition.
+
+Suggested replacement:
+
+  "The first four rows use Proposition 7.5. The Boussinesq row records
+   computational evidence only, as explained above."
+
+The existing qualifications at lines 421 and 435 are appropriate.
+The response's earlier 'Not integrated' paragraph also says that the
+proposition applies to every row. Its later second-round paragraph
+correctly supersedes that claim; marking the older sentence as
+superseded would prevent confusion.
+
+3. Integration: second-pass R8 / Boussinesq factors
+--------------------------------------------------
+
+Locations: paper.md lines 269, 421 and 479.
+Verdict: correct.
+
+Independent calculation from the Lagrangian used in the preceding
+review:
+
+  L=u_t^2/(2c^2)-u_x^2/2-lambda u_x^3/3-kappa^2 u_xx^2/2.
+
+For the characteristic Q=t,
+
+  pr(v_Q)L=u_t/c^2=D_t(u/c^2),
+  Xi(Q)=t u_t/c^2.
+
+The affine Noether density is therefore
+
+  N=u/c^2-t u_t/c^2,
+
+giving a_0=u/c^2 and G=(u-v)/c^2, exactly as now printed.
+
+The Euler equation gives
+
+  u_tt/c^2=u_xx+lambda D_x(u_x^2)-kappa^2 u_xxxx.
+
+With canonical p=u_t/c^2, this means
+
+  u_t=c^2 p,
+  p_t=u_xx+lambda D_x(u_x^2)-kappa^2 u_xxxx.
+
+Hence F_2=(0,lambda D_x(u_x^2)), as corrected at line 421.
+The symbol table fixes c=1, so neither repair changes its numerical
+normalisation.
+
+4. Integration: second-pass R1 and R2
+------------------------------------
+
+Locations: paper.md lines 247--249 and 453.
+Verdict: the requested qualifications have been made.
+
+At a constant vacuum pair, autonomous Q^1 and Q^2 give
+
+  D_t Q^1=0, D_x Q^2=0.
+
+For the autonomous a_0,b_0 supplied by Definition 5.1, closure gives
+N_2=-J_1 at that pair. Consequently
+
+  R_2=D_x Q^2+Delta N_2
+     =-Delta J_1
+     =-D_t Q^1
+     =0.
+
+This is the vacuum-normalisation argument now explicitly restricted
+to autonomous charges. It establishes the use made of it by the
+affine-current construction.
+
+For the clarification about condition (E), if Q_(n,1)=0, conditions
+(L) and (L') vanish identically. For KdV, a linear part proportional
+to integral(u dx) is a Casimir, because
+
+  delta integral(u dx)/delta u=1,  J(1)=D_x(1)=0.
+
+Its bracket with every local functional is zero. The revised
+paragraph therefore correctly distinguishes the four discussed
+applications from the rows where charge conditions remain open.
+
+Final verdict
+-------------
+
+The two substantive second-pass proof gaps have been repaired, and
+the normalisation errors are fixed. I found no new blocking gap in
+these revised arguments. Make the two scope/wording corrections T1
+and T2; they do not require changing the main conditional theorem.

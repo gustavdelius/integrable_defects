@@ -241,7 +241,8 @@ theorem graded_rigidity {M : Type} [Zero M] (G : Nat → M) (LinCons : Nat → M
 conserved local functional (Jacobi identity); its parts of degree 0 and 1
 vanish when the linear parts of the charges leave the charges invariant
 (hypothesis (L)); its quadratic part is the bracket of quadratic parts, which
-vanishes under two-wave nonresonance.  Rigidity then gives involution. -/
+vanishes when they commute, or under (NR2) together with (L').  That vanishing
+enters as the hypothesis `hNR2`.  Rigidity then gives involution. -/
 theorem involution {M : Type} [Zero M] (B : Nat → M) (LinCons : Nat → M → Prop)
     (h_low : ∀ d, (∀ e, e < d → B e = 0) → LinCons d (B d))
     (h_rig : ∀ d, 3 ≤ d → ∀ g, LinCons d g → g = 0)

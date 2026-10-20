@@ -1,0 +1,569 @@
+Second-pass independent proof calculations
+=========================================
+
+Date: 20 October 2026
+Reviewer: Codex (GPT-6)
+Base commit: cd905892eb4fbbc4476e87f1846a6c1d4a7c3abb
+
+This review concerns UNCOMMITTED revisions, not the unchanged base commit.
+Reviewed files and SHA-256:
+
+  defect-integrability/general_framework/paper.md
+  ce15345bf62fe1ea70dad69183ce1b977d18160ebd7bd378e590a6a50cfe567f
+
+  defect-integrability/general_framework/response_to_reports_20261020.md
+  8b8573eefdb2033862a6d38011d693c4e035cadaf29717e0d4322f22a513543a
+
+Line numbers refer to that paper revision.
+
+Scope
+-----
+
+I read Claude's response, the revised written arguments, and the other
+referee's report. I did not inspect or execute the author check scripts
+or Lean files, and I did not use their recorded PASS results as evidence.
+No existing repository file was changed.
+
+Most first-pass findings are now resolved. The new (L') is sufficient
+and is appropriately weaker than the sufficient repair I suggested.
+The spatial-normal-form proof is sound as a formal local argument.
+The revised conditional Theorem 8.1 has repaired its two major
+involution/independence gaps, provided independence in (C) is established
+directly. The proposed route through Lemma 6.5 still has a gap when
+charges have linear parts and the symmetry acts nonlinearly.
+
+I also distinguish a valid local phase-space calculation in Proposition
+7.5 from an insufficiently specified shortcut using potential fields.
+There are two harmless but genuine factors of c^2 to fix in the
+Boussinesq descriptions.
+
+1. Integration of the previous findings
+---------------------------------------
+
+Original identifiers refer to C1--C15 in Claude's response.
+
+C1: Resolved. Lemma 2.1 now explicitly compares currents satisfying the
+same exact off-shell identity, and claims only local exactness.
+
+C2: Resolved. In (3.3'), integrating f D_t^k C by parts contributes
+(-D_t)^k f to rho. Direct variation gives
+E_Y(rho.C)=D_C^*rho+D_rho^*C; the second term vanishes on the
+prolonged locus. The signs in (3.5) and (3.4) remain correct.
+
+C3: Resolved. The new converse in Lemma 3.2 explicitly assumes both
+that solution boundary jets fill the prolonged constraint locus and
+that its vanishing ideal is the generated differential ideal. Thus
+h+D_t P_d vanishes on the locus and belongs to that ideal, exactly
+as required. The singular-square counterexample is no longer a
+counterexample to the stated lemma.
+
+C4: Resolved. The abstract now includes injectivity, and Remark 3.4.2
+correctly distinguishes mapping bulk solutions to bulk solutions from
+forcing arbitrary promoted triples to be on shell.
+
+C5: Resolved for the general identities; see item 3 below. My first
+pass accepted the final sentence of the old Lemma 4.1 too broadly.
+The other referee correctly separated a density D_x nu from the
+trivial current (D_x nu,-D_t nu). The revision makes that distinction.
+
+C6: Resolved. Strict bulk homogeneity removes the spatial-divergence
+counterexample. Lemma 5.5 now claims the transported identity only
+along boosted promoted solutions and explicitly identifies the extra
+conditions needed to obtain Definition 3.1.
+
+C7: Resolved in the formal local setting. The new proof uses free
+t-jets in spatial normal form, not the false invertible evolution
+symbol assertion. See item 2 below.
+
+C8: Resolved. Lemma 6.2 now allows the algebraic O(Delta^2) terms
+actually used by Lemma 6.6. Each coefficient at epsilon^n is still
+M Delta_n plus known lower coefficients. Lemma 6.6 now explicitly
+requires momentum-conserving members before invoking Lemma 3.5.
+
+C9: The original w=0 and branch-selection problems are resolved.
+The closed-one-form formulation also repairs the density/flux mixing
+under boosts. However the new step from full charge covariance to
+quadratic-symbol covariance needs an additional hypothesis: item 5.
+
+C10: Resolved. The all-degree nonresonance argument is correct:
+after eliminating k_n, a mixed derivative with respect to two
+remaining momenta equals s_i s_j s_n omega''(k_n). An open resonance
+set would force a dispersion branch to be affine on an interval.
+The analytic/formal scope of rigidity is now explicit.
+
+C11: Resolved. The additional (L') is exactly sufficient for the
+degree-two conservation equation. See item 4 below.
+
+C12: Resolved. Theorem 7.4 now asserts existence of a suitable
+finite-mode seed and independence near its small nonzero multiples,
+rather than at every small field.
+
+C13: The fixed-initial-data prescription and subtraction of Q_1[v_2]
+resolve the original amplitude-expansion ambiguity. The F_2 argument
+works in the local differential algebra of the stated phase variables.
+The shortcut during implicit branch solving, especially with potential
+variables, needs the qualification in item 6.
+
+C14: Substantially resolved. The new hypothesis (E) separates
+charge-dependent assumptions from the bulk assumptions, and the
+equal-mass example correctly explains why quadratic commutation is
+not automatic. The statement "Hypothesis (E) is verified case by case"
+should be read together with Section 9, which verifies it only for
+four rows and explicitly leaves other rows open.
+
+C15: Resolved under the autonomous convention. The Appendix A
+converse now retains the constant and states how to normalise it.
+
+2. New spatial-normal-form and residual-normalisation proofs
+------------------------------------------------------------
+
+Verdict: correct, with the formal/local and autonomous conventions
+already used in these arguments.
+
+Independent derivation of Lemma 6.3:
+
+  E(L)=sum_{a,k}(-D_t)^a(-D_x)^k L_{phi_{a,k}}.
+
+When k<K, every term has spatial order at most K+k<=2K-1.
+Terms with a>0 and k=K are absent by admissibility. The remaining
+top term is
+
+  (-D_x)^K L_{phi_{0,K}}
+  =(-1)^K L_{phi_{0,K} phi_{0,K}} phi_{0,2K}
+     + terms of lower spatial order.
+
+The top coefficient is invertible. Solving for phi_{0,2K} defines
+a formal evolution in x for the 2K variables
+
+  phi,phi_x,...,D_x^{2K-1}phi.
+
+The right hand side may involve their t derivatives. Repeated
+differentiation determines all higher x jets, without a relation
+among the t jets of these 2K variables. There is only one x-evolution
+system to prolong, so no additional compatibility equation is
+introduced by the reduction.
+
+For a local R, choose the largest t-order A among those free jets
+appearing in its reduced expression. In D_t R, the free jets with
+t-order A+1 occur with coefficients R_{phi_{A,j}}. These vanish.
+Descending induction eliminates all jet dependence. On a connected
+domain, and with no explicit x,t, R is constant.
+
+Independent check of the new end of Proposition 4.3:
+
+  R_2=D_x Q^2+Delta N_2.
+
+At the constant branch vacuum, autonomous differential functions
+have D_t and D_x equal to zero. Therefore
+
+  R_2(vac)=Delta N_2(vac)
+          =-Delta J_1(vac)       by closure
+          =-D_t Q^1(vac)=0      by the defect-charge identity.
+
+This is the required residual normalisation, rather than a claim
+that subtracting a constant from G somehow changes R_2.
+
+Definition 6.1 now also requires E[psi]=0. Consequently Theorem
+6.4 no longer silently invokes (I) for every family member: both
+bulk equations are part of the branch hypothesis. Proposition 4.2's
+calculation itself only needs those equations. The coefficientwise
+conservation argument then goes through.
+
+If explicitly time-dependent defect charges are to be allowed here,
+the "automatic" normalisation needs an extra hypothesis. The current
+argument is correct for Q_d(Y) as an autonomous function of boundary
+jets, which is the interpretation used above.
+
+3. Trivial currents, KdV mass, and shift symmetries
+--------------------------------------------------
+
+Verdict: the revised distinction and the KdV decomposition are correct.
+
+For L=1/2 p_x p_t-p_x^3-1/2 p_xx^2,
+
+  pi_0=1/2 p_t-3p_x^2+p_xxx,
+  pi_1=-p_xx.
+
+The constant-shift Noether current is
+
+  (N_s,J_s)=(-1/2 p_x,-pi_0).
+
+Thus
+
+  -(N_s,J_s)+1/2(D_x p,-D_t p)
+    =(p_x,pi_0-1/2 p_t)
+    =(p_x,p_xxx-3p_x^2),
+
+which is precisely the mass law. For the gyroscopic term
+(q p_t-p q_t)/4, a common constant shift gives
+
+  A_d=(p-q)/4,
+  Xi_d(1)=(q-p)/4,
+  Q_{d,shift}=(p-q)/2.
+
+The remaining defect terms depend on p-q and derivatives, and
+therefore have zero variation under this constant shift. Combining
+the two laws gives Q_{d,mass}=q-p.
+
+For a common time-linear shift, the variation of a difference-only
+term vanishes, but the variation of the first t derivatives is 1.
+The extra partial-derivative condition stated at line 218 is indeed
+needed. Higher t derivatives have zero variation. Nothing in this
+check relies on the new check_scope.py script.
+
+4. The repaired involution and independence arguments
+-----------------------------------------------------
+
+Verdict: correct in the stated polynomial/analytic formal setting.
+
+With constant J, {F_a,G_b} has degree a+b-2. For a conserved Q,
+
+  0=[{Q,H}]_2={Q_2,H_2}+{Q_1,H_3}.
+
+The new (L') kills exactly the second term. It is weaker than
+{Q_1,H}=0, but no stronger condition is needed at this step.
+Under (NR2), Q_2 is then an action functional.
+
+For B={Q_n,Q_m}, (L), degree by degree, removes every contribution
+involving the linear parts. Thus B_0=B_1=0 and
+
+  B_2={Q_{n,2},Q_{m,2}}=0,
+
+either by the explicit alternative or by the action argument.
+Jacobi gives {B,H}=0. Rigidity makes B vanish as a local functional.
+
+For independence, select a finite set of nonzero momenta where the
+symbol-evaluation matrix has a nonzero maximal minor, and a seed
+with nonzero amplitudes at those momenta. The corresponding
+gradient minor has a nonzero leading coefficient in the small
+amplitude. It remains nonzero for sufficiently small nonzero
+amplitude and in a neighbourhood. This proves the revised
+existence statement of Theorem 7.4.
+
+Theorem 8.1 now explicitly assumes infinitely many independent
+nonzero symbols in (C) and the necessary charge assumptions in (E).
+With (C) established directly, the original main-theorem objections
+are resolved. An application that uses Lemma 6.5 to establish (C)
+still needs the repair below.
+
+5. Remaining issue: nonlinear symmetries mix linear and quadratic parts
+------------------------------------------------------------------------
+
+Location: paper.md lines 343--345, Lemma 6.5.
+Verdict: unclear in its stated generality; its inference about quadratic
+symbols is not justified merely by the symmetry fixing the vacuum.
+
+Let the induced transformation of initial data be
+
+  g_theta(v)=L_theta v+B_theta(v,v)+O(v^3).
+
+For Q=Q_1+Q_2+..., its quadratic Taylor coefficient after pullback is
+
+  [Q o g_theta]_2
+    =Q_2[L_theta v]+Q_1[B_theta(v,v)].
+
+Therefore the full-charge identity g_theta^*Q=e^{lambda theta}Q
+implies
+
+  Q_2[L_theta v]
+    =e^{lambda theta}Q_2[v]-Q_1[B_theta(v,v)].
+
+The last term is absent from the proof. Fixing the vacuum only
+eliminates the constant term of g_theta, not B_theta.
+
+A concrete example using a symmetry of an admissible Lagrangian
+shows that this is a real issue in the asserted intermediate step.
+Start with two massless fields
+
+  L=U_t V_t-U_x V_x.
+
+Make the local point change U=q+r^2, V=r. Then
+
+  L=(q_t+2r r_t)r_t-(q_x+2r r_x)r_x,
+
+whose spatial Hessian is [[0,-1],[-1,-4r]], of determinant -1.
+The exact symmetry U->a U, V->a^{-1} V fixes the vacuum. In q,r it is
+
+  q'=a q+(a-a^{-2})r^2,
+  r'=a^{-1}r.
+
+The canonical momenta are
+
+  P_q=r_t, P_r=q_t+4r r_t.
+
+The local conserved charge
+
+  Q=integral U_t dx
+   =integral(P_r-2r P_q) dx
+
+transforms exactly as Q->a Q. Its quadratic part is
+
+  Q_2=-2 integral r P_q dx.
+
+The linearised symmetry has r->a^{-1}r and P_q->a^{-1}P_q, so
+
+  Q_2[L v]=a^{-2} Q_2[v],
+
+not a Q_2[v]. The missing term comes from the quadratic term in P_r':
+
+  P_r'=a P_r-2r(a-a^{-2})P_q.
+
+This example disproves the intermediate inference about a nonlinear
+vacuum-fixing symmetry and a conserved charge. It is not presented
+as a counterexample satisfying every defect-family assumption of
+Lemma 6.5 or as a counterexample to Theorem 8.1.
+
+Suggested replacement/addition at lines 338--345:
+
+  "Assume in addition that the induced action on initial data is
+  linear to second order, or that every Q_{n,1} vanishes, or more
+  generally that Q_{n,1}[B_theta(v,v)] is a trivial functional.
+  Then the covariance of the full charges implies covariance of
+  their quadratic symbols under the linearised action."
+
+One can instead assume the desired covariance of quadratic symbols
+directly. The integrated closed-one-form argument for the full
+charges is not the part being challenged.
+
+This does not obstruct the four principal examples: sine-Gordon,
+NLS and mKdV have no linear charge parts, and the KdV dilation is
+linear on u. Moreover their displayed symbols establish independence
+directly, without Lemma 6.5.
+
+6. Proposition 7.5: valid local calculation, but specify the shortcut
+---------------------------------------------------------------------
+
+Location: paper.md lines 416--420.
+
+The original Q_1[v_2] problem is resolved by the fixed-initial-data
+prescription. If one first computes the local reduced phase-space
+density and then takes its quadratic Taylor coefficient at eta v_1,
+the proposed averaging operation is correct.
+
+The new sufficient condition on F_2 is also correct for unreduced
+expressions that are local differential expressions in the same
+independent variables v. Write
+
+  D_t=delta_1+delta_2+...,
+  delta_j v=F_j[v].
+
+At degree two, replacing D_t by delta_1 changes only linear pieces
+of an expression. Each error term is built from constant-coefficient
+spatial differential operators, delta_1, and one occurrence of
+delta_2. If F_2=D_x B_2, delta_2 commutes with D_x, and delta_1
+also preserves Im D_x. Every such error is therefore in Im D_x.
+The zero Fourier coefficient is unchanged.
+
+There are two distinctions the printed prescription should make:
+
+  (i) Reducing a known local expression and solving an implicit
+      branch equation are not the same operation. To transport
+      the argument through branch solving, show that the relevant
+      linear inverse preserves Im D_x. A regular formal implicit
+      problem with invertible algebraic leading coefficient, as
+      in Lemma 6.2, supplies this. Definition 6.1 alone does not
+      supply such an inverse or uniqueness of the zero mode.
+
+  (ii) A potential is not in general a local differential expression
+       in the Hamiltonian variable used to state F_2.
+
+For example, for u=p_x in KdV, the gauge-fixed potential equation is
+
+  p_t=3u^2-u_xx,
+
+whereas u_t=6u u_x-u_xxx has F_2=3D_x(u^2). On a nonzero first
+harmonic u=eta(a E+bar(a)E^{-1}),
+
+  average(p_t)=6 eta^2 |a|^2,
+
+but replacing p_t by its linearised value -u_xx gives zero.
+The operation D_x^{-1} has removed the spatial derivative from F_2.
+Thus "F_2 is a total derivative" does not justify linearising time
+derivatives of an unreduced potential. This example tests the
+claimed shortcut, not a particular defect generating density.
+
+For source verification, equation (9.4) of Corrigan--Zambon reads
+exactly:
+
+  p_t-3p_x^2+p_xxx=0.
+
+Source: https://arxiv.org/html/nlin/0512038, equation (9.4).
+The displayed mean is my direct substitution into that equation.
+
+Verdict: correct after full local phase-space reduction; unclear as
+a blanket instruction to linearise time derivatives while solving
+the original potential-field sewing system. I am not alleging that
+the KdV table entry is wrong; item 7 derives it without this shortcut.
+
+Suggested replacement at lines 416--418:
+
+  "First reduce the branch and generating density to local functions
+  of the independent Hamiltonian variables using the full evolution.
+  The quadratic symbol is their quadratic Taylor coefficient on a
+  single normal mode. The shortcut replacing D_t by its linearised
+  flow is valid when all expressions and formal branch-solving
+  inverses involved preserve Im D_x; in particular, no inverse
+  spatial derivative from a potential is used without separate
+  justification."
+
+7. Direct checks of three generating symbols and their independence
+--------------------------------------------------------------------
+
+These derivations use the written sine-Gordon defect and two spatial
+relations from the original primary source. No author script is used.
+
+Sine-Gordon:
+
+Put epsilon=sigma, z=k+omega=e^vartheta, omega^2-k^2=1.
+Adding the linearised sewing equations from the defect at line 302
+gives
+
+  i(k+omega)(phi+psi)=-(phi-psi)/epsilon.
+
+Thus the first-harmonic multiplier is
+
+  r=psi/phi=(1+i epsilon z)/(1-i epsilon z).
+
+The quadratic part of the defect energy is
+
+  (phi-psi)^2/(4 epsilon)+epsilon(phi+psi)^2/4.
+
+For a real wave eta(a E+bar(a)E^{-1}), its average coefficient is
+
+  |1-r|^2/(2 epsilon)+epsilon |1+r|^2/2
+   =2 epsilon(z^2+1)/(1+epsilon^2 z^2)
+   =4 epsilon omega z/(1+epsilon^2 z^2).
+
+This is the printed symbol. Its odd coefficients are a common
+nonzero factor omega times distinct powers of z.
+
+KdV:
+
+The source equation (9.12) is exactly
+
+  p_x+q_x=2 alpha+1/2(p-q)^2.
+
+Set u=p_x, alpha=-epsilon^{-2}, q=p-2/epsilon+Delta. It becomes
+
+  (2+epsilon D_x)Delta=-2epsilon u+(epsilon/2)Delta^2.
+
+The first-harmonic multipliers are
+
+  d_+=-2epsilon/(2+i epsilon k),
+  d_-=-2epsilon/(2-i epsilon k).
+
+The quadratic zero mode is
+
+  (epsilon/4) 2d_+d_- |a|^2
+    =2epsilon^3 |a|^2/(4+epsilon^2 k^2).
+
+Since G=q-p, after subtracting the vacuum constant this is exactly
+the printed m(k;epsilon). No time-evolution substitution is needed.
+
+mKdV:
+
+The spatial part of source equation (7.16) is exactly
+
+  p_x+q_x=alpha sin(p-q).
+
+With alpha=epsilon^{-1}, u=p_x and Delta=q-p,
+
+  (1+epsilon D_x)Delta=-2epsilon u+O(Delta^3).
+
+Thus d_+d_-=4epsilon^2/(1+epsilon^2 k^2). The momentum generator
+is epsilon^{-1}(cos Delta-1), whose quadratic average is
+
+  -epsilon^{-1}d_+d_- |a|^2
+    =-4epsilon |a|^2/(1+epsilon^2 k^2).
+
+Source for both spatial relations:
+https://arxiv.org/html/nlin/0512038, equations (9.12) and (7.16).
+The expansions above are independent calculations from those
+relations, not quotations of a generating-function result.
+
+Verdict: these three printed symbols are correct, with the displayed
+normalisations. Their nonzero coefficients have independent powers
+of k^2 or e^vartheta, proving independence directly. The same
+elementary independence test applies to the printed NLS expression;
+I do not certify its normalisation from the ambiguous signs in the
+source's displayed number-charge formula in this pass.
+
+8. Boussinesq: closure can be derived in writing; two scale factors
+------------------------------------------------------------------
+
+Location: paper.md lines 269 and 420.
+Verdict: the closure mechanism is correct; the two factors below
+need correction or an explicit change of normalisation.
+
+The primary source, equation (2.1), reads
+
+  L= u_t^2/(2c^2)-u_x^2/2-lambda u_x^3/3-kappa^2 u_xx^2/2.
+
+Source: https://arxiv.org/html/2306.03772, equation (2.1).
+
+Direct variation gives
+
+  pi_0=-u_x-lambda u_x^2+kappa^2 u_xxx,
+  pi_1=-kappa^2 u_xx.
+
+For the time-linear shift Q=t, pr(v_Q)L=u_t/c^2=D_t(u/c^2).
+Its Noether current, in the paper's convention, is
+
+  N=u/c^2-t u_t/c^2,
+  J=-t pi_0.
+
+Consequently
+
+  a_1=b_1=0, a_2=-u_t/c^2, b_2=-pi_0,
+  a_0=u/c^2, b_0=0.
+
+Law 2 is precisely the constant-shift Noether law. Closure follows
+from a_2+D_t a_0=0, independently of any script. For law 1=0 choose
+Q^1=0, and Proposition 4.3 gives
+
+  G=(u-v)/c^2.
+
+The table instead prints a_0=u/c^2 and G=u-v in the same row.
+These are inconsistent unless c=1, or the generating current has
+been rescaled by c^2 and that rescaling is stated.
+
+Next, the phase variables in Section 7.1 are canonical (u,p), with
+p=u_t/c^2. Their equations are
+
+  u_t=c^2 p,
+  p_t=u_xx+lambda D_x(u_x^2)-kappa^2 u_xxxx.
+
+Thus in those variables
+
+  F_2=(0,lambda D_x(u_x^2)),
+
+not (0,c^2 lambda D_x(u_x^2)) as printed at line 420. The latter
+formula is for the variables (u,u_t).
+
+Suggested replacements:
+
+  line 269: print G=(u-v)/c^2, or explicitly rescale the entire
+            affine current by c^2 and change a_0 accordingly;
+
+  line 420: print F_2=(0,lambda D_x(u_x^2)) in the canonical
+            variables used in Section 7.1.
+
+Neither issue affects the property F_2 in Im D_x. The table of
+quadratic symbols already sets c=1, so these corrections do not
+change that specialised table.
+
+Assessment
+----------
+
+The substantive repairs to Theorem 3.3's scope, the formal branch,
+the hierarchy normalisation, the no-first-integral lemma, and the
+involution theorem are accepted. The revised main theorem is a sound
+conditional assembly when its independent-symbol hypothesis is
+verified directly in the local/autonomous formal setting.
+
+I would not yet endorse the paper's entire collection of general
+proofs without the nonlinear-symmetry qualification in Lemma 6.5
+and clarification of the branch-solving shortcut in Proposition 7.5.
+Neither remaining issue is a counterexample to the known hierarchies.
+The Boussinesq discrepancies are normalisation errors, not failures
+of closure or of the total-derivative argument.

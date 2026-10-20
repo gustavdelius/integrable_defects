@@ -1,5 +1,5 @@
 # Verification record for defect-integrability/general_framework
-# date: 2026-10-20T14:03Z  run on the working tree committed on top of 7634457 (this commit)
+# date: 2026-10-20T16:05Z  commit: cd90589
 # python: Python 3.12.3  sympy: 1.14.0
 
 == check_balance.py
@@ -20,7 +20,7 @@ PASS: relativistic scalar, Lorentz boost (closure T^10 = T^01, density E_d): aff
 PASS: NLS, Galilean boost (closure J_N = 2 T^01, density N_d): affine conservation law (law 1 conserved, a2 conserved, constant term zero)
 PASS: KdV, Galilean symmetry (closure J_mass = -6 T^01 - D_x u_x, density q - p): affine conservation law (law 1 conserved, a2 conserved, constant term zero)
 PASS: mKdV, dilation (closure T^11 = 3 T^00 mod D_x, density P_d): affine conservation law (law 1 conserved, a2 conserved, constant term zero)
-PASS: Boussinesq, time-linear shift (closure from the shift law, density u - v): affine conservation law (law 1 conserved, a2 conserved, constant term zero)
+PASS: Boussinesq, time-linear shift (closure from the shift law, density (u - v)/c^2): affine conservation law (law 1 conserved, a2 conserved, constant term zero)
 PASS: sine-Gordon Type I: a Lorentz boost maps the sewing relations with parameter sigma to those with parameter sigma e^{+-theta}
 PASS: KdV defect (CZ 9.16) is dilation homogeneous with alpha of weight 2 (B scales by s**5)
 PASS: mKdV defect (CZ 7.22) is dilation homogeneous with alpha of weight 1 (B scales by s**3)
@@ -47,6 +47,48 @@ PASS: mKdV: nonzero m_n are monomials in k of distinct degrees: [None, 0, None, 
 INFO: Boussinesq m(k;eps) = -24*sqrt(3)*epsilon**4*k**2*(4*epsilon**2*k**2*sqrt(k**2 + 1) + 3*epsilon**2*sqrt(k**2 + 1) - 6*epsilon*k**2 - 6*epsilon + 3*sqrt(k**2 + 1))/((epsilon - 1)*(epsilon + 1)*(16*epsilon**4*k**4 + 16*epsilon**4*k**2 + 3*epsilon**4 - 16*epsilon**3*k**2*sqrt(k**2 + 1) + 4*epsilon**2*k**2 - 6*epsilon**2 + 3))
 PASS: Boussinesq: generating symbol is not a polynomial in epsilon (nonzero orders [4, 5, 6, 7, 8, 9, 10, 11, 12])
 PASS: Boussinesq: the 9 computed nonzero m_n span a space of dimension 8 (at most one linear relation)
+== check_scope.py
+PASS: Lemma 3.2 example L_d = lam (psi-phi)^2: H_- - H_+ vanishes on the prolonged locus C = 0
+PASS: Lemma 3.2 example: E_phi(H_- - H_+) = phi_tt + m^2 phi on the locus, so the balance is not in Im D_t + <C>
+PASS: Lemma 3.2 example: every t-Euler derivative of g C and g D_t C vanishes on the locus (g a generic function)
+PASS: Remark 3.4.2: (phi, psi, lam) = (x^2, -x^2, 2x) is a promoted solution of L_d = lam (psi+phi)
+PASS: Remark 3.4.2: E_-[phi] = 2 - m^2 x^2 is not zero, so (I) cannot be dropped
+PASS: Remark 3.4.2: H_- - H_+ = (psi_t - phi_t) D_tC / 2 + m^2 (phi - psi) C / 2 lies in <C>
+PASS: Remark 3.4.2: S_lambda lambda = 0 and K = 1, so the operator (I) is zero
+PASS: Lemma 4.1: the KdV mass law (p_x, p_xxx - 3 p_x^2) satisfies D_tN + D_xJ = -E(L) off shell
+PASS: Lemma 4.1: J_1 = pi_0 - p_t/2 = -J_shift + (1/2)(-D_t p), with J_shift = -pi_0
+PASS: Corollary 5.3: q - p is a defect charge of the KdV mass law for the defect of [3] (CZ 9.16)
+PASS: Lemma 4.1: after adding beta p^2 (shift invariance broken) q - p is no longer a defect charge (residual 2*beta*p_0)
+PASS: Corollary 5.3: the shift charge of the KdV defect is A_d - Xi_d = (p - q)/2
+PASS: Lemma 5.4 example with bulk density + D_x(w^2/2), dilated defect at s = 1: balance holds
+PASS: Lemma 5.4 example with bulk density + D_x(w^2/2), dilated defect at s = 2: balance fails
+PASS: Lemma 5.4: the KdV p -> s p(s x, s^3 t) bulk Lagrangian is strictly homogeneous (factor s**6)
+PASS: Lemma 5.4: the mKdV p -> p(s x, s^3 t) bulk Lagrangian is strictly homogeneous (factor s**4)
+PASS: Lemma 5.4: the NLS u -> s u(s x, s^2 t) bulk Lagrangian is strictly homogeneous (factor s**4)
+PASS: Lemma 6.6 example L_d = -(phi-psi)^2/(2 eps) is not momentum-conserving
+PASS: Lemma 6.6 example: the two sewing equations force eps phi_xx = 0
+PASS: Theorem 7.3 example: f = -p_x^2 - 2 p p_xx is the gradient of int p p_x^2
+PASS: Theorem 7.3 example: H = H_2 + H_3 + H_4 with the stated H_2 and H_3
+PASS: Theorem 7.3 example: Q = int (q + p_x^2) and R = int p q_x are conserved
+PASS: Theorem 7.3 example: (L) holds, {Q_1, Q} = {Q_1, R} = 0, and {Q, R} = 0
+PASS: Theorem 7.3 example: {Q_2, H_2} + {Q_1, H_3} = 0 while {Q_2, H_2} = -2 int p_xx q_xx != 0
+PASS: Theorem 7.3 example: the extra condition {Q_1, H} = 0 fails here
+PASS: Theorem 7.4: at u = eps cos(kx), delta(int u_x^2/2) = k^2 delta(int u^2/2)
+PASS: Section 8: two free fields of equal mass have conserved quadratic A, B with {A, B} != 0
+PASS: Section 7.1: on the momentum hyperplane, d^2 Omega/dk_1 dk_2 = s_1 s_2 s_n omega''(k_n)
+PASS: Section 7.1: omega'' is not identically zero for massive relativistic
+PASS: Section 7.1: omega'' is not identically zero for NLS
+PASS: Section 7.1: omega'' is not identically zero for KdV, mKdV
+PASS: Section 7.1: omega'' is not identically zero for Boussinesq
+PASS: Proposition 7.5: sin(phi) has no quadratic Taylor term (sine-Gordon)
+PASS: Proposition 7.5: the quadratic term of the Boussinesq p_t, p = u_t/c^2, is lambda D_x(u_x^2)
+PASS: Proposition 7.5: on a first harmonic in u, the KdV potential p_t has x-average 6 eta^2 |a|^2
+PASS: Proposition 7.5: with alpha = -1/eps^2, q = p - 2/eps + Delta, (9.12) is (2 + eps D_x) Delta = -2 eps u + (eps/2) Delta^2
+PASS: Lemma 6.5: the infinitesimal boost gives delta phi_t a quadratic part -U3 x phi^2 / 2
+PASS: Lemma 6.5 example: L = U_t V_t - U_x V_x with U = q + r^2, V = r has spatial Hessian of determinant -1, and U_t = P_r - 2 r P_q
+PASS: Lemma 6.5 example: (U, V) -> (a U, V/a) acts by q -> a q + (a - a^-2) r^2, r -> r/a
+PASS: Lemma 6.5 example: the charge int U_t scales by a, its quadratic part -2 int r P_q by a^-2
+PASS: Appendix A: with L_+ shifted by -c, H_- - H_+ = -c on the sewing correspondence of phi psi_t
 == check_hierarchy.py kdv:6
 PASS: KdV: all promoted sewing equations of CZ (9.16) hold on shell, orders -2..N-2
 PASS: KdV mass defect charge q - p: Q_1 is a conserved density

@@ -1,0 +1,6 @@
+name = "general_framework"
+version = "0.1.0"
+defaultTargets = ["GeneralFramework"]
+
+[[lean_lib]]
+name = "GeneralFramework"

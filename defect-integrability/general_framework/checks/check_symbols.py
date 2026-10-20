@@ -118,7 +118,8 @@ th = sp.Symbol("theta", real=True)
 weights = []
 for n, c in enumerate(cs):
     if c != 0:
-        cth = sp.simplify((c / sp.sqrt(k ** 2 + 1)).subs(k, sp.sinh(th)).rewrite(sp.exp))
+        cth = sp.simplify((c / sp.sqrt(k ** 2 + 1)).subs(sp.sqrt(k ** 2 + 1), sp.cosh(th))
+                          .subs(k, sp.sinh(th)).rewrite(sp.exp))
         r = sp.simplify(cth / sp.exp(n * th))
         r2 = sp.simplify(cth / sp.exp(-n * th))
         weights.append(r.free_symbols.isdisjoint({th}) or r2.free_symbols.isdisjoint({th}))

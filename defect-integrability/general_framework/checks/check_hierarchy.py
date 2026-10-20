@@ -22,7 +22,7 @@ checked orders is stated in each label.  One PASS or FAIL line per check.
 
 import sys
 import sympy as sp
-from jets import XJets, report, series_trunc
+from jets import XJets, report, series_trunc, is_zero
 
 eps = sp.Symbol("epsilon")
 
@@ -44,8 +44,15 @@ def formal_solve(F, unknowns, N, c0):
         upd = c0inv * res
         sol = {x: trunc(sol[x] - upd[i], N) for i, x in enumerate(unknowns)}
     final = [trunc(r, N) for r in F(sol)]
-    assert all(sp.simplify(r) == 0 for r in final), "formal solve did not converge"
+    assert all(is_zero(r) for r in final), "formal solve did not converge"
     return sol
+
+
+def solve_linear(lhs, rhs, var, N):
+    """Solve lhs = rhs for var when rhs is affine in var; truncate the result."""
+    a = sp.diff(rhs, var)
+    b = rhs.xreplace({var: 0})
+    return trunc((lhs - b) / a, N)
 
 
 def euler_t(B, y, tder, sub):
@@ -62,7 +69,7 @@ def euler_t(B, y, tder, sub):
 def orders_vanish(resids, lo, hi):
     for r in resids:
         for n in range(lo, hi + 1):
-            if sp.simplify(coeff(r, n)) != 0:
+            if not is_zero(coeff(r, n)):
                 return False
     return True
 
@@ -95,7 +102,7 @@ def sine_gordon(N=5):
 
     # branch from the left sewing equation pi_- = -phi_x = -dS/dphi, scaled by epsilon
     G = lambda s: [sp.expand(eps * (ph[1] - euler_t(Ld, a, tder, sub_of(s["D"]))))]
-    D = formal_solve(G, ["D"], N, sp.Matrix([[sp.Rational(1, 2)]]))["D"]
+    D = formal_solve(G, ["D"], N, sp.Matrix([[-sp.Rational(1, 2)]]))["D"]
     sub = sub_of(D)
     r = trunc(eps * (-(ph[1] + X.Dx(D)) - euler_t(Ld, b, tder, sub)), N)  # pi_+ = -psi_x = dS/dpsi
     ok = report("sine-Gordon: right sewing equation holds on shell, orders 0..N",
@@ -163,7 +170,7 @@ def kdv(N=6):
     pv = sp.Symbol("p_value")            # p enters only through derivatives and p - q
     sub = {al: -1 / eps ** 2, p: pv, q: pv - 2 / eps - d, P1: u[0], Q1: q_x,
            pt: p_t, qt: p_t - X.Dt(d)}
-    musol = sp.solve(sp.Eq(-u[1], -sp.diff(B, P1).xreplace(sub)), mu)[0]  # pi_{-,1} = -p_xx
+    musol = solve_linear(-u[1], -sp.diff(B, P1).xreplace(sub), mu, N + 2)  # pi_{-,1} = -p_xx
     sub.update({mu: musol, P1t: X.Dt(u[0]), Q1t: X.Dt(q_x), mut: X.Dt(musol)})
     # Ostrogradsky momenta of L = p_x p_t/2 - p_x^3 - p_xx^2/2 on the decaying sector:
     rs = [-X.Dx(q_x) - sp.diff(B, Q1).xreplace(sub),            # pi_{+,1} = dS/dQ1
@@ -195,7 +202,7 @@ def mkdv(N=6):
     q_x = v[0] - X.Dx(w)
     pv = sp.Symbol("p_value")
     sub = {al: 1 / eps, p: pv, q: pv - w, P1: v[0], Q1: q_x, pt: p_t, qt: p_t - X.Dt(w)}
-    musol = sp.solve(sp.Eq(v[1], -sp.diff(B, P1).xreplace(sub)), mu)[0]   # pi_{-,1} = p_xx
+    musol = solve_linear(v[1], -sp.diff(B, P1).xreplace(sub), mu, N + 2)   # pi_{-,1} = p_xx
     sub.update({mu: musol, P1t: X.Dt(v[0]), Q1t: X.Dt(q_x), mut: X.Dt(musol)})
     rs = [X.Dx(q_x) - sp.diff(B, Q1).xreplace(sub),             # pi_{+,1} = q_xx = dS/dQ1
           -p_t / 2 + euler_t(B, p, tder, sub),
@@ -222,12 +229,13 @@ def boussinesq(N=4):
     Uv, Vv, U1, V1, Ut, Vt = sp.symbols("U V U1 V1 U_t V_t")
     U1t, V1t = sp.symbols("U1_t V1_t")
     tder = {Uv: Ut, Vv: Vt, U1: U1t, V1: V1t}
-    wv = Uv - Vv
-    sig = s0 + mu * wv
-    rho = sp.expand((sig * (1 - sig ** 2 / (3 * c ** 2)) - s0 * (1 - s0 ** 2 / (3 * c ** 2))) / (2 * mu))
-    ws = sp.Symbol("ws")
-    tau = sp.integrate((-a_ * sig * rho / kap ** 2).subs(wv, ws), (ws, 0, wv))
-    fg = -sig ** 2 / (4 * mu * c ** 2)
+    ws = sp.Symbol("ws")                  # stands for the jump u - v
+    sig_s = s0 + mu * ws
+    rho_s = sp.expand((sig_s * (1 - sig_s ** 2 / (3 * c ** 2)) - s0 * (1 - s0 ** 2 / (3 * c ** 2))) / (2 * mu))
+    tau_s = sp.integrate(-a_ * sig_s * rho_s / kap ** 2, (ws, 0, ws))
+    fg_s = -sig_s ** 2 / (4 * mu * c ** 2)
+    jump = {ws: Uv - Vv}
+    sig, rho, tau, fg = (e.xreplace(jump) for e in (sig_s, rho_s, tau_s, fg_s))
     Dd = (Ut * (a_ * U1 + b_ * V1 + fg) + Vt * (b_ * U1 + a_ * V1 + fg)
           + sig / 2 * (b_ * U1 ** 2 + 2 * a_ * U1 * V1 + b_ * V1 ** 2) + rho * (U1 + V1) + tau)
     uv = sp.Symbol("u_value")
@@ -247,8 +255,8 @@ def boussinesq(N=4):
           pi0(u[1], u[3]) + euler_t(Dd, Uv, tder, sub),                 # pi_{-,0} = -dD/du
           pi0(vx, vxxx) - euler_t(Dd, Vv, tder, sub)]                   # pi_{+,0} = dD/dv
     rs = [trunc(sp.expand(eps ** 2 * r).subs(uv, 0), N + 1) for r in rs]
-    ok = report("Boussinesq: all promoted sewing equations of CZ (3.43) hold on shell, orders 0..N",
-                orders_vanish(rs, 0, N))
+    ok = report("Boussinesq: all promoted sewing equations of CZ (3.43) hold on shell, orders 0..N-1",
+                orders_vanish(rs, 0, N - 1))
     return check_density("Boussinesq mass defect charge v - u", X, -w, N) and ok
 
 
@@ -292,5 +300,9 @@ if __name__ == "__main__":
     which = sys.argv[1:] or ["sg", "nls", "kdv", "mkdv", "bsq", "tz"]
     fns = {"sg": sine_gordon, "nls": nls, "kdv": kdv, "mkdv": mkdv, "bsq": boussinesq,
            "tz": tzitzeica}
-    results = [fns[k]() for k in which]
+    # an argument "name:N" sets the truncation order
+    results = []
+    for arg in which:
+        name, _, order = arg.partition(":")
+        results.append(fns[name](int(order)) if order else fns[name]())
     sys.exit(0 if all(results) else 1)

@@ -1,0 +1,114 @@
+# Verification record for defect-integrability/general_framework
+# date: 2026-10-20T14:03Z  run on the working tree committed on top of 7634457 (this commit)
+# python: Python 3.12.3  sympy: 1.14.0
+
+== check_balance.py
+PASS: sine-Gordon, r=1 Type I (BCZ hep-th/0305022)
+PASS: Liouville | free massless, heterogeneous Type I (BCZ hep-th/0305022)
+PASS: a_2^(1) affine Toda, r=2 Type I (BCZ hep-th/0401020)
+PASS: Tzitzeica a_2^(2), r=1 Type II (CZ 0908.3126 eq. 3.7) [H_- - H_+ = D_t P~ with the published P~]
+PASS: NLS (CZ nlin/0512038 eqs. 2.9-2.10)
+PASS: KdV, constrained defect with multiplier (CZ nlin/0512038 eq. 9.16)
+PASS: mKdV, constrained defect, reading 1 of CZ nlin/0512038 eq. 7.22
+PASS: Boussinesq, Type I in Ostrogradsky variables (CZ 2306.03772 eqs. 3.43)
+== check_tangency.py
+PASS: Theorem 3.3(a) on the sine-Gordon Type-I defect (rho = 0)
+PASS: Theorem 3.3(a) on the Tzitzeica Type-II defect: (X_-, X_+) = image of (a_-, a_+, rho)
+PASS: Theorem 3.3(a) on the KdV constrained defect (K = 2, multiplier mu)
+== check_kinematics.py
+PASS: relativistic scalar, Lorentz boost (closure T^10 = T^01, density E_d): affine conservation law (law 1 conserved, a2 conserved, constant term zero)
+PASS: NLS, Galilean boost (closure J_N = 2 T^01, density N_d): affine conservation law (law 1 conserved, a2 conserved, constant term zero)
+PASS: KdV, Galilean symmetry (closure J_mass = -6 T^01 - D_x u_x, density q - p): affine conservation law (law 1 conserved, a2 conserved, constant term zero)
+PASS: mKdV, dilation (closure T^11 = 3 T^00 mod D_x, density P_d): affine conservation law (law 1 conserved, a2 conserved, constant term zero)
+PASS: Boussinesq, time-linear shift (closure from the shift law, density u - v): affine conservation law (law 1 conserved, a2 conserved, constant term zero)
+PASS: sine-Gordon Type I: a Lorentz boost maps the sewing relations with parameter sigma to those with parameter sigma e^{+-theta}
+PASS: KdV defect (CZ 9.16) is dilation homogeneous with alpha of weight 2 (B scales by s**5)
+PASS: mKdV defect (CZ 7.22) is dilation homogeneous with alpha of weight 1 (B scales by s**3)
+PASS: NLS defect (CZ 2.9-2.10) is dilation homogeneous with alpha of weight 1 (B scales by s**3)
+PASS: nonresonance of degree 3 and 4 for massive Klein-Gordon
+PASS: nonresonance of degree 3 and 4 for NLS
+PASS: nonresonance of degree 3 and 4 for KdV
+PASS: nonresonance of degree 3 and 4 for mKdV
+PASS: nonresonance of degree 3 and 4 for Boussinesq
+PASS: massless wave is resonant on an open set (omega(k)+omega(l)-omega(k+l)=0, k,l>0)
+== check_symbols.py
+INFO: sine-Gordon m(k;eps) = 4*epsilon*(epsilon**2*k**2 - epsilon**2*k*sqrt(k**2 + 1) + epsilon**2 + k**2 + k*sqrt(k**2 + 1) + 1)/(epsilon**4 + 4*epsilon**2*k**2 + 2*epsilon**2 + 1)
+PASS: sine-Gordon: generating symbol is not a polynomial in epsilon (nonzero orders [1, 3, 5, 7, 9, 11])
+PASS: sine-Gordon: each m_n has a definite boost weight (Lemma 6.5)
+INFO: NLS m(k;eps) = -2*epsilon/(epsilon**2*k**2 + 1)
+PASS: NLS: generating symbol is not a polynomial in epsilon (nonzero orders [1, 3, 5, 7, 9, 11])
+PASS: NLS: m_n homogeneous in k of degree n-1 (dilation weight, Lemma 6.5): [None, 0, None, 2, None, 4, None, 6, None, 8, None, 10, None]
+INFO: KdV m(k;eps) = 2*epsilon**3/(epsilon**2*k**2 + 4)
+PASS: KdV: generating symbol is not a polynomial in epsilon (nonzero orders [3, 5, 7, 9, 11])
+PASS: KdV: nonzero m_n are monomials in k of distinct degrees: [None, None, None, 0, None, 2, None, 4, None, 6, None, 8, None]
+INFO: mKdV m(k;eps) = -4*epsilon/(epsilon**2*k**2 + 1)
+PASS: mKdV: generating symbol is not a polynomial in epsilon (nonzero orders [1, 3, 5, 7, 9, 11])
+PASS: mKdV: nonzero m_n are monomials in k of distinct degrees: [None, 0, None, 2, None, 4, None, 6, None, 8, None, 10, None]
+INFO: Boussinesq m(k;eps) = -24*sqrt(3)*epsilon**4*k**2*(4*epsilon**2*k**2*sqrt(k**2 + 1) + 3*epsilon**2*sqrt(k**2 + 1) - 6*epsilon*k**2 - 6*epsilon + 3*sqrt(k**2 + 1))/((epsilon - 1)*(epsilon + 1)*(16*epsilon**4*k**4 + 16*epsilon**4*k**2 + 3*epsilon**4 - 16*epsilon**3*k**2*sqrt(k**2 + 1) + 4*epsilon**2*k**2 - 6*epsilon**2 + 3))
+PASS: Boussinesq: generating symbol is not a polynomial in epsilon (nonzero orders [4, 5, 6, 7, 8, 9, 10, 11, 12])
+PASS: Boussinesq: the 9 computed nonzero m_n span a space of dimension 8 (at most one linear relation)
+== check_hierarchy.py kdv:6
+PASS: KdV: all promoted sewing equations of CZ (9.16) hold on shell, orders -2..N-2
+PASS: KdV mass defect charge q - p: Q_1 is a conserved density
+PASS: KdV mass defect charge q - p: Q_2 is a conserved density
+PASS: KdV mass defect charge q - p: Q_3 is a conserved density
+PASS: KdV mass defect charge q - p: Q_4 is a conserved density
+PASS: KdV mass defect charge q - p: Q_5 is a conserved density
+PASS: KdV mass defect charge q - p: Q_6 is a conserved density
+INFO: KdV mass defect charge q - p: nontrivial Q_n for n in [1, 3, 5]
+== check_hierarchy.py sg:5
+PASS: sine-Gordon: right sewing equation holds on shell, orders 0..N
+PASS: sine-Gordon E_d: Q_1 is a conserved density
+PASS: sine-Gordon E_d: Q_2 is a conserved density
+PASS: sine-Gordon E_d: Q_3 is a conserved density
+PASS: sine-Gordon E_d: Q_4 is a conserved density
+PASS: sine-Gordon E_d: Q_5 is a conserved density
+INFO: sine-Gordon E_d: nontrivial Q_n for n in [1, 3, 5]
+== check_hierarchy.py nls:3
+PASS: NLS: all four sewing equations of CZ (2.9)-(2.10) hold on shell, orders 0..N-1
+PASS: NLS defect number N_d: Q_1 is a conserved density
+PASS: NLS defect number N_d: Q_2 is a conserved density
+PASS: NLS defect number N_d: Q_3 is a conserved density
+INFO: NLS defect number N_d: nontrivial Q_n for n in [1, 3]
+== check_hierarchy.py mkdv:6
+PASS: mKdV: all promoted sewing equations of CZ (7.22) hold on shell, orders 0..N-2
+PASS: mKdV defect momentum: Q_1 is a conserved density
+PASS: mKdV defect momentum: Q_2 is a conserved density
+PASS: mKdV defect momentum: Q_3 is a conserved density
+PASS: mKdV defect momentum: Q_4 is a conserved density
+PASS: mKdV defect momentum: Q_5 is a conserved density
+PASS: mKdV defect momentum: Q_6 is a conserved density
+INFO: mKdV defect momentum: nontrivial Q_n for n in [1, 3, 5]
+== check_hierarchy.py bsq:5
+PASS: Boussinesq: all promoted sewing equations of CZ (3.43) hold on shell, orders 0..N-1
+PASS: Boussinesq mass defect charge v - u: Q_1 is a conserved density
+PASS: Boussinesq mass defect charge v - u: Q_2 is a conserved density
+PASS: Boussinesq mass defect charge v - u: Q_3 is a conserved density
+PASS: Boussinesq mass defect charge v - u: Q_4 is a conserved density
+PASS: Boussinesq mass defect charge v - u: Q_5 is a conserved density
+INFO: Boussinesq mass defect charge v - u: nontrivial Q_n for n in [2, 4, 5]
+== check_hierarchy.py tz:3
+PASS: Tzitzeica Type II: right sewing equation holds on shell, orders 0..N
+PASS: Tzitzeica Type-II E_d: Q_1 is a conserved density
+PASS: Tzitzeica Type-II E_d: Q_2 is a conserved density
+PASS: Tzitzeica Type-II E_d: Q_3 is a conserved density
+INFO: Tzitzeica Type-II E_d: nontrivial Q_n for n in [1]
+== lake build
+Build completed successfully (6 jobs).
+== lake env lean Audit.lean
+'GeneralFramework.noether_first_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.legendre_noether_K2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.hamilton_slots_K2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.tangency_from_euler' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.promoted_implies_bulk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.promoted_implies_bulk_typeI' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.potential_from_normalised_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.affine_law_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.closure_conserved_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.lorentz_curl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.graded_rigidity' depends on axioms: [propext, Quot.sound]
+'GeneralFramework.Tri.derivations_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.Tri.normalised_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralFramework.Tri.kernel_nontrivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+== placeholder scan
+no sorry, no added axioms

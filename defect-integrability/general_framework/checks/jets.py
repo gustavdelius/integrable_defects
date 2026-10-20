@@ -19,6 +19,28 @@ Two settings are used.
 import sympy as sp
 
 
+
+def is_zero(expr, trials=3):
+    """Exact zero test.  expand() decides most cases; a nonzero value at a random
+    rational point proves nonzero-ness; simplify() is used only for expressions
+    that are numerically zero but not expanded to zero."""
+    import random
+    e = sp.expand(expr)
+    if e == 0:
+        return True
+    syms = sorted(e.free_symbols, key=str)
+    rng = random.Random(12345)
+    for _ in range(trials):
+        pt = {x: sp.Rational(rng.randint(1, 97), rng.randint(98, 197)) for x in syms}
+        try:
+            val = complex(sp.N(e.xreplace(pt), 30))
+        except (TypeError, ValueError, ZeroDivisionError):
+            continue
+        if abs(val) > 1e-12:
+            return False
+    return sp.simplify(e) == 0
+
+
 class TJets:
     """Jets of boundary functions of t."""
 
@@ -156,11 +178,11 @@ class XJets:
         return out
 
     def is_trivial(self, expr):
-        return all(sp.simplify(sp.expand(self.euler(expr, n))) == 0 for n in self.names)
+        return all(is_zero(self.euler(expr, n)) for n in self.names)
 
     def is_conserved(self, expr):
         dt = sp.expand(self.Dt(expr))
-        return all(sp.simplify(sp.expand(self.euler(dt, n))) == 0 for n in self.names)
+        return all(is_zero(self.euler(dt, n)) for n in self.names)
 
 
 def report(label, ok, detail=""):

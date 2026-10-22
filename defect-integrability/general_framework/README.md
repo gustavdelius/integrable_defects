@@ -5,6 +5,7 @@ This directory rescues the general results of the [pre-structural paper](../hist
 ## Contents
 
 - [paper.md](paper.md) — the rescued paper, self-contained, with a complete bibliography. Start here.
+- [guide.md](guide.md) — a reader's guide to the paper: the strategy; the central argument first in classical mechanics; a toolkit of the variational calculus it uses; the proofs move by move with sine-Gordon as a running example; and a catalogue of the counterexamples.
 - [conjecture_report.md](conjecture_report.md) — the rescued report: literature record, case inventory with what is established, Conjecture 2 restated, Theorems A–C kept with a status note.
 - [response_to_report2.md](response_to_report2.md) — how each point of the [second Lean referee report](../lean_referee/report2.md) is addressed.
 - [response_to_reports_20261020.md](response_to_reports_20261020.md) — verification and integration of the reports on the written proofs: [referee_report.md](referee_report.md), [referee_report_codex_20261020.txt](referee_report_codex_20261020.txt) and its second and third rounds, [referee_report_codex_20261020_round2.txt](referee_report_codex_20261020_round2.txt) and [referee_report_codex_20261020_round3.txt](referee_report_codex_20261020_round3.txt).
@@ -30,6 +31,7 @@ python3 check_balance.py
 python3 check_tangency.py
 python3 check_kinematics.py
 python3 check_scope.py
+python3 check_guide_example.py     # the sine-Gordon example of guide.md
 python3 check_hierarchy.py          # or a subset, e.g. kdv:6 sg:5 nls:3 mkdv:6 bsq:5 tz:3
 cd ../lean
 lake build

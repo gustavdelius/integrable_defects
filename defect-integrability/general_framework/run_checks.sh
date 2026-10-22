@@ -11,7 +11,7 @@ out="$PWD/verification.txt"
   echo "# python: $(python3 --version 2>&1)  sympy: $(python3 -c 'import sympy; print(sympy.__version__)')"
   echo
   cd checks
-  for s in check_balance.py check_tangency.py check_kinematics.py check_symbols.py check_scope.py; do
+  for s in check_balance.py check_tangency.py check_kinematics.py check_symbols.py check_scope.py check_guide_example.py; do
     echo "== $s"
     python3 -u "$s" 2>&1
   done

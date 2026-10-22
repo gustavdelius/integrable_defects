@@ -19,6 +19,7 @@ The guide assumes classical mechanics (Hamilton's equations), basic Lagrangian f
   - **How the proof goes.** The argument, move by move, in the paper's notation.
   - **Fine print.** Why each hypothesis is there, with the paper's counterexample.
 - **Parts 11–15** assemble the main theorem, read the table of cases, list what is open, collect the counterexamples and say where each statement is checked.
+- **Part 16** says, link by link, which ideas the paper takes from the literature and which tools it brings in.
 
 For a short overview, read Parts 1–3 and the **Idea** paragraphs of Parts 6–10.
 
@@ -39,6 +40,7 @@ For a short overview, read Parts 1–3 and the **Idea** paragraphs of Parts 6–
 13. [What is open (§10)](#part-13-what-is-open-10)
 14. [Catalogue of counterexamples](#part-14-catalogue-of-counterexamples)
 15. [Where each statement is checked](#part-15-where-each-statement-is-checked)
+16. [What comes from the literature, and what the paper brings in](#part-16-what-comes-from-the-literature-and-what-the-paper-brings-in)
 
 ---
 
@@ -96,7 +98,7 @@ In words:
 3. **Link 3.** If the defect comes in a one-parameter family that becomes invisible ("transparent") as the parameter goes to zero, then expanding that one density in powers of the parameter gives infinitely many conserved densities.
 4. **Link 4.** Under conditions on the dispersion relation of the bulk theory, these conserved quantities Poisson-commute and are independent. That is integrability in the sense of Liouville.
 
-**Why four links and not one.** Each link uses a different kind of mathematics. Link 1 is Hamiltonian mechanics with $x$ playing the role of time. Link 2 is Noether's theorem. Link 3 is perturbation theory in a small parameter. Link 4 is Fourier analysis of the dispersion relation. Each link can also fail on its own; [Part 14](#part-14-catalogue-of-counterexamples) gives an example for each.
+**Why four links and not one.** Each link uses a different kind of mathematics. Link 1 is Hamiltonian mechanics with $x$ playing the role of time. Link 2 is Noether's theorem. Link 3 is perturbation theory in a small parameter. Link 4 is Fourier analysis of the dispersion relation. Each link can also fail on its own; [Part 14](#part-14-catalogue-of-counterexamples) gives an example for each. [Part 16](#part-16-what-comes-from-the-literature-and-what-the-paper-brings-in) says which ideas in each link come from the literature and which tools the paper brings in.
 
 **The main message.** Links 1, 2 and 4 hold for theories that are not integrable. Every massive relativistic scalar theory satisfies the bulk hypotheses of Links 2 and 4, whatever its potential. Only Link 3, hypothesis (C) of Theorem 8.1, carries integrability. The paper therefore reduces the conjecture to one statement: *momentum conservation implies hypothesis (C)*. That statement is open (§10).
 
@@ -887,3 +889,56 @@ The scripts are in [`checks/`](checks/). Each prints one `PASS` or `FAIL` line p
 | `check_guide_example.py` | the examples of this guide: the mechanical toy of Part 3 (the derivatives of $h$, the spring, the oscillator, the auxiliary-variable failure) and the sine-Gordon formulas (balance, $\mathcal E_d=\mathcal B$, $\Delta_1$, $Q_1$, the closed form of $m(k;\sigma)$ and its first coefficients) |
 
 The Lean project in [`lean/`](lean/) checks the final algebraic step of several lemmas, with the variational and analytic inputs as named hypotheses. Theorem 8.1 is not formalised. [verification.txt](verification.txt) records the output of a full run; it does not yet include `check_guide_example.py`.
+
+---
+
+## Part 16. What comes from the literature, and what the paper brings in
+
+The following says, for each link, which ideas the paper takes from earlier work and which tools it brings in. Numbers in brackets are the paper's references. "Brought in" means *not used in the defect papers the paper cites*. It does not mean "new". The paper states that it has not searched the literature systematically for earlier versions of its general statements, and it claims no novelty for them.
+
+**Link 1: momentum conservation gives a Bäcklund relation.**
+
+- *From the literature.*
+  - The observation itself: sewing conditions that conserve momentum turn out to be Bäcklund transformations frozen at $x=0$. Bowcock, Corrigan and Zambon, and then Corrigan and Zambon, found this model by model, by direct computation [1–8].
+  - The view of a defect as a frozen Bäcklund transformation, in Caudrelier's inverse-scattering approach [12]. That approach starts from an integrable bulk.
+  - The description with $x$ as the evolution direction: the spatial phase space of $t$-histories. It is taken from the multisymplectic treatment of Caudrelier and Kundu [13], in which spatial and temporal Hamiltonian descriptions coexist.
+  - The geometric fact that a generating function defines a Lagrangian correspondence (Weinstein [19]). The paper uses it only in Appendix A.
+  - The mechanical fact of [Part 3](#part-3-the-guiding-picture-a-jump-in-classical-mechanics), that a canonical transformation preserving the Hamiltonian maps trajectories to trajectories, is textbook classical mechanics.
+- *Brought in.*
+  - A general proof (Theorem 3.3) for any finite-order bulk Lagrangian and any local defect functional. It works in the formal variational calculus of Olver [16]. It applies the time-Euler operator to the momentum balance written as an off-shell identity, then uses the chain rule for Euler operators and the Helmholtz self-adjointness of the second variation. Ostrogradsky momenta handle higher-order bulks such as KdV in potential form.
+  - The treatment of auxiliary defect fields and Lagrange multipliers. It uses a multiplier $\rho$ and isolates the injectivity condition (I).
+  - Counterexamples showing that (I) and the off-shell form of the balance are needed.
+
+**Link 2: one conserved density along the relation.**
+
+- *From the literature.*
+  - Defect contributions to energy and momentum, which Bowcock, Corrigan and Zambon, and Corrigan and Zambon, construct for each model [1–8].
+  - The observation that a Lorentz boost changes the sine-Gordon defect parameter by $\sigma\to\sigma e^{\pm\theta}$, which is the origin of the spectral parameter [1].
+  - Caudrelier's generating function for the modified conserved quantities [12]. It is obtained by inverse scattering in an integrable bulk.
+  - Noether's theorem, and the symmetry of the stress tensor in Lorentz-invariant theories, which are standard.
+- *Brought in.*
+  - Defect charges recast as spatial potentials for the difference of the bulk currents along promoted solutions (Proposition 4.2). Their normalisation is proved from a spatial normal form of the field equations (Lemma 6.3).
+  - The closure relation, read off from any conservation law whose current is affine in $(x,t)$ (Lemma 5.2). It turns a defect charge into a conserved generating density without assuming integrability.
+  - One table covering the Lorentz boost, Galilean boosts, dilations and a time-linear shift.
+
+**Link 3: a family and its transparent limit.**
+
+- *From the literature.*
+  - Expanding a Bäcklund transformation in its parameter to generate conservation laws. This is a classical technique of soliton theory; the best-known instance is the expansion of Miura, Gardner and Kruskal (1968) for KdV.
+  - For the specific models, the paper's all-orders statements rest on the compatibility of the classical Bäcklund transformations of Wahlquist and Estabrook (KdV) [17], Wadati (mKdV) [18] and Lamb (NLS) [20].
+  - The defect parameters themselves, and the splitting $(F,G)\mapsto(\sigma F,\sigma^{-1}G)$ of the relativistic Type-I defect potential [1, 4].
+- *Brought in.*
+  - Two general sources of one-parameter families: dilation orbits of momentum-conserving defects (Lemma 5.4) and Lorentz orbits of Bäcklund relations (Lemma 5.5).
+  - A formal implicit-function lemma that says when a transparent limit gives series with local coefficients (Lemma 6.2). The argument is standard, and the paper applies it to sewing equations. Lemma 6.6 combines it with Lemma 3.5 for the gyroscopic Type-I defects.
+  - The weight argument (Lemma 6.5): charges are eigenvectors of a kinematic symmetry with distinct eigenvalues, so they are independent.
+
+**Link 4: involution and independence.**
+
+- *From the literature.*
+  - Liouville integrability in the presence of defects, studied for specific classes by Avan and Doikou [15] and by Bristow and Bowcock [10].
+  - These works, and Caudrelier's [12, 13], start from an integrable bulk with its Lax pair or $r$-matrix. The traditional route to commuting charges from Bäcklund transformations is Bianchi permutability.
+- *Brought in.*
+  - A perturbative rigidity argument based on nonresonance of the bulk dispersion relation (Lemma 7.2, Theorem 7.3). It is familiar from the perturbation theory of Hamiltonian partial differential equations, but it is not used in the cited defect papers. It needs no Lax pair and no Bianchi permutability.
+  - An independence criterion through quadratic symbols (Theorem 7.4).
+  - A closed-form generating symbol computed from a single plane wave (Proposition 7.5).
+  - The companion [structural paper](../defect_integrability_paper.md) uses the same rigidity idea for massive relativistic Type-I defects.

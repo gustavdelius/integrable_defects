@@ -56,10 +56,12 @@ The **defect Lagrangian** $\mathcal L_d$ depends on the values of $\phi$ and $\p
 
 A defect that does not depend on time conserves energy automatically. It breaks translations in $x$, so momentum is in general not conserved: a wave hitting the defect can push it. One can ask for a corrected momentum $P_-+P_++P_d$ to be conserved, where $P_-$ and $P_+$ are the field momenta on the two sides and $P_d$ is a local expression in the fields at the defect. This is a strong condition on $\mathcal L_d$, and it even restricts which bulk theories can be used.
 
-Bowcock, Corrigan and Zambon found that for the sine-Gordon equation the condition can be met. The resulting sewing conditions turned out to be a **Bäcklund transformation**, a classical device of integrable systems (see [T9](#t9-bäcklund-transformations)), imposed only at one point. Corrigan and Zambon then found the same in every model they examined: sine-Gordon, Liouville, affine and conformal Toda, Tzitzéica, the nonlinear Schrödinger equation (NLS), KdV, mKdV and Boussinesq (the table in §1.1). In each case momentum conservation was possible only if
+Bowcock, Corrigan and Zambon found that for the sine-Gordon equation the condition can be met. The resulting sewing conditions turned out to be a **Bäcklund transformation**, a classical device of integrable systems (see [T9](#t9-bäcklund-transformations)), imposed only at one point. Corrigan and Zambon then found the same in every model they examined: sine-Gordon, Liouville, affine and conformal Toda, Tzitzéica, the nonlinear Schrödinger equation (NLS), KdV, mKdV and Boussinesq (the table in §1.1). Two things held throughout:
 
-1. the sewing conditions were a Bäcklund transformation, and
-2. the bulk theory was integrable.
+1. the sewing conditions that conserve momentum were a Bäcklund transformation, and
+2. where the bulk potential was left open, which happened in the relativistic cases, only integrable bulks admitted such a defect.
+
+In the non-relativistic cases the bulk equation was fixed in advance, and the defect was constructed for it.
 
 They said no direct proof was known. This is the **Corrigan–Zambon observation**.
 
@@ -1005,6 +1007,7 @@ The table in §9 records, for each observed case, how each hypothesis of Theorem
 - **Affine Toda, $r\ge2$.** Links 1–3 hold for every $r$, and Theorem 8.4 derives the family from momentum conservation. For $a_2^{(1)}$ the paper's own Link 4 also holds: (NR2) fails because the two particles have equal mass, but alternative (i) of Proposition 7.5 gives a symbol that is diagonal in the two polarizations, so the quadratic parts commute and the charges are independent (§9, comment 4). For $r\ge3$ the matrix symbol has not been computed; the structural paper's theorem, not yet reviewed independently, would supply involution and independence.
 - **Tzitzéica.** $Q_1$ is nontrivial, and $Q_2$ and $Q_3$ are conserved but trivial. This matches the absence of a spin-3 charge in the Tzitzéica hierarchy.
 - **Boussinesq.** Charges appear at orders 2, 4 and 5 but not 3, matching the absence of charges with spin divisible by three. Its parameter is a modulus, not produced by a symmetry, so the weight argument of Lemma 6.5 is unavailable and independence is evidence only.
+- **Gardner (comment 7).** A case that is not in Corrigan and Zambon's list. The pure Gardner equation $w_t=12c\,ww_x+6w^2w_x+w_{xxx}$ is integrable, but it has neither a dilation nor a Galilean symmetry. It has a momentum-conserving defect: the mKdV defect on a constant background, corrected by two terms that come from the Galilean change of frame. So, as for Boussinesq, its family parameter is a modulus, not a kinematic orbit. The defect follows from the moving mKdV defects of Xia and Zhou, and only the momentum balance and the Bäcklund property have been checked.
 
 ---
 
@@ -1052,6 +1055,7 @@ The scripts are in [`checks/`](checks/). Each prints one `PASS` or `FAIL` line p
 | `check_symbols.py` | the generating symbols of Proposition 7.5, including the $2\times2$ symbol of $a_2^{(1)}$ Toda, checked against the quadratic parts of the charges computed in jet space |
 | `check_scope.py` | the counterexamples of [Part 15](#part-15-catalogue-of-counterexamples), and the identities behind (NR) and Proposition 7.5, including the zero first variation of the Toda and Tzitzéica defect energies |
 | `check_type1_family.py` | the identities in the proofs of Propositions 8.2–8.3 for a general skew coupling with three fields, the sine-Gordon normalisation, and the hypotheses of Theorem 8.4 for the $a_r^{(1)}$ Toda defects, exactly for $r\le5$ |
+| `check_gardner.py` | the Gardner defect of §9, comment 7: the bulk equation, the momentum balance, the failure without the two correction terms, and the Bäcklund property on the vacuum |
 | `check_guide_example.py` | the examples of this guide: the mechanical toy of Part 3 (the derivatives of $h$, the spring, the oscillator, the auxiliary-variable failure), the sine-Gordon formulas (balance, $\mathcal E_d=\mathcal B$, $\Delta_1$, $Q_1$, the closed form of $m(k;\sigma)$ and its first coefficients), and the two examples of Part 12 (the light-cone form of the sine-Gordon relations, the symbol of the translation family) |
 
 The Lean project in [`lean/`](lean/) checks the final algebraic step of several lemmas, with the variational and analytic inputs as named hypotheses. Theorem 8.1 is not formalised. [verification.txt](verification.txt) records the output of a full run; it does not yet include `check_guide_example.py`.

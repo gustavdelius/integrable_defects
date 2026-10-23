@@ -102,7 +102,7 @@ In words:
 
 **Why four links and not one.** Each link uses a different kind of mathematics. Link 1 is Hamiltonian mechanics with $x$ playing the role of time. Link 2 is Noether's theorem. Link 3 is perturbation theory in a small parameter. Link 4 is Fourier analysis of the dispersion relation. Each link can also fail on its own; [Part 15](#part-15-catalogue-of-counterexamples) gives an example for each. [Part 17](#part-17-what-comes-from-the-literature-and-what-the-paper-brings-in) says which ideas in each link come from the literature and which tools the paper brings in.
 
-**The main message.** Links 1, 2 and 4 hold for theories that are not integrable. Every massive relativistic scalar theory satisfies the bulk hypotheses of Links 2 and 4, whatever its potential. Only Link 3, hypothesis (C) of Theorem 8.1, carries integrability. The paper therefore reduces the conjecture to one statement: *momentum conservation implies hypothesis (C)*. That statement is open (§10); [Part 12](#part-12-a-closer-look-at-hypothesis-c) discusses how strong (C) is and how it might follow.
+**The main message.** Links 1, 2 and 4 hold for theories that are not integrable. Every massive relativistic scalar theory satisfies the bulk hypotheses of Links 2 and 4, whatever its potential. Only Link 3, hypothesis (C) of Theorem 8.1, carries integrability. The paper therefore reduces the conjecture to one statement: *momentum conservation implies hypothesis (C)*. That statement is open in general (§10). §8.2 proves it in part for one class of relativistic defects ([§11.2](#112-hypothesis-c-for-relativistic-type-i-defects-82)); [Part 12](#part-12-a-closer-look-at-hypothesis-c) discusses how strong (C) is and how it might follow.
 
 **A dictionary.** The paper's main objects, and what they mean. Each is explained properly later.
 
@@ -436,6 +436,7 @@ The defect is momentum-conserving, with $\widetilde P=g-f$ stored in the defect.
 - *Link 3.* The family parameter is $\epsilon=\sigma$. As $\sigma\to0$ the term $g$ becomes a very stiff spring forcing $\psi\to\phi$: the defect becomes transparent. Write $\Delta=\psi-\phi=\sigma\Delta_1+O(\sigma^2)$. The left sewing equation at lowest order gives $\Delta_1=2(\phi_x-\phi_t)$. Expanding $\mathcal B$ gives
   $$Q_1=(\phi_x-\phi_t)^2+2(1-\cos\phi)=2(T^{00}+T^{01}),$$
   a combination of energy and momentum. The higher odd orders give the spin-3, spin-5, … charges of sine-Gordon.
+- *Where the family comes from.* In the coordinates $w=\frac12(\phi+\psi)$ and $q=\frac12(\phi-\psi)$, $\mathcal B=f(w)+g(q)$ with $f\propto\sigma$ and $g\propto\sigma^{-1}$. §8.2 shows that momentum conservation forces this splitting, and that rescaling $f$ up and $g$ down preserves momentum conservation ([§11.2](#112-hypothesis-c-for-relativistic-type-i-defects-82)).
 - *Kinematics.* A boost of rapidity $\theta$ maps $\sigma\to\sigma e^{\pm\theta}$ (§5.2). So the spectral parameter of the Bäcklund transformation is a rapidity, and $Q_n$ has Lorentz spin $n$.
 - *Link 4.* The generating quadratic symbol is $m(k;\sigma)=4\sigma\,\omega\,e^{\vartheta}/(1+\sigma^2e^{2\vartheta})$, with $k=\sinh\vartheta$ and $\omega=\cosh\vartheta$. Its coefficients $m_{2j+1}=4(-1)^j\omega e^{(2j+1)\vartheta}$ are distinct powers of $e^\vartheta$, so the charges are independent. [§10.5](#105-the-generating-symbol-proposition-75) derives this formula.
 
@@ -815,6 +816,8 @@ A family is **nondegenerate** (Definition 7.6) if infinitely many $m_n$ are nonz
 
 ## Part 11. The main theorem, hypothesis by hypothesis (§8)
 
+### 11.1 The theorem (§8.1)
+
 Theorem 8.1 composes the four links. Its proof is five lines long. What matters is what each hypothesis is about.
 
 | hyp. | content | concerns | integrable theories only? |
@@ -831,6 +834,43 @@ The proof chain is: Theorem 3.3 (Link 1); Proposition 4.3 with Lemma 5.2 (Link 2
 
 The theorem's second conclusion, that every solution of the sewing system imposed at all $x$ is a pair of solutions, is Theorem 3.3(b).
 
+### 11.2 Hypothesis (C) for relativistic Type-I defects (§8.2)
+
+**Idea.** For one class of defects, the paper derives the first two requirements of (C) from momentum conservation: the family and its transparent limit (see [§12.1](#121-what-c-asks-for) for the four requirements). The class consists of Type-I defects between two copies of a relativistic scalar theory with $r$ fields, whose kinetic coupling is constant:
+
+$$\mathcal L_d=\tfrac12\,\phi\cdot E\phi_t+\phi\cdot D\psi_t+\tfrac12\,\psi\cdot E\psi_t-\mathcal B(\phi,\psi),\qquad E^T=-E,\quad D=I-E .$$
+
+The mechanism is the one already visible for sine-Gordon in [Part 5](#part-5-the-running-example-sine-gordon). Momentum conservation forces the defect potential $\mathcal B$ to split into one part that depends on a weighted average of the two fields and another that depends on their difference. The two parts are linked by a constraint that is bilinear in them. Scaling one part up and the other down by the same factor preserves the constraint, and that rescaling is the family. Propositions 8.2 and 8.3 restate Propositions 3.1 and 3.2 of the companion [structural paper](../defect_integrability_paper.md).
+
+**How the proof goes.**
+
+1. *Sewing equations.* They are $\phi_x=E\phi_t+D\psi_t-\mathcal B_\phi$ and $\psi_x=D^T\phi_t-E\psi_t+\mathcal B_\psi$, the several-field version of [Part 5](#part-5-the-running-example-sine-gordon).
+2. *Insert them into the momentum balance.* The terms quadratic in the velocities cancel, because $D=I-E$ gives $DD^T=D^TD$ and $ED=DE$. The constant coupling is chosen so that this happens.
+3. *Separate the balance by powers of the velocities.* The defect momentum $\widetilde P(\phi,\psi)$ is assumed to contain no time derivatives. The balance must hold for independent values of $\phi,\psi,\phi_t,\psi_t$ (off shell, [T1](#t1-fields-derivatives-and-local-functions)). The terms linear in the velocities fix the gradient of $\widetilde P$ as a linear combination of the gradients of $\mathcal B$. The velocity-free terms give the identity $\frac12(\lvert\mathcal B_\phi\rvert^2-\lvert\mathcal B_\psi\rvert^2)=U(\phi)-U(\psi)$.
+4. *Change coordinates.* Use $q=\frac12(\phi-\psi)$, which measures how far $\psi$ is from $\phi$, and $w=\frac12(D^T\phi+D\psi)$, a weighted average. In these coordinates the gradient conditions read $\widetilde P_w=-\mathcal B_w$ and $\widetilde P_q=\mathcal B_q$.
+5. *Use that $\widetilde P$ exists.* Its mixed second derivatives agree, so $\mathcal B_{wq}=0$, that is, $\mathcal B=f(w)+g(q)$. This is where momentum conservation does real work: it rules out any coupling between $w$ and $q$ in the defect potential.
+6. *The constraint.* The velocity-free identity becomes
+   $$U(w+Dq)-U(w-D^Tq)=\tfrac12\,f'(w)\cdot g'(q),$$
+   which is bilinear in $(f',g')$. So $(f,g)\mapsto(\lambda f,\lambda^{-1}g)$ preserves it. By the converse in Proposition 8.2, every rescaled defect again conserves momentum. This is the family, requirement (C1).
+7. *The transparent point.* Assume $g'(0)=0$ with $G=g''(0)$ invertible. Differentiating the constraint at $q=0$ gives $Gf'=4U'$. It follows that $G$ commutes with $U''$ everywhere. If the bulk potential cannot be split into independent pieces (irreducibility), then $G=\gamma I$ and $f=4U/\gamma$. The family then takes the normal form
+   $$\mathcal B_\epsilon=\epsilon\,U(w)+\epsilon^{-1}\hat g(q),\qquad\hat g''(0)=4I .$$
+8. *The formal branch.* As $\epsilon\to0$, the term $\epsilon^{-1}\hat g(q)$ is a stiff spring holding $q=0$, that is $\psi=\phi$. This is exactly the form of Lemma 6.6 ([§9.3](#93-gyroscopic-type-i-defects-lemma-66)), which gives the formal branch, requirement (C2). This is Theorem 8.4.
+9. *What is left.* Nondegeneracy and independence, (C3) and (C4), and in (E) commuting quadratic parts or (NR2). The generating density is the defect energy $\mathcal B_\epsilon$. It is quadratic at the vacuum, so the charges have no linear parts, and (L) and (L′) are automatic. For one field there is a single dispersion branch, so (NR2) holds as well. The structural paper proves the remaining conditions for the whole class by a different route, equal-time canonicity.
+
+**Sine-Gordon.** Here $E=0$ and $D=1$, so $w=\frac12(\phi+\psi)$ and $q=\frac12(\phi-\psi)$.
+- The defect of [Part 5](#part-5-the-running-example-sine-gordon) has $f=2\sigma(1-\cos w)$ and $g=\frac2\sigma(1-\cos q)$.
+- The constraint reads $U(w+q)-U(w-q)=\frac12f'g'=2\sin w\sin q$, which is the identity $\cos(w-q)-\cos(w+q)=2\sin w\sin q$.
+- The transparent point has $\gamma=2/\sigma$, so $\hat g=4(1-\cos q)$, and the published defect is the member $\epsilon=2\sigma$ of the normal form. This normalised $\epsilon$ is twice the $\sigma$ used in [Part 5](#part-5-the-running-example-sine-gordon); both are parameters of the same family.
+
+**Affine Toda $a_2^{(1)}$.** The defect of Bowcock, Corrigan and Zambon has exactly this form. Its coupling is $D=2(I-\pi)^{-1}$, with $\pi$ the Coxeter rotation of the root system, and its potential is $\sigma f(w)+\sigma^{-1}g(q)$. The checks confirm the splitting, the constraint and the transparent point $\hat g''(0)=4I$, so Theorem 8.4 applies. The same checks confirm the hypotheses of the structural paper's theorem. That theorem then gives involution and independence. The general paper's own Link 4 could not provide these, because $U'''(0)\ne0$ and (NR2) fails for Toda. This conclusion rests on the structural paper, which has not been reviewed independently.
+
+**Fine print.**
+- *Derivative-free defect momentum.* Definition 3.1 allows $\widetilde P$ to contain time derivatives; Proposition 8.2 assumes that it does not.
+- *Constant coupling.* The theorem says nothing about defects whose kinetic term depends on the fields, nor about Type-II defects.
+- *The transparent point is assumed, not derived.* It is a condition on the defect potential at the single point $q=0$. Without it, the rescaling family still exists, but nothing makes $\epsilon^{-1}\hat g(q)$ a stiff spring around $\psi=\phi$.
+- *Irreducibility.* If the bulk potential splits into decoupled pieces, $G$ can have several eigenvalues and the pieces can be rescaled independently. The structural paper shows (its §9) that the resulting family need not commute. Assuming that $G$ is a multiple of $I$ can replace irreducibility.
+- The identities of the proofs, for a general skew $E$ with three fields, and the sine-Gordon and Toda statements are checked in [`checks/check_type1_family.py`](checks/check_type1_family.py).
+
 [Part 12](#part-12-a-closer-look-at-hypothesis-c) looks at hypothesis (C) more closely.
 
 ---
@@ -843,7 +883,7 @@ Hypothesis (C) is where the integrability of the bulk enters Theorem 8.1. This p
 - how one checks it for a given defect;
 - what is known about deriving it from momentum conservation.
 
-The paper itself only states that this derivation is open (§10). The assessments in [§12.4](#124-could-c-follow-from-momentum-conservation-alone) are the guide's reading of the evidence.
+The paper derives it for one class, assuming a transparent point (§8.2, explained in [§11.2](#112-hypothesis-c-for-relativistic-type-i-defects-82)), and states that it is open in general (§10). The assessments in [§12.4](#124-could-c-follow-from-momentum-conservation-alone) are the guide's reading of the evidence.
 
 ### 12.1 What (C) asks for
 
@@ -889,7 +929,7 @@ The steps below follow the order in which the paper treats the observed cases in
   A boost multiplies the two light-cone derivatives $\partial_x\pm\partial_t$ by reciprocal factors $e^{\pm\theta}$. Since $\sigma^{-1}$ and $\sigma$ sit on opposite light-cone derivatives, both relations keep their form, with $\sigma$ replaced by $\sigma e^{-\theta}$. A relation without this structure would in general acquire new terms under a boost.
 - *Moduli.* Solve the momentum constraint and look for free parameters in its solutions. A constraint of product form has one automatically. For sine-Gordon the constraint is $2f'g'=U(\phi)-U(\psi)$ ([Part 5](#part-5-the-running-example-sine-gordon)). It is unchanged by $(f,g)\mapsto(\sigma f,\sigma^{-1}g)$, and this rescaling is the parameter $\sigma$.
 
-  The structural paper proves that the same happens for every relativistic Type-I defect with several fields and a constant gyroscopic coupling. Momentum conservation forces the defect potential to split as $\mathcal B=f(w)+g(q)$, in coordinates $q=\frac12(u-v)$ and $w=\frac12(D^Tu+Dv)$ adapted to the coupling matrix $D$. The constraint becomes $U(w+Dq)-U(w-D^Tq)=\frac12f'(w)\cdot g'(q)$, which has the same rescaling.
+  Proposition 8.2 of the paper proves that the same happens for every relativistic Type-I defect with several fields and a constant gyroscopic coupling ([§11.2](#112-hypothesis-c-for-relativistic-type-i-defects-82)). Momentum conservation forces the defect potential to split as $\mathcal B=f(w)+g(q)$, in coordinates $q=\frac12(\phi-\psi)$ and $w=\frac12(D^T\phi+D\psi)$ adapted to the coupling matrix $D$. The constraint becomes $U(w+Dq)-U(w-D^Tq)=\frac12f'(w)\cdot g'(q)$, which has the same rescaling.
 
 **Step 2: find the transparent limit.** Look for an end of the parameter range at which the defect forces $\psi=g(\phi)$.
 
@@ -929,7 +969,7 @@ The paper leaves this open (§10). What follows summarises the evidence; it is n
 
 - *The observed cases.* In every observed case the published defect lies in a one-parameter family with a transparent limit (§9). In the four cases where the generating symbol is known in closed form, (C3) and (C4) hold.
 - *The families were never postulated.* They came either from kinematic symmetries that the defect breaks or from moduli of the momentum constraint.
-- *One class is proved.* The structural paper treats massive relativistic Type-I defects with several fields, a constant gyroscopic coupling and a defect momentum without derivatives. For these, momentum conservation itself supplies the family: it forces the splitting $\mathcal B=f(w)+g(q)$ and the reciprocal rescaling (its Proposition 3.1 and Theorem 2.1). The paper then makes one further assumption, the transparent point $g'(0)=0$ with $g''(0)$ invertible (its hypothesis 4). It also assumes that the bulk potential is irreducible, or else that this Hessian is a multiple of the identity. Under these assumptions it proves the whole hierarchy. Within that class, what remains of (C) after momentum conservation is a nondegeneracy condition at a single point of the defect potential.
+- *One class is proved.* Section 8.2 of the paper ([§11.2](#112-hypothesis-c-for-relativistic-type-i-defects-82)), restating the structural paper, treats massive relativistic Type-I defects with several fields, a constant gyroscopic coupling and a defect momentum without derivatives. For these, momentum conservation itself forces the splitting $\mathcal B=f(w)+g(q)$ and the rescaling family, (C1) (Propositions 8.2 and 8.3). With a transparent point, $g'(0)=0$ with $g''(0)$ invertible, and an irreducible bulk potential, the family has a formal branch, (C2) (Theorem 8.4). The structural paper then proves (C3), (C4) and involution for the same class (its Theorem 2.1). The published sine-Gordon and $a_2^{(1)}$ Toda defects satisfy these hypotheses. Within the class, what remains of (C) after momentum conservation is a nondegeneracy condition at a single point of the defect potential.
 - *A simple mechanism.* In the relativistic Type-I class there is a simple reason for the moduli. The momentum constraint pairs the two halves $f$ and $g$ of the defect potential bilinearly, and a bilinear equation is unchanged when one factor is rescaled and the other inversely rescaled.
 
 **Reasons for caution.**
@@ -937,10 +977,10 @@ The paper leaves this open (§10). What follows summarises the evidence; it is n
 - *One condition against infinitely many.* Momentum conservation is a single condition, while (C) yields infinitely many charges. A proof must use the rigidity of the momentum constraint as a functional equation, not merely the existence of a solution.
 - *A different route may be needed.* Corrigan and Zambon found that momentum conservation severely restricts the bulk, and that in every class they analysed only integrable bulks admit such defects. If that bulk selection holds in general, then (B) ⇒ (C) may be true for a classification reason: (B) has solutions only for integrable bulks. A proof might then have to go through bulk selection rather than through a direct construction of the family.
 - *Degenerate families exist.* The translation family above and the symmetry relations of Remark 3.4.2 show that families with transparent limits can be degenerate. Any derivation of (C) must show that the family supplied by momentum conservation is not a symmetry orbit in disguise.
-- *Not every momentum-conserving defect can become transparent.* A defect between two different theories, such as Liouville and a free massless field, satisfies (B) but has no transparent limit. So (B) ⇒ (C) can only be expected for defects that join a theory to itself. A realistic target is the form proved in the structural paper: momentum conservation plus a transparent point implies (C).
+- *Not every momentum-conserving defect can become transparent.* A defect between two different theories, such as Liouville and a free massless field, satisfies (B) but has no transparent limit. So (B) ⇒ (C) can only be expected for defects that join a theory to itself. A realistic target is the form proved in §8.2 and the structural paper: momentum conservation plus a transparent point implies (C).
 - *Outside the relativistic Type-I class, no general mechanism is known.* This covers Type-II defects, several fields with equal masses, and non-relativistic theories without a dilation, such as Boussinesq. There, (C) has only been checked case by case.
 
-**Summary.** For defects that join a massive relativistic theory to itself, (B) ⇒ (C) is proved in one natural class, with the transparent point assumed. In general the implication is supported by every known example, but no mechanism is known that would prove it. It may also turn out to hold only because momentum conservation already selects integrable bulks.
+**Summary.** For defects that join a massive relativistic theory to itself, (B) ⇒ (C) is proved in one natural class, with the transparent point assumed: (C1) and (C2) in §8.2 of the paper, (C3) and (C4) in the structural paper. In general the implication is supported by every known example, but no mechanism is known that would prove it. It may also turn out to hold only because momentum conservation already selects integrable bulks.
 
 ---
 
@@ -950,7 +990,7 @@ The table in §9 records, for each observed case, how each hypothesis of Theorem
 
 - **Fully covered.** Sine-Gordon, NLS, KdV and mKdV satisfy every hypothesis (comment 6). For these four, Theorem 8.1 is a theorem about the published defects.
 - **Massless theories.** For Liouville, conformal Toda and the free massless field, (NR) fails. Only Link 1 applies: the momentum-conserving defects are Bäcklund relations to free fields. These theories are integrable in the sense of being linearisable, which is a different mechanism.
-- **Affine Toda, $r\ge2$.** Links 1–3 hold. Link 4 is open on two counts: Proposition 7.5 does not apply because $U'''(0)\ne0$, and (NR2) fails because of the pairs of particles of equal mass.
+- **Affine Toda, $r\ge2$.** Links 1–3 hold, and for $a_2^{(1)}$ Theorem 8.4 derives the family from momentum conservation. The paper's own Link 4 is open on two counts: Proposition 7.5 does not apply because $U'''(0)\ne0$, and (NR2) fails because of the pairs of particles of equal mass. For $a_2^{(1)}$ the structural paper's theorem supplies involution and independence instead (§9, comment 4).
 - **Tzitzéica.** $Q_1$ is nontrivial, and $Q_2$ and $Q_3$ are conserved but trivial. This matches the absence of a spin-3 charge in the Tzitzéica hierarchy.
 - **Boussinesq.** Charges appear at orders 2, 4 and 5 but not 3, matching the absence of charges with spin divisible by three. Its parameter is a modulus, not produced by a symmetry, so the weight argument of Lemma 6.5 is unavailable and independence is evidence only.
 
@@ -958,7 +998,7 @@ The table in §9 records, for each observed case, how each hypothesis of Theorem
 
 ## Part 14. What is open (§10)
 
-1. **Hypothesis (C) from momentum conservation alone.** This is the real gap. In the observed cases the family arises either as the orbit of a symmetry that the defect does not share (boosts, dilations), or as a free parameter of the momentum constraint (the Boussinesq $\sigma_0$; the splitting $\mathcal B=F+G$ with $(F,G)\mapsto(\sigma F,\sigma^{-1}G)$). A general theorem would show that one of these always happens, with a regular transparent limit and nondegeneracy. [Part 12](#part-12-a-closer-look-at-hypothesis-c) discusses the evidence. The companion [structural paper](../defect_integrability_paper.md) proves a statement of this kind for one class, massive relativistic Type-I defects: there momentum conservation forces the splitting and supplies the rescaling family.
+1. **Hypothesis (C) from momentum conservation alone.** This is the real gap. In the observed cases the family arises either as the orbit of a symmetry that the defect does not share (boosts, dilations), or as a free parameter of the momentum constraint (the Boussinesq $\sigma_0$; the splitting $\mathcal B=F+G$ with $(F,G)\mapsto(\sigma F,\sigma^{-1}G)$). A general theorem would show that one of these always happens, with a regular transparent limit and nondegeneracy. [Part 12](#part-12-a-closer-look-at-hypothesis-c) discusses the evidence. Section 8.2 proves a statement of this kind for one class, relativistic Type-I defects with constant kinetic coupling: there momentum conservation forces the splitting and supplies the rescaling family and its formal branch, given a transparent point ([§11.2](#112-hypothesis-c-for-relativistic-type-i-defects-82)). The transparent point itself is not derived.
 2. **Bulk selection.** Corrigan and Zambon found that momentum conservation restricts the bulk potential. The framework does not classify potentials. Its conclusion is conditional on (C).
 3. **Remaining verifications.** Formal branches for several-field Type-II defects; involution and independence for affine Toda with $r\ge2$, which needs a version of Proposition 7.5 that keeps the quadratic nonlinearity; (L) and (L′) for Boussinesq.
 4. **Analysis.** Everything is formal or local. Convergence of the series in $\epsilon$ and global Bäcklund maps are not addressed.
@@ -999,7 +1039,8 @@ The scripts are in [`checks/`](checks/). Each prints one `PASS` or `FAIL` line p
 | `check_hierarchy.py` | formal branches, every promoted sewing equation, conservation and nontriviality of each $Q_n$ to finite order |
 | `check_symbols.py` | the generating symbols of Proposition 7.5 |
 | `check_scope.py` | the counterexamples of [Part 15](#part-15-catalogue-of-counterexamples), and the identities behind (NR) and Proposition 7.5 |
-| `check_guide_example.py` | the examples of this guide: the mechanical toy of Part 3 (the derivatives of $h$, the spring, the oscillator, the auxiliary-variable failure) the sine-Gordon formulas (balance, $\mathcal E_d=\mathcal B$, $\Delta_1$, $Q_1$, the closed form of $m(k;\sigma)$ and its first coefficients), and the two examples of Part 12 (the light-cone form of the sine-Gordon relations, the symbol of the translation family) |
+| `check_type1_family.py` | the identities in the proofs of Propositions 8.2–8.3 for a general skew coupling with three fields, the sine-Gordon normalisation, and the hypotheses of Theorem 8.4 for the $a_2^{(1)}$ Toda defect |
+| `check_guide_example.py` | the examples of this guide: the mechanical toy of Part 3 (the derivatives of $h$, the spring, the oscillator, the auxiliary-variable failure), the sine-Gordon formulas (balance, $\mathcal E_d=\mathcal B$, $\Delta_1$, $Q_1$, the closed form of $m(k;\sigma)$ and its first coefficients), and the two examples of Part 12 (the light-cone form of the sine-Gordon relations, the symbol of the translation family) |
 
 The Lean project in [`lean/`](lean/) checks the final algebraic step of several lemmas, with the variational and analytic inputs as named hypotheses. Theorem 8.1 is not formalised. [verification.txt](verification.txt) records the output of a full run; it does not yet include `check_guide_example.py`.
 
@@ -1039,7 +1080,8 @@ The following says, for each link, which ideas the paper takes from earlier work
 - *From the literature.*
   - Expanding a Bäcklund transformation in its parameter to generate conservation laws. This is a classical technique of soliton theory; the best-known instance is the expansion of Miura, Gardner and Kruskal (1968) for KdV.
   - For the specific models, the paper's all-orders statements rest on the compatibility of the classical Bäcklund transformations of Wahlquist and Estabrook (KdV) [17], Wadati (mKdV) [18] and Lamb (NLS) [20].
-  - The defect parameters themselves, and the splitting $(F,G)\mapsto(\sigma F,\sigma^{-1}G)$ of the relativistic Type-I defect potential [1, 4].
+  - The defect parameters themselves, and the splitting $(F,G)\mapsto(\sigma F,\sigma^{-1}G)$ of the relativistic Type-I defect potential, found for one field and for affine Toda [1, 2, 4].
+  - The derivation of that splitting and rescaling from momentum conservation for every relativistic Type-I defect with constant coupling (§8.2). It restates Propositions 3.1 and 3.2 of the companion structural paper [23], which belongs to the same project and has not been reviewed independently.
 - *Brought in.*
   - Two general sources of one-parameter families: dilation orbits of momentum-conserving defects (Lemma 5.4) and Lorentz orbits of Bäcklund relations (Lemma 5.5).
   - A formal implicit-function lemma that says when a transparent limit gives series with local coefficients (Lemma 6.2). The argument is standard, and the paper applies it to sewing equations. Lemma 6.6 combines it with Lemma 3.5 for the gyroscopic Type-I defects.

@@ -21,7 +21,7 @@ This directory rescues the general results of the [pre-structural paper](../hist
 | Bäcklund relation ⇒ conserved generating density | Lemma 4.1, Propositions 4.2–4.3, Lemma 5.2: needs an affine conservation law of the bulk (boost, Galilean boost, dilation, time-linear shift) | written proof; closure identity in Lean; every observed bulk checked |
 | Family ⇒ local conservation laws | Lemma 6.2, Theorem 6.4: needs a family with a regular transparent limit (formal branch) | written proof; branches checked for sine-Gordon, NLS, KdV, mKdV, Boussinesq |
 | Conservation laws ⇒ commuting independent charges | Theorems 7.3–7.4: needs a constant Poisson operator, nonresonant dispersion, and conditions (L), (L′) on the linear parts of the charges; no Bianchi permutability | written proof; induction over degrees in Lean, with the nonresonance step as a hypothesis; nonresonance checked |
-| Momentum conservation ⇒ the family | — | **open** in general (paper, Section 10); proved for massive relativistic Type I in the structural paper |
+| Momentum conservation ⇒ the family | Propositions 8.2–8.3, Theorem 8.4: relativistic Type I with constant kinetic coupling, given a nondegenerate transparent point; the family and its formal branch follow | written proof (restating the structural paper); identities checked for a general skew coupling with three fields; hypotheses checked for sine-Gordon and $a_2^{(1)}$ Toda. **Open** in general (paper, Section 10) |
 
 ## Reproducing
 
@@ -31,7 +31,8 @@ python3 check_balance.py
 python3 check_tangency.py
 python3 check_kinematics.py
 python3 check_scope.py
-python3 check_guide_example.py     # the sine-Gordon example of guide.md
+python3 check_type1_family.py
+python3 check_guide_example.py     # the examples of guide.md
 python3 check_hierarchy.py          # or a subset, e.g. kdv:6 sg:5 nls:3 mkdv:6 bsq:5 tz:3
 cd ../lean
 lake build

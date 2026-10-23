@@ -118,4 +118,25 @@ report("toy: (q, Q, lam) = (s^2, -s^2, -2s) obeys the jump rule and both velocit
        sp.diff(qs, sv) == -ls and sp.diff(Qs, sv) == ls and qs + Qs == 0
        and sp.simplify(sp.diff(qs, sv, 2) + qs - (sv ** 2 + 2)) == 0)
 
+# ------------------------------------------------- Part 12: hypothesis (C)
+# Light-cone form of the sine-Gordon sewing relations: sigma^{-1} multiplies one light-cone
+# derivative and sigma the other, so a boost rescales sigma in both relations at once.
+sumx = (phix + psix) - (Pt + Pst)       # (d_x - d_t)(phi + psi)
+difx = (phix - psix) + (Pt - Pst)       # (d_x + d_t)(phi - psi)
+report("Part 12: (d_x - d_t)(phi+psi) = -(2/sigma) sin((phi-psi)/2), (d_x + d_t)(phi-psi) = -2 sigma sin((phi+psi)/2)",
+       sp.simplify(sumx + 2 / s * sp.sin((P - Ps) / 2)) == 0 and sp.simplify(difx + 2 * s * sp.sin((P + Ps) / 2)) == 0)
+
+# The translation family psi(x) = phi(x + alpha) of a free massive field: the energy between
+# x and x + alpha has quadratic symbol alpha times that of the energy density, a polynomial in alpha.
+xx, xp, kk, mm, Al, eta = sp.symbols("x xp k m alpha eta", positive=True)
+aa = sp.symbols("a")
+wk = sp.sqrt(kk ** 2 + mm ** 2)
+ph = eta * (aa * sp.exp(sp.I * kk * xx) + sp.conjugate(aa) * sp.exp(-sp.I * kk * xx))
+pt = -sp.I * wk * eta * (aa * sp.exp(sp.I * kk * xx) - sp.conjugate(aa) * sp.exp(-sp.I * kk * xx))
+T00 = sp.expand((pt ** 2 + sp.diff(ph, xx) ** 2 + mm ** 2 * ph ** 2) / 2)
+xavg = lambda e: sp.simplify(sp.integrate(e, (xx, 0, 2 * sp.pi / kk)) * kk / (2 * sp.pi))
+G = sp.integrate(T00.subs(xx, xp), (xp, xx, xx + Al))
+report("Part 12: x-average of the energy between x and x + alpha is alpha times the average energy density",
+       sp.simplify(xavg(G) - Al * xavg(T00)) == 0)
+
 raise SystemExit(0 if ok else 1)

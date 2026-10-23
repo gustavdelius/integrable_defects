@@ -2,7 +2,7 @@
 
 *Companion to [paper.md](paper.md) (draft of 20 October 2026). Written 22 October 2026.*
 
-This guide explains why the paper is organised as it is and what each step of its proof does. It adds no results. References such as §3.3, (3.5) or Theorem 6.4 are to the paper. The examples in this guide that are not in the paper (the mechanical toy model of [Part 3](#part-3-the-guiding-picture-a-jump-in-classical-mechanics) and the sine-Gordon formulas of [Part 5](#part-5-the-running-example-sine-gordon)) are checked by [`checks/check_guide_example.py`](checks/check_guide_example.py).
+This guide explains why the paper is organised as it is and what each step of its proof does. It adds no results. References such as §3.3, (3.5) or Theorem 6.4 are to the paper. The examples in this guide that are not in the paper (the mechanical toy model of [Part 3](#part-3-the-guiding-picture-a-jump-in-classical-mechanics), the sine-Gordon formulas of [Part 5](#part-5-the-running-example-sine-gordon) and the examples of [Part 12](#part-12-a-closer-look-at-hypothesis-c)) are checked by [`checks/check_guide_example.py`](checks/check_guide_example.py).
 
 The paper's own status note applies here too. The Corrigan–Zambon conjecture is not proved. The general statements were corrected after an independent check on 20 October 2026, and the corrected versions await a second check ([response_to_reports_20261020.md](response_to_reports_20261020.md)).
 
@@ -18,8 +18,9 @@ The guide assumes classical mechanics (Hamilton's equations), basic Lagrangian f
   - **Idea.** What the step achieves and why the chain needs it.
   - **How the proof goes.** The argument, move by move, in the paper's notation.
   - **Fine print.** Why each hypothesis is there, with the paper's counterexample.
-- **Parts 11–15** assemble the main theorem, read the table of cases, list what is open, collect the counterexamples and say where each statement is checked.
-- **Part 16** says, link by link, which ideas the paper takes from the literature and which tools it brings in.
+- **Part 11** assembles the main theorem, and **Part 12** looks closely at hypothesis (C), where integrability enters: how strong it is, how to check it, and whether it could follow from momentum conservation.
+- **Parts 13–16** read the table of cases, list what is open, collect the counterexamples and say where each statement is checked.
+- **Part 17** says, link by link, which ideas the paper takes from the literature and which tools it brings in.
 
 For a short overview, read Parts 1–3 and the **Idea** paragraphs of Parts 6–10.
 
@@ -36,11 +37,12 @@ For a short overview, read Parts 1–3 and the **Idea** paragraphs of Parts 6–
 9. [Link 3: a family and its transparent limit (§5.2, §6)](#part-9-link-3-a-family-and-its-transparent-limit-52-6)
 10. [Link 4: involution and independence (§7)](#part-10-link-4-involution-and-independence-7)
 11. [The main theorem, hypothesis by hypothesis (§8)](#part-11-the-main-theorem-hypothesis-by-hypothesis-8)
-12. [Reading the table of cases (§9)](#part-12-reading-the-table-of-cases-9)
-13. [What is open (§10)](#part-13-what-is-open-10)
-14. [Catalogue of counterexamples](#part-14-catalogue-of-counterexamples)
-15. [Where each statement is checked](#part-15-where-each-statement-is-checked)
-16. [What comes from the literature, and what the paper brings in](#part-16-what-comes-from-the-literature-and-what-the-paper-brings-in)
+12. [A closer look at hypothesis (C)](#part-12-a-closer-look-at-hypothesis-c)
+13. [Reading the table of cases (§9)](#part-13-reading-the-table-of-cases-9)
+14. [What is open (§10)](#part-14-what-is-open-10)
+15. [Catalogue of counterexamples](#part-15-catalogue-of-counterexamples)
+16. [Where each statement is checked](#part-16-where-each-statement-is-checked)
+17. [What comes from the literature, and what the paper brings in](#part-17-what-comes-from-the-literature-and-what-the-paper-brings-in)
 
 ---
 
@@ -98,9 +100,9 @@ In words:
 3. **Link 3.** If the defect comes in a one-parameter family that becomes invisible ("transparent") as the parameter goes to zero, then expanding that one density in powers of the parameter gives infinitely many conserved densities.
 4. **Link 4.** Under conditions on the dispersion relation of the bulk theory, these conserved quantities Poisson-commute and are independent. That is integrability in the sense of Liouville.
 
-**Why four links and not one.** Each link uses a different kind of mathematics. Link 1 is Hamiltonian mechanics with $x$ playing the role of time. Link 2 is Noether's theorem. Link 3 is perturbation theory in a small parameter. Link 4 is Fourier analysis of the dispersion relation. Each link can also fail on its own; [Part 14](#part-14-catalogue-of-counterexamples) gives an example for each. [Part 16](#part-16-what-comes-from-the-literature-and-what-the-paper-brings-in) says which ideas in each link come from the literature and which tools the paper brings in.
+**Why four links and not one.** Each link uses a different kind of mathematics. Link 1 is Hamiltonian mechanics with $x$ playing the role of time. Link 2 is Noether's theorem. Link 3 is perturbation theory in a small parameter. Link 4 is Fourier analysis of the dispersion relation. Each link can also fail on its own; [Part 15](#part-15-catalogue-of-counterexamples) gives an example for each. [Part 17](#part-17-what-comes-from-the-literature-and-what-the-paper-brings-in) says which ideas in each link come from the literature and which tools the paper brings in.
 
-**The main message.** Links 1, 2 and 4 hold for theories that are not integrable. Every massive relativistic scalar theory satisfies the bulk hypotheses of Links 2 and 4, whatever its potential. Only Link 3, hypothesis (C) of Theorem 8.1, carries integrability. The paper therefore reduces the conjecture to one statement: *momentum conservation implies hypothesis (C)*. That statement is open (§10).
+**The main message.** Links 1, 2 and 4 hold for theories that are not integrable. Every massive relativistic scalar theory satisfies the bulk hypotheses of Links 2 and 4, whatever its potential. Only Link 3, hypothesis (C) of Theorem 8.1, carries integrability. The paper therefore reduces the conjecture to one statement: *momentum conservation implies hypothesis (C)*. That statement is open (§10); [Part 12](#part-12-a-closer-look-at-hypothesis-c) discusses how strong (C) is and how it might follow.
 
 **A dictionary.** The paper's main objects, and what they mean. Each is explained properly later.
 
@@ -829,9 +831,120 @@ The proof chain is: Theorem 3.3 (Link 1); Proposition 4.3 with Lemma 5.2 (Link 2
 
 The theorem's second conclusion, that every solution of the sewing system imposed at all $x$ is a pair of solutions, is Theorem 3.3(b).
 
+[Part 12](#part-12-a-closer-look-at-hypothesis-c) looks at hypothesis (C) more closely.
+
 ---
 
-## Part 12. Reading the table of cases (§9)
+## Part 12. A closer look at hypothesis (C)
+
+Hypothesis (C) is where the integrability of the bulk enters Theorem 8.1. This part covers four questions:
+- what (C) asks for;
+- how strong it is;
+- how one checks it for a given defect;
+- what is known about deriving it from momentum conservation.
+
+The paper itself only states that this derivation is open (§10). The assessments in [§12.4](#124-could-c-follow-from-momentum-conservation-alone) are the guide's reading of the evidence.
+
+### 12.1 What (C) asks for
+
+Hypothesis (C) bundles four requirements on the defect $S_d$.
+
+| | requirement | in the paper | sine-Gordon |
+|---|---|---|---|
+| (C1) | **A family.** $S_d$ is one member of a one-parameter family $S_d^{(\epsilon)}$ of momentum-conserving defects, or of promoted relations (Lemma 5.5). | Def. 6.1 | the parameter $\sigma$ |
+| (C2) | **A regular transparent limit.** As $\epsilon\to0$ the family forces $\psi\to g(\phi)$. The fields $\psi$ and $\lambda$ then have power series in $\epsilon$, with local coefficients, that solve every sewing equation: a formal branch. | Def. 6.1, Lemmas 6.2 and 6.6 | $\sigma\to0$ forces $\psi\to\phi$ |
+| (C3) | **Nondegeneracy.** Infinitely many of the quadratic symbols $m_n$ of the resulting charges are nonzero. | Def. 7.6 | every odd $n$ |
+| (C4) | **Independence.** The nonzero symbols are linearly independent functions of $k$. | Thm 8.1(C), Lemma 6.5 | distinct powers of $e^\vartheta$ |
+
+(C1) and (C2) are what Theorem 6.4 needs to produce local conservation laws at all. (C3) and (C4) make sure that infinitely many of them are different.
+
+### 12.2 How strong is it?
+
+**Strong enough to carry integrability.** Take a massive relativistic scalar theory. Then (A) holds whatever the potential. Energy always has a defect charge, momentum has one by (B), and the Lorentz closure holds, so (D) is automatic too. (E) holds whenever the generating density has no linear part, as for sine-Gordon. For such theories Theorem 8.1 reads: a momentum-conserving defect satisfying (I) and (C) forces infinitely many independent commuting charges. So in a massive theory that is not integrable, (C) must fail for every momentum-conserving defect. (C) is not a mild technical condition. In this setting it is at least as strong as integrability itself.
+
+**But it is a finite statement.** Integrability asks for infinitely many charges. (C) asks for one family of defects and one generating function. The economy is the same as that of a Lax pair, or of a Bäcklund transformation with a free parameter: one object encodes a whole hierarchy. In soliton theory, a Bäcklund transformation with a free parameter that reduces to the identity at some value is a familiar sign of integrability. (C) is the defect version of that sign.
+
+**Which parts carry the weight.** On their own, (C1) and (C2) are cheap. Every theory has a family with a regular transparent limit, if one allows relations that are not defects. Take the translations $\psi(x,t)=\phi(x+\alpha,t)$.
+- As a formal series, $\psi=\phi+\alpha\phi_x+\frac12\alpha^2\phi_{xx}+\dots$. The coefficients are local, and $\psi=\phi$ at $\alpha=0$.
+- Along this family, the natural conserved density is the energy between $x$ and $x+\alpha$, $\int_x^{x+\alpha}T^{00}(x',t)\,dx'$, with flux $\int_x^{x+\alpha}T^{10}(x',t)\,dx'$.
+- Its expansion in $\alpha$ gives the energy density at first order, and total $x$-derivatives of it at every higher order.
+- Its quadratic symbol is $\alpha$ times the symbol of the energy density: a polynomial in $\alpha$ with a single nonzero coefficient.
+
+The family is degenerate. It produces only the Noether charge of the symmetry that generates it. (This is a thought experiment of the guide, not an example from the paper. The translation family is not a family of defects in the sense of Definition 3.1, because at finite $\alpha$ the relation between $\psi(0,t)$ and the data of $\phi$ at $x=0$ is not a local sewing equation.)
+
+Relations built from internal symmetries behave in the same way; Remark 3.4.2's $\psi=-\phi$ is an example. So (C3) is the heart of (C): the family must not be the orbit of a bulk symmetry in disguise. The families of the observed cases pass this test. Each is either the orbit of a kinematic symmetry acting on a defect that is *not* invariant under it, or a modulus of the momentum constraint, and in neither case is the defect relation induced by a symmetry of the bulk Lagrangian. Once (C3) holds, (C4) is usually easy to check ([§12.3](#123-how-to-check-c-for-a-given-defect), step 3).
+
+### 12.3 How to check (C) for a given defect
+
+The steps below follow the order in which the paper treats the observed cases in §9.
+
+**Step 1: find a family.** There are two sources.
+
+- *Kinematic orbits.* Apply a symmetry of the bulk that the defect does not share.
+  - For a dilation, Lemma 5.4 says the rescaled defects are automatically momentum-conserving when the bulk Lagrangians are strictly homogeneous.
+  - For a Lorentz boost, check that the boosted relation is again of sewing form, with a local defect momentum, by rerunning the momentum-balance check.
+
+  For sine-Gordon the boost works because of the light-cone structure of the sewing relations:
+  $$(\partial_x-\partial_t)(\phi+\psi)=-\tfrac2\sigma\sin\tfrac{\phi-\psi}2,\qquad(\partial_x+\partial_t)(\phi-\psi)=-2\sigma\sin\tfrac{\phi+\psi}2 .$$
+  A boost multiplies the two light-cone derivatives $\partial_x\pm\partial_t$ by reciprocal factors $e^{\pm\theta}$. Since $\sigma^{-1}$ and $\sigma$ sit on opposite light-cone derivatives, both relations keep their form, with $\sigma$ replaced by $\sigma e^{-\theta}$. A relation without this structure would in general acquire new terms under a boost.
+- *Moduli.* Solve the momentum constraint and look for free parameters in its solutions. A constraint of product form has one automatically. For sine-Gordon the constraint is $2f'g'=U(\phi)-U(\psi)$ ([Part 5](#part-5-the-running-example-sine-gordon)). It is unchanged by $(f,g)\mapsto(\sigma f,\sigma^{-1}g)$, and this rescaling is the parameter $\sigma$.
+
+  The structural paper proves that the same happens for every relativistic Type-I defect with several fields and a constant gyroscopic coupling. Momentum conservation forces the defect potential to split as $\mathcal B=f(w)+g(q)$, in coordinates $q=\frac12(u-v)$ and $w=\frac12(D^Tu+Dv)$ adapted to the coupling matrix $D$. The constraint becomes $U(w+Dq)-U(w-D^Tq)=\frac12f'(w)\cdot g'(q)$, which has the same rescaling.
+
+**Step 2: find the transparent limit.** Look for an end of the parameter range at which the defect forces $\psi=g(\phi)$.
+
+- Write the left sewing equation as $G(\phi,\Delta;\epsilon)=0$ for $\Delta=\psi-g(\phi)$. Check the two conditions of Lemma 6.2: at $\epsilon=0$ the equation is algebraic in $\Delta$ with invertible linear part, and derivatives of $\Delta$ come only with positive powers of $\epsilon$.
+- For gyroscopic Type-I defects this is the stiff-spring condition of Lemma 6.6. The part of the defect potential that blows up as $\epsilon\to0$ must vanish to second order on the diagonal $\psi=\phi$, with an invertible Hessian there.
+- For a rescaling modulus, $\sigma^{-1}g$ is the stiff spring, so the condition is $g'(0)=0$ with $g''(0)$ invertible.
+- For a boost orbit, the transparent limit $\sigma e^{-\theta}\to0$ is the limit of infinite rapidity.
+
+Then check the remaining sewing equations. This can be done either order by order, as `check_hierarchy.py` does to finite order, or for all orders at once by Lemma 3.5.
+
+**Step 3: compute the generating symbol.** When Proposition 7.5 applies, $m(k;\epsilon)$ comes out in closed form.
+
+- (C3) holds exactly when $m(k;\epsilon)$ is not a polynomial in $\epsilon$. A power series with only finitely many nonzero coefficients is a polynomial. The translation family fails here: its symbol is $\alpha$ times a fixed function.
+- Suppose $m$ has the geometric form $m=A(k)\,\epsilon^a/\big(1-\epsilon^bB(k)\big)$, with $A$ not identically zero and $A$ and $B$ analytic. Then its coefficients are $A\,B^j$, and they are linearly independent exactly when $B$ is not constant. A linear relation $\sum_jc_j\,A\,B^j=0$ says that a polynomial vanishes on all values taken by $B$ where $A\ne0$, and there are infinitely many such values when $B$ is not constant. All four closed forms in the paper have this geometric form:
+
+  | bulk | $m(k;\epsilon)$ | $A$ | $a$ | $B$ |
+  |---|---|---|---|---|
+  | sine-Gordon | $4\epsilon\,\omega e^{\vartheta}/(1+\epsilon^2e^{2\vartheta})$ | $4\omega e^{\vartheta}$ | 1 | $-e^{2\vartheta}$ |
+  | NLS | $-2\epsilon/(1+\epsilon^2k^2)$ | $-2$ | 1 | $-k^2$ |
+  | KdV | $2\epsilon^3/(4+\epsilon^2k^2)$ | $\frac12$ | 3 | $-\frac14k^2$ |
+  | mKdV | $-4\epsilon/(1+\epsilon^2k^2)$ | $-4$ | 1 | $-k^2$ |
+
+  In each case $b=2$. The counterexample $\frac{\epsilon}{1-\epsilon}m_*(k)$ of Lemma 6.5 is the case of constant $B=1$.
+- Otherwise, compute finitely many $m_n$ and their rank. This gives evidence, not proof; for Boussinesq, 18 nonzero symbols span a space of dimension at least 17. When the family is a kinematic orbit, the weight argument of Lemma 6.5 can replace the computation.
+- When Proposition 7.5 does not apply, as for Tzitzéica and $a_r^{(1)}$ Toda with $r\ge2$ where $U'''(0)\ne0$, the symbols must be computed from the charges themselves, order by order.
+
+**Step 4: know what a finite computation establishes.**
+- (C1) can be checked exactly.
+- (C2) can be checked exactly when Lemma 6.2 or 6.6 applies, and otherwise only to the order computed.
+- (C3) and (C4) can be checked exactly when the generating symbol is known in closed form or when Lemma 6.5 applies, and otherwise only as evidence.
+
+### 12.4 Could (C) follow from momentum conservation alone?
+
+The paper leaves this open (§10). What follows summarises the evidence; it is not a result.
+
+**Evidence for.**
+
+- *The observed cases.* In every observed case the published defect lies in a one-parameter family with a transparent limit (§9). In the four cases where the generating symbol is known in closed form, (C3) and (C4) hold.
+- *The families were never postulated.* They came either from kinematic symmetries that the defect breaks or from moduli of the momentum constraint.
+- *One class is proved.* The structural paper treats massive relativistic Type-I defects with several fields, a constant gyroscopic coupling and a defect momentum without derivatives. For these, momentum conservation itself supplies the family: it forces the splitting $\mathcal B=f(w)+g(q)$ and the reciprocal rescaling (its Proposition 3.1 and Theorem 2.1). The paper then makes one further assumption, the transparent point $g'(0)=0$ with $g''(0)$ invertible (its hypothesis 4). It also assumes that the bulk potential is irreducible, or else that this Hessian is a multiple of the identity. Under these assumptions it proves the whole hierarchy. Within that class, what remains of (C) after momentum conservation is a nondegeneracy condition at a single point of the defect potential.
+- *A simple mechanism.* In the relativistic Type-I class there is a simple reason for the moduli. The momentum constraint pairs the two halves $f$ and $g$ of the defect potential bilinearly, and a bilinear equation is unchanged when one factor is rescaled and the other inversely rescaled.
+
+**Reasons for caution.**
+
+- *One condition against infinitely many.* Momentum conservation is a single condition, while (C) yields infinitely many charges. A proof must use the rigidity of the momentum constraint as a functional equation, not merely the existence of a solution.
+- *A different route may be needed.* Corrigan and Zambon found that momentum conservation severely restricts the bulk, and that in every class they analysed only integrable bulks admit such defects. If that bulk selection holds in general, then (B) ⇒ (C) may be true for a classification reason: (B) has solutions only for integrable bulks. A proof might then have to go through bulk selection rather than through a direct construction of the family.
+- *Degenerate families exist.* The translation family above and the symmetry relations of Remark 3.4.2 show that families with transparent limits can be degenerate. Any derivation of (C) must show that the family supplied by momentum conservation is not a symmetry orbit in disguise.
+- *Not every momentum-conserving defect can become transparent.* A defect between two different theories, such as Liouville and a free massless field, satisfies (B) but has no transparent limit. So (B) ⇒ (C) can only be expected for defects that join a theory to itself. A realistic target is the form proved in the structural paper: momentum conservation plus a transparent point implies (C).
+- *Outside the relativistic Type-I class, no general mechanism is known.* This covers Type-II defects, several fields with equal masses, and non-relativistic theories without a dilation, such as Boussinesq. There, (C) has only been checked case by case.
+
+**Summary.** For defects that join a massive relativistic theory to itself, (B) ⇒ (C) is proved in one natural class, with the transparent point assumed. In general the implication is supported by every known example, but no mechanism is known that would prove it. It may also turn out to hold only because momentum conservation already selects integrable bulks.
+
+---
+
+## Part 13. Reading the table of cases (§9)
 
 The table in §9 records, for each observed case, how each hypothesis of Theorem 8.1 was established for the published defect. "Checked" means verified by exact computation, to the stated order where a series is involved. "Lemma 6.6 (all orders)" and "all orders from the compatibility of …" are proofs. Points to notice:
 
@@ -843,16 +956,16 @@ The table in §9 records, for each observed case, how each hypothesis of Theorem
 
 ---
 
-## Part 13. What is open (§10)
+## Part 14. What is open (§10)
 
-1. **Hypothesis (C) from momentum conservation alone.** This is the real gap. In the observed cases the family arises either as the orbit of a symmetry that the defect does not share (boosts, dilations), or as a free parameter of the momentum constraint (the Boussinesq $\sigma_0$; the splitting $\mathcal B=F+G$ with $(F,G)\mapsto(\sigma F,\sigma^{-1}G)$). A general theorem would show that one of these always happens, with a regular transparent limit and nondegeneracy. The companion [structural paper](../defect_integrability_paper.md) proves a statement of this kind for one class, massive relativistic Type-I defects: there momentum conservation forces the splitting and supplies the rescaling family.
+1. **Hypothesis (C) from momentum conservation alone.** This is the real gap. In the observed cases the family arises either as the orbit of a symmetry that the defect does not share (boosts, dilations), or as a free parameter of the momentum constraint (the Boussinesq $\sigma_0$; the splitting $\mathcal B=F+G$ with $(F,G)\mapsto(\sigma F,\sigma^{-1}G)$). A general theorem would show that one of these always happens, with a regular transparent limit and nondegeneracy. [Part 12](#part-12-a-closer-look-at-hypothesis-c) discusses the evidence. The companion [structural paper](../defect_integrability_paper.md) proves a statement of this kind for one class, massive relativistic Type-I defects: there momentum conservation forces the splitting and supplies the rescaling family.
 2. **Bulk selection.** Corrigan and Zambon found that momentum conservation restricts the bulk potential. The framework does not classify potentials. Its conclusion is conditional on (C).
 3. **Remaining verifications.** Formal branches for several-field Type-II defects; involution and independence for affine Toda with $r\ge2$, which needs a version of Proposition 7.5 that keeps the quadratic nonlinearity; (L) and (L′) for Boussinesq.
 4. **Analysis.** Everything is formal or local. Convergence of the series in $\epsilon$ and global Bäcklund maps are not addressed.
 
 ---
 
-## Part 14. Catalogue of counterexamples
+## Part 15. Catalogue of counterexamples
 
 Each example shows that a hypothesis cannot be dropped. All are computed in [`checks/check_scope.py`](checks/check_scope.py) except the $w\ne0$ and massless examples, which are immediate. The toy version of the (I) example is in [`checks/check_guide_example.py`](checks/check_guide_example.py).
 
@@ -874,7 +987,7 @@ Each example shows that a hypothesis cannot be dropped. All are computed in [`ch
 
 ---
 
-## Part 15. Where each statement is checked
+## Part 16. Where each statement is checked
 
 The scripts are in [`checks/`](checks/). Each prints one `PASS` or `FAIL` line per check. They check identities and hypotheses on the published defects; they do not replace the written proofs.
 
@@ -885,14 +998,14 @@ The scripts are in [`checks/`](checks/). Each prints one `PASS` or `FAIL` line p
 | `check_kinematics.py` | the closure table of Lemma 5.2, the boost and dilation families, (NR) at degrees 3 and 4 |
 | `check_hierarchy.py` | formal branches, every promoted sewing equation, conservation and nontriviality of each $Q_n$ to finite order |
 | `check_symbols.py` | the generating symbols of Proposition 7.5 |
-| `check_scope.py` | the counterexamples of [Part 14](#part-14-catalogue-of-counterexamples), and the identities behind (NR) and Proposition 7.5 |
-| `check_guide_example.py` | the examples of this guide: the mechanical toy of Part 3 (the derivatives of $h$, the spring, the oscillator, the auxiliary-variable failure) and the sine-Gordon formulas (balance, $\mathcal E_d=\mathcal B$, $\Delta_1$, $Q_1$, the closed form of $m(k;\sigma)$ and its first coefficients) |
+| `check_scope.py` | the counterexamples of [Part 15](#part-15-catalogue-of-counterexamples), and the identities behind (NR) and Proposition 7.5 |
+| `check_guide_example.py` | the examples of this guide: the mechanical toy of Part 3 (the derivatives of $h$, the spring, the oscillator, the auxiliary-variable failure) the sine-Gordon formulas (balance, $\mathcal E_d=\mathcal B$, $\Delta_1$, $Q_1$, the closed form of $m(k;\sigma)$ and its first coefficients), and the two examples of Part 12 (the light-cone form of the sine-Gordon relations, the symbol of the translation family) |
 
 The Lean project in [`lean/`](lean/) checks the final algebraic step of several lemmas, with the variational and analytic inputs as named hypotheses. Theorem 8.1 is not formalised. [verification.txt](verification.txt) records the output of a full run; it does not yet include `check_guide_example.py`.
 
 ---
 
-## Part 16. What comes from the literature, and what the paper brings in
+## Part 17. What comes from the literature, and what the paper brings in
 
 The following says, for each link, which ideas the paper takes from earlier work and which tools it brings in. Numbers in brackets are the paper's references. "Brought in" means *not used in the defect papers the paper cites*. It does not mean "new". The paper states that it has not searched the literature systematically for earlier versions of its general statements, and it claims no novelty for them.
 

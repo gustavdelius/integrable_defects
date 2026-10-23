@@ -56,10 +56,12 @@ The **defect Lagrangian** $\mathcal L_d$ depends on the values of $\phi$ and $\p
 
 A defect that does not depend on time conserves energy automatically. It breaks translations in $x$, so momentum is in general not conserved: a wave hitting the defect can push it. One can ask for a corrected momentum $P_-+P_++P_d$ to be conserved, where $P_-$ and $P_+$ are the field momenta on the two sides and $P_d$ is a local expression in the fields at the defect. This is a strong condition on $\mathcal L_d$, and it even restricts which bulk theories can be used.
 
-Bowcock, Corrigan and Zambon found that for the sine-Gordon equation the condition can be met. The resulting sewing conditions turned out to be a **Bäcklund transformation**, a classical device of integrable systems (see [T9](#t9-bäcklund-transformations)), imposed only at one point. Corrigan and Zambon then found the same in every model they examined: sine-Gordon, Liouville, affine and conformal Toda, Tzitzéica, the nonlinear Schrödinger equation (NLS), KdV, mKdV and Boussinesq (the table in §1.1). In each case momentum conservation was possible only if
+Bowcock, Corrigan and Zambon found that for the sine-Gordon equation the condition can be met. The resulting sewing conditions turned out to be a **Bäcklund transformation**, a classical device of integrable systems (see [T9](#t9-bäcklund-transformations)), imposed only at one point. Corrigan and Zambon then found the same in every model they examined: sine-Gordon, Liouville, affine and conformal Toda, Tzitzéica, the nonlinear Schrödinger equation (NLS), KdV, mKdV and Boussinesq (the table in §1.1). Two things held throughout:
 
-1. the sewing conditions were a Bäcklund transformation, and
-2. the bulk theory was integrable.
+1. the sewing conditions that conserve momentum were a Bäcklund transformation, and
+2. where the bulk potential was left open, which happened in the relativistic cases, only integrable bulks admitted such a defect.
+
+In the non-relativistic cases the bulk equation was fixed in advance, and the defect was constructed for it.
 
 They said no direct proof was known. This is the **Corrigan–Zambon observation**.
 

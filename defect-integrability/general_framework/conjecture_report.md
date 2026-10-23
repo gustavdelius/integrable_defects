@@ -41,9 +41,9 @@ The bulk theories in every row are known to be integrable. The question is which
 | $r\ge1$ relativistic scalars, Type I | BCZ 2004 (`hep-th/0401020`); CZ 2009 | exponential ansatz | $a_r^{(1)}$ affine and $a_r$ conformal Toda | yes (balance checked for $a_2^{(1)}$) | affine Toda: yes (structural); conformal Toda: no, resonant | Theorem B, not re-reviewed |
 | $r=1$ relativistic scalar, Type II | CZ 2009 (`0908.3126`); CZ 2018 (`1807.05747`) | unspecified $U,V$ | free, Liouville, sine/sinh-Gordon, Tzitzéica | yes; (I) holds since $\partial_\lambda^2\mathcal D\ne0$ (balance checked for Tzitzéica) | conditional: Type-II formal branch not yet computed | Theorem C, not re-reviewed |
 | $r>1$ relativistic scalars, Type II | CZ 2011 (`1012.4186`); Robertson 2014 (`1304.3129`); Bristow–Bowcock 2017 (`1612.03002`) | affine Toda bulk fixed | compatible defect potentials | yes, given the cited momentum conservation and (I) | conditional, as above | — |
-| NLS | CZ 2006 (`nlin/0512038` §2) | $V(\vert u\vert^2)$ | cubic NLS | yes (balance checked) | yes: dilation family, Galilean closure, branch and charges checked | CZ's computation; not reproduced |
-| KdV, mKdV | CZ 2006 (`nlin/0512038` §§7, 9) | $U(p_x)$ | KdV, mKdV | yes, constrained defects with multiplier; (I) holds (balance checked) | yes: dilation family; Galilean (KdV) or dilation (mKdV) closure; branches and charges checked | CZ's computation; not reproduced |
-| Boussinesq | CZ 2023 (`2306.03772` §3) | $U(\phi_x)$ | Boussinesq | yes (balance checked) | family parameter $\sigma_0$ is not kinematic; branch and low-order charges checked; independence to be checked directly | CZ's computation; not reproduced |
+| NLS | CZ 2006 (`nlin/0512038` §2) | cubic NLS fixed | — (bulk fixed) | yes (balance checked) | yes: dilation family, Galilean closure, branch and charges checked | CZ's computation; not reproduced |
+| KdV, mKdV | CZ 2006 (`nlin/0512038` §§7, 9) | KdV, mKdV fixed | — (bulk fixed) | yes, constrained defects with multiplier; (I) holds (balance checked) | yes: dilation family; Galilean (KdV) or dilation (mKdV) closure; branches and charges checked | CZ's computation; not reproduced |
+| Boussinesq | CZ 2023 (`2306.03772` §3) | Boussinesq fixed | — (bulk fixed) | yes (balance checked) | family parameter $\sigma_0$ is not kinematic; branch and low-order charges checked; independence to be checked directly | CZ's computation; not reproduced |
 
 ## 2. General Formulations of Conjectures 1 and 2
 

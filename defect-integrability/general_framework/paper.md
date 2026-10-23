@@ -14,19 +14,19 @@ A jump defect joins two $(1+1)$-dimensional local Lagrangian field theories at a
 
 ### 1.1 The observation
 
-Let $\mathcal L_-([\phi])$ on $x<0$ and $\mathcal L_+([\psi])$ on $x>0$ be local Lagrangian densities joined at $x=0$ by a defect action $S_d=\int dt\,\mathcal L_d$. Energy is conserved across any time-independent defect. Momentum is not, because the defect breaks spatial translations. Bowcock, Corrigan and Zambon found that for the sine-Gordon model a local defect contribution can nevertheless restore momentum conservation, and that the resulting sewing conditions are a frozen Bäcklund transformation [1, 2]. Corrigan and Zambon then found the same phenomenon in every model they examined, including models whose bulk potentials were left unspecified in advance [3–8]. They summarised the evidence by saying that "demanding both energy and momentum conservation singles out the integrable models" [6, §6], and stated in several papers that no direct proof was known [5, 6, 8].
+Let $\mathcal L_-([\phi])$ on $x<0$ and $\mathcal L_+([\psi])$ on $x>0$ be local Lagrangian densities joined at $x=0$ by a defect action $S_d=\int dt\,\mathcal L_d$. Energy is conserved across any time-independent defect. Momentum is not, because the defect breaks spatial translations. Bowcock, Corrigan and Zambon found that for the sine-Gordon model a local defect contribution can nevertheless restore momentum conservation, and that the resulting sewing conditions are a frozen Bäcklund transformation [1, 2]. Corrigan and Zambon then found the same phenomenon in every model they examined [3–8]. In the relativistic cases the bulk potentials were left unspecified in advance, wholly or within an exponential ansatz, and only integrable bulks admitted such defects [1, 2, 4, 5]. In the non-relativistic cases the bulk equation was fixed and the defect constructed for it [3, 8]. They summarised the evidence by saying that "demanding both energy and momentum conservation singles out the integrable models" [6, §6], and stated in several papers that no direct proof was known [5, 6, 8].
 
 The observed cases are the following.
 
-| Setting | References | Bulk input assumed | Bulk theories selected by momentum conservation |
+| Setting | References | Bulk input assumed | Result |
 |---|---|---|---|
-| one relativistic scalar, Type I | [1, 4] | unspecified potentials | free, Liouville, sine/sinh-Gordon |
-| several relativistic scalars, Type I | [2, 4] | exponential potentials | $a_r^{(1)}$ affine Toda, $a_r$ conformal Toda |
-| one relativistic scalar, Type II | [5, 6] | unspecified potentials | free, Liouville, sine/sinh-Gordon, Tzitzéica ($a_2^{(2)}$) |
+| one relativistic scalar, Type I | [1, 5] | unspecified potentials | bulk restricted to free, Liouville or sine/sinh-Gordon. [1] derives this from the spin-3 charge and then checks momentum conservation; [5, §2] states that the momentum conditions give the same restriction |
+| several relativistic scalars, Type I | [2, 4] | exponential (Toda-like) potentials | bulk restricted to $a_r^{(1)}$ affine or $a_r$ conformal Toda: in [2] through a Lax pair and higher charges, in [4] from energy and momentum alone |
+| one relativistic scalar, Type II | [5, 6] | unspecified potentials, solved within ansätze | free, Liouville, sine/sinh-Gordon and Tzitzéica ($a_2^{(2)}$) found; [5] does not claim the list is complete |
 | several relativistic scalars, Type II | [9–11] | affine Toda bulk fixed | compatible defect potentials |
-| nonlinear Schrödinger (NLS) | [3, §§2–3] | unspecified self-interaction | cubic NLS |
-| KdV and mKdV, potential form | [3, §§7, 9] | unspecified potential | KdV, mKdV |
-| Boussinesq, potential form | [8, §3] | unspecified potential | Boussinesq |
+| nonlinear Schrödinger (NLS) | [3, §2] | cubic NLS fixed | defect proposed from the NLS Bäcklund transformation; momentum conservation verified |
+| KdV and mKdV, potential form | [3, §§7, 9] | KdV and mKdV fixed | defect conditions chosen to balance momentum, and identified with frozen Bäcklund transformations |
+| Boussinesq, potential form | [8, §3] | Boussinesq fixed | defect derived from energy and momentum conservation |
 
 Type-I defects involve only the boundary values of the two bulk fields. Type-II defects carry an additional field on the defect [5]. In the KdV and mKdV defects of [3] a term linear in $p_{xx}-q_{xx}$ acts as a Lagrange multiplier.
 

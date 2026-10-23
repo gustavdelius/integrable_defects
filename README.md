@@ -100,6 +100,8 @@ PRs [#31](https://github.com/gustavdelius/affine_toda/pull/31) and [#34](https:/
 
 ## Feedback and licensing
 
+Agent contributions follow [AGENTS.md](AGENTS.md), including independent verification of review findings, task-specific roles, and the limits of Lean certification. [CLAUDE.md](CLAUDE.md) imports the same rules. The repository includes skills for [writing referee briefs](.claude/skills/write-referee-brief/SKILL.md) and [integrating referee reports](.claude/skills/integrate-referee-report/SKILL.md); `.agents/skills/` links to these canonical copies.
+
 For a mathematical correction, identify the document, statement and revision, and include a derivation or reproducible calculation where possible. Distinguish a finite symbolic check from an all-orders proof, and a conditional formalization from a proof of its hypotheses.
 
 The imported code retains the [MIT license](LICENSE). Other imported material retains its existing rights and attribution; this migration does not relicense it. The [source project's licensing statement](https://github.com/gustavdelius/affine_toda#license) distinguishes code from book text and figures. Copyright in individual contributions remains with the applicable rights holders.

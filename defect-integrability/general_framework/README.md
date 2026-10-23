@@ -33,6 +33,8 @@ python3 check_tangency.py
 python3 check_kinematics.py
 python3 check_scope.py
 python3 check_type1_family.py
+python3 check_gardner.py
+python3 check_miura.py
 python3 check_guide_example.py     # the examples of guide.md
 python3 check_hierarchy.py          # or a subset, e.g. kdv:6 sg:5 nls:3 mkdv:6 bsq:5 tz:3
 cd ../lean

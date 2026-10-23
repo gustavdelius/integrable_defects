@@ -47,7 +47,7 @@ The bulk theories in every row are known to be integrable. The question is which
 
 ## 2. General Formulations of Conjectures 1 and 2
 
-Throughout, we follow the conventions of Part VIII ([38-defect-conditions.qmd](../../part8-defects/38-defect-conditions.qmd) and [part8_defects_conventions.md](../../briefs/part8_defects_conventions.md)): $\vec\phi(x,t) \in \mathbb R^r$ lives on $x<0$, $\vec\psi(x,t) \in \mathbb R^r$ lives on $x>0$, and $\vec\lambda(t) \in \mathbb R^m$ ($m\ge 0$) is a collection of auxiliary fields confined to the defect line $x=0$.
+Throughout, we follow the conventions of Part VIII ([38-defect-conditions.qmd](https://github.com/gustavdelius/affine_toda/blob/4ae0994c57c729d2f214e9c4fa2198ddfd45f180/part8-defects/38-defect-conditions.qmd) and [part8_defects_conventions.md](https://github.com/gustavdelius/affine_toda/blob/4ae0994c57c729d2f214e9c4fa2198ddfd45f180/briefs/part8_defects_conventions.md)): $\vec\phi(x,t) \in \mathbb R^r$ lives on $x<0$, $\vec\psi(x,t) \in \mathbb R^r$ lives on $x>0$, and $\vec\lambda(t) \in \mathbb R^m$ ($m\ge 0$) is a collection of auxiliary fields confined to the defect line $x=0$.
 
 ### 2.1 Conjecture 1 (Multi-Component Relativistic Scalar Field Theories)
 
@@ -266,7 +266,7 @@ Inverting (B.6) gives $\mathsf D = 2(\mathsf I_r - \pi)^{-1}$.
 
 ### Proof of Theorem C
 
-By Theorem A with $r=1, m=1$ (in the variables $p = \frac{1}{2}(\phi+\psi)$, $q = \frac{1}{2}(\phi-\psi)$, $w_+ = p - \Lambda$, $w_- = \Lambda$ of [38-defect-conditions.qmd](../../part8-defects/38-defect-conditions.qmd#L236-L248), so $w_+ + w_- = p$), momentum conservation is equivalent to the Poisson-bracket functional equation:
+By Theorem A with $r=1, m=1$ (in the variables $p = \frac{1}{2}(\phi+\psi)$, $q = \frac{1}{2}(\phi-\psi)$, $w_+ = p - \Lambda$, $w_- = \Lambda$ of [38-defect-conditions.qmd](https://github.com/gustavdelius/affine_toda/blob/4ae0994c57c729d2f214e9c4fa2198ddfd45f180/part8-defects/38-defect-conditions.qmd#L236-L248), so $w_+ + w_- = p$), momentum conservation is equivalent to the Poisson-bracket functional equation:
 $$U(w_+ + w_- + q) - V(w_+ + w_- - q) = F_{w_+}(w_+, q)\,G_q(w_-, q) + F_q(w_+, q)\,G_{w_-}(w_-, q) \qquad \forall\,w_+, w_-, q \in \mathbb R. \tag{C.1}$$
 
 #### Step C.1: Rank-2 Levi-Civita Separation in $(w_+, w_-)$
@@ -297,11 +297,11 @@ Since $\alpha \ne \beta$, the four exponentials $e^{\alpha(w_+ + w_-)}$, $e^{\be
    $$\boxed{f_1(q)\,g_1(q) = A_1 e^{\alpha q} + B_1 e^{-\alpha q} + D_1, \qquad f_2(q)\,g_2(q) = A_2 e^{\beta q} + B_2 e^{-\beta q} + D_2,} \tag{C.8}$$
    where $D_1, D_2$ are constants of integration.
 
-Comparing (C.7) and (C.8) (for instance when $f_1, g_2$ are non-zero constants as in [38-defect-conditions.qmd](../../part8-defects/38-defect-conditions.qmd#L261-L279), or by taking the ratio $(f_1 g_1)^\beta / (f_2 g_2)^\alpha = (c_1/c_2)(g_1/g_2)^{\alpha+\beta}$) imposes the algebraic identity
+Comparing (C.7) and (C.8) (for instance when $f_1, g_2$ are non-zero constants as in [38-defect-conditions.qmd](https://github.com/gustavdelius/affine_toda/blob/4ae0994c57c729d2f214e9c4fa2198ddfd45f180/part8-defects/38-defect-conditions.qmd#L261-L279), or by taking the ratio $(f_1 g_1)^\beta / (f_2 g_2)^\alpha = (c_1/c_2)(g_1/g_2)^{\alpha+\beta}$) imposes the algebraic identity
 $$\big(A_1 e^{\alpha q} + B_1 e^{-\alpha q} + D_1\big)^{-\beta} \propto \big(A_2 e^{\beta q} + B_2 e^{-\beta q} + D_2\big)^{\alpha} \tag{C.9}$$
 on the Laurent polynomials in $e^q$. Two non-constant Laurent polynomials $A_1 e^{\alpha q} + B_1 e^{-\alpha q} + D_1$ and $A_2 e^{\beta q} + B_2 e^{-\beta q} + D_2$ with $\alpha \ne \beta$ can have proportional powers for all $q \in \mathbb R$ **if and only if they share the exact same zeros in $q$**, which occurs in only three cases:
-- **$\alpha = -\beta$** (with $A_1 = B_2, B_1 = A_2, D_1 = D_2 = 2\cosh 2\tau$): **sine-Gordon / sinh-Gordon ($a_1^{(1)}$)** ([38-defect-conditions.qmd](../../part8-defects/38-defect-conditions.qmd#L261-L264));
-- **$\alpha = -2\beta$** (with $D_2 = 0$ and $A_1 e^{-2\beta q} + B_1 e^{2\beta q} + D_1 = (a e^{\beta q} + b e^{-\beta q})^2$, the square of $f_2(q) \propto a e^{\beta q} + b e^{-\beta q}$): **Tzitzéica / Bullough–Dodd ($a_2^{(2)}$)** ([38-defect-conditions.qmd](../../part8-defects/38-defect-conditions.qmd#L276-L279));
+- **$\alpha = -\beta$** (with $A_1 = B_2, B_1 = A_2, D_1 = D_2 = 2\cosh 2\tau$): **sine-Gordon / sinh-Gordon ($a_1^{(1)}$)** ([38-defect-conditions.qmd](https://github.com/gustavdelius/affine_toda/blob/4ae0994c57c729d2f214e9c4fa2198ddfd45f180/part8-defects/38-defect-conditions.qmd#L261-L264));
+- **$\alpha = -2\beta$** (with $D_2 = 0$ and $A_1 e^{-2\beta q} + B_1 e^{2\beta q} + D_1 = (a e^{\beta q} + b e^{-\beta q})^2$, the square of $f_2(q) \propto a e^{\beta q} + b e^{-\beta q}$): **Tzitzéica / Bullough–Dodd ($a_2^{(2)}$)** ([38-defect-conditions.qmd](https://github.com/gustavdelius/affine_toda/blob/4ae0994c57c729d2f214e9c4fa2198ddfd45f180/part8-defects/38-defect-conditions.qmd#L276-L279));
 - **$\beta = -2\alpha$** (the same as $\alpha = -2\beta$ with $\alpha \leftrightarrow \beta$): **Tzitzéica / Bullough–Dodd ($a_2^{(2)}$)**. $\blacksquare$
 
 > [!TIP]

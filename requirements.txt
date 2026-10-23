@@ -1,0 +1,2 @@
+# Exact symbolic checks; the existing records used SymPy 1.12 or 1.14.
+sympy>=1.12

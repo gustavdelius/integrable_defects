@@ -8,7 +8,6 @@ q = (phi - psi)/2, w = (D^T phi + D psi)/2.  Written from the definitions of pap
 imports only SymPy.  One PASS or FAIL line per check.
 """
 
-import random
 import sympy as sp
 
 ok = True
@@ -67,10 +66,10 @@ report("E_phi L_d = E phi_t + D psi_t - B_phi and E_psi L_d = E psi_t - D^T phi_
        sp.expand(Ephi - (E * pht + D * pst - gradphi)) == sp.zeros(r, 1)
        and sp.expand(Epsi - (E * pst - D.T * pht - gradpsi)) == sp.zeros(r, 1))
 
-# the balance H_- - H_+ + D_t P~ = 0 with P~(phi, psi) gives (8.2); in (w, q): P~_w = -B_w, P~_q = B_q
+# the balance H_- - H_+ + D_t P~ = 0 with P~(phi, psi) fixes grad P~; in (w, q): P~_w = -B_w, P~_q = B_q
 Pp = E * Bp - D * Bq
 Pq = -D.T * Bp - E * Bq
-report("(8.2) makes the velocity-linear terms cancel: phi_t.P~_phi + psi_t.P~_psi = -(linear terms)",
+report("Proposition 8.2: P~_phi = E B_phi - D B_psi and P~_psi = -D^T B_phi - E B_psi cancel the velocity-linear terms",
        sp.expand(dot(pht, Pp) + dot(pst, Pq) + lin) == 0)
 # gradients in (w, q): phi = w + D q, psi = w - D^T q, so d/dw = d/dphi + d/dpsi, d/dq = D^T d/dphi - D d/dpsi
 grad_w = lambda gp, gq: gp + gq
@@ -85,7 +84,7 @@ report("phi = w + D q and psi = w - D^T q", sp.expand(w_ + D * q_ - ph) == sp.ze
 fp, gp = vec("fp", r), vec("gp", r)          # f'(w), g'(q)
 Bphi_split = (D * fp + gp) / 2
 Bpsi_split = (D.T * fp - gp) / 2
-report("(8.1): for B = f(w) + g(q), (|B_phi|^2 - |B_psi|^2)/2 = f'(w).g'(q)/2",
+report("(8.4): for B = f(w) + g(q), (|B_phi|^2 - |B_psi|^2)/2 = f'(w).g'(q)/2",
        sp.expand((dot(Bphi_split, Bphi_split) - dot(Bpsi_split, Bpsi_split)) / 2 - dot(fp, gp) / 2) == 0)
 
 # ------------------------------------------------- Proposition 8.3: the commutator step
@@ -118,29 +117,82 @@ if sp.simplify(pi * a1 - roots[0]) != sp.zeros(2, 1):
 DT = sp.simplify(2 * (sp.eye(2) - pi).inv())
 ET = sp.eye(2) - DT
 report("Toda a_2: E = I - D is skew", sp.simplify(ET + ET.T) == sp.zeros(2))
+
+
+def exponent_sum_vanishes(terms):
+    """terms: (coefficient, exponent covector).  A sum of exponentials of distinct linear forms
+    vanishes identically exactly when the coefficients of each distinct form add up to zero."""
+    groups = []
+    for coef, key in terms:
+        for grp in groups:
+            if all(sp.simplify(u - v) == 0 for u, v in zip(grp[1], key)):
+                grp[0] += coef
+                break
+        else:
+            groups.append([coef, key])
+    return all(sp.simplify(grp[0]) == 0 for grp in groups)
+
+
+def toda_constraint_terms(rts, Dm, half=sp.Rational(1, 2)):
+    """U(w + Dq) - U(w - D^T q) - half * U'(w).h'(q), U = sum e^{a.w}, h = sum e^{a.Dq}, in (w, q) covectors."""
+    terms = []
+    for al in rts:
+        terms += [(1, list(al) + list(Dm.T * al)), (-1, list(al) + list(-Dm * al))]
+    for ai in rts:
+        for aj in rts:
+            terms.append((-half * dot(ai, Dm.T * aj), list(ai) + list(Dm.T * aj)))
+    return terms
+
+
+report("Toda a_2: U(w + Dq) - U(w - D^T q) = f'(w).g'(q)/2 for f = sigma U, g = h/sigma, exactly "
+       "(exponents matched); with 1/4 in place of 1/2 it fails",
+       exponent_sum_vanishes(toda_constraint_terms(roots, DT))
+       and not exponent_sum_vanishes(toda_constraint_terms(roots, DT, sp.Rational(1, 4))))
 W, Qv = sp.Matrix(sp.symbols("W1 W2")), sp.Matrix(sp.symbols("Q1 Q2"))
 UT = lambda u: sum(sp.exp(dot(al, u)) for al in roots) - 3
-fT = UT(W)
-gT = sum(sp.exp(dot(al, DT * Qv)) for al in roots) - 3
-lhs = UT(W + DT * Qv) - UT(W - DT.T * Qv)
-rhs = dot(sp.Matrix([sp.diff(fT, x) for x in W]), sp.Matrix([sp.diff(gT, x) for x in Qv])) / 2
-random.seed(1)
-pts = [{x: sp.Rational(random.randint(-9, 9), 7) for x in list(W) + list(Qv)} for _ in range(6)]
-report("Toda a_2: U(w + Dq) - U(w - D^T q) = f'(w).g'(q)/2 at six rational points (30 digits)",
-       all(abs(sp.N((lhs - rhs).subs(pt), 30)) < 1e-25 for pt in pts))
-gradg0 = sp.Matrix([sp.diff(gT, x) for x in Qv]).subs({x: 0 for x in Qv})
-GT = sp.simplify(sp.hessian(gT, list(Qv)).subs({x: 0 for x in Qv}))
-report("Toda a_2: transparent point g'(0) = 0, and G = g''(0) = 3 D^T D is a nonzero multiple of I",
-       sp.simplify(gradg0) == sp.zeros(2, 1) and sp.simplify(GT - 3 * DT.T * DT) == sp.zeros(2)
-       and sp.simplify(GT - GT[0, 0] * sp.eye(2)) == sp.zeros(2) and sp.simplify(GT[0, 0]) != 0)
-# the transcribed defect has B = sigma U(w) + g(q)/sigma; its Hessian G = g''(0)/sigma must be 4/sigma
-gamma_T = sp.simplify(GT[0, 0] / s)
-report("Toda a_2: gamma = 4/sigma, so f = sigma U(w) = 4U/gamma, g^ = 4 (g/sigma)/gamma = g, "
-       "and the defect is the member eps = 4/gamma = sigma of (8.3)",
+hT = sum(sp.exp(dot(al, DT * Qv)) for al in roots) - 3
+gradh0 = sp.Matrix([sp.diff(hT, x) for x in Qv]).subs({x: 0 for x in Qv})
+Hh = sp.simplify(sp.hessian(hT, list(Qv)).subs({x: 0 for x in Qv}))
+report("Toda a_2: transparent point h'(0) = 0, and h''(0) = 3 D^T D = 4I",
+       sp.simplify(gradh0) == sp.zeros(2, 1) and sp.simplify(Hh - 3 * DT.T * DT) == sp.zeros(2)
+       and sp.simplify(Hh - 4 * sp.eye(2)) == sp.zeros(2))
+# the defect has B = sigma U(w) + sigma^-1 h(q): f = sigma U, g = h/sigma, G = g''(0) = (4/sigma) I
+gT = hT / s
+gamma_T = sp.simplify(sp.hessian(gT, list(Qv)).subs({x: 0 for x in Qv})[0, 0])
+report("Toda a_2: gamma = 4/sigma, f = sigma U = 4U/gamma, ghat = (4/gamma) g = sigma g = h, "
+       "and the defect is the member eps = 4/gamma = sigma of (8.5)",
        sp.simplify(gamma_T - 4 / s) == 0 and sp.simplify(s * UT(W) - 4 * UT(W) / gamma_T) == 0
-       and sp.simplify(4 * (gT / s) / gamma_T - gT) == 0)
-# Lemma 6.6: the stiff spring g^(q), q = (phi - psi)/2, has Hessian g^''(0)/4 in phi on the diagonal
-report("Lemma 6.6 for (8.3), Toda a_2: g^''(0) = 4I, so the Hessian of g^((phi - psi)/2) in phi on the diagonal is I",
-       sp.simplify(GT - 4 * sp.eye(2)) == sp.zeros(2))
+       and sp.simplify(4 * gT / gamma_T - hT) == 0)
+Mt = sum((al * al.T for al in roots), sp.zeros(2))
+report("Toda a_2: M = 3I and E^2 = -I/3", Mt == 3 * sp.eye(2) and sp.simplify(ET * ET + sp.eye(2) / 3) == sp.zeros(2))
+# Lemma 6.6: the stiff spring ghat(q), q = (phi - psi)/2, has Hessian ghat''(0)/4 = I in phi on the diagonal
+report("Lemma 6.6 for (8.5), Toda a_2: ghat''(0) = 4I, so the Hessian of ghat((phi - psi)/2) in phi on the diagonal is I",
+       sp.simplify(Hh - 4 * sp.eye(2)) == sp.zeros(2))
+
+
+# a_r^(1), r = 2..5 (Section 8.2): roots e_i - e_{i+1} of the sum-zero hyperplane of R^N, N = r + 1,
+# in an orthonormal (Helmert) basis of that hyperplane; pi e_i = e_{i+orientation}; D = 2 (I - pi)^-1.
+def helmert(N):
+    return sp.Matrix.hstack(*[sp.Matrix([1] * k + [-k] + [0] * (N - k - 1)) / sp.sqrt(k * (k + 1))
+                              for k in range(1, N)])
+
+
+for N in range(3, 7):
+    for orient in (1, -1):
+        Bh = helmert(N)
+        Pn = sp.zeros(N)
+        for i in range(N):
+            Pn[(i + orient) % N, i] = 1
+        rts = [Bh.T * (sp.eye(N)[:, i] - sp.eye(N)[:, (i + 1) % N]) for i in range(N)]
+        Dn = sp.simplify(2 * (sp.eye(N - 1) - Bh.T * Pn * Bh).inv())
+        En = sp.eye(N - 1) - Dn
+        Mn = sum((al * al.T for al in rts), sp.zeros(N - 1))
+        h0 = sum((Dn.T * al for al in rts), sp.zeros(N - 1, 1))
+        report(f"Toda a_{N - 1}^(1), orientation {orient:+d}: E skew; (8.4) exactly with f = sigma U, "
+               "g = h/sigma; h'(0) = 0 and h''(0) = D^T M D = 4I, so G = (4/sigma) I and ghat = h",
+               sp.simplify(En + En.T) == sp.zeros(N - 1)
+               and exponent_sum_vanishes(toda_constraint_terms(rts, Dn))
+               and sp.simplify(h0) == sp.zeros(N - 1, 1)
+               and sp.simplify(Dn.T * Mn * Dn - 4 * sp.eye(N - 1)) == sp.zeros(N - 1))
 
 raise SystemExit(0 if ok else 1)

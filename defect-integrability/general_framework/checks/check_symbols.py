@@ -125,6 +125,117 @@ for n, c in enumerate(cs):
         weights.append(r.free_symbols.isdisjoint({th}) or r2.free_symbols.isdisjoint({th}))
 ok &= report("sine-Gordon: each m_n has a definite boost weight (Lemma 6.5)", all(weights))
 
+# a_2^(1) Toda, family (8.5) with eps = sigma (Section 8.2): M = 3I, E = nu J with J the rotation
+# generator and nu^2 = 1/3, ghat''(0) = 4I, so the generating density E_d = eps U(w) + ghat(q)/eps
+# has zero first variation (alternative (i)): only the linear branch enters.  Two components of
+# equal mass, so the symbol is a 2x2 Hermitian matrix K: the x-average of the quadratic part of
+# E_d on u = A e^{i(kx - omega t)} + cc is A^dagger K A.
+nu, kr, wr, er = sp.symbols("nu k_r omega_r epsilon_r", positive=True)
+Jm = sp.Matrix([[0, -1], [1, 0]])
+Em = nu * Jm
+Dm = sp.eye(2) - Em
+Av, Qa = sp.Matrix(sp.symbols("A1 A2")), sp.Matrix(sp.symbols("Qa1 Qa2"))
+dxs, dts = I * kr, -I * wr
+# left sewing equation phi_x = E phi_t + D psi_t - B_phi, psi = u - 2q, w = u - D q,
+# B_phi = (D f' + g')/2 with f' = 3 eps w, g' = 4 q/eps (linearised)
+sew = dxs * Av - (Em * dts * Av + Dm * dts * (Av - 2 * Qa) - (3 * er * Dm * (Av - Dm * Qa) + 4 * Qa / er) / 2)
+solq = sp.solve(list(sew), list(Qa), dict=True)[0]
+RQ = sp.Matrix(2, 2, lambda i, j: sp.diff(Qa[i].subs(solq), Av[j]))
+RW = sp.eye(2) - Dm * RQ
+Kt = 3 * er * RW.H * RW + 4 / er * RQ.H * RQ
+onshell = {wr: sp.sqrt(kr ** 2 + 3)}
+zpol = {1: sp.Matrix([1, -I]) / sp.sqrt(2), -1: sp.Matrix([1, I]) / sp.sqrt(2)}   # E z_s = i s nu z_s
+ok &= report("a_2 Toda: E z_s = i s nu z_s, and K has no cross term between the two polarizations",
+             all(sp.simplify(Em * zpol[s_] - I * s_ * nu * zpol[s_]) == sp.zeros(2, 1) for s_ in (1, -1))
+             and sp.simplify(((zpol[1].H * Kt * zpol[-1])[0]).subs(onshell)) == 0)
+lr = wr + kr
+mts = {s_: sp.simplify((zpol[s_].H * Kt * zpol[s_])[0]) for s_ in (1, -1)}
+ok &= report("a_2 Toda: m_s = 4 eps (3 + l^2)/(4 - 4 s nu eps l + eps^2 l^2 (1 + nu^2)), l = omega + k, for every nu",
+             all(sp.simplify((mts[s_] - 4 * er * (3 + lr ** 2)
+                              / (4 - 4 * s_ * nu * er * lr + er ** 2 * lr ** 2 * (1 + nu ** 2))).subs(onshell)) == 0
+                 for s_ in (1, -1)))
+th = sp.Symbol("theta", real=True)
+rap = {kr: sp.sqrt(3) * sp.sinh(th), wr: sp.sqrt(3) * sp.cosh(th), nu: 1 / sp.sqrt(3)}
+mrap = {s_: 2 * sp.sqrt(3) * er * sp.sqrt(3) * sp.cosh(th) * sp.exp(th)
+        / (1 - s_ * er * sp.exp(th) + er ** 2 * sp.exp(2 * th)) for s_ in (1, -1)}
+ok &= report("a_2 Toda: at nu^2 = 1/3, with k = sqrt3 sinh(theta), m_s = 2 sqrt3 eps omega e^theta/"
+             "(1 - s eps e^theta + eps^2 e^(2 theta)), the table entry",
+             all(sp.simplify((mts[s_].subs(rap) - mrap[s_]).rewrite(sp.exp)) == 0 for s_ in (1, -1)))
+X_ = sp.Symbol("X")
+okc = True
+for s_ in (1, -1):
+    ser = sp.series(X_ / (1 - s_ * X_ + X_ ** 2), X_, 0, 13).removeO()
+    for n in range(1, 13):
+        cn = ser.coeff(X_, n)
+        okc &= sp.simplify(cn - s_ ** (n - 1) * sp.sin(n * sp.pi / 3) / sp.sin(sp.pi / 3)) == 0
+        okc &= (cn == 0) == (n % 3 == 0)
+ok &= report("a_2 Toda: m_(n,s) = 2 sqrt3 s^(n-1) omega e^(n theta) sin(n pi/3)/sin(pi/3) for n <= 12; "
+             "zero exactly when 3 | n, so the nonzero m_(n,+) are distinct powers of e^theta", okc)
+
+
+def toda_a2_jets(N=5):
+    """Cross-check of Proposition 7.5 (i): the quadratic parts of the actual charges Q_n of (8.5),
+    from the formal branch of the left sewing equation in jet space.  Only the linear branch can
+    reach the quadratic part, since E_d has zero first variation; t-derivatives are reduced by the
+    linearised flow u_t = p, p_t = u_xx - 3u.  nu is kept symbolic."""
+    NJ = 2 * N + 4
+    uj = [[sp.Symbol(f"u{i}_{j}") for j in range(NJ)] for i in range(2)]
+    pj = [[sp.Symbol(f"p{i}_{j}") for j in range(NJ)] for i in range(2)]
+
+    def Dtj(expr):
+        out = 0
+        for i in range(2):
+            for j in range(NJ - 2):
+                out += sp.diff(expr, uj[i][j]) * pj[i][j] + sp.diff(expr, pj[i][j]) * (uj[i][j + 2] - 3 * uj[i][j])
+        return sp.expand(out)
+
+    def tr(expr):
+        e_ = sp.expand(expr)
+        return sp.expand(sum(e_.coeff(er, n_) * er ** n_ for n_ in range(N + 1)))
+
+    uv = sp.Matrix([uj[0][0], uj[1][0]])
+    pv = sp.Matrix([pj[0][0], pj[1][0]])
+    ux = sp.Matrix([uj[0][1], uj[1][1]])
+    q = sp.zeros(2, 1)
+    # eps times the linearised left sewing equation: 4q = 2 eps (p - u_x) - 4 eps D D_t q - 3 eps^2 D (u - Dq)
+    for _ in range(N + 1):
+        q = ((2 * er * (pv - ux) - 4 * er * Dm * q.applyfunc(Dtj) - 3 * er ** 2 * Dm * (uv - Dm * q)) / 4).applyfunc(tr)
+    res = 4 * q - 2 * er * (pv - ux) + 4 * er * Dm * q.applyfunc(Dtj) + 3 * er ** 2 * Dm * (uv - Dm * q)
+    good = all(tr(r_) == 0 for r_ in res)
+    wv = uv - Dm * q
+    Ed = sp.expand(3 * er * (wv.T * wv)[0] / 2 + 2 * (q.T * q)[0] / er)
+    av, bv = sp.Matrix(sp.symbols("a1 a2")), sp.Matrix(sp.symbols("b1 b2"))   # b stands for conj(a)
+    hat, hatc = {}, {}
+    for i in range(2):
+        for j in range(NJ):
+            hat[uj[i][j]], hatc[uj[i][j]] = (I * kr) ** j * av[i], (-I * kr) ** j * bv[i]
+            hat[pj[i][j]], hatc[pj[i][j]] = (I * kr) ** j * (-I * wr) * av[i], (-I * kr) ** j * (I * wr) * bv[i]
+    for n_ in range(1, N + 1):
+        avg = 0
+        for term in sp.Add.make_args(sp.expand(Ed.coeff(er, n_))):
+            cf, facs = term.as_coeff_mul()
+            js = []
+            for f_ in facs:
+                if f_.is_Pow and f_.base in hat:
+                    js += [f_.base] * int(f_.exp)
+                elif f_ in hat:
+                    js.append(f_)
+                else:
+                    cf *= f_
+            good &= len(js) == 2
+            avg += cf * (hat[js[0]] * hatc[js[1]] + hatc[js[0]] * hat[js[1]])
+        avg = sp.expand(avg)
+        Kn = sp.Matrix(2, 2, lambda i, j: avg.coeff(bv[i]).coeff(av[j]))
+        good &= sp.simplify(((zpol[1].H * Kn * zpol[-1])[0]).subs(onshell)) == 0
+        for s_ in (1, -1):
+            pred = sp.series(mts[s_], er, 0, n_ + 1).removeO().coeff(er, n_)
+            good &= sp.simplify(((zpol[s_].H * Kn * zpol[s_])[0] - pred).subs(onshell)) == 0
+    return report(f"a_2 Toda, Proposition 7.5 (i): the quadratic parts of Q_1..Q_{N}, from the formal branch in "
+                  "jet space, have no cross term and the symbols m_(n,s) above, for every nu", good)
+
+
+ok &= toda_a2_jets()
+
 # NLS: u = eta a E, ub = eta abar / E, omega = k^2
 u, ub = eta * a * E, eta * ab / E
 def Fn(f):

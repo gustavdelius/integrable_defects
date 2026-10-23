@@ -1,0 +1,22 @@
+PASS item 1: velocity-quadratic part = a(DD^T+E^2-I)a/2 + b(I-D^TD-E^2)b/2 + a(ED-DE)b
+PASS item 1: it vanishes for D = I - E
+PASS item 1: E = 0, D = 2I has DD^T = D^TD and [E,D] = 0 but leaves velocity terms
+PASS item 1: E = 0, D = -I also cancels (D = I - E is sufficient, not necessary)
+PASS item 1: D = (I-E)O with O orthogonal, [O,E] = 0 satisfies DD^T = D^TD = I - E^2, [E,D] = 0
+PASS item 1: grad_w = grad_phi + grad_psi and grad_q = D^T grad_phi - D grad_psi
+PASS item 4: a_2^(1), orientation +1: E skew, D + D^T = 2I; constraint (8.4) by exact exponent matching; h'(0) = 0, h''(0) = D^T M D = 4I
+PASS item 4: a_2^(1), orientation -1: E skew, D + D^T = 2I; constraint (8.4) by exact exponent matching; h'(0) = 0, h''(0) = D^T M D = 4I
+PASS item 4: a_3^(1), orientation +1: E skew, D + D^T = 2I; constraint (8.4) by exact exponent matching; h'(0) = 0, h''(0) = D^T M D = 4I
+PASS item 4: a_3^(1), orientation -1: E skew, D + D^T = 2I; constraint (8.4) by exact exponent matching; h'(0) = 0, h''(0) = D^T M D = 4I
+PASS item 4: a_4^(1), orientation +1: E skew, D + D^T = 2I; constraint (8.4) by exact exponent matching; h'(0) = 0, h''(0) = D^T M D = 4I
+PASS item 4: a_4^(1), orientation -1: E skew, D + D^T = 2I; constraint (8.4) by exact exponent matching; h'(0) = 0, h''(0) = D^T M D = 4I
+PASS item 4: a_5^(1), orientation +1: E skew, D + D^T = 2I; constraint (8.4) by exact exponent matching; h'(0) = 0, h''(0) = D^T M D = 4I
+PASS item 4: a_5^(1), orientation -1: E skew, D + D^T = 2I; constraint (8.4) by exact exponent matching; h'(0) = 0, h''(0) = D^T M D = 4I
+PASS item 4: a_6^(1), orientation +1: E skew, D + D^T = 2I; constraint (8.4) by exact exponent matching; h'(0) = 0, h''(0) = D^T M D = 4I
+PASS item 4: a_6^(1), orientation -1: E skew, D + D^T = 2I; constraint (8.4) by exact exponent matching; h'(0) = 0, h''(0) = D^T M D = 4I
+PASS item 4: control: with 1/4 in place of 1/2 the exponent matching fails
+PASS item 4: a_2: M = 3I, E^2 = -I/3, D^T D = 4I/3
+PASS item 2: a_2: G = g''(0) = (4/sigma) I, so gamma = 4/sigma and ghat = (4/gamma) g = sigma g = h, not g
+PASS item 3: a_2: g'(q) = 2 f''(0)^{-1}[U'(Dq) - U'(-D^T q)] with f''(0) = sigma M (exact exponent matching)
+PASS item 6: Tzitzeica Type-II energy (check_hierarchy.py model): value 3 eps + 6/eps and zero first variation in P, q and lambda at the vacuum
+All integration checks passed.

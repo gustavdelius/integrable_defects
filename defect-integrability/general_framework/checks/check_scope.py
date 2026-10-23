@@ -250,6 +250,31 @@ rel = sp.diff(Pf, x) + sp.diff(qf, x) - (-2 / eps ** 2 + (Pf - qf) ** 2 / 2)
 target = (2 * Dl + eps * sp.diff(Dl, x)) + 2 * eps * sp.diff(Pf, x) - eps / 2 * Dl ** 2
 ok &= report("Proposition 7.5: with alpha = -1/eps^2, q = p - 2/eps + Delta, (9.12) is "
              "(2 + eps D_x) Delta = -2 eps u + (eps/2) Delta^2", is_zero(sp.expand(eps * rel - target)))
+# alternative (i): Tzitzeica and a_2^(1) Toda fail (ii), since U'''(0) != 0, but their defect
+# energies have zero first variation at the vacuum.  Tzitzeica Type II as in check_hierarchy.py:
+# P, Q average and half difference of the boundary fields, Lam the auxiliary field, eps = 1/sigma.
+u0 = sp.Symbol("u")
+P_, Q_, L_ = sp.symbols("P Q Lam")
+Etz = eps * (sp.exp(2 * P_ - 2 * L_) + sp.exp(-P_ + L_) * (sp.exp(Q_) + sp.exp(-Q_))) \
+    + (8 * sp.exp(-L_) + sp.exp(2 * L_) * (sp.exp(Q_) + sp.exp(-Q_)) ** 2) / (2 * eps)
+vac = {P_: 0, Q_: 0, L_: 0}
+ok &= report("Proposition 7.5 (i): Tzitzeica U = e^(2u) + 2e^(-u) - 3 has U'''(0) = 6, but its Type-II defect "
+             "energy has zero first variation at the vacuum in P, Q and the auxiliary field",
+             sp.diff(sp.exp(2 * u0) + 2 * sp.exp(-u0), u0, 3).subs(u0, 0) == 6
+             and all(is_zero(sp.diff(Etz, v).subs(vac)) for v in (P_, Q_, L_)))
+r2a1, r2a2 = sp.Matrix([sp.sqrt(2), 0]), sp.Matrix([-sp.sqrt(2) / 2, sp.sqrt(6) / 2])
+r2roots = [-r2a1 - r2a2, r2a1, r2a2]
+Dr2 = 2 * (sp.eye(2) - sp.Matrix([[-1, -sp.sqrt(3)], [sp.sqrt(3), -1]]) / 2).inv()   # Coxeter rotation by 2 pi/3
+Wv, Qv2 = sp.Matrix(sp.symbols("W1 W2")), sp.Matrix(sp.symbols("Q1 Q2"))
+B_toda = eps * (sum(sp.exp((al.T * Wv)[0]) for al in r2roots) - 3) \
+    + (sum(sp.exp((al.T * Dr2 * Qv2)[0]) for al in r2roots) - 3) / eps
+U3 = [sp.diff(sum(sp.exp((al.T * Wv)[0]) for al in r2roots), Wv[0], 3 - j, Wv[1], j).subs({Wv[0]: 0, Wv[1]: 0})
+      for j in range(4)]
+ok &= report("Proposition 7.5 (i): a_2^(1) Toda has U'''(0) != 0, but eps U(w) + ghat(q)/eps has zero "
+             "first variation at the vacuum",
+             any(not is_zero(v) for v in U3)
+             and all(is_zero(sp.diff(B_toda, v).subs({x_: 0 for x_ in list(Wv) + list(Qv2)}))
+                     for v in list(Wv) + list(Qv2)))
 
 # ------------------------------------------------- Lemma 6.5: a nonlinear symmetry
 qf2, rf2 = sp.Function("q")(x, t), sp.Function("r")(x, t)

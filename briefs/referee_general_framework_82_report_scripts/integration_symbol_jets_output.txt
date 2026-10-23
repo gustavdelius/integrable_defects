@@ -1,0 +1,15 @@
+PASS jets: the linearised left sewing equation is solved through eps^6
+PASS jets: q_1 = (p - u_x)/2
+INFO: n = 1: m_(n,+) at nu^2 = 1/3: 2*(k**2 + k*sqrt(k**2 + 3) + 3)
+INFO: n = 2: m_(n,+) at nu^2 = 1/3: 2*sqrt(3)*(2*k**3 + 2*k**2*sqrt(k**2 + 3) + 6*k + 3*sqrt(k**2 + 3))/3
+INFO: n = 3: m_(n,+) at nu^2 = 1/3: 0
+INFO: n = 4: m_(n,+) at nu^2 = 1/3: -2*sqrt(3)*(8*k**5 + 8*k**4*sqrt(k**2 + 3) + 36*k**3 + 24*k**2*sqrt(k**2 + 3) + 36*k + 9*sqrt(k**2 + 3))/9
+INFO: n = 5: m_(n,+) at nu^2 = 1/3: -2*(16*k**6 + 16*k**5*sqrt(k**2 + 3) + 84*k**4 + 60*k**3*sqrt(k**2 + 3) + 117*k**2 + 45*k*sqrt(k**2 + 3) + 27)/9
+INFO: n = 6: m_(n,+) at nu^2 = 1/3: 0
+PASS jets: for every nu, the Hermitian symbols of Q_1..Q_6 have no cross term between the polarizations and equal the eps^n coefficients of the plane-wave m_s
+PASS jets: at nu^2 = 1/3 the quadratic parts of Q_3 and Q_6 vanish (Q_3, Q_6 have no quadratic part)
+All jet checks passed.
+
+real	0m55.453s
+user	0m55.265s
+sys	0m0.138s

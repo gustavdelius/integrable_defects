@@ -243,10 +243,10 @@ $$
  K_\epsilon=-I(\epsilon)/\epsilon.                        \qquad\text{(4.7)}
 $$
 
-Here is a sign check of this generating-function fact. Put $\theta=\int p^T\delta u\thinspace dx$, so $d\theta=-\Omega$, and let $V=(\partial_\epsilon T)\circ T^{-1}$. Pulling (4.5) to the graph gives $d(F\circ\mathrm{graph}\thinspace \thinspace T)=\theta-T^*\theta$. Its parameter derivative is
+Here is a sign check of this generating-function fact. Put $\theta=\int p^T\delta u\thinspace dx$, so $d\theta=-\Omega$, and let $V=(\partial_\epsilon T)\circ T^{-1}$. Pulling (4.5) to the graph gives $d(F\circ\mathrm{graph}\thinspace T)=\theta-T^*\theta$. Its parameter derivative is
 
 $$
-d\lbrace(\partial_\epsilon F)\circ\mathrm{graph}\thinspace \thinspace T
+d\lbrace(\partial_\epsilon F)\circ\mathrm{graph}\thinspace T
        -T^*(\iota_V\theta)\rbrace
  =T^*(\iota_V\Omega)-dT^*(\iota_V\theta).
 $$

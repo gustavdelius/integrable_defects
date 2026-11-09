@@ -226,7 +226,7 @@ $$
 I_1=\int\left[\frac12|p-u_x|^2+U(u)\right]dx.
 $$
 
-With the paper's physical momentum convention $P_{\rm bulk}=-\int p^Tu_x\thinspace dx$, this is $H+P_{\rm bulk}$. The hierarchy begins with a familiar combination of energy and momentum.
+With the paper's physical momentum convention $P_{\mathrm{bulk}}=-\int p^Tu_x\thinspace dx$, this is $H+P_{\mathrm{bulk}}$. The hierarchy begins with a familiar combination of energy and momentum.
 
 ### Analytic finite-jet local conserved functionals
 
@@ -706,7 +706,7 @@ Write $V=(\partial_\epsilon T)\circ T^{-1}$ for the parameter velocity at the ou
 Differentiate the displayed identity and use Cartan's formula $\mathcal L_V\theta=\iota_Vd\theta+d(\iota_V\theta)$. The terms differentiating $T^*(\iota_V\theta)$ occur on both sides and cancel. What remains is
 
 $$
-d\bigl[(\partial_\epsilon F_\epsilon)\circ\operatorname{graph}T\bigr]
+d\bigl[(\partial_\epsilon F_\epsilon)\circ\mathrm{graph}\thinspace T\bigr]
 =T^*(\iota_V\Omega)=\iota_{W_\epsilon}\Omega.
 $$
 
@@ -888,7 +888,7 @@ Indeed its first component is $p-u_x$, and its second is $u_{xx}-Mu-p_x$. A fiel
 At linear order in the fields, $g'(q)=4q$, so the second sewing equation gives $q=(\epsilon/2)D_-w$. Using $u=w+Dq$ and $v=w-D^Tq$ yields
 
 $$
-T_\epsilon^{\rm lin}
+T_\epsilon^{\mathrm{lin}}
 =\left(I-\frac{\epsilon}{2}D^T\mathcal L\right)
 \left(I+\frac{\epsilon}{2}D\mathcal L\right)^{-1}.
 $$
@@ -905,7 +905,7 @@ X_{I_n^{(2)}}=C_n\mathcal L^n,
 C_n=2^{-n}\left[(I+E)^n-(-1)^n(I-E)^n\right].
 $$
 
-For example, $C_1=I$, consistent with $I_1=H+P_{\rm bulk}$: its Hamiltonian vector field at quadratic order is $D_t-D_x$ on free data. The formula retains all powers of the parameter while linearizing only in field amplitude.
+For example, $C_1=I$, consistent with $I_1=H+P_{\mathrm{bulk}}$: its Hamiltonian vector field at quadratic order is $D_t-D_x$ on free data. The formula retains all powers of the parameter while linearizing only in field amplitude.
 
 All the operators $C_n\mathcal L^n$ commute. Commuting Hamiltonian vector fields have a Poisson bracket with zero Hamiltonian vector field. A quadratic functional with zero variational derivatives is constant, and its value at the zero field is zero. Therefore
 
@@ -987,7 +987,7 @@ where $P_j$ is a polynomial with leading term
 
 $$
 P_j(z)=c_jz^j+\text{lower powers},
-\qquad c_j=\operatorname{Re}(1+ie)^{2j+1}.
+\qquad c_j=\mathrm{Re}(1+ie)^{2j+1}.
 $$
 
 The letter $P_j$ in this section denotes a polynomial, not a momentum. It describes how a quadratic charge weights different spatial frequencies. Evaluating a differential operator on Fourier modes in this way is the use of its *symbol*.
@@ -1004,7 +1004,7 @@ $$
 
 Expand its odd power using the binomial theorem. Only odd powers of $A$ contribute to the upper-right entry. That entry is a polynomial in $\partial_x^2$ of degree $j$, with leading coefficient $2^{2j}$. One sees this coefficient by keeping the highest derivative from each term: the relevant odd binomial coefficients sum to $2^{2j}$.
 
-The scalar value of $C_{2j+1}$ is $2^{-2j}\operatorname{Re}(1+ie)^{2j+1}$. Multiplication cancels the powers of two and gives the stated $c_j$.
+The scalar value of $C_{2j+1}$ is $2^{-2j}\mathrm{Re}(1+ie)^{2j+1}$. Multiplication cancels the powers of two and gives the stated $c_j$.
 
 This calculation is performed on the quadratic functional and its variational derivative, so it already respects integration by parts. It avoids inferring independence from an unreduced high-derivative density.
 
@@ -1104,7 +1104,7 @@ $$
 T_\epsilon T_\eta-T_\eta T_\epsilon
 =\frac{\epsilon\eta(\eta-\epsilon)\ell^3}{8}
 \begin{pmatrix}0&1\cr 1&0\end{pmatrix}
-+O_{\rm total}(4).
++O_{\mathrm{total}}(4).
 $$
 
 The remainder has combined degree at least four in the two parameters. The displayed degree-three term is nonzero. It directly disproves automatic permutability for an arbitrary invertible $G$.

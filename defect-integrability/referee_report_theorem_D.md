@@ -183,7 +183,7 @@ With the corrected physical balance signs, the corresponding proposed spatial id
 There is an explicit counterexample to the full proposition within the permitted auxiliary-field class. Add an independent oscillator to a momentum-conserving defect with a zero-field vacuum:
 
 $$
-\mathcal L_d=\mathcal L_d^{\rm base}
+\mathcal L_d=\mathcal L_d^{\mathrm{base}}
 +\tfrac12\lambda_t^2-\tfrac12\omega^2\lambda^2.
 $$
 
@@ -196,8 +196,8 @@ $$
 Every defect Euler–Lagrange equation holds at every $x$. These histories are periodic in $t$, as expressly allowed; $a(x)$ can be smooth with compact support. But the additional defect energy is
 
 $$
-E_{\rm osc}(x)=\tfrac12\omega^2a(x)^2,
-\qquad D_xE_{\rm osc}=\omega^2a(x)a'(x),
+E_{\mathrm{osc}}(x)=\tfrac12\omega^2a(x)^2,
+\qquad D_xE_{\mathrm{osc}}=\omega^2a(x)a'(x),
 $$
 
 while the bulk energy-density difference is identically zero. No vacuum normalization removes this state-dependent function of $x$. Thus the asserted spatial energy identity is false for the allowed class, independently of the sign errors. This example does not by itself disprove (4.2), because the added oscillator energy is time independent; it specifically disproves the four-identity proposition used in the argument.
@@ -232,7 +232,7 @@ After substituting $\psi=\phi+\epsilon\Psi_1+\cdots$, the coefficient of $\epsil
 
 $$
 Q_1=\tfrac12\Psi_1^T H\Psi_1
-+(\partial_\psi B_0)_{\rm diag}\cdot\Psi_1
++(\partial_\psi B_0)_{\mathrm{diag}}\cdot\Psi_1
 +B_1(\phi,\phi).
 $$
 

@@ -144,7 +144,7 @@ $$
 Both $G$ and $f''$ are symmetric. Differentiating (3.5) and transposing shows
 
 $$
-[G,U''(w)]=0\quad\hbox{for every }w.                      \qquad\text{(3.6)}
+[G,U''(w)]=0\quad\text{for every }w.                      \qquad\text{(3.6)}
 $$
 
 Diagonalize $G$ orthogonally. Equation (3.6) says every mixed second derivative of $U$ between distinct eigenspaces vanishes. Integrating this statement near zero splits $U$ as a sum of potentials on those eigenspaces; $U'(0)=0$ removes any issue with linear terms. Bulk irreducibility therefore forces $G=\gamma I$, $\gamma\ne0$.
@@ -293,10 +293,10 @@ $$
  K_\epsilon=-I(\epsilon)/\epsilon.                        \qquad\text{(5.7)}
 $$
 
-To prove the parameter-generator identity with the convention (2.4), put $\theta=\int p^T\delta u\thinspace dx$, so $d\theta=-\Omega$, and let $V=(\partial_\epsilon T)\circ T^{-1}$. Pulling (5.5) to the graph gives $d(F\circ\mathrm{graph}\thinspace T)=\theta-T^*\theta$. Its parameter derivative is
+To prove the parameter-generator identity with the convention (2.4), put $\theta=\int p^T\delta u\thinspace dx$, so $d\theta=-\Omega$, and let $V=(\partial_\epsilon T)\circ T^{-1}$. Pulling (5.5) to the graph gives $d(F\circ\mathrm{graph}\thinspace \thinspace T)=\theta-T^*\theta$. Its parameter derivative is
 
 $$
-d\lbrace(\partial_\epsilon F)\circ\mathrm{graph}\thinspace T
+d\lbrace(\partial_\epsilon F)\circ\mathrm{graph}\thinspace \thinspace T
        -T^*(\iota_V\theta)\rbrace
  =T^*(\iota_V\Omega)-dT^*(\iota_V\theta).
 $$
@@ -385,7 +385,7 @@ For any $n,m$, these constant-coefficient linear Hamiltonian vector fields commu
 The full bracket $J_{nm}=\lbrace I_n,I_m\rbrace$ is an analytic finite-jet local conserved functional, by the Jacobi identity and $\lbrace I_n,H\rbrace=0$. The substitution fixes zero, and $U$ and $g$ start at quadratic order there. Consequently every $I_n$ has zero constant and linear terms. Therefore $J_{nm}$ has no constant or linear term, and its quadratic part is the bracket just proved zero. Lemma 6.2 implies
 
 $$
-\boxed{\lbrace I_n,I_m\rbrace=0\quad\hbox{for all }n,m.}            \qquad\text{(7.4)}
+\boxed{\lbrace I_n,I_m\rbrace=0\quad\text{for all }n,m.}            \qquad\text{(7.4)}
 $$
 
 Equation (7.4) follows from the computed quadratic generators and Lemma 6.2. Preservation of the bulk Hamiltonian by a canonical family would not alone suffice; Section 9 gives an explicit example.
@@ -419,10 +419,10 @@ I_{2j+1}^{(2)}\big|_{u=0,p=a\varphi}
        =\frac12\int\varphi P_j(\partial_x^2)\varphi\thinspace dx,
  \qquad
  P_j(z)=c_jz^j+\text{lower powers},\quad
- c_j=\operatorname{Re}(1+ie)^{2j+1}.                       \qquad\text{(8.1)}
+ c_j=\mathrm{Re}(1+ie)^{2j+1}.                       \qquad\text{(8.1)}
 $$
 
-For completeness, write the $2\times2$ restriction of $\mathcal L$ as $-\partial_xI+A$, with $A^2=(\partial_x^2-m^2)I$ and $A_{12}=1$. Its odd power has off-diagonal entry polynomial in $\partial_x^2$ with leading term $2^{2j}\partial_x^{2j}$. Multiplying the scalar $C_{2j+1}=2^{-2j}\operatorname{Re}(1+ie)^{2j+1}$ proves (8.1).
+For completeness, write the $2\times2$ restriction of $\mathcal L$ as $-\partial_xI+A$, with $A^2=(\partial_x^2-m^2)I$ and $A_{12}=1$. Its odd power has off-diagonal entry polynomial in $\partial_x^2$ with leading term $2^{2j}\partial_x^{2j}$. Multiplying the scalar $C_{2j+1}=2^{-2j}\mathrm{Re}(1+ie)^{2j+1}$ proves (8.1).
 
 Infinitely many $c_j$ are nonzero. Indeed, set $\theta=\arctan e\in[0,\pi/2)$. If all sufficiently late $c_j$ vanished, two consecutive late odd angles would both have zero cosine. Their difference gives $2\theta\in\pi\mathbb Z$. In the indicated range this forces $\theta=0$, where none of the cosines vanishes, a contradiction. Some individual charges can vanish; no assertion is made that every coefficient is nontrivial.
 
@@ -443,7 +443,7 @@ Dropping bulk irreducibility while retaining only invertibility of $G$ does not 
 $$
 U(u)=\tfrac12|u|^2,\quad
  E=\begin{pmatrix}0&1\cr -1&0\end{pmatrix},\quad D=I-E,
- \quad G=\operatorname{diag}(4,8),
+ \quad G=\mathrm{diag}(4,8),
 $$
 
 $$

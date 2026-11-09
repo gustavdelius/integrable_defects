@@ -294,7 +294,7 @@ $$
 
 For example, $D_t\big(\tfrac12\phi_t^2\big)=\phi_t\phi_{tt}$ and $D_x U(\phi)=U'(\phi)\phi_x$. The paper's Lagrangians have no explicit $x$ or $t$, so the first term is absent except in §5.
 
-$\operatorname{Im}D_t$ (the "image of $D_t$") is the set of all local functions of the form $D_tB$ with $B$ local. Writing $f\in\operatorname{Im}D_t$ means: $f$ is a total time derivative. Its integral over $t$ is then a boundary term.
+$\mathrm{Im}\thinspace D_t$ (the "image of $D_t$") is the set of all local functions of the form $D_tB$ with $B$ local. Writing $f\in\mathrm{Im}\thinspace D_t$ means: $f$ is a total time derivative. Its integral over $t$ is then a boundary term.
 
 ### T3. The Euler operator
 
@@ -567,7 +567,7 @@ A **promoted solution** imposes (3.1) at every $x$, with $\pi_\mp$ the actual Os
 **Idea.** Definition 3.1 asks that
 
 $$
-\mathcal H_-\big(\Phi,\Pi^-(Y)\big)-\mathcal H_+\big(\Psi,\Pi^+(Y)\big)\in\operatorname{Im}D_t+\langle C\rangle ,
+\mathcal H_-\big(\Phi,\Pi^-(Y)\big)-\mathcal H_+\big(\Psi,\Pi^+(Y)\big)\in\mathrm{Im}\thinspace D_t+\langle C\rangle ,
 $$
 
 as an identity in the $t$-derivatives of $Y$. In words: insert the sewing equations into the difference of the momentum fluxes. After using the constraint, the result must be the time derivative of a local function of the boundary data, the defect momentum. This must hold for *arbitrary* boundary histories, not only those of bulk solutions. That is the field version of "$h\equiv0$" ([§3.5](#35-back-to-field-theory)).

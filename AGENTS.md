@@ -60,4 +60,4 @@ This repository contains research on integrable defects: Markdown papers and gui
 
 ## Repository skills
 
-The canonical skills are [write-referee-brief](.claude/skills/write-referee-brief/SKILL.md) and [integrate-referee-report](.claude/skills/integrate-referee-report/SKILL.md). The corresponding entries in `.agents/skills/` are relative symlinks to those directories, so there is one maintained copy of each skill. `CLAUDE.md` imports this file.
+The canonical skills are [write-referee-brief](.claude/skills/write-referee-brief/SKILL.md), [integrate-referee-report](.claude/skills/integrate-referee-report/SKILL.md), and [github-markdown-math](.claude/skills/github-markdown-math/SKILL.md). The corresponding entries in `.agents/skills/` are relative symlinks to those directories, so there is one maintained copy of each skill. `CLAUDE.md` imports this file.

@@ -323,7 +323,7 @@ W_\epsilon=(DT_\epsilon)^{-1}\partial_\epsilon T_\epsilon,
  \quad d\theta=-\Omega.
 $$
 
-At fixed parameter, (6.1) gives $d(F_\epsilon\circ\mathrm{graph}\thinspace \thinspace T_\epsilon)=\theta-T_\epsilon^*\theta$. Write $V_\epsilon=(\partial_\epsilon T_\epsilon)\circ T_\epsilon^{-1}$ for the velocity at the target. Differentiating this identity in $\epsilon$ and using Cartan's formula gives
+At fixed parameter, (6.1) gives $d(F_\epsilon\circ\mathrm{graph}\thinspace T_\epsilon)=\theta-T_\epsilon^*\theta$. Write $V_\epsilon=(\partial_\epsilon T_\epsilon)\circ T_\epsilon^{-1}$ for the velocity at the target. Differentiating this identity in $\epsilon$ and using Cartan's formula gives
 
 $$
 d\left(g_\epsilon-T_\epsilon^*(\iota_{V_\epsilon}\theta)\right)

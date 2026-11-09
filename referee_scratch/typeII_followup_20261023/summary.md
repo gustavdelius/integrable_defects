@@ -24,14 +24,15 @@ With one auxiliary field $\ell(t)$ and parameter $\sigma>0$, take
 $$
 L_d=u_1\dot v_1+(u_2-v_2)\dot\ell-F-G,
 $$
+
 $$
 \begin{aligned}
-F&=\sigma\left[2\cosh p\,e^{(z+\ell)/2}+\cosh^2w\,e^{-z-\ell}\right],\\
-G&=\sigma^{-1}\left[2\cosh q\cosh w\,e^{(z-\ell)/2}+e^{-z+\ell}\right].
+F&=\sigma\left[2\cosh p\thinspace e^{(z+\ell)/2}+\cosh^2w\thinspace e^{-z-\ell}\right],\\
+G&=\sigma^{-1}\left[2\cosh q\cosh w\thinspace e^{(z-\ell)/2}+e^{-z+\ell}\right].
 \end{aligned}
 $$
 
-This is a mixed Type-I/Type-II defect. With bulk momentum convention $P_{\rm bulk}=-\int\phi_t\cdot\phi_x\,dx$, its momentum contribution is $G-F$.
+This is a mixed Type-I/Type-II defect. With bulk momentum convention $P_{\rm bulk}=-\int\phi_t\cdot\phi_x\thinspace dx$, its momentum contribution is $G-F$.
 
 ## Exact reduction of the known defect
 

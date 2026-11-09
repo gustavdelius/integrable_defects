@@ -23,7 +23,9 @@ Boundary data at $x=0$ are $Y=(q,Q_1,p,P_1;\lambda)$, with $Q_1=q_x$ and $P_1=p_
 
 Along promoted solutions, Proposition 4.2 gives $D_x\widetilde P=\frac12v^2-\frac12u^2$. The Miura map turns this into
 
-$$\tfrac12v^2-\tfrac12u^2=D_x\Big(\tfrac12p-\tfrac12q_x-\tfrac13q_x^3\Big)-h,\qquad h=\tfrac12v^4+\tfrac12v_x^2,$$
+$$
+\tfrac12v^2-\tfrac12u^2=D_x\Big(\tfrac12p-\tfrac12q_x-\tfrac13q_x^3\Big)-h,\qquad h=\tfrac12v^4+\tfrac12v_x^2,
+$$
 
 where $h$ is the mKdV energy density. It is not a total derivative of a local function of $q$, nor of $(q,p)$ treated as potentials. For the latter, expand in powers of the potentials: the top power forces its coefficient to be constant, and the next power then makes $u$ or $v$ trivial.
 
@@ -35,8 +37,13 @@ If every defect variable is a local function of $(q,p)$ and their jets along pro
 
 Suppose the sewing outputs satisfy the Miura relations identically in $Y$, with no constraint. The relations are $u=v^2+v_x$ and its $x$-derivatives $u_x=2vv_x+v_{xx}$ and $u_{xx}=2v_x^2+2vv_{xx}+v_{xxx}$. In the last one, $v_{xxx}=-Q_{1,t}+6Q_1^2v_x$ by the left field equation. The time relation for $p$ involves the potential's gauge $p\mapsto p+g(t)$, so it imposes nothing. With $v_x=q_{xx}=E_{Q_1}\mathcal L_d$ and $q_{xxx}=-E_q\mathcal L_d-\frac12q_t+2Q_1^3$, the relations become
 
-$$\text{(S1) } E_{Q_1}\mathcal L=P_1-Q_1^2,\qquad \text{(S2) } E_{P_1}\mathcal L-E_q\mathcal L=-2Q_1P_1+\tfrac12q_t,$$
-$$\text{(S3) } E_p\mathcal L+2Q_1E_q\mathcal L=\tfrac12p_t-P_1^2+2Q_1^2P_1-Q_1q_t-Q_{1,t}.$$
+$$
+\text{(S1) } E_{Q_1}\mathcal L=P_1-Q_1^2,\qquad \text{(S2) } E_{P_1}\mathcal L-E_q\mathcal L=-2Q_1P_1+\tfrac12q_t,
+$$
+
+$$
+\text{(S3) } E_p\mathcal L+2Q_1E_q\mathcal L=\tfrac12p_t-P_1^2+2Q_1^2P_1-Q_1q_t-Q_{1,t}.
+$$
 
 Let $S_{AB}$ be the Fréchet derivative of $E_A\mathcal L$ with respect to $B$. By the Helmholtz conditions (§3.1) it is self-adjoint, $S_{AB}^*=S_{BA}$.
 - (S1) gives $S_{Q_1P_1}=1$ and $S_{Q_1q}=0$.

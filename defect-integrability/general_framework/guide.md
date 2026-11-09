@@ -50,7 +50,9 @@ For a short overview, read Parts 1–3 and the **Idea** paragraphs of Parts 6–
 
 A **jump defect** joins two field theories in one space and one time dimension at the point $x=0$. The field is called $\phi(x,t)$ on the left, $x<0$, and $\psi(x,t)$ on the right, $x>0$. The total action is
 
-$$S=\int dt\int_{-\infty}^0dx\,\mathcal L_-(\phi)+\int dt\int_0^\infty dx\,\mathcal L_+(\psi)+\int dt\,\mathcal L_d .$$
+$$
+S=\int dt\int_{-\infty}^0dx\thinspace\mathcal L_-(\phi)+\int dt\int_0^\infty dx\thinspace\mathcal L_+(\psi)+\int dt\thinspace\mathcal L_d .
+$$
 
 The **defect Lagrangian** $\mathcal L_d$ depends on the values of $\phi$ and $\psi$ at $x=0$ and on their time derivatives there. It may also depend on extra fields that live only on the defect. Varying the action gives the bulk field equations on each side and, at $x=0$, **sewing conditions** that say how $\phi$ and $\psi$ are joined.
 
@@ -134,13 +136,17 @@ In this part only, the time variable of the mechanical system is called $s$, to 
 
 A mechanical system has coordinates $q=(q_1,\dots,q_n)$ and momenta $p=(p_1,\dots,p_n)$. A Hamiltonian $H(q,p)$ determines the motion through Hamilton's equations,
 
-$$\dot q=\frac{\partial H}{\partial p},\qquad \dot p=-\frac{\partial H}{\partial q},$$
+$$
+\dot q=\frac{\partial H}{\partial p},\qquad \dot p=-\frac{\partial H}{\partial q},
+$$
 
 where a dot is $d/ds$. It helps to give the two right-hand sides names, as the paper does. Write
 
-$$a=\frac{\partial H}{\partial p}\quad\text{(the velocity)},\qquad b=\frac{\partial H}{\partial q}\quad\text{(minus the force)}.$$
+$$
+a=\frac{\partial H}{\partial p}\quad\text{(the velocity)},\qquad b=\frac{\partial H}{\partial q}\quad\text{(minus the force)}.
+$$
 
-Then Hamilton's equations say: in a short time $ds$ the state moves by $(\delta q,\delta p)=(a,-b)\,ds$. The pair $(a,-b)$ is called the **Hamiltonian vector field** $X$. It is the velocity of the state in phase space.
+Then Hamilton's equations say: in a short time $ds$ the state moves by $(\delta q,\delta p)=(a,-b)\thinspace ds$. The pair $(a,-b)$ is called the **Hamiltonian vector field** $X$. It is the velocity of the state in phase space.
 
 The first equation, $\dot q=a$, is usually not new information. If $H$ came from a Lagrangian by the Legendre transform, then $\dot q=\partial H/\partial p$ just inverts the definition $p=\partial L/\partial\dot q$. Only the second equation, $\dot p=-b$, is the actual equation of motion. Keep this in mind; it is the content of the paper's Lemma 2.2.
 
@@ -148,15 +154,19 @@ The first equation, $\dot q=a$, is usually not new information. If $H$ came from
 
 Now let the system evolve with a Hamiltonian $H_-$ for $s<0$. At $s=0$ the state jumps from $(q,p)$ to a new state $(Q,P)$, and for $s>0$ it evolves with a Hamiltonian $H_+$. The two Hamiltonians may differ. Describe the jump by adding a function $S(q,Q)$ of the old and new coordinates to the action:
 
-$$\int_{-\infty}^0\big(p\,\dot q-H_-\big)\,ds+\int_0^\infty\big(P\,\dot Q-H_+\big)\,ds+S\big(q(0),Q(0)\big).$$
+$$
+\int_{-\infty}^0\big(p\thinspace\dot q-H_-\big)\thinspace ds+\int_0^\infty\big(P\thinspace\dot Q-H_+\big)\thinspace ds+S\big(q(0),Q(0)\big).
+$$
 
 Vary $q(0)$ and $Q(0)$. The first integral contributes the boundary term $p\cdot\delta q(0)$, the second contributes $-P\cdot\delta Q(0)$, and $S$ contributes $\partial S/\partial q\cdot\delta q+\partial S/\partial Q\cdot\delta Q$. Setting the total to zero gives the **jump rule**
 
-$$p=-\frac{\partial S}{\partial q}(q,Q),\qquad P=\frac{\partial S}{\partial Q}(q,Q).$$
+$$
+p=-\frac{\partial S}{\partial q}(q,Q),\qquad P=\frac{\partial S}{\partial Q}(q,Q).
+$$
 
 This is the finite-dimensional version of the paper's sewing equations (3.1), with $S$ in the role of the defect action $S_d$.
 
-The jump rule is easiest to think of as a *relation*: for each choice of the coordinates $q$ and $Q$, it tells you which momenta $p$ and $P$ go with them. Call the set of all allowed pairs of states $\big((q,p),(Q,P)\big)$ the **jump relation** $\Gamma$. It is parametrised by $(q,Q)$. If the matrix $\partial^2S/\partial q\,\partial Q$ is invertible, one can also solve the jump rule for $(Q,P)$ in terms of $(q,p)$. Then the jump is a map from old states to new states. Maps produced this way are the **canonical transformations** of classical mechanics, and $S$ is (up to sign) their **generating function of type 1**. The paper never needs to solve for the map, so it works with the relation.
+The jump rule is easiest to think of as a *relation*: for each choice of the coordinates $q$ and $Q$, it tells you which momenta $p$ and $P$ go with them. Call the set of all allowed pairs of states $\big((q,p),(Q,P)\big)$ the **jump relation** $\Gamma$. It is parametrised by $(q,Q)$. If the matrix $\partial^2S/\partial q\thinspace\partial Q$ is invertible, one can also solve the jump rule for $(Q,P)$ in terms of $(q,p)$. Then the jump is a map from old states to new states. Maps produced this way are the **canonical transformations** of classical mechanics, and $S$ is (up to sign) their **generating function of type 1**. The paper never needs to solve for the map, so it works with the relation.
 
 Two examples will be useful.
 
@@ -167,7 +177,9 @@ Two examples will be useful.
 
 Say that the jump **conserves energy** if $H_-(q,p)=H_+(Q,P)$ for every allowed pair. Because the allowed pairs are parametrised by $(q,Q)$, this says that the function
 
-$$h(q,Q)=H_-\big(q,\,-\partial_qS\big)-H_+\big(Q,\,\partial_QS\big)$$
+$$
+h(q,Q)=H_-\big(q, -\partial_qS\big)-H_+\big(Q, \partial_QS\big)
+$$
 
 vanishes identically in $q$ and $Q$. (The paper's version, (3.3), allows the difference to be a total time derivative; [§3.5](#35-back-to-field-theory) explains why.)
 
@@ -177,19 +189,25 @@ In the first example, with $H_-=H_+=p^2/2$ (a free particle), energy is conserve
 
 In the free-particle example the Fact says: shifting a free trajectory back by $\epsilon p$ gives another free trajectory, which is clearly true. In the oscillator example it says that waiting for a time $\alpha$ commutes with the motion.
 
-*Proof, by differentiating $h$.* Since $h\equiv0$, its partial derivatives vanish. Write $a_\mp,b_\mp$ for the velocity and minus-force of each side, evaluated at the allowed pair, and write $S_{qQ}$ for $\partial^2S/\partial q\,\partial Q$ and so on. The chain rule gives
+*Proof, by differentiating $h$.* Since $h\equiv0$, its partial derivatives vanish. Write $a_\mp,b_\mp$ for the velocity and minus-force of each side, evaluated at the allowed pair, and write $S_{qQ}$ for $\partial^2S/\partial q\thinspace\partial Q$ and so on. The chain rule gives
 
-$$\frac{\partial h}{\partial q}=b_--S_{qq}\,a_--S_{Qq}\,a_+=0,\qquad \frac{\partial h}{\partial Q}=-S_{qQ}\,a_--b_+-S_{QQ}\,a_+=0 .$$
+$$
+\frac{\partial h}{\partial q}=b_--S_{qq}\thinspace a_--S_{Qq}\thinspace a_+=0,\qquad \frac{\partial h}{\partial Q}=-S_{qQ}\thinspace a_--b_+-S_{QQ}\thinspace a_+=0 .
+$$
 
 Now move both states by their Hamiltonian velocities: $\delta q=a_-$ and $\delta Q=a_+$. By how much must the momenta change for the pair to stay allowed? Differentiate the jump rule:
 
-$$\delta p=-S_{qq}\,\delta q-S_{qQ}\,\delta Q,\qquad \delta P=S_{Qq}\,\delta q+S_{QQ}\,\delta Q .$$
+$$
+\delta p=-S_{qq}\thinspace\delta q-S_{qQ}\thinspace\delta Q,\qquad \delta P=S_{Qq}\thinspace\delta q+S_{QQ}\thinspace\delta Q .
+$$
 
 Insert $\delta q=a_-$, $\delta Q=a_+$, and use the two equations above together with $S_{qQ}=S_{Qq}$ (mixed partial derivatives commute). The result is
 
-$$\delta p=-b_-,\qquad \delta P=-b_+ .$$
+$$
+\delta p=-b_-,\qquad \delta P=-b_+ .
+$$
 
-These are exactly the momentum changes that Hamilton's equations prescribe. So the displacement $(a_-,-b_-;\,a_+,-b_+)$, which is how the two states actually move in a short time, keeps the pair allowed. In geometric language: the pair of Hamiltonian vector fields is **tangent** to $\Gamma$. A curve whose velocity is always tangent to $\Gamma$ stays in $\Gamma$, which proves the Fact. $\square$
+These are exactly the momentum changes that Hamilton's equations prescribe. So the displacement $(a_-,-b_-;\thinspace a_+,-b_+)$, which is how the two states actually move in a short time, keeps the pair allowed. In geometric language: the pair of Hamiltonian vector fields is **tangent** to $\Gamma$. A curve whose velocity is always tangent to $\Gamma$ stays in $\Gamma$, which proves the Fact. $\square$
 
 There are three ingredients: differentiate the energy identity; use the symmetry of the second derivatives of $S$; read the result as "the Hamiltonian motion keeps the pair allowed". The paper's proof of Theorem 3.3(a) has exactly these three moves ([§7.3](#73-the-bäcklund-theorem-33)).
 
@@ -199,27 +217,33 @@ The Fact has a second half, which becomes Theorem 3.3(b). Suppose now that the j
 
 Yes. Differentiate the jump rule along the curve:
 
-$$\dot p=-S_{qq}\,\dot q-S_{qQ}\,\dot Q=-S_{qq}\,a_--S_{qQ}\,a_+=-b_- ,$$
+$$
+\dot p=-S_{qq}\thinspace\dot q-S_{qQ}\thinspace\dot Q=-S_{qq}\thinspace a_--S_{qQ}\thinspace a_+=-b_- ,
+$$
 
 by the first equation for $\partial h/\partial q$. In the same way $\dot P=-b_+$. Both force equations follow. In field theory the velocity equations hold automatically ([§3.1](#31-hamiltons-equations)), so the sewing relation imposed at every point produces two genuine solutions.
 
-**Auxiliary variables.** Some defects contain extra variables that live only on the defect: extra fields (Type II defects) or Lagrange multipliers. In the toy model, let $S=S(q,Q,\lambda)$ depend on an extra variable $\lambda$ with no momentum of its own. The jump rule gains a constraint $C:=\partial S/\partial\lambda=0$. The energy condition now only needs to hold where the constraint holds, so it reads $h=\rho\,C$ for some function $\rho(q,Q,\lambda)$. Differentiating, and using $C=0$, gives three equations instead of two:
+**Auxiliary variables.** Some defects contain extra variables that live only on the defect: extra fields (Type II defects) or Lagrange multipliers. In the toy model, let $S=S(q,Q,\lambda)$ depend on an extra variable $\lambda$ with no momentum of its own. The jump rule gains a constraint $C:=\partial S/\partial\lambda=0$. The energy condition now only needs to hold where the constraint holds, so it reads $h=\rho\thinspace C$ for some function $\rho(q,Q,\lambda)$. Differentiating, and using $C=0$, gives three equations instead of two:
 
-$$\begin{aligned}
-b_--S_{qq}a_--S_{qQ}a_+&=S_{q\lambda}\,\rho,\\
--S_{Qq}a_--b_+-S_{QQ}a_+&=S_{Q\lambda}\,\rho,\\
--S_{\lambda q}a_--S_{\lambda Q}a_+&=S_{\lambda\lambda}\,\rho .
-\end{aligned}$$
+$$
+\begin{aligned}
+b_--S_{qq}a_--S_{qQ}a_+&=S_{q\lambda}\thinspace\rho,\\
+-S_{Qq}a_--b_+-S_{QQ}a_+&=S_{Q\lambda}\thinspace\rho,\\
+-S_{\lambda q}a_--S_{\lambda Q}a_+&=S_{\lambda\lambda}\thinspace\rho .
+\end{aligned}
+$$
 
 These are the paper's equations (3.5), letter for letter. The forward argument works as before if one also moves $\lambda$ by $\delta\lambda=\rho$: the extra variable must change at the rate $\rho$ for the pair to stay allowed.
 
 The converse half can now fail. Along a curve on which the jump rule holds at every $s$, differentiating gives
 
-$$\dot p=-b_--S_{q\lambda}\,\kappa,\qquad \dot P=-b_++S_{Q\lambda}\,\kappa,\qquad 0=S_{\lambda\lambda}\,\kappa,\qquad \kappa:=\dot\lambda-\rho .$$
+$$
+\dot p=-b_--S_{q\lambda}\thinspace\kappa,\qquad \dot P=-b_++S_{Q\lambda}\thinspace\kappa,\qquad 0=S_{\lambda\lambda}\thinspace\kappa,\qquad \kappa:=\dot\lambda-\rho .
+$$
 
 Nothing forces $\lambda$ to change at the right rate. The mismatch $\kappa$ spoils the force equations unless the last equation forces $\kappa=0$. This is the origin of the paper's injectivity condition (I). In the toy model, (I) says that $S_{\lambda\lambda}$ is invertible. In field theory there are further equations that can detect $\kappa$ (§3.3).
 
-*An example of the failure.* Take $H_\pm=\frac12(p^2+q^2)$ and $S=\lambda(q+Q)$. The jump rule gives $p=-\lambda$, $P=\lambda$ and the constraint $Q=-q$, so the jump is the reflection $(q,p)\mapsto(-q,-p)$, and $h=\frac12(q-Q)\,C$: energy is conserved. Here $S_{\lambda\lambda}=0$, so (I) fails. Indeed $q=s^2$, $Q=-s^2$, $\lambda=-2s$ satisfies the jump rule at every $s$ and both velocity equations, but $\ddot q+q=s^2+2\ne0$: it is not a solution. This is the toy version of the paper's Remark 3.4.2.
+*An example of the failure.* Take $H_\pm=\frac12(p^2+q^2)$ and $S=\lambda(q+Q)$. The jump rule gives $p=-\lambda$, $P=\lambda$ and the constraint $Q=-q$, so the jump is the reflection $(q,p)\mapsto(-q,-p)$, and $h=\frac12(q-Q)\thinspace C$: energy is conserved. Here $S_{\lambda\lambda}=0$, so (I) fails. Indeed $q=s^2$, $Q=-s^2$, $\lambda=-2s$ satisfies the jump rule at every $s$ and both velocity equations, but $\ddot q+q=s^2+2\ne0$: it is not a solution. This is the toy version of the paper's Remark 3.4.2.
 
 ### 3.5 Back to field theory
 
@@ -230,11 +254,11 @@ Here is the translation. The paper sets it up in §2 and uses it in §3.
 | time $s$ | position $x$ |
 | coordinates $q_1,\dots,q_n$ | the field at fixed $x$ as a function of $t$: one coordinate $\phi(t)$ for each instant $t$ (and $\phi_x(t),\dots$ for higher-derivative theories) |
 | momenta $p$ | the "spatial momenta" $\pi(t)$, for example $\pi=\partial\mathcal L/\partial\phi_x$ |
-| Hamiltonian $H(q,p)$ | $H^{(x)}=\int dt\,\mathcal H^{(x)}$, an integral over $t$ of a density built from $\phi$, its $t$-derivatives and $\pi$ |
+| Hamiltonian $H(q,p)$ | $H^{(x)}=\int dt\thinspace\mathcal H^{(x)}$, an integral over $t$ of a density built from $\phi$, its $t$-derivatives and $\pi$ |
 | a sum over $i$ | an integral over $t$ |
 | partial derivative $\partial H/\partial q_i$ | functional derivative $\delta H^{(x)}/\delta\phi(t)$, computed by the Euler operator ([T3](#t3-the-euler-operator)) |
 | energy $H$ | momentum (more precisely, minus the momentum flux, Lemma 2.1) |
-| jump action $S(q,Q,\lambda)$ | defect action $S_d=\int dt\,\mathcal L_d$ |
+| jump action $S(q,Q,\lambda)$ | defect action $S_d=\int dt\thinspace\mathcal L_d$ |
 | matrix of second derivatives $S_{qQ}$ | linearisation of the sewing equations, a differential operator in $t$ ([T4](#t4-linearisation-and-adjoints)) |
 | $S_{qQ}=S_{Qq}$ | the second variation of $S_d$ is self-adjoint ([T5](#t5-symmetry-of-second-variations-helmholtz)) |
 | $h\equiv0$ | $\mathcal H_--\mathcal H_+=D_t(\dots)$, a total time derivative (Definition 3.1) |
@@ -256,7 +280,7 @@ This part collects the notation and standard facts that the paper uses without c
 
 A field $\phi(x,t)$ may have several components; complex fields such as the NLS field $u$ are treated as two independent fields $u$ and $\bar u$. Derivatives are written $\phi_x,\ \phi_{tt},\dots$, or in general $\phi_{a,k}=\partial_t^a\partial_x^k\phi$.
 
-A **local function** (Olver: *differential function*) is a function of finitely many of these derivatives, such as $\frac12\phi_t^2-\frac12\phi_x^2-U(\phi)$ or $\phi\,\phi_{xxx}$. A **local functional** is the integral of a local function, such as $\int\phi_x^2\,dx$.
+A **local function** (Olver: *differential function*) is a function of finitely many of these derivatives, such as $\frac12\phi_t^2-\frac12\phi_x^2-U(\phi)$ or $\phi\thinspace\phi_{xxx}$. A **local functional** is the integral of a local function, such as $\int\phi_x^2\thinspace dx$.
 
 The key convention of the "formal variational calculus" is to treat $\phi,\phi_x,\phi_t,\phi_{xx},\dots$ as *independent variables*. An identity between local functions that holds for all values of these variables holds for every field. Such an identity is said to hold **off shell**. An identity that holds only when the field equations are used holds **on shell**.
 
@@ -264,7 +288,9 @@ The key convention of the "formal variational calculus" is to treat $\phi,\phi_x
 
 The **total derivative** $D_x$ of a local function is its $x$-derivative when a field is substituted, computed by the chain rule:
 
-$$D_xf=\frac{\partial f}{\partial x}\Big|_{\text{explicit}}+\sum_{a,k}\frac{\partial f}{\partial\phi_{a,k}}\,\phi_{a,k+1}.$$
+$$
+D_xf=\frac{\partial f}{\partial x}\Big|_{\text{explicit}}+\sum_{a,k}\frac{\partial f}{\partial\phi_{a,k}}\thinspace\phi_{a,k+1}.
+$$
 
 For example, $D_t\big(\tfrac12\phi_t^2\big)=\phi_t\phi_{tt}$ and $D_x U(\phi)=U'(\phi)\phi_x$. The paper's Lagrangians have no explicit $x$ or $t$, so the first term is absent except in §5.
 
@@ -274,11 +300,15 @@ $\operatorname{Im}D_t$ (the "image of $D_t$") is the set of all local functions 
 
 For a local function $f$, the **Euler operator** (or variational derivative) is
 
-$$E(f)=\sum_{a,k}(-D_t)^a(-D_x)^k\,\frac{\partial f}{\partial\phi_{a,k}} .$$
+$$
+E(f)=\sum_{a,k}(-D_t)^a(-D_x)^k\thinspace\frac{\partial f}{\partial\phi_{a,k}} .
+$$
 
 It is the functional derivative: $\delta\int f=\int E(f)\cdot\delta\phi$ up to boundary terms. The field equation of a Lagrangian $\mathcal L$ is $E(\mathcal L)=0$. The paper also uses the **time-Euler operator** $E^{(t)}$, written $E_Y$ when it acts on the variables $Y$. It involves only $t$-derivatives and acts on functions of $t$-histories at a fixed $x$. For example
 
-$$E^{(t)}_\phi\Big(-\tfrac12\phi_t^2+U(\phi)\Big)=U'(\phi)+\phi_{tt}.$$
+$$
+E^{(t)}_\phi\Big(-\tfrac12\phi_t^2+U(\phi)\Big)=U'(\phi)+\phi_{tt}.
+$$
 
 Two facts make the Euler operator the right tool:
 
@@ -291,33 +321,39 @@ So "$f$ is a total derivative" can be tested by computing $E(f)$. In the toy mod
 
 The **linearisation** (Fréchet derivative) of a local function $F$ is the operator $D_F$ that gives its first-order change:
 
-$$D_F[\eta]=\frac{d}{d\varepsilon}F[\phi+\varepsilon\eta]\Big|_{\varepsilon=0}=\sum_{a,k}\frac{\partial F}{\partial\phi_{a,k}}\,D_t^aD_x^k\eta .$$
+$$
+D_F[\eta]=\frac{d}{d\varepsilon}F[\phi+\varepsilon\eta]\Big|_{\varepsilon=0}=\sum_{a,k}\frac{\partial F}{\partial\phi_{a,k}}\thinspace D_t^aD_x^k\eta .
+$$
 
 It is a differential operator acting on $\eta$. For example, the linearisation of $\phi_{tt}+U'(\phi)$ is $\eta\mapsto\eta_{tt}+U''(\phi)\eta$.
 
 The **adjoint** $D^*$ of a differential operator $D$ is defined by integration by parts: $\int g\cdot(D\eta)=\int(D^*g)\cdot\eta$ up to boundary terms. So $(D_t)^*=-D_t$, $(D_t^2)^*=D_t^2$, and multiplication by a function is its own adjoint. The adjoint is the infinite-dimensional analogue of the transpose of a matrix.
 
-The **chain rule for Euler operators** is the analogue of the rule $\nabla_y f(z(y))=(\partial z/\partial y)^{T}\,\nabla_zf$ for gradients. If $z=Z[Y]$ is a local change of variables, then
+The **chain rule for Euler operators** is the analogue of the rule $\nabla_y f(z(y))=(\partial z/\partial y)^{T}\thinspace\nabla_zf$ for gradients. If $z=Z[Y]$ is a local change of variables, then
 
-$$E_Y(F\circ Z)=D_Z^*\big(E_zF\circ Z\big).$$
+$$
+E_Y(F\circ Z)=D_Z^*\big(E_zF\circ Z\big).
+$$
 
 The paper uses it in Move 1 of Theorem 3.3 ([§7.3](#73-the-bäcklund-theorem-33)).
 
 ### T5. Symmetry of second variations (Helmholtz)
 
-In finite dimensions the matrix of second derivatives of a function is symmetric. The infinite-dimensional statement is: *the linearisation of an Euler–Lagrange expression is self-adjoint.* For example, $E(\frac12\phi_t^2-U)=-\phi_{tt}-U'(\phi)$ has linearisation $\eta\mapsto-\eta_{tt}-U''(\phi)\eta$, which equals its own adjoint. These are the **Helmholtz conditions** (Olver, Thm 5.92). In the paper, $\mathcal S$ is the linearisation of the defect's Euler–Lagrange expression, with blocks $S_{AB}$ for $A,B\in\{\Phi,\Psi,\lambda\}$, and self-adjointness reads $S_{AB}^*=S_{BA}$. It plays the role of $S_{qQ}=S_{Qq}$ in Part 3.
+In finite dimensions the matrix of second derivatives of a function is symmetric. The infinite-dimensional statement is: *the linearisation of an Euler–Lagrange expression is self-adjoint.* For example, $E(\frac12\phi_t^2-U)=-\phi_{tt}-U'(\phi)$ has linearisation $\eta\mapsto-\eta_{tt}-U''(\phi)\eta$, which equals its own adjoint. These are the **Helmholtz conditions** (Olver, Thm 5.92). In the paper, $\mathcal S$ is the linearisation of the defect's Euler–Lagrange expression, with blocks $S_{AB}$ for $A,B\in\lbrace\Phi,\Psi,\lambda\rbrace$, and self-adjointness reads $S_{AB}^*=S_{BA}$. It plays the role of $S_{qQ}=S_{Qq}$ in Part 3.
 
 ### T6. Conservation laws, charges and Noether's theorem
 
 A **conservation law** is a pair of local functions, a density $N$ and a flux $J$, with
 
-$$D_tN+D_xJ=0\quad\text{on shell}.$$
+$$
+D_tN+D_xJ=0\quad\text{on shell}.
+$$
 
-If the fields decay at infinity, the **charge** $\int N\,dx$ is then constant in time. Near a defect at $x=0$, the charge on the left half-line changes by the flux through the defect: $\frac d{dt}\int_{-\infty}^0N\,dx=-J|_{x=0^-}$.
+If the fields decay at infinity, the **charge** $\int N\thinspace dx$ is then constant in time. Near a defect at $x=0$, the charge on the left half-line changes by the flux through the defect: $\frac d{dt}\int_{-\infty}^0N\thinspace dx=-J|_{x=0^-}$.
 
 A **trivial** conservation law has $N=D_x\nu$ and $J=-D_t\nu$ for a local $\nu$. It holds for every field, on shell or not, and its charge is a boundary term. It carries no information.
 
-It is often useful to package a conservation law as the 1-form $N\,dx-J\,dt$ in the $(x,t)$ plane. The law says exactly that this 1-form is closed: $d(N\,dx-J\,dt)=(D_tN+D_xJ)\,dt\wedge dx=0$. A closed 1-form is locally the differential of a function $Q$: $N=D_xQ$ and $J=-D_tQ$. Defect charges will turn out to be such potentials ([§8.2](#82-defect-charges-as-potentials-42)).
+It is often useful to package a conservation law as the 1-form $N\thinspace dx-J\thinspace dt$ in the $(x,t)$ plane. The law says exactly that this 1-form is closed: $d(N\thinspace dx-J\thinspace dt)=(D_tN+D_xJ)\thinspace dt\wedge dx=0$. A closed 1-form is locally the differential of a function $Q$: $N=D_xQ$ and $J=-D_tQ$. Defect charges will turn out to be such potentials ([§8.2](#82-defect-charges-as-potentials-42)).
 
 **Noether's theorem** gives a conservation law for each continuous symmetry of the Lagrangian: time translation gives energy, space translation gives momentum, a phase rotation gives particle number.
 
@@ -332,7 +368,9 @@ The densities and fluxes of energy and momentum form the **stress tensor** $T^{\
 
 Conservation reads $D_tT^{0\nu}+D_xT^{1\nu}=0$ for $\nu=0,1$. For a scalar field with $\mathcal L=\frac12(\phi_t^2-\phi_x^2)-U(\phi)$, in the paper's conventions,
 
-$$T^{00}=\tfrac12(\phi_t^2+\phi_x^2)+U,\qquad T^{01}=T^{10}=-\phi_t\phi_x,\qquad T^{11}=\tfrac12(\phi_t^2+\phi_x^2)-U .$$
+$$
+T^{00}=\tfrac12(\phi_t^2+\phi_x^2)+U,\qquad T^{01}=T^{10}=-\phi_t\phi_x,\qquad T^{11}=\tfrac12(\phi_t^2+\phi_x^2)-U .
+$$
 
 The momentum flux $T^{11}$ is the pressure. The equality $T^{10}=T^{01}$, energy flux equals momentum density, is a consequence of Lorentz invariance. The Noether current of a Lorentz boost has density $xT^{00}-tT^{01}$ and flux $xT^{10}-tT^{11}$, and its conservation is equivalent to $T^{10}=T^{01}$. Link 2 is built on this fact.
 
@@ -347,13 +385,15 @@ A defect Lagrangian $\mathcal L_d$ depends on the boundary values $\Phi=\phi(0^-
 
 Some defects also contain **Lagrange multipliers**: auxiliary variables that appear linearly and enforce a constraint. The paper collects all such extra variables into $\lambda$. Varying $\lambda$ gives the constraint $C=E^{(t)}_\lambda\mathcal L_d=0$.
 
-"Modulo the constraint" is written $\pmod{\langle C\rangle}$. Here $\langle C\rangle$ is the **differential ideal** generated by $C$: all expressions $\sum_kf_k\,D_t^kC$ with local coefficients $f_k$. If $C=0$ at every time, then all its time derivatives vanish too, so every element of $\langle C\rangle$ vanishes. The **prolonged constraint locus** is the set where $C$ and all its time derivatives vanish.
+"Modulo the constraint" is written $\pmod{\langle C\rangle}$. Here $\langle C\rangle$ is the **differential ideal** generated by $C$: all expressions $\sum_kf_k\thinspace D_t^kC$ with local coefficients $f_k$. If $C=0$ at every time, then all its time derivatives vanish too, so every element of $\langle C\rangle$ vanishes. The **prolonged constraint locus** is the set where $C$ and all its time derivatives vanish.
 
 ### T9. Bäcklund transformations
 
 A **Bäcklund transformation** is a pair of relations between two fields $\phi$ and $\psi$, involving only low-order derivatives, with this property: if the relations hold at every point, then $\phi$ and $\psi$ both solve their field equations. Given a solution $\phi$, solving the relations for $\psi$ gives a new solution. For sine-Gordon, the classical example is
 
-$$\phi_x=\psi_t-\partial_\phi\mathcal B,\qquad \psi_x=\phi_t+\partial_\psi\mathcal B,$$
+$$
+\phi_x=\psi_t-\partial_\phi\mathcal B,\qquad \psi_x=\phi_t+\partial_\psi\mathcal B,
+$$
 
 with the function $\mathcal B$ of [Part 5](#part-5-the-running-example-sine-gordon). The usual proof cross-differentiates the two relations. The relations also contain a free parameter, $\sigma$ here, often called the **spectral parameter**. Expanding a Bäcklund transformation in its spectral parameter is a classical way of producing infinitely many conservation laws.
 
@@ -363,34 +403,38 @@ The paper uses **Bäcklund relation** for the sewing conditions imposed at every
 
 Many field equations have the form
 
-$$v_t=\mathcal J\,\frac{\delta H}{\delta v},$$
+$$
+v_t=\mathcal J\thinspace\frac{\delta H}{\delta v},
+$$
 
 with a Hamiltonian functional $H$ and a skew-adjoint operator $\mathcal J$, the **Poisson operator**. Two examples:
 
-- *KdV.* $v=u$, $\mathcal J=D_x$ and $H=\int(u^3+\frac12u_x^2)\,dx$. Then $\delta H/\delta u=3u^2-u_{xx}$ and $u_t=6uu_x-u_{xxx}$.
-- *Relativistic scalar.* $v=(\phi,p)$ with $p=\phi_t$, $\mathcal J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ and $H=\int\big(\frac12p^2+\frac12\phi_x^2+U(\phi)\big)\,dx$. Then $\phi_t=p$ and $p_t=\phi_{xx}-U'(\phi)$.
+- *KdV.* $v=u$, $\mathcal J=D_x$ and $H=\int(u^3+\frac12u_x^2)\thinspace dx$. Then $\delta H/\delta u=3u^2-u_{xx}$ and $u_t=6uu_x-u_{xxx}$.
+- *Relativistic scalar.* $v=(\phi,p)$ with $p=\phi_t$, $\mathcal J=\begin{pmatrix}0&1\cr -1&0\end{pmatrix}$ and $H=\int\big(\frac12p^2+\frac12\phi_x^2+U(\phi)\big)\thinspace dx$. Then $\phi_t=p$ and $p_t=\phi_{xx}-U'(\phi)$.
 
 The **Poisson bracket** of two local functionals is
 
-$$\{F,G\}=\int\frac{\delta F}{\delta v}\cdot\mathcal J\,\frac{\delta G}{\delta v}\,dx .$$
+$$
+\lbrace F,G\rbrace=\int\frac{\delta F}{\delta v}\cdot\mathcal J\thinspace\frac{\delta G}{\delta v}\thinspace dx .
+$$
 
-A functional $F$ is conserved exactly when $\{F,H\}=0$. Two conserved functionals are **in involution** when their bracket vanishes. The bracket of two conserved functionals is again conserved, by the Jacobi identity: $\{\{F,G\},H\}=\{F,\{G,H\}\}-\{G,\{F,H\}\}=0$. A **Casimir** is a functional whose bracket with everything vanishes. For $\mathcal J=D_x$, $\int u\,dx$ is a Casimir, because $\delta\int u/\delta u=1$ and $D_x1=0$.
+A functional $F$ is conserved exactly when $\lbrace F,H\rbrace=0$. Two conserved functionals are **in involution** when their bracket vanishes. The bracket of two conserved functionals is again conserved, by the Jacobi identity: $\lbrace\lbrace F,G\rbrace,H\rbrace=\lbrace F,\lbrace G,H\rbrace\rbrace-\lbrace G,\lbrace F,H\rbrace\rbrace=0$. A **Casimir** is a functional whose bracket with everything vanishes. For $\mathcal J=D_x$, $\int u\thinspace dx$ is a Casimir, because $\delta\int u/\delta u=1$ and $D_x1=0$.
 
 Functionals are **functionally independent** if their gradients $\delta F/\delta v$ are linearly independent at generic points, as for functions on $\mathbb R^n$. A field theory with infinitely many independent local conserved charges in involution is **integrable** in the sense used by the paper.
 
-**Degrees.** Expand a functional in powers of the fields around the vacuum $v=0$: $F=F_0+F_1+F_2+\dots$, where $F_n$ is homogeneous of degree $n$. If $\mathcal J$ has constant coefficients, then $\delta F_a/\delta v$ has degree $a-1$, and $\{F_a,G_b\}$ has degree exactly $a+b-2$. Link 4 runs on this degree counting.
+**Degrees.** Expand a functional in powers of the fields around the vacuum $v=0$: $F=F_0+F_1+F_2+\dots$, where $F_n$ is homogeneous of degree $n$. If $\mathcal J$ has constant coefficients, then $\delta F_a/\delta v$ has degree $a-1$, and $\lbrace F_a,G_b\rbrace$ has degree exactly $a+b-2$. Link 4 runs on this degree counting.
 
 ### T11. Plane waves, dispersion and quadratic symbols
 
-Linearise the field equation around the vacuum. For $\phi_{tt}-\phi_{xx}+m^2\phi=0$, the plane wave $e^{i(kx-\omega t)}$ is a solution exactly when $\omega^2=k^2+m^2$. The function $\omega(k)$ is the **dispersion relation**; for several fields there are several branches $\omega_j(k)$. The Fourier amplitudes that evolve simply, $a_j(k,t)=a_j(k)\,e^{-i\omega_j(k)t}$, are the **normal modes**.
+Linearise the field equation around the vacuum. For $\phi_{tt}-\phi_{xx}+m^2\phi=0$, the plane wave $e^{i(kx-\omega t)}$ is a solution exactly when $\omega^2=k^2+m^2$. The function $\omega(k)$ is the **dispersion relation**; for several fields there are several branches $\omega_j(k)$. The Fourier amplitudes that evolve simply, $a_j(k,t)=a_j(k)\thinspace e^{-i\omega_j(k)t}$, are the **normal modes**.
 
 A product of $n$ normal modes, some of them complex-conjugated, oscillates in time like $e^{-i\Omega t}$, where $\Omega$ is the sum of the frequencies with signs: $+\omega$ for each $a$ and $-\omega$ for each $\bar a$. Its total momentum is the corresponding signed sum of the wavenumbers. A local functional of degree $n$ only contains products whose total momentum is zero, because it is an integral over $x$.
 
-The **quadratic symbol** $m(k)$ of a functional is its quadratic part written in Fourier space, roughly $F_2=\int m(k)\,\lvert a(k)\rvert^2\,dk$. It can be found from one plane wave. Insert $\phi=\eta\,(aE+\bar a\bar E)$, with $E=e^{ikx}$, into the density and average over $x$. Terms containing $E^2$ or $\bar E^2$ average to zero. What remains at order $\eta^2$ is $\eta^2\lvert a\rvert^2m(k)$. For example, $\frac12\int\phi^2$ has symbol $1$, and $\frac12\int\phi_x^2$ has symbol $k^2$. A total $x$-derivative averages to zero, so a density with nonzero symbol is never trivial.
+The **quadratic symbol** $m(k)$ of a functional is its quadratic part written in Fourier space, roughly $F_2=\int m(k)\thinspace\lvert a(k)\rvert^2\thinspace dk$. It can be found from one plane wave. Insert $\phi=\eta\thinspace(aE+\bar a\bar E)$, with $E=e^{ikx}$, into the density and average over $x$. Terms containing $E^2$ or $\bar E^2$ average to zero. What remains at order $\eta^2$ is $\eta^2\lvert a\rvert^2m(k)$. For example, $\frac12\int\phi^2$ has symbol $1$, and $\frac12\int\phi_x^2$ has symbol $k^2$. A total $x$-derivative averages to zero, so a density with nonzero symbol is never trivial.
 
 ### T12. Formal power series
 
-A **formal** power series $\sum_n\epsilon^nc_n$ is handled coefficient by coefficient, without asking whether it converges. The paper's series have coefficients that are local functions of a field. Such series can often be found by solving order by order. For example, the equation $\Delta=\epsilon\,(u+\Delta_x)$ for an unknown $\Delta$ has the solution $\Delta=\epsilon u+\epsilon^2u_x+\epsilon^3u_{xx}+\dots$. Each coefficient is local, because at each order the unknown appears without derivatives and the derivatives act only on lower coefficients. By contrast, $\Delta_x=u$ has the solution $\Delta=\int^xu$, which is not local. Lemma 6.2 is the general form of this observation.
+A **formal** power series $\sum_n\epsilon^nc_n$ is handled coefficient by coefficient, without asking whether it converges. The paper's series have coefficients that are local functions of a field. Such series can often be found by solving order by order. For example, the equation $\Delta=\epsilon\thinspace(u+\Delta_x)$ for an unknown $\Delta$ has the solution $\Delta=\epsilon u+\epsilon^2u_x+\epsilon^3u_{xx}+\dots$. Each coefficient is local, because at each order the unknown appears without derivatives and the derivatives act only on lower coefficients. By contrast, $\Delta_x=u$ has the solution $\Delta=\int^xu$, which is not local. Lemma 6.2 is the general form of this observation.
 
 ---
 
@@ -402,7 +446,9 @@ This example runs through every link. All formulas are checked in [`checks/check
 
 For evolution in $x$, the "velocity" is $\phi_x$. Its conjugate momentum is $\pi=\partial\mathcal L/\partial\phi_x=-\phi_x$. The spatial Hamiltonian density is the Legendre transform with respect to $\phi_x$,
 
-$$\mathcal H^{(x)}=\pi\,\phi_x-\mathcal L=-\tfrac12\pi^2-\tfrac12\phi_t^2+U(\phi).$$
+$$
+\mathcal H^{(x)}=\pi\thinspace\phi_x-\mathcal L=-\tfrac12\pi^2-\tfrac12\phi_t^2+U(\phi).
+$$
 
 Hamilton's equations in $x$ are, in the language of Part 3:
 
@@ -413,21 +459,29 @@ The Euler derivative appears because $\mathcal H$ contains $\phi_t$ ([T3](#t3-th
 
 **Defect** of Bowcock, Corrigan and Zambon [1]:
 
-$$\mathcal L_d=\tfrac12(\phi\psi_t-\psi\phi_t)-\mathcal B(\phi,\psi),\qquad \mathcal B=f+g,\quad f=2\sigma\big(1-\cos\tfrac{\phi+\psi}2\big),\quad g=\tfrac2\sigma\big(1-\cos\tfrac{\phi-\psi}2\big).$$
+$$
+\mathcal L_d=\tfrac12(\phi\psi_t-\psi\phi_t)-\mathcal B(\phi,\psi),\qquad \mathcal B=f+g,\quad f=2\sigma\big(1-\cos\tfrac{\phi+\psi}2\big),\quad g=\tfrac2\sigma\big(1-\cos\tfrac{\phi-\psi}2\big).
+$$
 
 Here $\phi$ and $\psi$ stand for the boundary values at $x=0$. The term $\frac12(\phi\psi_t-\psi\phi_t)$ is first order in time derivatives; such terms are called **gyroscopic**. The sewing equations (3.1), $\pi_-=-E^{(t)}_\phi\mathcal L_d$ and $\pi_+=E^{(t)}_\psi\mathcal L_d$, read
 
-$$\phi_x=\psi_t-\partial_\phi\mathcal B,\qquad \psi_x=\phi_t+\partial_\psi\mathcal B\qquad\text{at }x=0 .$$
+$$
+\phi_x=\psi_t-\partial_\phi\mathcal B,\qquad \psi_x=\phi_t+\partial_\psi\mathcal B\qquad\text{at }x=0 .
+$$
 
 These are the Bäcklund relations of [T9](#t9-bäcklund-transformations), imposed at one point.
 
 **Momentum balance.** Insert the sewing equations into $\mathcal H_--\mathcal H_+$. After expanding the squares,
 
-$$\mathcal H_--\mathcal H_+=\big(\psi_t\,\partial_\phi\mathcal B+\phi_t\,\partial_\psi\mathcal B\big)+\tfrac12\big((\partial_\psi\mathcal B)^2-(\partial_\phi\mathcal B)^2\big)+U(\phi)-U(\psi).$$
+$$
+\mathcal H_--\mathcal H_+=\big(\psi_t\thinspace\partial_\phi\mathcal B+\phi_t\thinspace\partial_\psi\mathcal B\big)+\tfrac12\big((\partial_\psi\mathcal B)^2-(\partial_\phi\mathcal B)^2\big)+U(\phi)-U(\psi).
+$$
 
 Because $f$ depends only on $\phi+\psi$ and $g$ only on $\phi-\psi$, the first bracket is $D_t(f-g)$. The second bracket is $-2f'g'$, and $2f'g'=\cos\psi-\cos\phi=U(\phi)-U(\psi)$. Hence
 
-$$\mathcal H_--\mathcal H_++D_t(g-f)=0 .$$
+$$
+\mathcal H_--\mathcal H_++D_t(g-f)=0 .
+$$
 
 The defect is momentum-conserving, with $\widetilde P=g-f$ stored in the defect. The relation $2f'g'=U(\phi)-U(\psi)$ is the constraint that momentum conservation places on the bulk potential; for sine-Gordon it can be met.
 
@@ -436,11 +490,13 @@ The defect is momentum-conserving, with $\widetilde P=g-f$ stored in the defect.
 - *Link 1.* The defect is Type I, so Theorem 3.3 says: if the sewing equations hold at every $x$, then $\phi$ and $\psi$ both solve sine-Gordon. This is the classical Bäcklund statement, obtained here without cross-differentiating.
 - *Link 2.* The gyroscopic term carries no energy, so the defect energy is $\mathcal E_d=\mathcal B$. Lorentz invariance ($T^{10}=T^{01}$) gives $D_t\mathcal B+D_xP_d=0$ along the Bäcklund relation: $\mathcal B$ is a conserved density.
 - *Link 3.* The family parameter is $\epsilon=\sigma$. As $\sigma\to0$ the term $g$ becomes a very stiff spring forcing $\psi\to\phi$: the defect becomes transparent. Write $\Delta=\psi-\phi=\sigma\Delta_1+O(\sigma^2)$. The left sewing equation at lowest order gives $\Delta_1=2(\phi_x-\phi_t)$. Expanding $\mathcal B$ gives
-  $$Q_1=(\phi_x-\phi_t)^2+2(1-\cos\phi)=2(T^{00}+T^{01}),$$
+
+  $$\displaystyle Q_1=(\phi_x-\phi_t)^2+2(1-\cos\phi)=2(T^{00}+T^{01}),$$
+
   a combination of energy and momentum. The higher odd orders give the spin-3, spin-5, … charges of sine-Gordon.
 - *Where the family comes from.* In the coordinates $w=\frac12(\phi+\psi)$ and $q=\frac12(\phi-\psi)$, $\mathcal B=f(w)+g(q)$ with $f\propto\sigma$ and $g\propto\sigma^{-1}$. §8.2 shows that momentum conservation forces this splitting, and that rescaling $f$ up and $g$ down preserves momentum conservation ([§11.2](#112-hypothesis-c-for-relativistic-type-i-defects-82)).
 - *Kinematics.* A boost of rapidity $\theta$ maps $\sigma\to\sigma e^{\pm\theta}$ (§5.2). So the spectral parameter of the Bäcklund transformation is a rapidity, and $Q_n$ has Lorentz spin $n$.
-- *Link 4.* The generating quadratic symbol is $m(k;\sigma)=4\sigma\,\omega\,e^{\vartheta}/(1+\sigma^2e^{2\vartheta})$, with $k=\sinh\vartheta$ and $\omega=\cosh\vartheta$. Its coefficients $m_{2j+1}=4(-1)^j\omega e^{(2j+1)\vartheta}$ are distinct powers of $e^\vartheta$, so the charges are independent. [§10.5](#105-the-generating-symbol-proposition-75) derives this formula.
+- *Link 4.* The generating quadratic symbol is $m(k;\sigma)=4\sigma\thinspace\omega\thinspace e^{\vartheta}/(1+\sigma^2e^{2\vartheta})$, with $k=\sinh\vartheta$ and $\omega=\cosh\vartheta$. Its coefficients $m_{2j+1}=4(-1)^j\omega e^{(2j+1)\vartheta}$ are distinct powers of $e^\vartheta$, so the charges are independent. [§10.5](#105-the-generating-symbol-proposition-75) derives this formula.
 
 ---
 
@@ -455,9 +511,11 @@ The defect is momentum-conserving, with $\widetilde P=g-f$ stored in the defect.
 
 **First-order Lagrangians.** Start with $\mathcal L(\phi,\phi_t,\phi_x)$. Vary $\phi$ by $\eta$ and integrate by parts:
 
-$$\delta\mathcal L=\Big(\frac{\partial\mathcal L}{\partial\phi}-D_x\frac{\partial\mathcal L}{\partial\phi_x}-D_t\frac{\partial\mathcal L}{\partial\phi_t}\Big)\eta+D_x\Big(\frac{\partial\mathcal L}{\partial\phi_x}\eta\Big)+D_t\Big(\frac{\partial\mathcal L}{\partial\phi_t}\eta\Big).$$
+$$
+\delta\mathcal L=\Big(\frac{\partial\mathcal L}{\partial\phi}-D_x\frac{\partial\mathcal L}{\partial\phi_x}-D_t\frac{\partial\mathcal L}{\partial\phi_t}\Big)\eta+D_x\Big(\frac{\partial\mathcal L}{\partial\phi_x}\eta\Big)+D_t\Big(\frac{\partial\mathcal L}{\partial\phi_t}\eta\Big).
+$$
 
-The first term is the Euler–Lagrange expression $E(\mathcal L)\,\eta$. The second is a spatial boundary term; its coefficient $\pi=\partial\mathcal L/\partial\phi_x$ is the momentum for evolution in $x$. The third is a temporal boundary term, $D_t\,\Xi(\eta)$ with $\Xi(\eta)=\frac{\partial\mathcal L}{\partial\phi_t}\eta$. This is (2.1) for spatial order $K=1$.
+The first term is the Euler–Lagrange expression $E(\mathcal L)\thinspace\eta$. The second is a spatial boundary term; its coefficient $\pi=\partial\mathcal L/\partial\phi_x$ is the momentum for evolution in $x$. The third is a temporal boundary term, $D_t\thinspace\Xi(\eta)$ with $\Xi(\eta)=\frac{\partial\mathcal L}{\partial\phi_t}\eta$. This is (2.1) for spatial order $K=1$.
 
 **Higher order (Ostrogradsky).** If $\mathcal L$ contains $\phi_{xx}$, as for KdV in potential form, then evolution in $x$ needs both $\phi$ and $\phi_x$ as coordinates, each with its own momentum. In general, for a Lagrangian containing $x$-derivatives up to order $K$, the coordinates are $\Phi_m=D_x^m\phi$ for $m<K$, and the integration by parts in (2.1) produces one momentum $\pi_m$ for each. Formula (2.2) is the general bookkeeping, due to Ostrogradsky. The $F_k$ there are the coefficients of $D_x^k\eta$ after the $t$-derivatives have been moved off $\eta$. For potential KdV, $\mathcal L=\frac12p_xp_t-p_x^3-\frac12p_{xx}^2$ with $K=2$, one finds $\pi_1=-p_{xx}$ and $\pi_0=\frac12p_t-3p_x^2+p_{xxx}$. That is why the KdV defect has two pairs of sewing equations.
 
@@ -465,7 +523,9 @@ The first term is the Euler–Lagrange expression $E(\mathcal L)\,\eta$. The sec
 
 **Lemma 2.1 (Legendre–Noether).** Choose $\eta=D_x\phi$ in (2.1), the variation produced by a translation in $x$. Then $\delta\mathcal L=D_x\mathcal L$, and rearranging (2.1) gives, for $K=1$,
 
-$$D_t\,\Xi(\phi_x)+D_x\big(\pi\phi_x-\mathcal L\big)=-E(\mathcal L)\,\phi_x .$$
+$$
+D_t\thinspace\Xi(\phi_x)+D_x\big(\pi\phi_x-\mathcal L\big)=-E(\mathcal L)\thinspace\phi_x .
+$$
 
 On shell the right side vanishes, so this is the momentum conservation law ([T6](#t6-conservation-laws-charges-and-noethers-theorem)). Its flux is $\pi\phi_x-\mathcal L=\mathcal H^{(x)}$, the Legendre transform with respect to the $x$-velocity. With the paper's signs, the momentum flux is $T^{11}=-\mathcal H^{(x)}$ exactly. The same computation works for any $K$, and with $\eta=D_t\phi$ it gives the energy law. For sine-Gordon, $T^{11}=\frac12(\phi_t^2+\phi_x^2)-U$ and $-\mathcal H^{(x)}=\frac12(\pi^2+\phi_t^2)-U$ agree because $\pi=-\phi_x$.
 
@@ -492,7 +552,9 @@ Only the last equation carries information. The lift is a solution of Hamilton's
 
 **Idea.** Vary the total action of [Part 1](#part-1-the-question). By (2.1), each half-line leaves a boundary term at $x=0$: $+\pi_-\cdot\delta\Phi$ from the left and $-\pi_+\cdot\delta\Psi$ from the right, exactly as in [§3.2](#32-a-jump-described-by-an-action). Adding the variation of $S_d$ and requiring the total to vanish gives the sewing equations (3.1):
 
-$$\pi_-=\Pi^-(Y):=-E^{(t)}_\Phi\mathcal L_d,\qquad \pi_+=\Pi^+(Y):=E^{(t)}_\Psi\mathcal L_d,\qquad 0=C(Y):=E^{(t)}_\lambda\mathcal L_d .$$
+$$
+\pi_-=\Pi^-(Y):=-E^{(t)}_\Phi\mathcal L_d,\qquad \pi_+=\Pi^+(Y):=E^{(t)}_\Psi\mathcal L_d,\qquad 0=C(Y):=E^{(t)}_\lambda\mathcal L_d .
+$$
 
 Here $Y=(\Phi,\Psi,\lambda)$ collects the boundary data and the auxiliary variables. The defect prescribes the spatial momenta on both sides as functions of $Y$, like the jump rule of the toy model. The **sewing correspondence** $\Gamma_d$ is the set of all left and right data obtained in this way, as $Y$ runs over all histories that satisfy the constraint. It is the field version of the jump relation $\Gamma$.
 
@@ -504,15 +566,19 @@ A **promoted solution** imposes (3.1) at every $x$, with $\pi_\mp$ the actual Os
 
 **Idea.** Definition 3.1 asks that
 
-$$\mathcal H_-\big(\Phi,\Pi^-(Y)\big)-\mathcal H_+\big(\Psi,\Pi^+(Y)\big)\in\operatorname{Im}D_t+\langle C\rangle ,$$
+$$
+\mathcal H_-\big(\Phi,\Pi^-(Y)\big)-\mathcal H_+\big(\Psi,\Pi^+(Y)\big)\in\operatorname{Im}D_t+\langle C\rangle ,
+$$
 
 as an identity in the $t$-derivatives of $Y$. In words: insert the sewing equations into the difference of the momentum fluxes. After using the constraint, the result must be the time derivative of a local function of the boundary data, the defect momentum. This must hold for *arbitrary* boundary histories, not only those of bulk solutions. That is the field version of "$h\equiv0$" ([§3.5](#35-back-to-field-theory)).
 
 Any multiple of the constraint or of its time derivatives can be integrated by parts into the form $\rho\cdot C$ plus a total derivative. So Definition 3.1 is equivalent to
 
-$$\mathcal H_--\mathcal H_+=\rho\cdot C+D_tB\qquad(3.3')$$
+$$
+\mathcal H_--\mathcal H_+=\rho\cdot C+D_tB\qquad(3.3')
+$$
 
-for local $\rho$ and $B$. This is the field version of $h=\rho\,C$ in [§3.4](#34-the-converse-half-and-what-can-go-wrong). The multiplier $\rho$ will be the rate at which the Hamiltonian flow moves $\lambda$.
+for local $\rho$ and $B$. This is the field version of $h=\rho\thinspace C$ in [§3.4](#34-the-converse-half-and-what-can-go-wrong). The multiplier $\rho$ will be the rate at which the Hamiltonian flow moves $\lambda$.
 
 **Lemma 3.2** connects this with the physical statement that $P_-+P_++\widetilde P$ is conserved. By [T6](#t6-conservation-laws-charges-and-noethers-theorem), $\frac d{dt}(P_-+P_+)=(-T^{11}_-+T^{11}_+)|_{x=0}=(\mathcal H_--\mathcal H_+)|_{x=0}$, and the balance makes this $-D_t\widetilde P$.
 
@@ -529,12 +595,12 @@ for local $\rho$ and $B$. This is the field version of $h=\rho\,C$ in [§3.4](#3
 
 *Move 1: differentiate the balance.* In the toy model we took partial derivatives of $h$. Here we apply the time-Euler operator $E_Y$ to (3.3′) ([T3](#t3-the-euler-operator)).
 - $E_Y$ annihilates $D_tB$. This is why the balance need only hold up to a total time derivative.
-- Where the constraint and its time derivatives vanish, $E_Y(\rho\cdot C)=D_C^*\rho$; the other term, $D_\rho^*C$, contains $C$ and vanishes. This is the field version of differentiating $\rho\,C$ and setting $C=0$.
+- Where the constraint and its time derivatives vanish, $E_Y(\rho\cdot C)=D_C^*\rho$; the other term, $D_\rho^*C$, contains $C$ and vanishes. This is the field version of differentiating $\rho\thinspace C$ and setting $C=0$.
 - On the left, the chain rule for Euler operators ([T4](#t4-linearisation-and-adjoints)) gives $D_{\Pi^\mp}^*$ applied to the velocity $a_\mp=\partial\mathcal H_\mp/\partial\pi$, plus the force $b_\mp=E^{(t)}_\Phi\mathcal H_\mp$. This is the field version of the chain rule in $\partial h/\partial q$.
 
 *Move 2: use the symmetry of the second variation.* In the toy model we used $S_{qQ}=S_{Qq}$. Here the operators $D_{\Pi^\pm}$ and $D_C$ are blocks of $\mathcal S$, and self-adjointness $S_{AB}^*=S_{BA}$ turns their adjoints into the blocks of (3.2). The result is (3.5), the same three equations as in [§3.4](#34-the-converse-half-and-what-can-go-wrong), with the $S$'s now differential operators in $t$.
 
-*Move 3: read (3.5) as tangency.* Put $\delta Y=(a_-,a_+,\rho)$ into (3.2). The third line of (3.5) says the constraint stays satisfied. The first two lines say $\delta\pi_\mp=-b_\mp$, and the configuration changes are $\delta\Phi=a_-$, $\delta\Psi=a_+$. The resulting change of the data is $(a_-,-b_-;\,a_+,-b_+)=(X_-,X_+)$: the Hamiltonian motion in $x$ keeps the data allowed, with the auxiliary variables moving at the rate $\rho$.
+*Move 3: read (3.5) as tangency.* Put $\delta Y=(a_-,a_+,\rho)$ into (3.2). The third line of (3.5) says the constraint stays satisfied. The first two lines say $\delta\pi_\mp=-b_\mp$, and the configuration changes are $\delta\Phi=a_-$, $\delta\Psi=a_+$. The resulting change of the data is $(a_-,-b_-;\thinspace a_+,-b_+)=(X_-,X_+)$: the Hamiltonian motion in $x$ keeps the data allowed, with the auxiliary variables moving at the rate $\rho$.
 
 **How part (b) goes.** Let $(\phi,\psi,\lambda)$ be a promoted solution. At each point there are two tangent vectors to $\Gamma_d$:
 
@@ -549,7 +615,7 @@ A Type-I defect has no auxiliary variables, so there is no $\kappa$, and the bul
 
 **Fine print (Remarks 3.4).**
 
-- *Condition (I) cannot be dropped.* Take two scalars with an even potential and $S_d=\int\lambda(\psi+\phi)\,dt$. This is the field version of the toy example in [§3.4](#34-the-converse-half-and-what-can-go-wrong). The constraint is $\psi=-\phi$, momentum balances, and the operator (I) is zero. For Klein–Gordon, $(\phi,\psi,\lambda)=(x^2,-x^2,2x)$ is a promoted solution but $E_-[\phi]=2-m^2x^2\ne0$. The relation $\psi=-\phi$ maps solutions to solutions only because $\phi\mapsto-\phi$ is a symmetry. It has no nondegenerate family, so Link 3 fails for it too.
+- *Condition (I) cannot be dropped.* Take two scalars with an even potential and $S_d=\int\lambda(\psi+\phi)\thinspace dt$. This is the field version of the toy example in [§3.4](#34-the-converse-half-and-what-can-go-wrong). The constraint is $\psi=-\phi$, momentum balances, and the operator (I) is zero. For Klein–Gordon, $(\phi,\psi,\lambda)=(x^2,-x^2,2x)$ is a promoted solution but $E_-[\phi]=2-m^2x^2\ne0$. The relation $\psi=-\phi$ maps solutions to solutions only because $\phi\mapsto-\phi$ is a symmetry. It has no nondegenerate family, so Link 3 fails for it too.
 - *Condition (I) in practice.* It is vacuous for Type I. For the KdV and mKdV defects with a multiplier $\mu$, the $m=1$ row gives $S_{\Phi_1\mu}=\partial C/\partial\Phi_1=1$, which is injective. For relativistic Type II, $K=1$, so only the $\lambda\lambda$ row remains, and (I) says that multiplication by $S_{\lambda\lambda}=-\partial_\lambda^2\mathcal D$ is injective, as in the toy model.
 - *Different bulk theories.* Nothing requires $\mathcal L_-=\mathcal L_+$. A momentum-conserving defect between Liouville theory and a free massless field is a Bäcklund relation that linearises Liouville theory.
 - *What is not used.* Neither the invertibility of the jump, nor the full Lagrangian property of $\Gamma_d$, nor any connectedness.
@@ -578,7 +644,9 @@ For relativistic theories the generating density is the defect energy. The relat
 
 Take a conservation law $(N,J)$ that holds on both sides. A **defect charge** for it is a local $Q_d(Y)$ with (4.1):
 
-$$D_tQ_d\equiv J_-\big|_{x=0}-J_+\big|_{x=0}\pmod{\langle C\rangle}.$$
+$$
+D_tQ_d\equiv J_-\big|_{x=0}-J_+\big|_{x=0}\pmod{\langle C\rangle}.
+$$
 
 The flux into the defect from the left minus the flux out to the right is stored in the defect. Then $\int_{x<0}N_-+\int_{x>0}N_++Q_d$ is conserved ([T6](#t6-conservation-laws-charges-and-noethers-theorem)).
 
@@ -591,11 +659,11 @@ The flux into the defect from the left minus the flux out to the right is stored
 
 **Sine-Gordon.** The defect energy is $\mathcal E_d=\Xi_d(D_tY)-\mathcal L_d$, the Legendre transform of $\mathcal L_d$ with respect to the time derivatives. For a gyroscopic term $A(\phi,\psi)\cdot\phi_t$ the Legendre transform gives $A\cdot\phi_t-A\cdot\phi_t=0$, so $\mathcal E_d=\mathcal B$.
 
-**Fine print.** A conservation law whose density is an $x$-derivative is not always trivial off shell. The KdV mass law $(p_x,\,p_{xxx}-3p_x^2)$, in the potential variable $p$ with $u=p_x$, is a trivial law plus the Noether law of the shift $p\mapsto p+\text{const}$. So it has a defect charge only when the defect is shift-invariant. The KdV defect of [3] is, with charge $q-p$. Adding $\beta p^2$ to it destroys the charge.
+**Fine print.** A conservation law whose density is an $x$-derivative is not always trivial off shell. The KdV mass law $(p_x, p_{xxx}-3p_x^2)$, in the potential variable $p$ with $u=p_x$, is a trivial law plus the Noether law of the shift $p\mapsto p+\text{const}$. So it has a defect charge only when the defect is shift-invariant. The KdV defect of [3] is, with charge $q-p$. Adding $\beta p^2$ to it destroys the charge.
 
 ### 8.2 Defect charges as potentials (§4.2)
 
-**Idea.** Along a promoted solution, $Q_d$ becomes a function on the whole plane, and (4.1) holds at every $x$: $D_tQ_d=\Delta J$, where $\Delta$ means "left minus right". We want also $D_xQ_d=-\Delta N$. Then $Q_d$ is a potential for the closed 1-form $\Delta N\,dx-\Delta J\,dt$ ([T6](#t6-conservation-laws-charges-and-noethers-theorem)).
+**Idea.** Along a promoted solution, $Q_d$ becomes a function on the whole plane, and (4.1) holds at every $x$: $D_tQ_d=\Delta J$, where $\Delta$ means "left minus right". We want also $D_xQ_d=-\Delta N$. Then $Q_d$ is a potential for the closed 1-form $\Delta N\thinspace dx-\Delta J\thinspace dt$ ([T6](#t6-conservation-laws-charges-and-noethers-theorem)).
 
 **How it goes.** Put $R=D_xQ_d+\Delta N$, the amount by which the second equation fails. Using both bulk laws, $D_tR=D_x\Delta J+D_t\Delta N=0$. So $R$ does not depend on $t$. It remains to show $R=0$.
 
@@ -608,7 +676,9 @@ The flux into the defect from the left minus the flux out to the right is stored
 
 **Outcome.** For energy and momentum this gives four identities,
 
-$$D_t\mathcal E_d=\Delta T^{10},\quad D_x\mathcal E_d=-\Delta T^{00},\quad D_tP_d=\Delta T^{11},\quad D_xP_d=-\Delta T^{01}.$$
+$$
+D_t\mathcal E_d=\Delta T^{10},\quad D_x\mathcal E_d=-\Delta T^{00},\quad D_tP_d=\Delta T^{11},\quad D_xP_d=-\Delta T^{01}.
+$$
 
 The defect energy and defect momentum are potentials for the differences of the stress tensors on the two sides.
 
@@ -616,21 +686,29 @@ The defect energy and defect momentum are potentials for the differences of the 
 
 **Proposition 4.3.** Suppose laws 1 and 2 have defect charges $Q^1$ and $Q^2$, and on each side
 
-$$N_2+J_1+D_ta_0+D_xb_0=0\quad\text{on shell}\qquad(4.2)$$
+$$
+N_2+J_1+D_ta_0+D_xb_0=0\quad\text{on shell}\qquad(4.2)
+$$
 
 for some local $a_0$ and $b_0$: the density of law 2 plus the flux of law 1 is a divergence. Then
 
-$$D_tQ^1=\Delta J_1=-\Delta N_2-D_t\Delta a_0-D_x\Delta b_0=D_xQ^2-D_t\Delta a_0-D_x\Delta b_0 .$$
+$$
+D_tQ^1=\Delta J_1=-\Delta N_2-D_t\Delta a_0-D_x\Delta b_0=D_xQ^2-D_t\Delta a_0-D_x\Delta b_0 .
+$$
 
 The first equality is (4.1), the second is (4.2), the third is Proposition 4.2 applied to law 2. Rearranged, $\mathcal G=Q^1+\Delta a_0$ is a conserved density with flux $\Delta b_0-Q^2$. Only law 2 needs the normalisation $R=0$ of §8.2, and its vacuum value vanishes automatically.
 
 **Where closure comes from (Lemma 5.2).** An **affine conservation law** has a current that depends on $x$ and $t$ explicitly, but only linearly:
 
-$$\big(x\,a_1+t\,a_2+a_0,\ \ x\,b_1+t\,b_2+b_0\big),$$
+$$
+\big(x\thinspace a_1+t\thinspace a_2+a_0,\ \ x\thinspace b_1+t\thinspace b_2+b_0\big),
+$$
 
 with $a_i,b_i$ free of explicit coordinates. Noether currents of symmetries that move points of spacetime have this form. Expand its conservation law, using $D_xx=D_tt=1$ and $D_tx=D_xt=0$:
 
-$$x\,(D_ta_1+D_xb_1)+t\,(D_ta_2+D_xb_2)+\big(a_2+b_1+D_ta_0+D_xb_0\big)=0 .$$
+$$
+x\thinspace(D_ta_1+D_xb_1)+t\thinspace(D_ta_2+D_xb_2)+\big(a_2+b_1+D_ta_0+D_xb_0\big)=0 .
+$$
 
 The coefficients of $x$, of $t$ and the remainder must vanish separately. The first two say that $(a_1,b_1)$ and $(a_2,b_2)$ are conservation laws. The third is closure (4.2), with $N_2=a_2$ and $J_1=b_1$. The observed bulk theories all have one:
 
@@ -644,7 +722,9 @@ The coefficients of $x$, of $t$ and the remainder must vanish separately. The fi
 
 For the relativistic row, the boost current is $(xT^{00}-tT^{01},\ xT^{10}-tT^{11})$ ([T7](#t7-energy-momentum-and-the-stress-tensor)). Law 1 is energy, law 2 is minus momentum, and closure is $T^{10}=T^{01}$. Proposition 4.3 gives
 
-$$D_t\mathcal E_d+D_xP_d=0\quad\text{along every promoted solution}.$$
+$$
+D_t\mathcal E_d+D_xP_d=0\quad\text{along every promoted solution}.
+$$
 
 This is the heart of Link 2 in the relativistic case. The defect energy measures how much energy the defect stores. Once the sewing relation holds at every $x$, the defect energy becomes a conserved density of the pair of theories, and its flux is the defect momentum.
 
@@ -679,7 +759,9 @@ A single defect gives a Bäcklund relation (Link 1) and one conserved density (L
 
 A **formal branch** is a pair of series
 
-$$\psi=g(\phi)+\sum_{n\ge1}\epsilon^n\Psi_n[\phi],\qquad\lambda=\sum_{n\ge n_0}\epsilon^n\Lambda_n[\phi],$$
+$$
+\psi=g(\phi)+\sum_{n\ge1}\epsilon^n\Psi_n[\phi],\qquad\lambda=\sum_{n\ge n_0}\epsilon^n\Lambda_n[\phi],
+$$
 
 whose coefficients $\Psi_n,\Lambda_n$ are local functions of $\phi$. Every promoted sewing equation must hold order by order in $\epsilon$ whenever $\phi$ solves its field equation. The symmetry $g$ is the identity, a constant shift, or $\phi\mapsto-\phi$. Constant offsets in the vacuum are allowed; KdV needs one.
 
@@ -694,7 +776,9 @@ Then the coefficient of $\epsilon^n$ reads $M\Delta_n=$ (a local expression in $
 
 **Idea.** A wide class of relativistic Type-I families has a formal branch. The class is
 
-$$\mathcal L_d^{(\epsilon)}=A_\Phi\cdot\Phi_t+A_\Psi\cdot\Psi_t-\epsilon^{-1}\mathcal B_-(\Phi,\Psi)-\sum_{k\ge0}\epsilon^k\mathcal B_k(\Phi,\Psi),$$
+$$
+\mathcal L_d^{(\epsilon)}=A_\Phi\cdot\Phi_t+A_\Psi\cdot\Psi_t-\epsilon^{-1}\mathcal B_-(\Phi,\Psi)-\sum_{k\ge0}\epsilon^k\mathcal B_k(\Phi,\Psi),
+$$
 
 where $\mathcal B_-$ vanishes to second order on the diagonal $\Psi=\Phi$ and its matrix of second derivatives $\mathsf H$ there is invertible. The term $\epsilon^{-1}\mathcal B_-$ is a stiff spring holding $\Psi$ close to $\Phi$. The terms $A\cdot\Phi_t$ are gyroscopic.
 
@@ -710,20 +794,22 @@ For sine-Gordon, $\mathcal B_-=2(1-\cos\frac{\phi-\psi}2)$ with $\mathsf H=\frac
 
 **Sine-Gordon.** At order $\sigma^0$ the left sewing equation gives $\Delta_1=2(\phi_x-\phi_t)$. At order $\sigma$ the expansion of $\mathcal G=\mathcal B$ gives
 
-$$Q_1=\tfrac14\Delta_1^2+2(1-\cos\phi)=(\phi_x-\phi_t)^2+2(1-\cos\phi)=2(T^{00}+T^{01}).$$
+$$
+Q_1=\tfrac14\Delta_1^2+2(1-\cos\phi)=(\phi_x-\phi_t)^2+2(1-\cos\phi)=2(T^{00}+T^{01}).
+$$
 
 The paper's checks find nontrivial charges at orders 1, 3 and 5 (§9, comment 1).
 
 ### 9.5 Kinematic weights (Lemma 6.5)
 
-**Idea.** Theorem 6.4 produces charges $Q_n$ but does not say whether they differ from one another. Symmetry can decide this. Suppose a symmetry $g_\theta$ of the bulk moves the parameter, $\epsilon\mapsto e^{w\theta}\epsilon$ with $w\ne0$, and maps the branch to the branch. Comparing powers of $\epsilon$ shows that the charge $\bar Q_n=\int Q_n\,dx$ is an eigenvector of $g_\theta$ with eigenvalue $e^{(w_0+nw)\theta}$. Eigenvectors with distinct eigenvalues are linearly independent. Physically, the charges carry distinct spins, or distinct scaling dimensions.
+**Idea.** Theorem 6.4 produces charges $Q_n$ but does not say whether they differ from one another. Symmetry can decide this. Suppose a symmetry $g_\theta$ of the bulk moves the parameter, $\epsilon\mapsto e^{w\theta}\epsilon$ with $w\ne0$, and maps the branch to the branch. Comparing powers of $\epsilon$ shows that the charge $\bar Q_n=\int Q_n\thinspace dx$ is an eigenvector of $g_\theta$ with eigenvalue $e^{(w_0+nw)\theta}$. Eigenvectors with distinct eigenvalues are linearly independent. Physically, the charges carry distinct spins, or distinct scaling dimensions.
 
 For sine-Gordon, $w=\pm1$ and $w_0=0$, so $Q_n$ has spin $n$. In terms of symbols ([T11](#t11-plane-waves-dispersion-and-quadratic-symbols)), $m_n/\omega\propto e^{n\vartheta}$, and a boost shifts $\vartheta$.
 
 **Fine print.**
 
 - *$w\ne0$ is needed.* If the parameter does not move, all eigenvalues coincide. A family such as $\frac{\epsilon}{1-\epsilon}m_*(k)$ has infinitely many nonzero but proportional coefficients.
-- *Condition 4 is needed.* The argument compares quadratic parts, so the symmetry must not mix a quadratic piece into the linear parts of the charges. A Lorentz boost is linear on fields in spacetime, but its action on Cauchy data at $t=0$ uses the field equation and can be nonlinear. Its quadratic part is $-\frac12U'''(0)\,x\phi^2$. This vanishes for sine-Gordon but not for Tzitzéica or $a_r^{(1)}$ Toda with $r\ge2$. The paper gives an explicit counterexample with a nonlinear change of variables.
+- *Condition 4 is needed.* The argument compares quadratic parts, so the symmetry must not mix a quadratic piece into the linear parts of the charges. A Lorentz boost is linear on fields in spacetime, but its action on Cauchy data at $t=0$ uses the field equation and can be nonlinear. Its quadratic part is $-\frac12U'''(0)\thinspace x\phi^2$. This vanishes for sine-Gordon but not for Tzitzéica or $a_r^{(1)}$ Toda with $r\ge2$. The paper gives an explicit counterexample with a nonlinear change of variables.
 
 ---
 
@@ -737,7 +823,7 @@ For sine-Gordon, $w=\pm1$ and $w_0=0$, so $Q_n$ has spin $n$. In terms of symbol
 
 ### 10.1 Setting and nonresonance (§7.1)
 
-The bulk is Hamiltonian, $v_t=\mathcal J\,\delta H/\delta v$, with a **constant** operator $\mathcal J$ and $H=H_2+H_3+\dots$. Because $\mathcal J$ is constant, brackets lower the degree by exactly 2 ([T10](#t10-hamiltonian-field-equations-and-poisson-brackets)). All the degree counting below rests on this.
+The bulk is Hamiltonian, $v_t=\mathcal J\thinspace\delta H/\delta v$, with a **constant** operator $\mathcal J$ and $H=H_2+H_3+\dots$. Because $\mathcal J$ is constant, brackets lower the degree by exactly 2 ([T10](#t10-hamiltonian-field-equations-and-poisson-brackets)). All the degree counting below rests on this.
 
 **Why resonances matter.** Let $F_d$ be a homogeneous functional of degree $d$, written in normal modes as a sum (an integral) of products of $d$ modes with coefficients $c(k)$ ([T11](#t11-plane-waves-dispersion-and-quadratic-symbols)). Under the linearised flow, each product oscillates like $e^{-i\Omega t}$. So $F_d$ is conserved by the linearised flow only if $c(k)=0$ wherever $\Omega(k)\ne0$. If $\Omega$ is nonzero almost everywhere on the set of allowed momenta, then $c$ vanishes almost everywhere, and, being continuous, everywhere.
 
@@ -745,7 +831,9 @@ The bulk is Hamiltonian, $v_t=\mathcal J\,\delta H/\delta v$, with a **constant*
 
 **Why (NR) holds for massive theories.** Use the momentum constraint to eliminate $k_n$. For two other wavenumbers $k_i$ and $k_j$,
 
-$$\frac{\partial^2\Omega}{\partial k_i\,\partial k_j}=s_is_js_n\,\omega''(k_n).$$
+$$
+\frac{\partial^2\Omega}{\partial k_i\thinspace\partial k_j}=s_is_js_n\thinspace\omega''(k_n).
+$$
 
 If $\Omega$ vanished on an open set, so would this second derivative, so $\omega''$ would vanish on an interval. That is impossible for a dispersion relation that is real-analytic and not a straight line: $\sqrt{k^2+m^2}$ with $m>0$, $k^2$, $k^3$ and $k\sqrt{1+\kappa^2k^2}$.
 
@@ -759,7 +847,7 @@ Isolated resonances do no harm. In one space dimension, an elastic collision of 
 
 **Statement.** Under (NR), a conserved local functional whose parts of degree 0, 1 and 2 vanish is zero: its density is a total $x$-derivative.
 
-**How it goes.** Let $F_d$ be its lowest nonzero part, so $d\ge3$. Collect the terms of degree $d$ in $\{F,H\}=0$. Since brackets lower degree by 2, the only such term is $\{F_d,H_2\}$, so $\{F_d,H_2\}=0$: $F_d$ is conserved by the linearised flow. By the resonance argument of §10.1, its coefficients vanish, so $F_d=0$, contradicting the choice of $d$.
+**How it goes.** Let $F_d$ be its lowest nonzero part, so $d\ge3$. Collect the terms of degree $d$ in $\lbrace F,H\rbrace=0$. Since brackets lower degree by 2, the only such term is $\lbrace F_d,H_2\rbrace$, so $\lbrace F_d,H_2\rbrace=0$: $F_d$ is conserved by the linearised flow. By the resonance argument of §10.1, its coefficients vanish, so $F_d=0$, contradicting the choice of $d$.
 
 **Why locality matters.** The square $H_2^2$ of the free Hamiltonian is a quartic functional conserved by the linear flow, so the lemma would be false without locality. But $H_2^2$ is a product of two integrals, not a single integral of a local density. In normal modes its coefficients are concentrated on the set where the four momenta cancel in pairs, which has no interior. The coefficients of a local functional are continuous functions and cannot be concentrated in that way.
 
@@ -767,14 +855,14 @@ The argument works degree by degree. It therefore covers densities that are poly
 
 ### 10.3 Involution (Theorem 7.3)
 
-**How it goes.** Let $B=\{Q_n,Q_m\}$. It is a local functional, and it is conserved by the Jacobi identity. Count degrees, using "degree $a$ bracket degree $b$ gives degree $a+b-2$":
+**How it goes.** Let $B=\lbrace Q_n,Q_m\rbrace$. It is a local functional, and it is conserved by the Jacobi identity. Count degrees, using "degree $a$ bracket degree $b$ gives degree $a+b-2$":
 
-- every term of degree 0 or 1 in $B$ involves a linear part $Q_{n,1}$ or $Q_{m,1}$. Condition (L), $\{Q_{n,1},Q_m\}=0$, removes them all;
-- the remaining degree-2 part is $\{Q_{n,2},Q_{m,2}\}$.
+- every term of degree 0 or 1 in $B$ involves a linear part $Q_{n,1}$ or $Q_{m,1}$. Condition (L), $\lbrace Q_{n,1},Q_m\rbrace=0$, removes them all;
+- the remaining degree-2 part is $\lbrace Q_{n,2},Q_{m,2}\rbrace$.
 
-There are two ways to make the degree-2 part vanish. Either assume directly that the quadratic parts commute. Or use the degree-2 part of $\{Q_n,H\}=0$, which is $\{Q_{n,2},H_2\}+\{Q_{n,1},H_3\}=0$. Under (L′), $\{Q_{n,1},H_3\}=0$, so $Q_{n,2}$ is conserved by the linearised flow. Under (NR2) it is then built from mode intensities, and such functionals commute. Either way, Lemma 7.2 now gives $B=0$.
+There are two ways to make the degree-2 part vanish. Either assume directly that the quadratic parts commute. Or use the degree-2 part of $\lbrace Q_n,H\rbrace=0$, which is $\lbrace Q_{n,2},H_2\rbrace+\lbrace Q_{n,1},H_3\rbrace=0$. Under (L′), $\lbrace Q_{n,1},H_3\rbrace=0$, so $Q_{n,2}$ is conserved by the linearised flow. Under (NR2) it is then built from mode intensities, and such functionals commute. Either way, Lemma 7.2 now gives $B=0$.
 
-Both (L) and (L′) are automatic when the charges have no linear parts. They also hold when the linear parts are Casimirs, such as $\int u\,dx$ for $\mathcal J=D_x$.
+Both (L) and (L′) are automatic when the charges have no linear parts. They also hold when the linear parts are Casimirs, such as $\int u\thinspace dx$ for $\mathcal J=D_x$.
 
 **Fine print.**
 
@@ -783,7 +871,7 @@ Both (L) and (L′) are automatic when the charges have no linear parts. They al
 
 ### 10.4 Independence (Theorem 7.4)
 
-**How it goes.** Evaluate the gradients $\delta Q_n/\delta v$ at a small field $\varepsilon v_0$ made of finitely many Fourier modes $k_l\ne0$. To lowest order in $\varepsilon$, the gradient of $Q_n$ on the mode $k_l$ is $\varepsilon\,m_n(k_l)\,\hat v_0(k_l)$, where $m_n$ is the quadratic symbol. Linear parts contribute only at $k=0$. If the functions $m_n$, $n\in S$, are linearly independent, one can choose $\lvert S\rvert$ wavenumbers $k_l$ at which the matrix $(m_n(k_l))$ has full rank. The gradients are then linearly independent at $\varepsilon v_0$, and nearby. So the charges are functionally independent and nontrivial.
+**How it goes.** Evaluate the gradients $\delta Q_n/\delta v$ at a small field $\varepsilon v_0$ made of finitely many Fourier modes $k_l\ne0$. To lowest order in $\varepsilon$, the gradient of $Q_n$ on the mode $k_l$ is $\varepsilon\thinspace m_n(k_l)\thinspace\hat v_0(k_l)$, where $m_n$ is the quadratic symbol. Linear parts contribute only at $k=0$. If the functions $m_n$, $n\in S$, are linearly independent, one can choose $\lvert S\rvert$ wavenumbers $k_l$ at which the matrix $(m_n(k_l))$ has full rank. The gradients are then linearly independent at $\varepsilon v_0$, and nearby. So the charges are functionally independent and nontrivial.
 
 **Fine print.** One mode is not enough. At $u=\varepsilon\cos kx$ the gradients of $\frac12\int u^2$ and $\frac12\int u_x^2$ are proportional, although their symbols $1$ and $k^2$ are independent.
 
@@ -793,15 +881,21 @@ Both (L) and (L′) are automatic when the charges have no linear parts. They al
 
 **Sine-Gordon, worked out.** Linearise the left sewing equation $\phi_x=\psi_t-\partial_\phi\mathcal B$ in $\phi$ and $\Delta=\psi-\phi$, with $\epsilon=\sigma$. To linear order $\partial_\phi\mathcal B=-\Delta/(2\sigma)+\sigma(2\phi+\Delta)/2$, and multiplying by $2\sigma$,
 
-$$(1-\sigma^2)\Delta+2\sigma\Delta_t=2\sigma(\phi_x-\phi_t)+2\sigma^2\phi .$$
+$$
+(1-\sigma^2)\Delta+2\sigma\Delta_t=2\sigma(\phi_x-\phi_t)+2\sigma^2\phi .
+$$
 
-Insert $\phi=a\,E$ and $\Delta=d\,E$, with $E=e^{i(kx-\omega t)}$, $k=\sinh\vartheta$, $\omega=\cosh\vartheta$. Then $D_x\to ik$ and $D_t\to-i\omega$. The coefficient of $\Delta$ factorises, $1-\sigma^2-2i\sigma\omega=(1-i\sigma e^{\vartheta})(1-i\sigma e^{-\vartheta})$, and $k+\omega=e^\vartheta$. Solving,
+Insert $\phi=a\thinspace E$ and $\Delta=d\thinspace E$, with $E=e^{i(kx-\omega t)}$, $k=\sinh\vartheta$, $\omega=\cosh\vartheta$. Then $D_x\to ik$ and $D_t\to-i\omega$. The coefficient of $\Delta$ factorises, $1-\sigma^2-2i\sigma\omega=(1-i\sigma e^{\vartheta})(1-i\sigma e^{-\vartheta})$, and $k+\omega=e^\vartheta$. Solving,
 
-$$\frac da=\frac{2i\sigma e^{\vartheta}}{1-i\sigma e^{\vartheta}},\qquad 2+\frac da=\frac2{1-i\sigma e^{\vartheta}} .$$
+$$
+\frac da=\frac{2i\sigma e^{\vartheta}}{1-i\sigma e^{\vartheta}},\qquad 2+\frac da=\frac2{1-i\sigma e^{\vartheta}} .
+$$
 
 To quadratic order, $\mathcal B=\frac1{4\sigma}\Delta^2+\frac\sigma4(2\phi+\Delta)^2$. A real plane wave $\eta(aE+\bar a\bar E)$ squared has $x$-average $2\eta^2\lvert a\rvert^2$. So the $x$-average of $\mathcal B$ is $\eta^2\lvert a\rvert^2m$ with
 
-$$m(k;\sigma)=\frac12\Big(\frac{\lvert d/a\rvert^2}\sigma+\sigma\lvert2+d/a\rvert^2\Big)=\frac{4\sigma\,\omega\,e^{\vartheta}}{1+\sigma^2e^{2\vartheta}}=4\omega e^{\vartheta}\sum_{j\ge0}(-1)^j\sigma^{2j+1}e^{2j\vartheta}.$$
+$$
+m(k;\sigma)=\frac12\Big(\frac{\lvert d/a\rvert^2}\sigma+\sigma\lvert2+d/a\rvert^2\Big)=\frac{4\sigma\thinspace\omega\thinspace e^{\vartheta}}{1+\sigma^2e^{2\vartheta}}=4\omega e^{\vartheta}\sum_{j\ge0}(-1)^j\sigma^{2j+1}e^{2j\vartheta}.
+$$
 
 This is the first row of the table after Definition 7.6. Its order-$\sigma$ term $4\omega e^\vartheta$ is the symbol of $Q_1$ above. The coefficients are distinct powers of $e^\vartheta$, so they are linearly independent, and Theorem 7.4 applies.
 
@@ -814,7 +908,11 @@ This is the first row of the table after Definition 7.6. Its order-$\sigma$ term
 - *Locality in the phase-space variables.* The potential $p$ with $u=p_x$ is not a local function of $u$. On a plane wave in $u$, the potential equation $p_t=3u^2-u_{xx}$ gives $p_t$ the average $6\eta^2\lvert a\rvert^2$, which the linearised flow misses. For KdV and mKdV the branch is therefore computed from the spatial Bäcklund relation, which involves only $u$ and $\Delta=q-p$. For KdV it is $(2+\epsilon D_x)\Delta=-2\epsilon u+\frac\epsilon2\Delta^2$, and Lemma 6.2 applies with $M=2$.
 
 **The symbols of the published defects** (table after Definition 7.6). For sine-Gordon, NLS, KdV and mKdV, the symbols of different orders are distinct powers of $e^\vartheta$ or of $k$, up to a common factor. They are therefore independent, as Lemma 6.5 predicts from the boost or dilation weights. For $a_2^{(1)}$ Toda the two field components have equal mass $\sqrt3$. The symbol is diagonal in the two eigenvectors $z_\pm$ of the coupling matrix $E$, because every matrix in the linearised problem commutes with $E$. Each polarization gives
-$$m_s=\frac{2\sqrt3\,\epsilon\,\omega\,e^{\vartheta}}{1-s\epsilon e^{\vartheta}+\epsilon^2e^{2\vartheta}},\qquad m_{n,s}=2\sqrt3\,s^{n-1}\omega e^{n\vartheta}\frac{\sin(n\pi/3)}{\sin(\pi/3)},$$
+
+$$
+m_s=\frac{2\sqrt3\thinspace\epsilon\thinspace\omega\thinspace e^{\vartheta}}{1-s\epsilon e^{\vartheta}+\epsilon^2e^{2\vartheta}},\qquad m_{n,s}=2\sqrt3\thinspace s^{n-1}\omega e^{n\vartheta}\frac{\sin(n\pi/3)}{\sin(\pi/3)},
+$$
+
 with $k=\sqrt3\sinh\vartheta$. The coefficients vanish exactly when $3$ divides $n$, the familiar gap in the spins of the $a_2^{(1)}$ Toda charges, and the others are distinct powers of $e^\vartheta$. For Boussinesq the parameter is not produced by a symmetry, and the paper has only computational evidence: 18 nonzero symbols spanning a space of dimension at least 17.
 
 A family is **nondegenerate** (Definition 7.6) if infinitely many $m_n$ are nonzero. The trivial relations $\psi=\pm\phi$ are degenerate.
@@ -845,7 +943,9 @@ The theorem's second conclusion, that every solution of the sewing system impose
 
 **Idea.** For one class of defects, the paper derives the first two requirements of (C) from momentum conservation: the family and its transparent limit (see [§12.1](#121-what-c-asks-for) for the four requirements). The class consists of Type-I defects between two copies of a relativistic scalar theory with $r$ fields, whose kinetic coupling is constant:
 
-$$\mathcal L_d=\tfrac12\,\phi\cdot E\phi_t+\phi\cdot D\psi_t+\tfrac12\,\psi\cdot E\psi_t-\mathcal B(\phi,\psi),\qquad E^T=-E,\quad D=I-E .$$
+$$
+\mathcal L_d=\tfrac12\thinspace\phi\cdot E\phi_t+\phi\cdot D\psi_t+\tfrac12\thinspace\psi\cdot E\psi_t-\mathcal B(\phi,\psi),\qquad E^T=-E,\quad D=I-E .
+$$
 
 The mechanism is the one already visible for sine-Gordon in [Part 5](#part-5-the-running-example-sine-gordon). Momentum conservation forces the defect potential $\mathcal B$ to split into one part that depends on a weighted average of the two fields and another that depends on their difference. The two parts are linked by a constraint that is bilinear in them. Scaling one part up and the other down by the same factor preserves the constraint, and that rescaling is the family. Propositions 8.2 and 8.3 restate Propositions 3.1 and 3.2 of the companion [structural paper](../defect_integrability_paper.md). The splitting itself is older: Bowcock, Corrigan and Zambon derive it for arbitrary potentials in §5 of [2], and Bristow and Bowcock derive it from momentum conservation in §2 of [10] (see [Part 17](#part-17-what-comes-from-the-literature-and-what-the-paper-brings-in)).
 
@@ -859,10 +959,14 @@ The relation $D=I-E$ is a normalization. With the same $E$ on both sides, the ve
 4. *Change coordinates.* Use $q=\frac12(\phi-\psi)$, which measures how far $\psi$ is from $\phi$, and $w=\frac12(D^T\phi+D\psi)$, a weighted average. In these coordinates the gradient conditions read $\widetilde P_w=-\mathcal B_w$ and $\widetilde P_q=\mathcal B_q$.
 5. *Use that $\widetilde P$ exists.* Its mixed second derivatives agree, so $\mathcal B_{wq}=0$, that is, $\mathcal B=f(w)+g(q)$. This is where momentum conservation does real work: it rules out any coupling between $w$ and $q$ in the defect potential.
 6. *The constraint.* The velocity-free identity becomes
-   $$U(w+Dq)-U(w-D^Tq)=\tfrac12\,f'(w)\cdot g'(q),$$
+
+   $$\displaystyle U(w+Dq)-U(w-D^Tq)=\tfrac12\thinspace f'(w)\cdot g'(q),$$
+
    which is bilinear in $(f',g')$. So $(f,g)\mapsto(\lambda f,\lambda^{-1}g)$ preserves it. By the converse in Proposition 8.2, every rescaled defect again conserves momentum. This is the family, requirement (C1).
 7. *The transparent point.* Assume $g'(0)=0$ with $G=g''(0)$ invertible. Differentiating the constraint at $q=0$ gives $Gf'=4U'$. It follows that $G$ commutes with $U''$ everywhere. If the bulk potential cannot be split into independent pieces (irreducibility), then $G=\gamma I$ and $f=4U/\gamma$. The family then takes the normal form
-   $$\mathcal B_\epsilon=\epsilon\,U(w)+\epsilon^{-1}\hat g(q),\qquad\hat g''(0)=4I .$$
+
+   $$\displaystyle \mathcal B_\epsilon=\epsilon\thinspace U(w)+\epsilon^{-1}\hat g(q),\qquad\hat g''(0)=4I .$$
+
 8. *The formal branch.* As $\epsilon\to0$, the term $\epsilon^{-1}\hat g(q)$ is a stiff spring holding $q=0$, that is $\psi=\phi$. This is exactly the form of Lemma 6.6 ([§9.3](#93-gyroscopic-type-i-defects-lemma-66)), which gives the formal branch, requirement (C2). This is Theorem 8.4.
 9. *What is left.* Nondegeneracy and independence, (C3) and (C4), and in (E) commuting quadratic parts or (NR2). The generating density is the defect energy $\mathcal B_\epsilon$. It is quadratic at the vacuum, so the charges have no linear parts, and (L) and (L′) are automatic. For the same reason the shortcut of Proposition 7.5 applies through its alternative (i) ([§10.5](#105-the-generating-symbol-proposition-75)). For one field there is a single dispersion branch, so (NR2) holds as well. The structural paper proves the remaining conditions for the whole class by a different route, equal-time canonicity; it has not been reviewed independently.
 
@@ -919,7 +1023,7 @@ Hypothesis (C) bundles four requirements on the defect $S_d$.
 
 **Which parts carry the weight.** On their own, (C1) and (C2) are cheap. Every theory has a family with a regular transparent limit, if one allows relations that are not defects. Take the translations $\psi(x,t)=\phi(x+\alpha,t)$.
 - As a formal series, $\psi=\phi+\alpha\phi_x+\frac12\alpha^2\phi_{xx}+\dots$. The coefficients are local, and $\psi=\phi$ at $\alpha=0$.
-- Along this family, the natural conserved density is the energy between $x$ and $x+\alpha$, $\int_x^{x+\alpha}T^{00}(x',t)\,dx'$, with flux $\int_x^{x+\alpha}T^{10}(x',t)\,dx'$.
+- Along this family, the natural conserved density is the energy between $x$ and $x+\alpha$, $\int_x^{x+\alpha}T^{00}(x',t)\thinspace dx'$, with flux $\int_x^{x+\alpha}T^{10}(x',t)\thinspace dx'$.
 - Its expansion in $\alpha$ gives the energy density at first order, and total $x$-derivatives of it at every higher order.
 - Its quadratic symbol is $\alpha$ times the symbol of the energy density: a polynomial in $\alpha$ with a single nonzero coefficient.
 
@@ -938,7 +1042,9 @@ The steps below follow the order in which the paper treats the observed cases in
   - For a Lorentz boost, check that the boosted relation is again of sewing form, with a local defect momentum, by rerunning the momentum-balance check.
 
   For sine-Gordon the boost works because of the light-cone structure of the sewing relations:
-  $$(\partial_x-\partial_t)(\phi+\psi)=-\tfrac2\sigma\sin\tfrac{\phi-\psi}2,\qquad(\partial_x+\partial_t)(\phi-\psi)=-2\sigma\sin\tfrac{\phi+\psi}2 .$$
+
+  $$\displaystyle (\partial_x-\partial_t)(\phi+\psi)=-\tfrac2\sigma\sin\tfrac{\phi-\psi}2,\qquad(\partial_x+\partial_t)(\phi-\psi)=-2\sigma\sin\tfrac{\phi+\psi}2 .$$
+
   A boost multiplies the two light-cone derivatives $\partial_x\pm\partial_t$ by reciprocal factors $e^{\pm\theta}$. Since $\sigma^{-1}$ and $\sigma$ sit on opposite light-cone derivatives, both relations keep their form, with $\sigma$ replaced by $\sigma e^{-\theta}$. A relation without this structure would in general acquire new terms under a boost.
 - *Moduli.* Solve the momentum constraint and look for free parameters in its solutions. A constraint of product form has one automatically. For sine-Gordon the constraint is $2f'g'=U(\phi)-U(\psi)$ ([Part 5](#part-5-the-running-example-sine-gordon)). It is unchanged by $(f,g)\mapsto(\sigma f,\sigma^{-1}g)$, and this rescaling is the parameter $\sigma$.
 
@@ -956,17 +1062,17 @@ Then check the remaining sewing equations. This can be done either order by orde
 **Step 3: compute the generating symbol.** When Proposition 7.5 applies, $m(k;\epsilon)$ comes out in closed form.
 
 - (C3) holds exactly when $m(k;\epsilon)$ is not a polynomial in $\epsilon$. A power series with only finitely many nonzero coefficients is a polynomial. The translation family fails here: its symbol is $\alpha$ times a fixed function.
-- Suppose $m$ has the geometric form $m=A(k)\,\epsilon^a/\big(1-\epsilon^bB(k)\big)$, with $A$ not identically zero and $A$ and $B$ analytic. Then its coefficients are $A\,B^j$, and they are linearly independent exactly when $B$ is not constant. A linear relation $\sum_jc_j\,A\,B^j=0$ says that a polynomial vanishes on all values taken by $B$ where $A\ne0$, and there are infinitely many such values when $B$ is not constant. The sine-Gordon, NLS, KdV and mKdV closed forms have this geometric form:
+- Suppose $m$ has the geometric form $m=A(k)\thinspace\epsilon^a/\big(1-\epsilon^bB(k)\big)$, with $A$ not identically zero and $A$ and $B$ analytic. Then its coefficients are $A\thinspace B^j$, and they are linearly independent exactly when $B$ is not constant. A linear relation $\sum_jc_j\thinspace A\thinspace B^j=0$ says that a polynomial vanishes on all values taken by $B$ where $A\ne0$, and there are infinitely many such values when $B$ is not constant. The sine-Gordon, NLS, KdV and mKdV closed forms have this geometric form:
 
   | bulk | $m(k;\epsilon)$ | $A$ | $a$ | $B$ |
   |---|---|---|---|---|
-  | sine-Gordon | $4\epsilon\,\omega e^{\vartheta}/(1+\epsilon^2e^{2\vartheta})$ | $4\omega e^{\vartheta}$ | 1 | $-e^{2\vartheta}$ |
+  | sine-Gordon | $4\epsilon\thinspace\omega e^{\vartheta}/(1+\epsilon^2e^{2\vartheta})$ | $4\omega e^{\vartheta}$ | 1 | $-e^{2\vartheta}$ |
   | NLS | $-2\epsilon/(1+\epsilon^2k^2)$ | $-2$ | 1 | $-k^2$ |
   | KdV | $2\epsilon^3/(4+\epsilon^2k^2)$ | $\frac12$ | 3 | $-\frac14k^2$ |
   | mKdV | $-4\epsilon/(1+\epsilon^2k^2)$ | $-4$ | 1 | $-k^2$ |
 
   In each case $b=2$. The counterexample $\frac{\epsilon}{1-\epsilon}m_*(k)$ of Lemma 6.5 is the case of constant $B=1$.
-- The $a_2^{(1)}$ Toda symbol $m_s=A\epsilon/(1-s\epsilon e^{\vartheta}+\epsilon^2e^{2\vartheta})$, with $A=2\sqrt3\,\omega e^{\vartheta}$, is not of this form. Its coefficients $A\,s^{n-1}e^{(n-1)\vartheta}\sin(n\pi/3)/\sin(\pi/3)$ vanish when $3$ divides $n$ and are otherwise nonzero multiples of distinct powers of $e^{\vartheta}$, so they are independent too.
+- The $a_2^{(1)}$ Toda symbol $m_s=A\epsilon/(1-s\epsilon e^{\vartheta}+\epsilon^2e^{2\vartheta})$, with $A=2\sqrt3\thinspace\omega e^{\vartheta}$, is not of this form. Its coefficients $A\thinspace s^{n-1}e^{(n-1)\vartheta}\sin(n\pi/3)/\sin(\pi/3)$ vanish when $3$ divides $n$ and are otherwise nonzero multiples of distinct powers of $e^{\vartheta}$, so they are independent too.
 - Otherwise, compute finitely many $m_n$ and their rank. This gives evidence, not proof; for Boussinesq, 18 nonzero symbols span a space of dimension at least 17. When the family is a kinematic orbit, the weight argument of Lemma 6.5 can replace the computation.
 - Proposition 7.5 needs one of its two alternatives. For Tzitzéica and $a_r^{(1)}$ Toda with $r\ge2$, where $U'''(0)\ne0$, alternative (ii) fails but (i) holds, because their defect energies have no linear part. The symbols have not yet been computed for Tzitzéica, nor for $a_r^{(1)}$ Toda with $r\ge3$.
 
@@ -1007,7 +1113,7 @@ The table in §9 records, for each observed case, how each hypothesis of Theorem
 - **Affine Toda, $r\ge2$.** Links 1–3 hold for every $r$, and Theorem 8.4 derives the family from momentum conservation. For $a_2^{(1)}$ the paper's own Link 4 also holds: (NR2) fails because the two particles have equal mass, but alternative (i) of Proposition 7.5 gives a symbol that is diagonal in the two polarizations, so the quadratic parts commute and the charges are independent (§9, comment 4). For $r\ge3$ the matrix symbol has not been computed; the structural paper's theorem, not yet reviewed independently, would supply involution and independence.
 - **Tzitzéica.** $Q_1$ is nontrivial, and $Q_2$ and $Q_3$ are conserved but trivial. This matches the absence of a spin-3 charge in the Tzitzéica hierarchy.
 - **Boussinesq.** Charges appear at orders 2, 4 and 5 but not 3, matching the absence of charges with spin divisible by three. Its parameter is a modulus, not produced by a symmetry, so the weight argument of Lemma 6.5 is unavailable and independence is evidence only.
-- **Gardner (comment 7).** A case that is not in Corrigan and Zambon's list. The pure Gardner equation $w_t=12c\,ww_x+6w^2w_x+w_{xxx}$ is integrable, but it has neither a dilation nor a Galilean symmetry. It has a momentum-conserving defect: the mKdV defect on a constant background, corrected by two terms that come from the Galilean change of frame. So, as for Boussinesq, its family parameter is a modulus, not a kinematic orbit. The defect follows from the moving mKdV defects of Xia and Zhou, and only the momentum balance and the Bäcklund property have been checked.
+- **Gardner (comment 7).** A case that is not in Corrigan and Zambon's list. The pure Gardner equation $w_t=12c\thinspace ww_x+6w^2w_x+w_{xxx}$ is integrable, but it has neither a dilation nor a Galilean symmetry. It has a momentum-conserving defect: the mKdV defect on a constant background, corrected by two terms that come from the Galilean change of frame. So, as for Boussinesq, its family parameter is a modulus, not a kinematic orbit. The defect follows from the moving mKdV defects of Xia and Zhou, and only the momentum balance and the Bäcklund property have been checked.
 
 ---
 
